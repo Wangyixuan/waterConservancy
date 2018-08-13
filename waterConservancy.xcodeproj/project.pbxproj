@@ -15,6 +15,7 @@
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
 		04C5311821212BCB00C90964 /* waterConservancyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5311721212BCB00C90964 /* waterConservancyTests.m */; };
 		04C5312321212BCB00C90964 /* waterConservancyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5312221212BCB00C90964 /* waterConservancyUITests.m */; };
+		04C531322121356800C90964 /* BaseRootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C531312121356800C90964 /* BaseRootTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		04C5311E21212BCB00C90964 /* waterConservancyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = waterConservancyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C5312221212BCB00C90964 /* waterConservancyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = waterConservancyUITests.m; sourceTree = "<group>"; };
 		04C5312421212BCB00C90964 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04C531302121356800C90964 /* BaseRootTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseRootTabBarController.h; sourceTree = "<group>"; };
+		04C531312121356800C90964 /* BaseRootTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseRootTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				04C5310921212BCB00C90964 /* LaunchScreen.storyboard */,
 				04C5310C21212BCB00C90964 /* Info.plist */,
 				04C5310D21212BCB00C90964 /* main.m */,
+				04C531302121356800C90964 /* BaseRootTabBarController.h */,
+				04C531312121356800C90964 /* BaseRootTabBarController.m */,
 			);
 			path = waterConservancy;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C531322121356800C90964 /* BaseRootTabBarController.m in Sources */,
 				04C5310321212BC900C90964 /* ViewController.m in Sources */,
 				04C5310E21212BCB00C90964 /* main.m in Sources */,
 				04C5310021212BC900C90964 /* AppDelegate.m in Sources */,
@@ -434,7 +440,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4KJQT2D987;
 				INFOPLIST_FILE = waterConservancy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -450,7 +458,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4KJQT2D987;
 				INFOPLIST_FILE = waterConservancy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
