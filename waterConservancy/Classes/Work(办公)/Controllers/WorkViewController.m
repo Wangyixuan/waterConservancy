@@ -1,26 +1,22 @@
 //
-//  BaseRootTabBarController.m
+//  WorkViewController.m
 //  waterConservancy
 //
 //  Created by mac on 2018/8/13.
 //  Copyright © 2018年 com.yx.waterConservancy. All rights reserved.
 //
 
-#import "BaseRootTabBarController.h"
-#import "ViewController.h"
+#import "WorkViewController.h"
 
-@interface BaseRootTabBarController ()
+@interface WorkViewController ()
 
 @end
 
-@implementation BaseRootTabBarController
+@implementation WorkViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    ViewController *child1 = [[ViewController alloc]init];
-    NSArray *childs = @[child1,child1,child1];
-    [self setViewControllers:childs];
 }
 
 - (void)didReceiveMemoryWarning {

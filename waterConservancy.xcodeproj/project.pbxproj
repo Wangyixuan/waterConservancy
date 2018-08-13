@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0471298B21216A1900EEADE5 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471298A21216A1900EEADE5 /* BaseViewController.m */; };
+		047129A32121757300EEADE5 /* Work.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047129A22121757300EEADE5 /* Work.storyboard */; };
+		047129A52121758D00EEADE5 /* MailList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047129A42121758D00EEADE5 /* MailList.storyboard */; };
+		047129A7212175A700EEADE5 /* Gateway.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047129A6212175A700EEADE5 /* Gateway.storyboard */; };
+		047129A9212175BC00EEADE5 /* Special.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047129A8212175BC00EEADE5 /* Special.storyboard */; };
+		047129AB212175CF00EEADE5 /* SecurityCloud.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047129AA212175CF00EEADE5 /* SecurityCloud.storyboard */; };
+		047129AE21217B5A00EEADE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047129AD21217B5A00EEADE5 /* Foundation.framework */; };
+		047129B421217EF600EEADE5 /* WorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047129B321217EF600EEADE5 /* WorkViewController.m */; };
 		04C5310021212BC900C90964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C530FF21212BC900C90964 /* AppDelegate.m */; };
-		04C5310321212BC900C90964 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310221212BC900C90964 /* ViewController.m */; };
 		04C5310621212BC900C90964 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310421212BC900C90964 /* Main.storyboard */; };
 		04C5310821212BCB00C90964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310721212BCB00C90964 /* Assets.xcassets */; };
 		04C5310B21212BCB00C90964 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310921212BCB00C90964 /* LaunchScreen.storyboard */; };
@@ -36,11 +43,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0471298921216A1900EEADE5 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		0471298A21216A1900EEADE5 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		0471298C21216CF300EEADE5 /* TypeDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeDefine.h; sourceTree = "<group>"; };
+		047129A22121757300EEADE5 /* Work.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Work.storyboard; sourceTree = "<group>"; };
+		047129A42121758D00EEADE5 /* MailList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MailList.storyboard; sourceTree = "<group>"; };
+		047129A6212175A700EEADE5 /* Gateway.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Gateway.storyboard; sourceTree = "<group>"; };
+		047129A8212175BC00EEADE5 /* Special.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Special.storyboard; sourceTree = "<group>"; };
+		047129AA212175CF00EEADE5 /* SecurityCloud.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecurityCloud.storyboard; sourceTree = "<group>"; };
+		047129AD21217B5A00EEADE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		047129B221217EF600EEADE5 /* WorkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkViewController.h; sourceTree = "<group>"; };
+		047129B321217EF600EEADE5 /* WorkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkViewController.m; sourceTree = "<group>"; };
+		047129B521217FEC00EEADE5 /* CodingStandard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodingStandard.h; sourceTree = "<group>"; };
 		04C530FB21212BC900C90964 /* waterConservancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterConservancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C530FE21212BC900C90964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04C530FF21212BC900C90964 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		04C5310121212BC900C90964 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		04C5310221212BC900C90964 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		04C5310521212BC900C90964 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04C5310721212BCB00C90964 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04C5310A21212BCB00C90964 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +71,8 @@
 		04C5312421212BCB00C90964 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C531302121356800C90964 /* BaseRootTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseRootTabBarController.h; sourceTree = "<group>"; };
 		04C531312121356800C90964 /* BaseRootTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseRootTabBarController.m; sourceTree = "<group>"; };
+		04C5313A21215E3100C90964 /* WaterConservancy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WaterConservancy-Prefix.pch"; sourceTree = "<group>"; };
+		04C5313C21215E6A00C90964 /* CommonMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				047129AE21217B5A00EEADE5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +101,184 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0471298D2121734C00EEADE5 /* SecurityCloud(安全云) */ = {
+			isa = PBXGroup;
+			children = (
+				0471298E2121734C00EEADE5 /* Model */,
+				0471298F2121734C00EEADE5 /* View */,
+				047129902121734C00EEADE5 /* Controllers */,
+			);
+			path = "SecurityCloud(安全云)";
+			sourceTree = "<group>";
+		};
+		0471298E2121734C00EEADE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0471298F2121734C00EEADE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		047129902121734C00EEADE5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		047129912121734C00EEADE5 /* Work(办公) */ = {
+			isa = PBXGroup;
+			children = (
+				047129922121734C00EEADE5 /* Model */,
+				047129932121734C00EEADE5 /* View */,
+				047129942121734C00EEADE5 /* Controllers */,
+			);
+			path = "Work(办公)";
+			sourceTree = "<group>";
+		};
+		047129922121734C00EEADE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		047129932121734C00EEADE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		047129942121734C00EEADE5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				047129B221217EF600EEADE5 /* WorkViewController.h */,
+				047129B321217EF600EEADE5 /* WorkViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		047129952121734C00EEADE5 /* Special(专题图) */ = {
+			isa = PBXGroup;
+			children = (
+				047129962121734C00EEADE5 /* Model */,
+				047129972121734C00EEADE5 /* View */,
+				047129982121734C00EEADE5 /* Controllers */,
+			);
+			path = "Special(专题图)";
+			sourceTree = "<group>";
+		};
+		047129962121734C00EEADE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		047129972121734C00EEADE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		047129982121734C00EEADE5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		047129992121734C00EEADE5 /* MailList(通讯录) */ = {
+			isa = PBXGroup;
+			children = (
+				0471299A2121734C00EEADE5 /* Model */,
+				0471299B2121734C00EEADE5 /* View */,
+				0471299C2121734C00EEADE5 /* Controllers */,
+			);
+			path = "MailList(通讯录)";
+			sourceTree = "<group>";
+		};
+		0471299A2121734C00EEADE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0471299B2121734C00EEADE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0471299C2121734C00EEADE5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0471299D2121734C00EEADE5 /* Gateway(门户) */ = {
+			isa = PBXGroup;
+			children = (
+				0471299E2121734C00EEADE5 /* Model */,
+				0471299F2121734C00EEADE5 /* View */,
+				047129A02121734C00EEADE5 /* Controllers */,
+			);
+			path = "Gateway(门户)";
+			sourceTree = "<group>";
+		};
+		0471299E2121734C00EEADE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0471299F2121734C00EEADE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		047129A02121734C00EEADE5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		047129A1212173C900EEADE5 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				04C5310421212BC900C90964 /* Main.storyboard */,
+				047129A22121757300EEADE5 /* Work.storyboard */,
+				047129A42121758D00EEADE5 /* MailList.storyboard */,
+				047129A6212175A700EEADE5 /* Gateway.storyboard */,
+				047129A8212175BC00EEADE5 /* Special.storyboard */,
+				047129AA212175CF00EEADE5 /* SecurityCloud.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		047129AC21217B5A00EEADE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				047129AD21217B5A00EEADE5 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		04C530F221212BC900C90964 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +286,7 @@
 				04C5311621212BCB00C90964 /* waterConservancyTests */,
 				04C5312121212BCB00C90964 /* waterConservancyUITests */,
 				04C530FC21212BC900C90964 /* Products */,
+				047129AC21217B5A00EEADE5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,17 +303,18 @@
 		04C530FD21212BC900C90964 /* waterConservancy */ = {
 			isa = PBXGroup;
 			children = (
+				047129A1212173C900EEADE5 /* StoryBoard */,
+				04C5313321215BA300C90964 /* Category */,
+				04C5313521215BA300C90964 /* Classes */,
+				04C5313721215BA400C90964 /* Macros */,
+				04C5313621215BA300C90964 /* Manager */,
+				04C5313421215BA300C90964 /* Utils */,
 				04C530FE21212BC900C90964 /* AppDelegate.h */,
 				04C530FF21212BC900C90964 /* AppDelegate.m */,
-				04C5310121212BC900C90964 /* ViewController.h */,
-				04C5310221212BC900C90964 /* ViewController.m */,
-				04C5310421212BC900C90964 /* Main.storyboard */,
 				04C5310721212BCB00C90964 /* Assets.xcassets */,
 				04C5310921212BCB00C90964 /* LaunchScreen.storyboard */,
 				04C5310C21212BCB00C90964 /* Info.plist */,
 				04C5310D21212BCB00C90964 /* main.m */,
-				04C531302121356800C90964 /* BaseRootTabBarController.h */,
-				04C531312121356800C90964 /* BaseRootTabBarController.m */,
 			);
 			path = waterConservancy;
 			sourceTree = "<group>";
@@ -135,6 +335,62 @@
 				04C5312421212BCB00C90964 /* Info.plist */,
 			);
 			path = waterConservancyUITests;
+			sourceTree = "<group>";
+		};
+		04C5313321215BA300C90964 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		04C5313421215BA300C90964 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		04C5313521215BA300C90964 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0471299D2121734C00EEADE5 /* Gateway(门户) */,
+				047129992121734C00EEADE5 /* MailList(通讯录) */,
+				0471298D2121734C00EEADE5 /* SecurityCloud(安全云) */,
+				047129952121734C00EEADE5 /* Special(专题图) */,
+				047129912121734C00EEADE5 /* Work(办公) */,
+				04C5313821215BCA00C90964 /* Base */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		04C5313621215BA300C90964 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		04C5313721215BA400C90964 /* Macros */ = {
+			isa = PBXGroup;
+			children = (
+				04C5313A21215E3100C90964 /* WaterConservancy-Prefix.pch */,
+				04C5313C21215E6A00C90964 /* CommonMacro.h */,
+				0471298C21216CF300EEADE5 /* TypeDefine.h */,
+				047129B521217FEC00EEADE5 /* CodingStandard.h */,
+			);
+			path = Macros;
+			sourceTree = "<group>";
+		};
+		04C5313821215BCA00C90964 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				04C531302121356800C90964 /* BaseRootTabBarController.h */,
+				04C531312121356800C90964 /* BaseRootTabBarController.m */,
+				0471298921216A1900EEADE5 /* BaseViewController.h */,
+				0471298A21216A1900EEADE5 /* BaseViewController.m */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,7 +497,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C5310B21212BCB00C90964 /* LaunchScreen.storyboard in Resources */,
+				047129A7212175A700EEADE5 /* Gateway.storyboard in Resources */,
+				047129A32121757300EEADE5 /* Work.storyboard in Resources */,
+				047129A52121758D00EEADE5 /* MailList.storyboard in Resources */,
 				04C5310821212BCB00C90964 /* Assets.xcassets in Resources */,
+				047129A9212175BC00EEADE5 /* Special.storyboard in Resources */,
+				047129AB212175CF00EEADE5 /* SecurityCloud.storyboard in Resources */,
 				04C5310621212BC900C90964 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +529,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C531322121356800C90964 /* BaseRootTabBarController.m in Sources */,
-				04C5310321212BC900C90964 /* ViewController.m in Sources */,
+				0471298B21216A1900EEADE5 /* BaseViewController.m in Sources */,
+				047129B421217EF600EEADE5 /* WorkViewController.m in Sources */,
 				04C5310E21212BCB00C90964 /* main.m in Sources */,
 				04C5310021212BC900C90964 /* AppDelegate.m in Sources */,
 			);
@@ -441,6 +703,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4KJQT2D987;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PREFIX_HEADER = "/Users/mac/Desktop/waterConservancy/waterConservancy/Macros/WaterConservancy-Prefix.pch";
 				INFOPLIST_FILE = waterConservancy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -459,6 +723,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4KJQT2D987;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PREFIX_HEADER = "/Users/mac/Desktop/waterConservancy/waterConservancy/Macros/WaterConservancy-Prefix.pch";
 				INFOPLIST_FILE = waterConservancy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
