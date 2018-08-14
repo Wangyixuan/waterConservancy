@@ -6,8 +6,8 @@
 //  Copyright © 2018年 com.yx.waterConservancy. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "YXBaseViewController.h"
 
-@interface WorkViewController : BaseViewController
+@interface WorkViewController : YXBaseViewController
 
 @end
