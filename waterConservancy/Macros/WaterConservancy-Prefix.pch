@@ -11,12 +11,89 @@
 
 #import "TypeDefine.h"
 #import "CommonMacro.h"
+#import "YXNetTool.h"
 
-#import "BaseRootTabBarController.h"
-#import "BaseViewController.h"
+#import <Masonry.h>
+#import <YYKit.h>
 
-#import <UIKit/UIKit.h>
-// Include any system framework and library headers here that should be included in all compilation units.
-// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+//打印
+#if DEBUG
+
+#define NSLog(FORMAT, ...) fprintf(stderr,"[%s:%d行] %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+
+#else
+
+#define NSLog(FORMAT, ...) nil
+
+#endif
+
+
+/*-----screenSize-----*/
+#define Screen [[UIScreen mainScreen] bounds]
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#define YYISiPhoneX [[UIScreen mainScreen] bounds].size.width >=375.0f && [[UIScreen mainScreen] bounds].size.height >=812.0f&& YYIS_IPHONE
+#define YYIS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define SafeAreaTopHeight (YYISiPhoneX? 88 : 64)
+#define KStatusbarHeight    (YYISiPhoneX? 44 : 20)
+#define kTabbarHeight       (YYISiPhoneX?83 : 49)
+#define KTabSafeHeight       (YYISiPhoneX? 34 : 0)
+
+#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+
+//字号
+#define Pixel(pixel) (pixel*3/4)
+static inline CGFloat FontSize(CGFloat fontSize){
+    if (ScreenWidth==320) {
+        return fontSize-2;
+    }else{
+        return fontSize;
+    }
+}
+
+
+#define YX120Font    [(NSString *)SYSTEMFONT isEqualToString:@"bigFont"]?[UIFont systemFontOfSize:FontSize(70)]:[UIFont systemFontOfSize:FontSize(65)]//36
+#define YX66Font    [(NSString *)SYSTEMFONT isEqualToString:@"bigFont"]?[UIFont systemFontOfSize:FontSize(35.0)]:[UIFont systemFontOfSize:FontSize(33.0)]//36
+#define YX36Font    [(NSString *)SYSTEMFONT isEqualToString:@"bigFont"]?[UIFont systemFontOfSize:FontSize(22.0)]:[UIFont systemFontOfSize:FontSize(20.0)]//36
+#define YX34Font   [(NSString *)SYSTEMFONT isEqualToString:@"bigFont"]?[UIFont systemFontOfSize:FontSize(20.9)]:[UIFont systemFontOfSize:FontSize(19.0)]//36
+#define YX32Font    [(NSString *)SYSTEMFONT isEqualToString:@"bigFont"]?[UIFont systemFontOfSize:FontSize(19.8)]:[UIFont systemFontOfSize:FontSize(18.0)]//36
+#define YX30Font    [(NSString *)SYSTEMFONT isEqualToString:@"bigFont"]?[UIFont systemFontOfSize:FontSize(18.7)]:[UIFont systemFontOfSize:FontSize(17.0)]//36
+#define YX28Font    [(NSString *)SYSTEMFONT isEqualToString:@"bigFont"]?[UIFont systemFontOfSize:FontSize(17.6)]:[UIFont systemFontOfSize:FontSize(16.0)]//36
+#define YX26Font    [(NSString *)SYSTEMFONT isEqualToString:@"bigFont"]?[UIFont systemFontOfSize:FontSize(16.5)]:[UIFont systemFontOfSize:FontSize(15.0)]//36
+#define YX22Font    [(NSString *)SYSTEMFONT isEqualToString:@"bigFont"]?[UIFont systemFontOfSize:FontSize(14.3)]:[UIFont systemFontOfSize:FontSize(13.0)]//36
+#define YX20Font    [(NSString *)SYSTEMFONT isEqualToString:@"bigFont"]?[UIFont systemFontOfSize:FontSize(13.2)]:[UIFont systemFontOfSize:FontSize(12.0)]//36
+//像素转化
+#define SCALE_W(width) (width * kScreenWidth / 750.0)
+#define SCALE_H(height) (height * kScreenHeight / 1334.0)
+
+//ios系统版本
+#define ios9x [[[UIDevice currentDevice] systemVersion] floatValue] >=9.0f
+#define ios8x [[[UIDevice currentDevice] systemVersion] floatValue] >=8.0f && ([[[UIDevice currentDevice] systemVersion] floatValue] < 9.0f)
+#define ios7x ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) && ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0f)
+#define ios6x [[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0f && ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0f)
+#define iosNot5x [[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0f
+#define ios5x [[[UIDevice currentDevice] systemVersion] floatValue] < 6.0f
+
+/*-----color-----*/
+#define FColor(r, g, b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+#define randomColor  [UIColor colorWithRed:arc4random_uniform(255) / 255.0 green:arc4random_uniform(255) / 255.0 blue:arc4random_uniform(255) / 255.0 alpha:1.0];
+#define COLOR_WITH_HEX(hexValue) [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16)) / 255.0 green:((float)((hexValue & 0xFF00) >> 8)) / 255.0 blue:((float)(hexValue & 0xFF)) / 255.0 alpha:1.0f]
+#define YXWordColor  [UIColor blackColor]
+#define YXLightWordColor  [UIColor grayColor]
+#define GrayLineColor [UIColor colorWithRGB:0x000000 alpha:0.1]
+
+//参数
+#define TNParams(...) @{__VA_ARGS__}
+//网络请求地址
+#define YXNetAddress(urlString)  [NSString stringWithFormat:@"http:/%@",urlString]
+
+//偏好设置
+#define CURRENTUSER  [[NSUserDefaults standardUserDefaults]objectForKey:@"currentUser"]
+#define CURRENTPASSWORD  [[NSUserDefaults standardUserDefaults]objectForKey:@"currentPassword"]
+//是否记住密码
+#define isRememberPassword [[NSUserDefaults standardUserDefaults]objectForKey:@"isrememberPassword"]
+//当前显示字号类型
+#define SYSTEMFONT  [[NSUserDefaults standardUserDefaults]objectForKey:@"SystemFont"]
 
 #endif /* WaterConservancy_Prefix_pch */

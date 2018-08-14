@@ -8,18 +8,59 @@
 
 #import "AppDelegate.h"
 
+#import "DJLoadViewController.h"
+#import "YXTabbarController.h"
+#import "YXNavViewController.h"
 @interface AppDelegate ()
-
+@property (nonatomic, strong)  YXTabbarController *tabbarC;
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:Screen];
+    
+    //接受到退出信号 退出
+//    if ([isLogout isEqualToString:@"logout"]) {
+//        //         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"currentUser"];
+//        //
+//        [self showLoadControllers];
+//    }
+    
+    //如果账号或id存在
+    if (0) {
+        self.tabbarC = [[YXTabbarController alloc]init];
+        self.window.rootViewController = self.tabbarC;
+    }else{
+        DJLoadViewController *loadCtrl = [[DJLoadViewController alloc]init];
+        YXNavViewController *nav = [[YXNavViewController alloc]initWithRootViewController:loadCtrl setNavigationBarHidden:YES];
+        self.window.rootViewController = nav;
+    }
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
+- (void)showMainControllers {
+    _window.rootViewController = [[YXTabbarController alloc] init];
+}
 
+//设置状态栏颜色
+- (void)setStatusBarBackgroundColor:(UIColor *)color {
+    
+    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+        statusBar.backgroundColor = color;
+    }
+}
+
+- (void)showLoadControllers {
+    //    self.window.rootViewController = nil;
+    DJLoadViewController *loginCtrl = [[DJLoadViewController alloc]init];
+    YXNavViewController *navCtrl = [[YXNavViewController alloc]initWithRootViewController:loginCtrl];
+    [navCtrl setNavigationBarHidden:YES];
+    self.window.rootViewController = navCtrl;;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
