@@ -19,6 +19,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    // Override point for customization after application launch.
+
     self.window = [[UIWindow alloc]initWithFrame:Screen];
     
     //接受到退出信号 退出
@@ -29,7 +32,7 @@
 //    }
     
     //如果账号或id存在
-    if (0) {
+    if (1) {
         self.tabbarC = [[YXTabbarController alloc]init];
         self.window.rootViewController = self.tabbarC;
     }else{

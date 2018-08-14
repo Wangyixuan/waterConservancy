@@ -36,8 +36,8 @@ object:ojbect];
 //屏幕相关
 #define WCMainScreen      [UIScreen mainScreen]
 #define WCScreenSize      [UIScreen mainScreen].bounds.size
-#define WCScreenWidth     KKScreenSize.width
-#define WCScreenHeight    KKScreenSize.height
+#define WCScreenWidth     WCScreenSize.width
+#define WCScreenHeight    WCScreenSize.height
 
 #define KKScreenHeightIphone4s 480
 #define KKScreenHeightIphone5  568
@@ -50,7 +50,7 @@ object:ojbect];
 #define KKScreenWidthIphone6p 414
 #define KKScreenWidthIphoneX 375
 
-#define WC_HOMEBAR_HEIGHT ((KKScreenHeight==KKScreenHeightIphoneX)?34:0)
-
+#define WC_HOMEBAR_HEIGHT ((WCScreenHeight==KKScreenHeightIphoneX)?34:0)
+#define WC_STATUSBAR_HEIGHT    [[UIApplication sharedApplication] statusBarFrame].size.height
 
 #endif /* CommonMacro_h */

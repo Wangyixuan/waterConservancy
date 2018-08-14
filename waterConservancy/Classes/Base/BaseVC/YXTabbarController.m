@@ -18,7 +18,7 @@
 //#import "YXMapController.h"
 //#import "YXCheckNewModel.h"
 //#import "YXcheckMethod.h"
-
+#import "WorkViewController.h"
 
 
 @interface YXTabbarController ()<TNTabBarDelegate,UITabBarControllerDelegate>
@@ -53,7 +53,7 @@
     
 }
 -(void)setUpAllChildViewController{
-    UIViewController *homeCtrl = [[UIViewController alloc]init];
+    WorkViewController *homeCtrl = [[WorkViewController alloc]init];
     [self setUpOneChildViewController:homeCtrl image:@"home" title:@"首页"];
     
     UIViewController *riverCtrl = [[UIViewController alloc]init];
@@ -80,7 +80,7 @@
     imgSelected = [imgSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     vc.tabBarItem.selectedImage = imgSelected;
     YXNavViewController *nav = [[YXNavViewController alloc]initWithRootViewController:vc setNavigationBarHidden:YES];
-    [nav.tabBarItem setImageInsets:UIEdgeInsetsMake(-2, 0, 2, 0)];
+//    [nav.tabBarItem setImageInsets:UIEdgeInsetsMake(-2, 0, 2, 0)];
     [self addChildViewController:nav];
     return nav;
 }
