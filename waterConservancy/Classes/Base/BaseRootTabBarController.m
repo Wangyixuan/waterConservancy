@@ -22,7 +22,11 @@
     NSArray *titleArr = @[@"办公",@"安全云",@"专题图",@"通讯录",@"门户"];
     NSArray *imgNameArr = @[@"checkRiver",@"home",@"me",@"news",@"rectification"];
     WorkViewController *workCV = WCViewControllerOfWorkSB(@"WorkViewController");
-    NSArray *controllerArr = @[workCV];
+    WorkViewController *workCV1 = WCViewControllerOfWorkSB(@"WorkViewController");
+    WorkViewController *workCV2 = WCViewControllerOfWorkSB(@"WorkViewController");
+    WorkViewController *workCV3 = WCViewControllerOfWorkSB(@"WorkViewController");
+    WorkViewController *workCV4 = WCViewControllerOfWorkSB(@"WorkViewController");
+    NSArray *controllerArr = @[workCV,workCV1,workCV2,workCV3,workCV4];
     [self tabBarSetupChildViewControllersWithcontrollers:controllerArr Titles:titleArr images:imgNameArr];
     
 }
@@ -34,7 +38,7 @@
 
 -(void)tabBarSetupChildViewControllersWithcontrollers:(NSArray*)controllers Titles:(NSArray*)titles images:(NSArray*)images {
     for (int i = 0; i < titles.count; ++i) {
-        BaseViewController *vc = [[BaseViewController alloc] init];
+        BaseViewController *vc = controllers[i];
         vc.view.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
          vc.tabBarItem.title = titles[i];
         
