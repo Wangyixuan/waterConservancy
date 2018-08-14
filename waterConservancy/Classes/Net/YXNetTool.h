@@ -38,4 +38,6 @@ typedef void (^NetBlock)(void);
  @param faild    <#faild description#>
  */
 -(void)postRequestWithURL:(NSString *)URL Parmars:(NSDictionary *)Parmars success:(successBlock)success faild:(faildBlock)faild;
+
+- (void)SOAPData:(NSString *)url password:(NSString *)password userName:(NSString *)userName success:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure;
 @end

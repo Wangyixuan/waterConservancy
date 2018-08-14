@@ -95,5 +95,9 @@ static inline CGFloat FontSize(CGFloat fontSize){
 #define isRememberPassword [[NSUserDefaults standardUserDefaults]objectForKey:@"isrememberPassword"]
 //当前显示字号类型
 #define SYSTEMFONT  [[NSUserDefaults standardUserDefaults]objectForKey:@"SystemFont"]
+//是否记住密码
+#define isRememberPassword [[NSUserDefaults standardUserDefaults]objectForKey:@"isrememberPassword"]
+#define CURRENTUSER  [[NSUserDefaults standardUserDefaults]objectForKey:@"currentUser"]
+#define CURRENTPASSWORD  [[NSUserDefaults standardUserDefaults]objectForKey:@"currentPassword"]
 
 #endif /* WaterConservancy_Prefix_pch */

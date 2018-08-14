@@ -17,6 +17,7 @@ PODS:
   - LYEmptyView (1.0.3)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.3)
+  - XMLDictionary (1.4.1)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -26,6 +27,7 @@ DEPENDENCIES:
   - LYEmptyView
   - Masonry (~> 1.1.0)
   - MJRefresh (~> 3.1.15.3)
+  - XMLDictionary
   - YYKit
 
 SPEC CHECKSUMS:
@@ -33,8 +35,9 @@ SPEC CHECKSUMS:
   LYEmptyView: 3a7d1604cff1791d207a498a42101f31e9b12b8c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  XMLDictionary: fa07b6ff422b3a91d47a5de9bc82e3fc04fbd167
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 17fdf5ebbce55695ef4331869bcc221a795eb0ca
+PODFILE CHECKSUM: e25bd19e812874364854e1e0f2796c2f1c6b2ddd
 
 COCOAPODS: 1.4.0

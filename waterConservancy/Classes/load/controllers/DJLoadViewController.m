@@ -7,6 +7,7 @@
 //
 
 #import "DJLoadViewController.h"
+ #import<CommonCrypto/CommonDigest.h>
 
 #import "YXDownListView.h"
 #import "YXForgetView.h"
@@ -101,82 +102,42 @@
         [self.tipTextView setText:@"密码不能为空"];
         return;
     }
-//    NSString *deviceid = [self getDeviceId];
-    NSDictionary *parmars = TNParams(@"UserCode":self.userNameFiled.text,@"Password":self.passWordFiled.text,@"ApplicationID":@"5cb345b6-26d3-11e5-9325-68f728009cac");
-    @weakify(self);
-    [[YXNetTool shareTool]postRequestWithURL:YXNetAddress(@"WebApi/User/UserLogin") Parmars:parmars success:^(id responseObject) {
-        NSLog(@"%@",responseObject);
-        //msg==1 登录成功
-        @strongify(self);
-        NSString *msg = [responseObject objectForKey:@"msg"];
-        if ([msg isEqualToString:@"1"]) {
-            //登录成功之后
-            //1.保存登录过的账号
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            NSArray *userNameArray = [defaults objectForKey:@"loadUserName"];
-            NSMutableArray *usrMuA;
-            if (userNameArray.count) {
-                usrMuA = userNameArray.mutableCopy;
-            }else{
-                usrMuA = [NSMutableArray array];
-            }
-            //是否含有这个用户
-            NSString *userName = [self.userNameFiled.text lowercaseString];
-            NSLog(@"%@",userName);
-            NSString *password = self.passWordFiled.text;
-            BOOL isContain = NO;
-            [defaults setObject:userName forKey:@"currentUser"];
-            [defaults setObject:password forKey:@"currentPassword"];
-            //用户编码
-            NSString *msg = [responseObject objectForKey:@"UnitCode"];
-            [defaults setObject:msg forKey:@"UnitCode"];
-            for (NSDictionary *dic in usrMuA) {
-                if ([dic.allKeys containsObject:userName]) {
-                    isContain = YES;
-                }
-            }
-            if (!isContain && [isRememberPassword isEqualToString:@"isRemember"]) {
-                NSDictionary *nameAPassDic = [NSDictionary dictionaryWithObject:password forKey:userName];
-                [usrMuA addObject:nameAPassDic];
-                [defaults setObject:usrMuA forKey:@"loadUserName"];
-                
-            }
-            [defaults setObject:nil forKey:@"Logout"];
-            [defaults synchronize];
-            //保存这个用户为当前正在使用的用户，用户名是userid
-            
-            //2.跳转页面
-            [(AppDelegate *)[UIApplication sharedApplication].delegate showMainControllers];
-            
-            
-            
-//            [self initPushInf:deviceid];
-            
-            
-            NSLog(@"成功");
-        }else{
-            [self.tipTextView setText:msg];
-        }
-    } faild:^(NSError *error) {
-        NSLog(@"登录错误%@",error);
-        self.tipTextView.text = @"网络连接异常，请检查网络链接与网络设置";
-    }];
     
+    NSString *password = [[self.passWordFiled.text md5String]uppercaseString];
+    [[YXNetTool shareTool]SOAPData:@"http://192.168.1.11:9080/uams/ws/uumsext/UserExt?wsdl" password:password userName:self.userNameFiled.text success:^(id responseObject) {
+        NSLog(@"%@",responseObject);
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSArray *userNameArray = [defaults objectForKey:@"loadUserName"];
+        NSMutableArray *usrMuA;
+        if (userNameArray.count) {
+            usrMuA = userNameArray.mutableCopy;
+        }else{
+            usrMuA = [NSMutableArray array];
+        }
+        //是否含有这个用户
+        NSString *userName = [self.userNameFiled.text lowercaseString];
+        NSLog(@"%@",userName);
+        NSString *password = self.passWordFiled.text;
+        BOOL isContain = NO;
+        [defaults setObject:userName forKey:@"currentUser"];
+        [defaults setObject:password forKey:@"currentPassword"];
+        for (NSDictionary *dic in usrMuA) {
+            if ([dic.allKeys containsObject:userName]) {
+                isContain = YES;
+            }
+        }
+        if (!isContain && [isRememberPassword isEqualToString:@"isRemember"]) {
+            NSDictionary *nameAPassDic = [NSDictionary dictionaryWithObject:password forKey:userName];
+            [usrMuA addObject:nameAPassDic];
+            [defaults setObject:usrMuA forKey:@"loadUserName"];
+
+        }
+      
+
+        //2.跳转页面
+        [(AppDelegate *)[UIApplication sharedApplication].delegate showMainControllers];
+    } failure:nil];
 }
-
-
-//-(void)initPushInf:(NSString *)deviceid{
-//    NSString *questStr = [NSString stringWithFormat:@"webapi/DataExchange/AccessJPushRegisterId?deviceTokenKey=%@&regId=%@&deviceType=IOS",deviceid,REGISTEDID];
-//    [[YXNetTool shareTool]getRequestWithURL:YXNetAddress(questStr) Parmars:nil success:^(id responseObject) {
-//
-//        if ([[responseObject objectForKey:@"msgCode"]longValue] == 0) {
-//            NSLog(@"%@",[responseObject objectForKey:@"msg"]);
-//        }
-//
-//    } faild:^ (NSError *error){
-//
-//    }];
-//}
 
 
 //添加dowmlistView
