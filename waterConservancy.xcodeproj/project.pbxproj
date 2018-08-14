@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		047129AE21217B5A00EEADE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047129AD21217B5A00EEADE5 /* Foundation.framework */; };
 		047129B421217EF600EEADE5 /* WorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047129B321217EF600EEADE5 /* WorkViewController.m */; };
+		047129BA2122A9F000EEADE5 /* WLWorkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047129B92122A9F000EEADE5 /* WLWorkCell.m */; };
+		047129C32122C81900EEADE5 /* WLWorkTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047129C22122C81900EEADE5 /* WLWorkTopView.m */; };
+		047129CD2122DEDB00EEADE5 /* WLVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 047129CC2122DEDB00EEADE5 /* WLVerticalButton.m */; };
 		04C5310021212BC900C90964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C530FF21212BC900C90964 /* AppDelegate.m */; };
 		04C5310821212BCB00C90964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310721212BCB00C90964 /* Assets.xcassets */; };
-		04C5310B21212BCB00C90964 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310921212BCB00C90964 /* LaunchScreen.storyboard */; };
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
 		04C5311821212BCB00C90964 /* waterConservancyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5311721212BCB00C90964 /* waterConservancyTests.m */; };
 		04C5312321212BCB00C90964 /* waterConservancyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5312221212BCB00C90964 /* waterConservancyUITests.m */; };
@@ -30,7 +32,6 @@
 		5A4CF1902122806600D72FE5 /* YXBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CF18D2122806500D72FE5 /* YXBaseTableViewCell.m */; };
 		5A4CF1922122832B00D72FE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A4CF1912122832B00D72FE5 /* Main.storyboard */; };
 		5A4CF195212283E200D72FE5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CF194212283E200D72FE5 /* ViewController.m */; };
-		5A4CF1972122858400D72FE5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A4CF1962122858400D72FE5 /* Images.xcassets */; };
 		8841E8835D90F5303BCEA6DB /* libPods-waterConservancy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0C5E7A62458F22B4104EA4 /* libPods-waterConservancy.a */; };
 /* End PBXBuildFile section */
 
@@ -57,11 +58,16 @@
 		047129B221217EF600EEADE5 /* WorkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkViewController.h; sourceTree = "<group>"; };
 		047129B321217EF600EEADE5 /* WorkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkViewController.m; sourceTree = "<group>"; };
 		047129B521217FEC00EEADE5 /* CodingStandard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodingStandard.h; sourceTree = "<group>"; };
+		047129B82122A9F000EEADE5 /* WLWorkCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLWorkCell.h; sourceTree = "<group>"; };
+		047129B92122A9F000EEADE5 /* WLWorkCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLWorkCell.m; sourceTree = "<group>"; };
+		047129C12122C81900EEADE5 /* WLWorkTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLWorkTopView.h; sourceTree = "<group>"; };
+		047129C22122C81900EEADE5 /* WLWorkTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLWorkTopView.m; sourceTree = "<group>"; };
+		047129CB2122DEDB00EEADE5 /* WLVerticalButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLVerticalButton.h; sourceTree = "<group>"; };
+		047129CC2122DEDB00EEADE5 /* WLVerticalButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLVerticalButton.m; sourceTree = "<group>"; };
 		04C530FB21212BC900C90964 /* waterConservancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterConservancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C530FE21212BC900C90964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04C530FF21212BC900C90964 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		04C5310721212BCB00C90964 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		04C5310A21212BCB00C90964 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04C5310C21212BCB00C90964 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C5310D21212BCB00C90964 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04C5311321212BCB00C90964 /* waterConservancyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = waterConservancyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +108,6 @@
 		5A4CF1912122832B00D72FE5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5A4CF193212283E100D72FE5 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5A4CF194212283E200D72FE5 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		5A4CF1962122858400D72FE5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		69E75B7A348455A4C6F7FB29 /* Pods-waterConservancy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-waterConservancy.release.xcconfig"; path = "Pods/Target Support Files/Pods-waterConservancy/Pods-waterConservancy.release.xcconfig"; sourceTree = "<group>"; };
 		852F732D60868C4918F85BA0 /* Pods-waterConservancy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-waterConservancy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-waterConservancy/Pods-waterConservancy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +190,12 @@
 		047129932121734C00EEADE5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				047129B82122A9F000EEADE5 /* WLWorkCell.h */,
+				047129B92122A9F000EEADE5 /* WLWorkCell.m */,
+				047129C12122C81900EEADE5 /* WLWorkTopView.h */,
+				047129C22122C81900EEADE5 /* WLWorkTopView.m */,
+				047129CB2122DEDB00EEADE5 /* WLVerticalButton.h */,
+				047129CC2122DEDB00EEADE5 /* WLVerticalButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -329,17 +340,14 @@
 				04C5313521215BA300C90964 /* Classes */,
 				04C5313721215BA400C90964 /* Macros */,
 				04C5313621215BA300C90964 /* Manager */,
-				04C5313421215BA300C90964 /* Utils */,
 				04C530FE21212BC900C90964 /* AppDelegate.h */,
 				04C530FF21212BC900C90964 /* AppDelegate.m */,
 				5A4CF193212283E100D72FE5 /* ViewController.h */,
 				5A4CF194212283E200D72FE5 /* ViewController.m */,
 				5A4CF1912122832B00D72FE5 /* Main.storyboard */,
 				04C5310721212BCB00C90964 /* Assets.xcassets */,
-				04C5310921212BCB00C90964 /* LaunchScreen.storyboard */,
 				04C5310C21212BCB00C90964 /* Info.plist */,
 				04C5310D21212BCB00C90964 /* main.m */,
-				5A4CF1962122858400D72FE5 /* Images.xcassets */,
 			);
 			path = waterConservancy;
 			sourceTree = "<group>";
@@ -367,13 +375,6 @@
 			children = (
 			);
 			path = Category;
-			sourceTree = "<group>";
-		};
-		04C5313421215BA300C90964 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		04C5313521215BA300C90964 /* Classes */ = {
@@ -562,11 +563,7 @@
 		04C530F321212BC900C90964 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-<<<<<<< HEAD
 				CLASSPREFIX = WL;
-=======
-				CLASSPREFIX = DJ;
->>>>>>> f9d7d9bfe10ced6377fef1342ceced11e0ae4fd6
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = com.yx.waterConservancy;
 				TargetAttributes = {
@@ -609,8 +606,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A4CF1922122832B00D72FE5 /* Main.storyboard in Resources */,
-				5A4CF1972122858400D72FE5 /* Images.xcassets in Resources */,
-				04C5310B21212BCB00C90964 /* LaunchScreen.storyboard in Resources */,
 				04C5310821212BCB00C90964 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -697,6 +692,7 @@
 				5A4CF1902122806600D72FE5 /* YXBaseTableViewCell.m in Sources */,
 				5A4CF1662122795F00D72FE5 /* DJLoadViewController.m in Sources */,
 				5A4CF1862122801300D72FE5 /* YXNavViewController.m in Sources */,
+				047129CD2122DEDB00EEADE5 /* WLVerticalButton.m in Sources */,
 				5A4CF17721227C6500D72FE5 /* TNIUDateTools.m in Sources */,
 				047129B421217EF600EEADE5 /* WorkViewController.m in Sources */,
 				5A4CF16E21227B1600D72FE5 /* YXForgetView.m in Sources */,
@@ -705,8 +701,10 @@
 				5A4CF16F21227B1600D72FE5 /* YXSaveUserCell.m in Sources */,
 				5A4CF1842122801300D72FE5 /* YXBaseViewController.m in Sources */,
 				04C5310E21212BCB00C90964 /* main.m in Sources */,
+				047129BA2122A9F000EEADE5 /* WLWorkCell.m in Sources */,
 				04C5310021212BC900C90964 /* AppDelegate.m in Sources */,
 				5A4CF16D21227B1600D72FE5 /* YXDownListView.m in Sources */,
+				047129C32122C81900EEADE5 /* WLWorkTopView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,22 +739,12 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		04C5310921212BCB00C90964 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				04C5310A21212BCB00C90964 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		04C5312521212BCB00C90964 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -815,6 +803,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -868,11 +857,8 @@
 			baseConfigurationReference = 852F732D60868C4918F85BA0 /* Pods-waterConservancy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-<<<<<<< HEAD
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-=======
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
->>>>>>> f9d7d9bfe10ced6377fef1342ceced11e0ae4fd6
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8RG9BDMV8Q;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
@@ -896,11 +882,8 @@
 			baseConfigurationReference = 69E75B7A348455A4C6F7FB29 /* Pods-waterConservancy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-<<<<<<< HEAD
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-=======
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
->>>>>>> f9d7d9bfe10ced6377fef1342ceced11e0ae4fd6
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8RG9BDMV8Q;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;

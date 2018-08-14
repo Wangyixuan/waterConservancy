@@ -16,10 +16,10 @@
 #import <Masonry.h>
 #import <YYKit.h>
 
-<<<<<<< HEAD
+
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
-=======
+
 //打印
 #if DEBUG
 
@@ -99,6 +99,5 @@ static inline CGFloat FontSize(CGFloat fontSize){
 #define isRememberPassword [[NSUserDefaults standardUserDefaults]objectForKey:@"isrememberPassword"]
 //当前显示字号类型
 #define SYSTEMFONT  [[NSUserDefaults standardUserDefaults]objectForKey:@"SystemFont"]
->>>>>>> f9d7d9bfe10ced6377fef1342ceced11e0ae4fd6
 
 #endif /* WaterConservancy_Prefix_pch */

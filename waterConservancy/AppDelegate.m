@@ -19,9 +19,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-<<<<<<< HEAD
+
     // Override point for customization after application launch.
-=======
+
     self.window = [[UIWindow alloc]initWithFrame:Screen];
     
     //接受到退出信号 退出
@@ -32,7 +32,7 @@
 //    }
     
     //如果账号或id存在
-    if (0) {
+    if (1) {
         self.tabbarC = [[YXTabbarController alloc]init];
         self.window.rootViewController = self.tabbarC;
     }else{
@@ -41,7 +41,6 @@
         self.window.rootViewController = nav;
     }
     [self.window makeKeyAndVisible];
->>>>>>> f9d7d9bfe10ced6377fef1342ceced11e0ae4fd6
     
     return YES;
 }
