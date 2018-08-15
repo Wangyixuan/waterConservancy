@@ -17,7 +17,7 @@ PODS:
   - LYEmptyView (1.2.0)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.3)
-  - UITableView+FDTemplateLayoutCell (1.6)
+  - "UITableView+FDTemplateLayoutCell (1.6)"
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -27,7 +27,7 @@ DEPENDENCIES:
   - LYEmptyView
   - Masonry (~> 1.1.0)
   - MJRefresh (~> 3.1.15.3)
-  - UITableView+FDTemplateLayoutCell
+  - "UITableView+FDTemplateLayoutCell"
   - YYKit
 
 SPEC REPOS:
@@ -36,6 +36,7 @@ SPEC REPOS:
     - LYEmptyView
     - Masonry
     - MJRefresh
+    - "UITableView+FDTemplateLayoutCell"
     - YYKit
 
 SPEC CHECKSUMS:
@@ -43,7 +44,7 @@ SPEC CHECKSUMS:
   LYEmptyView: f9a7b1bd6c61577c2765abba327332666f1b2857
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
-  UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
 PODFILE CHECKSUM: d672af914284b35fcc4e383a1fa8c8d1a1e7137b
