@@ -17,7 +17,11 @@
 -(instancetype)initWithRootViewController:(YXBaseViewController *)rootViewController setNavigationBarHidden:(BOOL)hidden{
     YXNavViewController *navCtrl = [[YXNavViewController alloc]initWithRootViewController:rootViewController];
     navCtrl.navigationBar.barStyle = UIStatusBarStyleDefault;
-    [UINavigationBar appearance].barTintColor = [UIColor greenColor];
+    [[UINavigationBar appearance]setBackgroundImage:[UIImage imageNamed:@"nav_nav"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance]setTitleTextAttributes:@{
+                                    NSForegroundColorAttributeName:[UIColor whiteColor]
+                                    }];
+    
     return navCtrl;
 }
 

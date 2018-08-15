@@ -1,41 +1,34 @@
-
 //
-//  DJCloudViewController.m
+//  DJElementCheckController.m
 //  waterConservancy
 //
 //  Created by liu on 2018/8/15.
 //  Copyright © 2018年 com.yx.waterConservancy. All rights reserved.
 //
 
-#import "DJCloudViewController.h"
-#import "DJHiddenDrangeChartCell.h"
+#import "DJElementCheckController.h"
+#import "DJElementCheckCell.h"
 
-@interface DJCloudViewController ()
+@interface DJElementCheckController ()
 
 @end
-static NSString *const HIDDENDRANGECELLREUSEID = @"HIDDENDRANGECELL";
-@implementation DJCloudViewController
+static NSString *const ELEMENTCHECKCELLREUSEID = @"ELEMENTCHECKCELL";
+@implementation DJElementCheckController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"隐患报表";
-    
-    [self initHiddenDangerChartUI];
+    self.title = @"元素检查";
+    [self initElementChcekUI];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 3;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    DJHiddenDrangeChartCell *cell = [tableView dequeueReusableCellWithIdentifier:HIDDENDRANGECELLREUSEID];
+    DJElementCheckCell *cell = [tableView dequeueReusableCellWithIdentifier:ELEMENTCHECKCELLREUSEID];
     if (!cell) {
-        cell = [[DJHiddenDrangeChartCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:HIDDENDRANGECELLREUSEID];
+        cell = [[DJElementCheckCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ELEMENTCHECKCELLREUSEID];
     }
-    @weakify(self);
-    cell.hiddenChartBtnClickBlock  = ^{
-        @strongify(self);
-        
-    };
     return cell;
     
 }
@@ -44,11 +37,12 @@ static NSString *const HIDDENDRANGECELLREUSEID = @"HIDDENDRANGECELL";
 }
 
 #pragma mark UI
--(void)initHiddenDangerChartUI{
+-(void)initElementChcekUI{
     [self.view addSubview:self.tableView];
     @weakify(self);
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.bottom.mas_equalTo(weak_self.view);
     }];
 }
+
 @end

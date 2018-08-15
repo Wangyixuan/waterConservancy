@@ -29,5 +29,6 @@
  
     WLWorkTopView *topView = [[WLWorkTopView alloc]initWithFrame:CGRectMake(0, 0, WCScreenWidth, 200)];
     [self.view addSubview:topView];
+    
 }
 @end

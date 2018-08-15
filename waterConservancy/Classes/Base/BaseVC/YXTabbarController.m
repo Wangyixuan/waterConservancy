@@ -10,7 +10,7 @@
 #import "YXTarbar.h"
 #import "YXBaseViewController.h"
 #import "YXNavViewController.h"
-#import "DJCloudViewController.h"
+#import "DJElementCheckController.h"
 #import "WorkViewController.h"
 
 
@@ -49,7 +49,7 @@
     WorkViewController *homeCtrl = [[WorkViewController alloc]init];
     [self setUpOneChildViewController:homeCtrl image:@"home" title:@"首页"];
     
-    DJCloudViewController *riverCtrl = [[DJCloudViewController alloc]init];
+    DJElementCheckController *riverCtrl = [[DJElementCheckController alloc]init];
     [self setUpOneChildViewController:riverCtrl image:@"checkRiver" title:@"巡河"];
     
     UIViewController *reCtrl = [[UIViewController alloc]init];
