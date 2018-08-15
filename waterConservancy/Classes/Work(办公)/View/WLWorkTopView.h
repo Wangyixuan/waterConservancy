@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface WLWorkTopView : UIView
-
+@property (nonatomic, copy) void(^userInfoBlock)(void);
+@property (nonatomic, copy) void(^nearBlock)(void);
+@property (nonatomic, copy) void(^QRCodeBlock)(void);
+@property (nonatomic, copy) void(^agencyWorkBlock)(void);
+@property (nonatomic, copy) void(^noticeBlock)(void);
 @end

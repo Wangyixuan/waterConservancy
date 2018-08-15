@@ -17,6 +17,7 @@
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
 		04C5311821212BCB00C90964 /* waterConservancyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5311721212BCB00C90964 /* waterConservancyTests.m */; };
 		04C5312321212BCB00C90964 /* waterConservancyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5312221212BCB00C90964 /* waterConservancyUITests.m */; };
+		04D10BFC21240F2600524EEC /* WLFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D10BFB21240F2600524EEC /* WLFirstCell.m */; };
 		5A4CF1662122795F00D72FE5 /* DJLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CF1652122795F00D72FE5 /* DJLoadViewController.m */; };
 		5A4CF16D21227B1600D72FE5 /* YXDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CF16921227B1600D72FE5 /* YXDownListView.m */; };
 		5A4CF16E21227B1600D72FE5 /* YXForgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CF16A21227B1600D72FE5 /* YXForgetView.m */; };
@@ -82,6 +83,8 @@
 		04C5312421212BCB00C90964 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C5313A21215E3100C90964 /* WaterConservancy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WaterConservancy-Prefix.pch"; sourceTree = "<group>"; };
 		04C5313C21215E6A00C90964 /* CommonMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonMacro.h; sourceTree = "<group>"; };
+		04D10BFA21240F2600524EEC /* WLFirstCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLFirstCell.h; sourceTree = "<group>"; };
+		04D10BFB21240F2600524EEC /* WLFirstCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLFirstCell.m; sourceTree = "<group>"; };
 		0C0C5E7A62458F22B4104EA4 /* libPods-waterConservancy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-waterConservancy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4CF1642122795F00D72FE5 /* DJLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJLoadViewController.h; sourceTree = "<group>"; };
 		5A4CF1652122795F00D72FE5 /* DJLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJLoadViewController.m; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				047129C22122C81900EEADE5 /* WLWorkTopView.m */,
 				047129CB2122DEDB00EEADE5 /* WLVerticalButton.h */,
 				047129CC2122DEDB00EEADE5 /* WLVerticalButton.m */,
+				04D10BFA21240F2600524EEC /* WLFirstCell.h */,
+				04D10BFB21240F2600524EEC /* WLFirstCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -572,7 +577,6 @@
 				04C530F721212BC900C90964 /* Sources */,
 				04C530F821212BC900C90964 /* Frameworks */,
 				04C530F921212BC900C90964 /* Resources */,
-				DE15C4556F9EFA44BE487F13 /* [CP] Embed Pods Frameworks */,
 				303883EBD6A3C08E125E5715 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -726,21 +730,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DE15C4556F9EFA44BE487F13 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-waterConservancy/Pods-waterConservancy-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -751,6 +740,7 @@
 				5A4CF195212283E200D72FE5 /* ViewController.m in Sources */,
 				5A4CF1832122801300D72FE5 /* YXTabbarController.m in Sources */,
 				5A4CF17921227C6500D72FE5 /* YXNetTool.m in Sources */,
+				04D10BFC21240F2600524EEC /* WLFirstCell.m in Sources */,
 				5A4CF18F2122806600D72FE5 /* YXTarbar.m in Sources */,
 				5A4CF1902122806600D72FE5 /* YXBaseTableViewCell.m in Sources */,
 				5A8BE22521240CFF00F61665 /* DJElementCheckCell.m in Sources */,
