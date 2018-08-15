@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - LYEmptyView (1.0.3)
+  - LYEmptyView (1.2.0)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.3)
   - YYKit (1.0.9):
@@ -28,13 +28,21 @@ DEPENDENCIES:
   - MJRefresh (~> 3.1.15.3)
   - YYKit
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - LYEmptyView
+    - Masonry
+    - MJRefresh
+    - YYKit
+
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  LYEmptyView: 3a7d1604cff1791d207a498a42101f31e9b12b8c
+  LYEmptyView: f9a7b1bd6c61577c2765abba327332666f1b2857
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
 PODFILE CHECKSUM: 17fdf5ebbce55695ef4331869bcc221a795eb0ca
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3
