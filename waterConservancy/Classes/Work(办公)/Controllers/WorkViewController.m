@@ -53,6 +53,7 @@
 }
 
 -(void)setupTopView{
+
     if (!_topView) {
         WLWorkTopView *topView = [[WLWorkTopView alloc]initWithFrame:CGRectMake(0, 0, WCScreenWidth, 230)];
         [self.view addSubview:topView];
@@ -137,5 +138,8 @@
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     return 0;
+ 
+
+    
 }
 @end

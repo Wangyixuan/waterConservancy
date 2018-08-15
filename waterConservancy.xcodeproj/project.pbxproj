@@ -34,6 +34,9 @@
 		5A4CF1922122832B00D72FE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A4CF1912122832B00D72FE5 /* Main.storyboard */; };
 		5A4CF195212283E200D72FE5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CF194212283E200D72FE5 /* ViewController.m */; };
 		5A8BE21B2123C6D000F61665 /* DJCloudViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE21A2123C6D000F61665 /* DJCloudViewController.m */; };
+		5A8BE21F2123D13600F61665 /* DJHiddenDrangeChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE21E2123D13600F61665 /* DJHiddenDrangeChartCell.m */; };
+		5A8BE22221240C4100F61665 /* DJElementCheckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE22121240C4100F61665 /* DJElementCheckController.m */; };
+		5A8BE22521240CFF00F61665 /* DJElementCheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE22421240CFE00F61665 /* DJElementCheckCell.m */; };
 		8841E8835D90F5303BCEA6DB /* libPods-waterConservancy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0C5E7A62458F22B4104EA4 /* libPods-waterConservancy.a */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +117,12 @@
 		5A4CF194212283E200D72FE5 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5A8BE2192123C6D000F61665 /* DJCloudViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJCloudViewController.h; sourceTree = "<group>"; };
 		5A8BE21A2123C6D000F61665 /* DJCloudViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJCloudViewController.m; sourceTree = "<group>"; };
+		5A8BE21D2123D13600F61665 /* DJHiddenDrangeChartCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJHiddenDrangeChartCell.h; sourceTree = "<group>"; };
+		5A8BE21E2123D13600F61665 /* DJHiddenDrangeChartCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJHiddenDrangeChartCell.m; sourceTree = "<group>"; };
+		5A8BE22021240C4100F61665 /* DJElementCheckController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJElementCheckController.h; sourceTree = "<group>"; };
+		5A8BE22121240C4100F61665 /* DJElementCheckController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJElementCheckController.m; sourceTree = "<group>"; };
+		5A8BE22321240CFE00F61665 /* DJElementCheckCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJElementCheckCell.h; sourceTree = "<group>"; };
+		5A8BE22421240CFE00F61665 /* DJElementCheckCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJElementCheckCell.m; sourceTree = "<group>"; };
 		69E75B7A348455A4C6F7FB29 /* Pods-waterConservancy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-waterConservancy.release.xcconfig"; path = "Pods/Target Support Files/Pods-waterConservancy/Pods-waterConservancy.release.xcconfig"; sourceTree = "<group>"; };
 		852F732D60868C4918F85BA0 /* Pods-waterConservancy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-waterConservancy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-waterConservancy/Pods-waterConservancy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -519,6 +528,7 @@
 		5A8BE2172123C69B00F61665 /* SecurityCloud(安全云) */ = {
 			isa = PBXGroup;
 			children = (
+				5A8BE21C2123D0D100F61665 /* views */,
 				5A8BE2182123C69B00F61665 /* controllers */,
 			);
 			name = "SecurityCloud(安全云)";
@@ -530,8 +540,21 @@
 			children = (
 				5A8BE2192123C6D000F61665 /* DJCloudViewController.h */,
 				5A8BE21A2123C6D000F61665 /* DJCloudViewController.m */,
+				5A8BE22021240C4100F61665 /* DJElementCheckController.h */,
+				5A8BE22121240C4100F61665 /* DJElementCheckController.m */,
 			);
 			path = controllers;
+			sourceTree = "<group>";
+		};
+		5A8BE21C2123D0D100F61665 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				5A8BE21D2123D13600F61665 /* DJHiddenDrangeChartCell.h */,
+				5A8BE21E2123D13600F61665 /* DJHiddenDrangeChartCell.m */,
+				5A8BE22321240CFE00F61665 /* DJElementCheckCell.h */,
+				5A8BE22421240CFE00F61665 /* DJElementCheckCell.m */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 		DCE027E0B19377A0F63BA223 /* Pods */ = {
@@ -607,7 +630,7 @@
 		04C530F321212BC900C90964 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = WL;
+				CLASSPREFIX = DJ;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = com.yx.waterConservancy;
 				TargetAttributes = {
@@ -720,12 +743,15 @@
 				04D10BFC21240F2600524EEC /* WLFirstCell.m in Sources */,
 				5A4CF18F2122806600D72FE5 /* YXTarbar.m in Sources */,
 				5A4CF1902122806600D72FE5 /* YXBaseTableViewCell.m in Sources */,
+				5A8BE22521240CFF00F61665 /* DJElementCheckCell.m in Sources */,
 				5A4CF1662122795F00D72FE5 /* DJLoadViewController.m in Sources */,
 				5A4CF1862122801300D72FE5 /* YXNavViewController.m in Sources */,
+				5A8BE22221240C4100F61665 /* DJElementCheckController.m in Sources */,
 				047129CD2122DEDB00EEADE5 /* WLVerticalButton.m in Sources */,
 				5A4CF17721227C6500D72FE5 /* TNIUDateTools.m in Sources */,
 				047129B421217EF600EEADE5 /* WorkViewController.m in Sources */,
 				5A4CF16E21227B1600D72FE5 /* YXForgetView.m in Sources */,
+				5A8BE21F2123D13600F61665 /* DJHiddenDrangeChartCell.m in Sources */,
 				5A4CF18E2122806600D72FE5 /* YXBackBtn.m in Sources */,
 				5A4CF17821227C6500D72FE5 /* YXDataResolveTool.m in Sources */,
 				5A4CF16F21227B1600D72FE5 /* YXSaveUserCell.m in Sources */,
