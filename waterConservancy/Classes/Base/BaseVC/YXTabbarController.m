@@ -10,14 +10,7 @@
 #import "YXTarbar.h"
 #import "YXBaseViewController.h"
 #import "YXNavViewController.h"
-//#import "YXHomeViewController.h"
-//#import "YXRiverInfo3Controller.h"
-//#import "YXUpLoadViewController.h"
-//#import "YXRectificationViewController.h"
-//#import "YXAboutMeViewController.h"
-//#import "YXMapController.h"
-//#import "YXCheckNewModel.h"
-//#import "YXcheckMethod.h"
+#import "DJCloudViewController.h"
 #import "WorkViewController.h"
 
 
@@ -56,7 +49,7 @@
     WorkViewController *homeCtrl = [[WorkViewController alloc]init];
     [self setUpOneChildViewController:homeCtrl image:@"home" title:@"首页"];
     
-    UIViewController *riverCtrl = [[UIViewController alloc]init];
+    DJCloudViewController *riverCtrl = [[DJCloudViewController alloc]init];
     [self setUpOneChildViewController:riverCtrl image:@"checkRiver" title:@"巡河"];
     
     UIViewController *reCtrl = [[UIViewController alloc]init];

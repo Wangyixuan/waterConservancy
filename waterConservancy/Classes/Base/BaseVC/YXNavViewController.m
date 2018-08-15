@@ -16,9 +16,8 @@
 @implementation YXNavViewController
 -(instancetype)initWithRootViewController:(YXBaseViewController *)rootViewController setNavigationBarHidden:(BOOL)hidden{
     YXNavViewController *navCtrl = [[YXNavViewController alloc]initWithRootViewController:rootViewController];
-    [navCtrl setToolbarHidden:hidden animated:YES];
-    [navCtrl setNavigationBarHidden:YES animated:YES];
-    navCtrl.navigationBar.backgroundColor = [UIColor whiteColor];
+    navCtrl.navigationBar.barStyle = UIStatusBarStyleDefault;
+    [UINavigationBar appearance].barTintColor = [UIColor greenColor];
     return navCtrl;
 }
 
