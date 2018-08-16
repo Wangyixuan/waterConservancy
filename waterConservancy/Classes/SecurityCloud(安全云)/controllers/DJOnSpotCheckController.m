@@ -7,31 +7,47 @@
 //
 
 #import "DJOnSpotCheckController.h"
+#import "DJOnSpotCheckCell.h"
 
 @interface DJOnSpotCheckController ()
 
 @end
-
+static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
 @implementation DJOnSpotCheckController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.title = @"现场检查";
+    
+    [self initOnSpotChecktUI];
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 3;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    DJOnSpotCheckCell *cell = [tableView dequeueReusableCellWithIdentifier:ONSPOTCHECKCELLREUSEID];
+    if (!cell) {
+        cell = [[DJOnSpotCheckCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ONSPOTCHECKCELLREUSEID];
+    }
+    @weakify(self);
+    cell.onSpotCheckBtnClickBlock  = ^{
+        @strongify(self);
+        
+    };
+    return cell;
+    
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return SCALE_W(200);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark UI
+-(void)initOnSpotChecktUI{
+    [self.view addSubview:self.tableView];
+    @weakify(self);
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.bottom.mas_equalTo(weak_self.view);
+    }];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

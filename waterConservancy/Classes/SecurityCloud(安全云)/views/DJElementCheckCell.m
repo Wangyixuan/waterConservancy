@@ -63,7 +63,7 @@
 -(UIImageView *)backImgV{
     if (!_backImgV) {
         UIImageView *imgV = [[UIImageView alloc]init];
-        [imgV setImage:[UIImage imageNamed:@"backImg"]];
+        [imgV setImage:[UIImage imageNamed:@"work_cellbackimg"]];
         imgV.userInteractionEnabled = YES;
         [self.contentView addSubview:imgV];
         _backImgV = imgV;
