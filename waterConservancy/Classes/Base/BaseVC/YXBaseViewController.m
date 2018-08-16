@@ -48,7 +48,7 @@
 -(UIBarButtonItem*)customLeftBackButton{
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-     UIImage *image = [UIImage imageNamed:@"back"];
+     UIImage *image = [UIImage imageNamed:@"gobackBtn"];
     [leftBtn setImage:image forState:UIControlStateNormal];
         [leftBtn addTarget:self action:@selector(popself) forControlEvents:UIControlEventTouchUpInside];
     leftBtn.frame = CGRectMake(0, 0, image.size.width, image.size.height);

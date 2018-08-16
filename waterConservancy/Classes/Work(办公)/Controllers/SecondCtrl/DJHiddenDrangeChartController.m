@@ -1,28 +1,40 @@
-
 //
-//  DJCloudViewController.m
+//  DJHiddenDrangeChartController.m
 //  waterConservancy
 //
-//  Created by liu on 2018/8/15.
+//  Created by liu on 2018/8/16.
 //  Copyright © 2018年 com.yx.waterConservancy. All rights reserved.
 //
 
-#import "DJCloudViewController.h"
+#import "DJHiddenDrangeChartController.h"
 #import "DJHiddenDrangeChartCell.h"
 
-@interface DJCloudViewController ()
+@interface DJHiddenDrangeChartController ()
 
 @end
 static NSString *const HIDDENDRANGECELLREUSEID = @"HIDDENDRANGECELL";
-@implementation DJCloudViewController
+
+@implementation DJHiddenDrangeChartController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"隐患报表";
     
     [self initHiddenDangerChartUI];
+    
+    NSDictionary *parmars = @{@"hiddStat":@"1",
+                              @"orgGuid":@"3CC7C07191394F959D55F098B23281F6",
+                              };
+    [[YXNetTool shareTool]getRequestWithURL:@"http://192.168.1.8:8080/sjjk/v1/bis/obj/objHidds/" Parmars:parmars success:^(id responseObject) {
+        NSLog(@"%@",responseObject);
+    } faild:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
+    
+    
+    
+    
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 3;
 }
@@ -51,4 +63,5 @@ static NSString *const HIDDENDRANGECELLREUSEID = @"HIDDENDRANGECELL";
         make.left.right.top.bottom.mas_equalTo(weak_self.view);
     }];
 }
+
 @end

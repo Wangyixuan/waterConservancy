@@ -17,26 +17,6 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor whiteColor];
-        CGFloat tabbarImgY = SCALE_W(138)-kTabbarHeight;
-        if (tabbarImgY>0) {
-            tabbarImgY = -tabbarImgY;
-        }else{
-            tabbarImgY -= SCALE_W(10);
-        }
-        UIImageView *imgv = [[UIImageView alloc]initWithFrame:CGRectMake(0, tabbarImgY, ScreenWidth, SCALE_W(138))];
-        [imgv setImage:[UIImage imageNamed:@"bar"]];
-        [self insertSubview:imgv atIndex:0];
-        
-        //创建中间“+”按钮
-        UIButton *addBtn = [[UIButton alloc] init];
-         //设置默认背景图片
-        [addBtn setBackgroundImage:[UIImage imageNamed:@"takePhoto"] forState:UIControlStateNormal];
-         //添加响应事件
-         [addBtn addTarget:self action:@selector(plusClick) forControlEvents:UIControlEventTouchUpInside];
-         //将按钮添加到TabBar
-         [self addSubview:addBtn];
-
-         self.addButton = addBtn;
     }
     return self;
 }

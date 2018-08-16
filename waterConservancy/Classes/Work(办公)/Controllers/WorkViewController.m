@@ -10,15 +10,18 @@
 #import "WLWorkTopView.h"
 #import "WLWorkModel.h"
 #import "WLWorkTableViewCell.h"
+//二级跳转ctrl
+#import "DJHiddenDrangeChartController.h"
+#import "DJElementCheckController.h"
+#import "DJOnSpotCheckController.h"
 
-#define TABLEVIEWCELLIDENTIFITY  @"WLWorkTableViewCell"
 
 @interface WorkViewController ()<UITableViewDelegate,UITableViewDataSource>
-
 @property (nonatomic, weak) UITableView *workList;
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @end
 
+#define TABLEVIEWCELLIDENTIFITY  @"WLWorkTableViewCell"
 @implementation WorkViewController
 
 - (void)viewDidLoad {
@@ -83,7 +86,7 @@
     return _workList;
 }
 
-
+#pragma mark delegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -102,12 +105,14 @@
     if (self.dataArr.count>indexPath.row) {
         cell.modelArr = [self.dataArr objectAtIndex:indexPath.row];
     }
-    cell.btnClickBlock = ^{
-        NSLog(@"点击item");
+    @weakify(self);
+    cell.btnClickBlock = ^(NSString *cellTitle) {
+        NSLog(@"item点击%@",cellTitle);
+        [weak_self pushControllerWithTitle:cellTitle];
     };
     return cell;
 }
-
+#pragma  mark privateMethod
 -(WLWorkTopView*)setupTopView{
     WLWorkTopView *topView = [[WLWorkTopView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 210)];
     topView.noticeBlock = ^{
@@ -126,6 +131,13 @@
         NSLog(@"二维码");
     };
     return topView;
+}
+-(void)pushControllerWithTitle:(NSString *)titie{
+//    if ([titie isEqualToString:@"隐患报表"]) {
+        DJHiddenDrangeChartController *hiddenCtrl = [[DJHiddenDrangeChartController alloc]init];
+        [self.navigationController pushViewController:hiddenCtrl animated:YES];
+//    }
+//    else if (titie isEqualToString:@"")
 }
 
 

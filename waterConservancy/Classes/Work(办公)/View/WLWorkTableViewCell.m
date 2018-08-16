@@ -32,12 +32,6 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
    
 }
-//-(instancetype)initWithFrame:(CGRect)frame{
-//    if (self = [super initWithFrame:frame]) {
-//        [self setupUI];
-//    }
-//    return self;
-//}
 
 -(void)setModelArr:(NSArray *)modelArr{
     _modelArr = modelArr;
@@ -52,7 +46,7 @@
     for (int i = 0; i < self.modelArr.count; ++i) {
         WLVerticalButton *btn = [[WLVerticalButton alloc]initWithFrame:CGRectMake(i*itemW, 0, itemW, itemH)];
         [btn setTitleColor:COLOR_WITH_HEX(0x999999) forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(itemBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [btn addTarget:self action:@selector(itemBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         WLWorkModel *model = [modelArr objectAtIndex:i];
         [btn setTitle:model.title forState:UIControlStateNormal];
         [btn setImage:[UIImage imageNamed:model.iconURL] forState:UIControlStateNormal];
@@ -78,7 +72,7 @@
     for (int i = 0; i < self.modelArr.count; ++i) {
         WLVerticalButton *btn = [[WLVerticalButton alloc]initWithFrame:CGRectMake(i*itemW, 0, itemW, itemH)];
         [btn setTitleColor:COLOR_WITH_HEX(0x999999) forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(itemBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [btn addTarget:self action:@selector(itemBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         WLWorkModel *model = [modelArray objectAtIndex:i];
         [btn setTitle:model.title forState:UIControlStateNormal];
         [btn setImage:[UIImage imageNamed:model.iconURL] forState:UIControlStateNormal];
@@ -86,9 +80,9 @@
     }
 }
 
--(void)itemBtnClick{
+-(void)itemBtnClick:(UIButton *)itemBtn{
     if (self.btnClickBlock) {
-        self.btnClickBlock();
+        self.btnClickBlock(itemBtn.titleLabel.text);
     }
 }
 @end
