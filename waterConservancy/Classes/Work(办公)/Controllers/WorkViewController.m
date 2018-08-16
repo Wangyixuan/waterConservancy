@@ -11,12 +11,14 @@
 #import "WLWorkCell.h"
 #import "WLFirstCell.h"
 
+#import "DJSectionFlowLayout.h"
+
 #define WORKCELLIDENTIFITY @"WLWorkCell"
 #define FIRSTCELLIDENTIFITY @"WLFirstCell"
 
 @interface WorkViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, weak) UICollectionView *workCollectionView;
-@property (nonatomic, strong) UICollectionViewFlowLayout *workCollectionViewLayout;
+@property (nonatomic, strong) DJSectionFlowLayout *workCollectionViewLayout;
 @property (nonatomic, weak) WLWorkTopView *topView;
 @end
 
@@ -81,8 +83,9 @@
         UICollectionView *colView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:self.workCollectionViewLayout];
         colView.delegate = self;
         colView.dataSource = self;
-        [colView registerClass:[WLWorkCell class] forCellWithReuseIdentifier:WORKCELLIDENTIFITY];
-        [colView registerClass:[WLFirstCell class] forCellWithReuseIdentifier:FIRSTCELLIDENTIFITY];
+        [colView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"collectionReuseid"];
+//        [colView registerClass:[WLWorkCell class] forCellWithReuseIdentifier:WORKCELLIDENTIFITY];
+//        [colView registerClass:[WLFirstCell class] forCellWithReuseIdentifier:FIRSTCELLIDENTIFITY];
         colView.backgroundColor = [UIColor purpleColor];
         [self.view addSubview:colView];
         _workCollectionView = colView;
@@ -90,17 +93,17 @@
     return _workCollectionView;
 }
 
--(UICollectionViewFlowLayout*)workCollectionViewLayout{
+-(DJSectionFlowLayout*)workCollectionViewLayout{
     if (!_workCollectionViewLayout) {
-        UICollectionViewFlowLayout *collectionLayout = [[UICollectionViewFlowLayout alloc]init];
+        DJSectionFlowLayout *collectionLayout = [[DJSectionFlowLayout alloc]init];
         //item大小
-        collectionLayout.itemSize = CGSizeMake(50, 50);
+        collectionLayout.itemSize = CGSizeMake(30, 30);
         //最小行间距
         collectionLayout.minimumLineSpacing = 20;
         //最小列间距
-        collectionLayout.minimumInteritemSpacing = 10;
+        collectionLayout.minimumInteritemSpacing = 0;
         //内边距
-        collectionLayout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);
+        collectionLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
         //滑动方向
         collectionLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
         _workCollectionViewLayout = collectionLayout;
@@ -115,21 +118,24 @@
     return 2;
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row==0) {
-        WLFirstCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FIRSTCELLIDENTIFITY forIndexPath:indexPath];
+//    if (indexPath.row==0) {
+//        WLFirstCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FIRSTCELLIDENTIFITY forIndexPath:indexPath];
+//        return cell;
+//    }else{
+        WLWorkCell *cell =[collectionView dequeueReusableCellWithReuseIdentifier:@"collectionReuseid" forIndexPath:indexPath];
         return cell;
-    }else{
-        WLWorkCell *cell =[collectionView dequeueReusableCellWithReuseIdentifier:WORKCELLIDENTIFITY forIndexPath:indexPath];
-        return cell;
-    }
+//    }
+//    WLWorkCell *cell = [self.workCollectionView dequeueReusableCellWithReuseIdentifier:@"collectionReuseid"
+//                                                                                forIndexPath:indexPath];
+    return cell;
 }
 
 #pragma mark UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row==0) {
-        return CGSizeMake(50, 100);
+        return CGSizeMake(50, 80);
     }else{
-        return CGSizeMake(100, 100);
+        return CGSizeMake(80, 80);
     }
 }
 
