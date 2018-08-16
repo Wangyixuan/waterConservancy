@@ -11,9 +11,9 @@
 @implementation WLWorkModel
 -(instancetype)initWithDic:(NSDictionary*)dic{
     if (self = [super init]) {
-        self.title = [dic stringValueForKey:@"title" default:@""];
-        self.iconURL = [dic stringValueForKey:@"img" default:@""];
-        
+        self.title = [dic stringForKey:@"title" defaultValue:@""];
+        self.bgImage = [dic stringForKey:@"bgImage" defaultValue:@""];
+        self.data = [dic objectForKey:@"data"];        
     }
     return self;
 }

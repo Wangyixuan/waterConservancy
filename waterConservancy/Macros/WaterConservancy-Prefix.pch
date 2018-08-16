@@ -12,6 +12,7 @@
 #import "TypeDefine.h"
 #import "CommonMacro.h"
 #import "YXNetTool.h"
+#import "NSDictionary+JsonDict.h"
 
 #import <Masonry.h>
 #import <YYKit.h>

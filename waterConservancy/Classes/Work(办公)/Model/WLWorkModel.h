@@ -10,7 +10,8 @@
 
 @interface WLWorkModel : NSObject
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *iconURL;
+@property (nonatomic, copy) NSString *bgImage;
+@property (nonatomic, strong) NSArray *data;
 
 
 -(instancetype)initWithDic:(NSDictionary*)dic;
