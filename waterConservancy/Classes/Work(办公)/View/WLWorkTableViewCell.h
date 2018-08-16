@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WLWorkModel.h"
 
 @interface WLWorkTableViewCell : UITableViewCell
-@property (nonatomic, strong) NSArray *modelArr;
+@property (nonatomic, strong) WLWorkModel *model;
 @property (nonatomic, copy) void(^btnClickBlock)();
 @end

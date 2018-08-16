@@ -32,30 +32,28 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
    
 }
-//-(instancetype)initWithFrame:(CGRect)frame{
-//    if (self = [super initWithFrame:frame]) {
-//        [self setupUI];
-//    }
-//    return self;
-//}
-
--(void)setModelArr:(NSArray *)modelArr{
-    _modelArr = modelArr;
-    if (modelArr.count>4) {
-        [self setupScrollViewWithArray:modelArr];
+-(void)setModel:(WLWorkModel *)model{
+    _model = model;
+    self.titleLab.text = model.title;
+    self.bgImageView.image = [UIImage imageNamed:model.bgImage];
+    if (model.data.count>4) {
+        [self setupScrollViewWithArray:model.data];
     }else{
-        [self setupBtnsWithArray:modelArr];
+        [self setupBtnsWithArray:model.data];
     }
 }
+
 -(void)setupBtnsWithArray:(NSArray*)modelArr{
     [self.subViewBgView removeAllSubviews];
-    for (int i = 0; i < self.modelArr.count; ++i) {
+    for (int i = 0; i < modelArr.count; ++i) {
         WLVerticalButton *btn = [[WLVerticalButton alloc]initWithFrame:CGRectMake(i*itemW, 0, itemW, itemH)];
         [btn setTitleColor:COLOR_WITH_HEX(0x999999) forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(itemBtnClick) forControlEvents:UIControlEventTouchUpInside];
-        WLWorkModel *model = [modelArr objectAtIndex:i];
-        [btn setTitle:model.title forState:UIControlStateNormal];
-        [btn setImage:[UIImage imageNamed:model.iconURL] forState:UIControlStateNormal];
+        NSDictionary *dic = [modelArr objectAtIndex:i];
+        NSString *text = (NSString*)[dic objectForKey:@"text"];
+        NSString *imgName = (NSString*)[dic objectForKey:@"img"];
+        [btn setTitle:text forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
         [self.subViewBgView addSubview:btn];
     }
 }
@@ -75,13 +73,15 @@
     }else{
         [_bgScrollView removeAllSubviews];
     }
-    for (int i = 0; i < self.modelArr.count; ++i) {
+    for (int i = 0; i < modelArray.count; ++i) {
         WLVerticalButton *btn = [[WLVerticalButton alloc]initWithFrame:CGRectMake(i*itemW, 0, itemW, itemH)];
         [btn setTitleColor:COLOR_WITH_HEX(0x999999) forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(itemBtnClick) forControlEvents:UIControlEventTouchUpInside];
-        WLWorkModel *model = [modelArray objectAtIndex:i];
-        [btn setTitle:model.title forState:UIControlStateNormal];
-        [btn setImage:[UIImage imageNamed:model.iconURL] forState:UIControlStateNormal];
+        NSDictionary *dic = [modelArray objectAtIndex:i];
+        NSString *text = (NSString*)[dic objectForKey:@"text"];
+        NSString *imgName = (NSString*)[dic objectForKey:@"img"];
+        [btn setTitle:text forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
         [_bgScrollView addSubview:btn];
     }
 }
