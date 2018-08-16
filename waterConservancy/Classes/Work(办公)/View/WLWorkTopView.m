@@ -60,13 +60,12 @@
 
 -(void)setupUI{
     @weakify(self);
-    self.backgroundColor = [UIColor redColor];
     [self.bgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        CGFloat H = KStatusbarHeight;
-        make.top.mas_equalTo(70+H);
+        make.top.mas_equalTo(70+KStatusbarHeight);
         make.left.mas_equalTo(10);
-        make.right.mas_equalTo(-10);
+        make.width.mas_equalTo(kScreenWidth-20);
         make.bottom.mas_equalTo(-10);
+        
     }];
     [self.bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.bottom.mas_equalTo(0);
@@ -89,15 +88,15 @@
         make.right.mas_equalTo(weak_self.lineView.mas_right).offset(-25);
     }];
     [self.userInfoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(15);
-        make.top.mas_equalTo(KStatusbarHeight);
+        make.left.mas_equalTo(20);
+        make.top.mas_equalTo(KStatusbarHeight+10);
     }];
     [self.QRCodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(-15);
-        make.centerY.mas_equalTo(weak_self.userInfoBtn.mas_centerY);
+        make.right.mas_equalTo(-20);
+    make.centerY.mas_equalTo(weak_self.userInfoBtn.mas_centerY);
     }];
     [self.nearBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(weak_self.QRCodeBtn.mas_left).offset(-10);
+        make.right.mas_equalTo(weak_self.QRCodeBtn.mas_left).offset(-20);
         make.centerY.mas_equalTo(weak_self.userInfoBtn.mas_centerY);
     }];
     [self.navTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -118,7 +117,7 @@
 }
 -(UIImageView*)bgImageView{
     if (!_bgImageView) {
-        UIImageView *bg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"home"]];
+        UIImageView *bg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"topBg"]];
         [self addSubview:bg];
         [self insertSubview:bg belowSubview:self.bgView];
         _bgImageView = bg;
@@ -138,11 +137,12 @@
 -(WLVerticalButton*)noticeBtn{
     if (!_noticeBtn) {
         WLVerticalButton *btn = [[WLVerticalButton alloc]init];
-        [btn remindButtonWithRemindNum:1];
+        [btn remindButtonWithRemindNum:20];
         [btn setTitle:@"通知提醒" forState:UIControlStateNormal];
-        [btn setImage:[UIImage imageNamed:@"nitify_cuiban"] forState:UIControlStateNormal];
-        [btn setImage:[UIImage imageNamed:@"nitify_cuiban"] forState:UIControlStateHighlighted];
-        btn.backgroundColor = [UIColor blueColor];
+        [btn setTitleColor:COLOR_WITH_HEX(0x999999) forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"tongzhitixing"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"tongzhitixing"] forState:UIControlStateHighlighted];
+//        btn.backgroundColor = [UIColor blueColor];
         [btn addTarget:self action:@selector(noticeBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [self.bgView addSubview:btn];
         _noticeBtn = btn;
@@ -156,9 +156,10 @@
         WLVerticalButton *btn = [[WLVerticalButton alloc]init];
         [btn remindButtonWithRemindNum:1];
         [btn setTitle:@"待办工作" forState:UIControlStateNormal];
-        [btn setImage:[UIImage imageNamed:@"nitify_cuiban"] forState:UIControlStateNormal];
-        [btn setImage:[UIImage imageNamed:@"nitify_cuiban"] forState:UIControlStateHighlighted];
-        btn.backgroundColor = [UIColor blueColor];
+        [btn setTitleColor:COLOR_WITH_HEX(0x999999) forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"daibangongzuo"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"daibangongzuo"] forState:UIControlStateHighlighted];
+//        btn.backgroundColor = [UIColor blueColor];
         [btn addTarget:self action:@selector(agencyWorkBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [self.bgView addSubview:btn];
         _agencyWorkBtn = btn;
@@ -170,8 +171,8 @@
 -(UIButton*)userInfoBtn{
     if (!_userInfoBtn) {
         UIButton *btn = [[UIButton alloc]init];
-        [btn setImage:[UIImage imageNamed:@"home"] forState:UIControlStateNormal];
-         btn.backgroundColor = [UIColor blueColor];
+        [btn setImage:[UIImage imageNamed:@"userInfo"] forState:UIControlStateNormal];
+//         btn.backgroundColor = [UIColor blueColor];
          [btn addTarget:self action:@selector(userInfoBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btn];
         _userInfoBtn = btn;
@@ -181,8 +182,8 @@
 -(UIButton*)nearBtn{
     if (!_nearBtn) {
         UIButton *btn = [[UIButton alloc]init];
-        [btn setImage:[UIImage imageNamed:@"home"] forState:UIControlStateNormal];
-         btn.backgroundColor = [UIColor blueColor];
+        [btn setImage:[UIImage imageNamed:@"near"] forState:UIControlStateNormal];
+//         btn.backgroundColor = [UIColor blueColor];
          [btn addTarget:self action:@selector(nearBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btn];
         _nearBtn = btn;
@@ -192,8 +193,8 @@
 -(UIButton*)QRCodeBtn{
     if (!_QRCodeBtn) {
         UIButton *btn = [[UIButton alloc]init];
-        [btn setImage:[UIImage imageNamed:@"home"] forState:UIControlStateNormal];
-         btn.backgroundColor = [UIColor blueColor];
+        [btn setImage:[UIImage imageNamed:@"QRCode"] forState:UIControlStateNormal];
+//         btn.backgroundColor = [UIColor blueColor];
          [btn addTarget:self action:@selector(QRCodeBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btn];
         _QRCodeBtn = btn;
@@ -205,8 +206,8 @@
         UILabel *lab = [[UILabel alloc]init];
         lab.textAlignment = NSTextAlignmentCenter;
         lab.textColor = [UIColor whiteColor];
-        lab.font = YX30Font;
-        lab.backgroundColor = [UIColor blackColor];
+        lab.font = YX32Font;
+//        lab.backgroundColor = [UIColor blackColor];
         lab.text = @"办公";
         [self addSubview:lab];
         _navTitleLab = lab;

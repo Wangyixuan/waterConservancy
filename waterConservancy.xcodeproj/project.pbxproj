@@ -9,15 +9,16 @@
 /* Begin PBXBuildFile section */
 		047129AE21217B5A00EEADE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047129AD21217B5A00EEADE5 /* Foundation.framework */; };
 		047129B421217EF600EEADE5 /* WorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047129B321217EF600EEADE5 /* WorkViewController.m */; };
-		047129BA2122A9F000EEADE5 /* WLWorkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047129B92122A9F000EEADE5 /* WLWorkCell.m */; };
 		047129C32122C81900EEADE5 /* WLWorkTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047129C22122C81900EEADE5 /* WLWorkTopView.m */; };
 		047129CD2122DEDB00EEADE5 /* WLVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 047129CC2122DEDB00EEADE5 /* WLVerticalButton.m */; };
+		047B505821242DE50007C477 /* WLWorkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B505721242DE50007C477 /* WLWorkTableViewCell.m */; };
+		047B505B21243A740007C477 /* WLWorkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B505A21243A740007C477 /* WLWorkModel.m */; };
+		047B505D212441410007C477 /* WLWorkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B505C212441410007C477 /* WLWorkTableViewCell.xib */; };
 		04C5310021212BC900C90964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C530FF21212BC900C90964 /* AppDelegate.m */; };
 		04C5310821212BCB00C90964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310721212BCB00C90964 /* Assets.xcassets */; };
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
 		04C5311821212BCB00C90964 /* waterConservancyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5311721212BCB00C90964 /* waterConservancyTests.m */; };
 		04C5312321212BCB00C90964 /* waterConservancyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5312221212BCB00C90964 /* waterConservancyUITests.m */; };
-		04D10BFC21240F2600524EEC /* WLFirstCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D10BFB21240F2600524EEC /* WLFirstCell.m */; };
 		5A4CF1662122795F00D72FE5 /* DJLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CF1652122795F00D72FE5 /* DJLoadViewController.m */; };
 		5A4CF16D21227B1600D72FE5 /* YXDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CF16921227B1600D72FE5 /* YXDownListView.m */; };
 		5A4CF16E21227B1600D72FE5 /* YXForgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CF16A21227B1600D72FE5 /* YXForgetView.m */; };
@@ -63,12 +64,15 @@
 		047129B221217EF600EEADE5 /* WorkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkViewController.h; sourceTree = "<group>"; };
 		047129B321217EF600EEADE5 /* WorkViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkViewController.m; sourceTree = "<group>"; };
 		047129B521217FEC00EEADE5 /* CodingStandard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodingStandard.h; sourceTree = "<group>"; };
-		047129B82122A9F000EEADE5 /* WLWorkCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLWorkCell.h; sourceTree = "<group>"; };
-		047129B92122A9F000EEADE5 /* WLWorkCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLWorkCell.m; sourceTree = "<group>"; };
 		047129C12122C81900EEADE5 /* WLWorkTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLWorkTopView.h; sourceTree = "<group>"; };
 		047129C22122C81900EEADE5 /* WLWorkTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLWorkTopView.m; sourceTree = "<group>"; };
 		047129CB2122DEDB00EEADE5 /* WLVerticalButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLVerticalButton.h; sourceTree = "<group>"; };
 		047129CC2122DEDB00EEADE5 /* WLVerticalButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLVerticalButton.m; sourceTree = "<group>"; };
+		047B505621242DE50007C477 /* WLWorkTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLWorkTableViewCell.h; sourceTree = "<group>"; };
+		047B505721242DE50007C477 /* WLWorkTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLWorkTableViewCell.m; sourceTree = "<group>"; };
+		047B505921243A740007C477 /* WLWorkModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WLWorkModel.h; path = "waterConservancy/Classes/Work(办公)/View/WLWorkModel.h"; sourceTree = SOURCE_ROOT; };
+		047B505A21243A740007C477 /* WLWorkModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WLWorkModel.m; path = "waterConservancy/Classes/Work(办公)/View/WLWorkModel.m"; sourceTree = SOURCE_ROOT; };
+		047B505C212441410007C477 /* WLWorkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLWorkTableViewCell.xib; sourceTree = "<group>"; };
 		04C530FB21212BC900C90964 /* waterConservancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterConservancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C530FE21212BC900C90964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04C530FF21212BC900C90964 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -83,8 +87,6 @@
 		04C5312421212BCB00C90964 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C5313A21215E3100C90964 /* WaterConservancy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WaterConservancy-Prefix.pch"; sourceTree = "<group>"; };
 		04C5313C21215E6A00C90964 /* CommonMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonMacro.h; sourceTree = "<group>"; };
-		04D10BFA21240F2600524EEC /* WLFirstCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLFirstCell.h; sourceTree = "<group>"; };
-		04D10BFB21240F2600524EEC /* WLFirstCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLFirstCell.m; sourceTree = "<group>"; };
 		0C0C5E7A62458F22B4104EA4 /* libPods-waterConservancy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-waterConservancy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4CF1642122795F00D72FE5 /* DJLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJLoadViewController.h; sourceTree = "<group>"; };
 		5A4CF1652122795F00D72FE5 /* DJLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJLoadViewController.m; sourceTree = "<group>"; };
@@ -154,37 +156,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0471298D2121734C00EEADE5 /* SecurityCloud(安全云) */ = {
-			isa = PBXGroup;
-			children = (
-				0471298E2121734C00EEADE5 /* Model */,
-				0471298F2121734C00EEADE5 /* View */,
-				047129902121734C00EEADE5 /* Controllers */,
-			);
-			path = "SecurityCloud(安全云)";
-			sourceTree = "<group>";
-		};
-		0471298E2121734C00EEADE5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		0471298F2121734C00EEADE5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		047129902121734C00EEADE5 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		047129912121734C00EEADE5 /* Work(办公) */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +169,8 @@
 		047129922121734C00EEADE5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				047B505921243A740007C477 /* WLWorkModel.h */,
+				047B505A21243A740007C477 /* WLWorkModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -205,14 +178,13 @@
 		047129932121734C00EEADE5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				047129B82122A9F000EEADE5 /* WLWorkCell.h */,
-				047129B92122A9F000EEADE5 /* WLWorkCell.m */,
 				047129C12122C81900EEADE5 /* WLWorkTopView.h */,
 				047129C22122C81900EEADE5 /* WLWorkTopView.m */,
 				047129CB2122DEDB00EEADE5 /* WLVerticalButton.h */,
 				047129CC2122DEDB00EEADE5 /* WLVerticalButton.m */,
-				04D10BFA21240F2600524EEC /* WLFirstCell.h */,
-				04D10BFB21240F2600524EEC /* WLFirstCell.m */,
+				047B505621242DE50007C477 /* WLWorkTableViewCell.h */,
+				047B505C212441410007C477 /* WLWorkTableViewCell.xib */,
+				047B505721242DE50007C477 /* WLWorkTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -395,7 +367,6 @@
 				5A4CF161212278A400D72FE5 /* load */,
 				0471299D2121734C00EEADE5 /* Gateway(门户) */,
 				047129992121734C00EEADE5 /* MailList(通讯录) */,
-				0471298D2121734C00EEADE5 /* SecurityCloud(安全云) */,
 				047129952121734C00EEADE5 /* Special(专题图) */,
 				047129912121734C00EEADE5 /* Work(办公) */,
 				04C5313821215BCA00C90964 /* Base */,
@@ -630,7 +601,7 @@
 		04C530F321212BC900C90964 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = DJ;
+				CLASSPREFIX = WL;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = com.yx.waterConservancy;
 				TargetAttributes = {
@@ -672,6 +643,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				047B505D212441410007C477 /* WLWorkTableViewCell.xib in Resources */,
 				5A4CF1922122832B00D72FE5 /* Main.storyboard in Resources */,
 				04C5310821212BCB00C90964 /* Assets.xcassets in Resources */,
 			);
@@ -740,7 +712,7 @@
 				5A4CF195212283E200D72FE5 /* ViewController.m in Sources */,
 				5A4CF1832122801300D72FE5 /* YXTabbarController.m in Sources */,
 				5A4CF17921227C6500D72FE5 /* YXNetTool.m in Sources */,
-				04D10BFC21240F2600524EEC /* WLFirstCell.m in Sources */,
+				047B505B21243A740007C477 /* WLWorkModel.m in Sources */,
 				5A4CF18F2122806600D72FE5 /* YXTarbar.m in Sources */,
 				5A4CF1902122806600D72FE5 /* YXBaseTableViewCell.m in Sources */,
 				5A8BE22521240CFF00F61665 /* DJElementCheckCell.m in Sources */,
@@ -757,7 +729,7 @@
 				5A4CF16F21227B1600D72FE5 /* YXSaveUserCell.m in Sources */,
 				5A4CF1842122801300D72FE5 /* YXBaseViewController.m in Sources */,
 				04C5310E21212BCB00C90964 /* main.m in Sources */,
-				047129BA2122A9F000EEADE5 /* WLWorkCell.m in Sources */,
+				047B505821242DE50007C477 /* WLWorkTableViewCell.m in Sources */,
 				04C5310021212BC900C90964 /* AppDelegate.m in Sources */,
 				5A4CF16D21227B1600D72FE5 /* YXDownListView.m in Sources */,
 				047129C32122C81900EEADE5 /* WLWorkTopView.m in Sources */,
