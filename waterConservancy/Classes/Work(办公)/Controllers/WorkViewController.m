@@ -11,14 +11,12 @@
 #import "WLWorkCell.h"
 #import "WLFirstCell.h"
 
-#import "DJSectionFlowLayout.h"
-
 #define WORKCELLIDENTIFITY @"WLWorkCell"
 #define FIRSTCELLIDENTIFITY @"WLFirstCell"
 
 @interface WorkViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, weak) UICollectionView *workCollectionView;
-@property (nonatomic, strong) DJSectionFlowLayout *workCollectionViewLayout;
+@property (nonatomic, strong) UICollectionViewFlowLayout *workCollectionViewLayout;
 @property (nonatomic, weak) WLWorkTopView *topView;
 @end
 
@@ -93,9 +91,9 @@
     return _workCollectionView;
 }
 
--(DJSectionFlowLayout*)workCollectionViewLayout{
+-(UICollectionViewFlowLayout*)workCollectionViewLayout{
     if (!_workCollectionViewLayout) {
-        DJSectionFlowLayout *collectionLayout = [[DJSectionFlowLayout alloc]init];
+        UICollectionViewFlowLayout *collectionLayout = [[UICollectionViewFlowLayout alloc]init];
         //item大小
         collectionLayout.itemSize = CGSizeMake(30, 30);
         //最小行间距
