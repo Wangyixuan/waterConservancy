@@ -18,7 +18,7 @@
 
 - (CGRect)titleRectForContentRect:(CGRect)contentRect
 {
-    CGFloat titleY = contentRect.size.height *0.6;
+    CGFloat titleY = contentRect.size.height *0.7;
     CGFloat titleW = contentRect.size.width;
     CGFloat titleH = contentRect.size.height - titleY;
     return CGRectMake(0, titleY , titleW, titleH);
@@ -26,7 +26,7 @@
 - (CGRect)imageRectForContentRect:(CGRect)contentRect
 {
     CGFloat imageW = CGRectGetWidth(contentRect);
-    CGFloat imageH = contentRect.size.height * 0.6;
+    CGFloat imageH = contentRect.size.height * 0.7;
     return CGRectMake(0, 0, imageW, imageH);
 }
 
@@ -34,9 +34,19 @@
     if (self = [super init]) {
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        self.titleLabel.font = [UIFont systemFontOfSize:13];
-        self.titleLabel.textColor = [UIColor darkGrayColor];
+        self.titleLabel.font = YX20Font;
+        self.titleLabel.textColor = COLOR_WITH_HEX(0x999999);
         [self initUI];
+    }
+    return self;
+}
+
+-(instancetype)initWithFrame:(CGRect)frame{
+    if (self = [super initWithFrame:frame]) {
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
+        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.titleLabel.font = YX20Font;
+        self.titleLabel.textColor = COLOR_WITH_HEX(0x999999);
     }
     return self;
 }
@@ -45,7 +55,13 @@
     if(remindNum<=0){
         [self.remindNumberLabel setHidden:YES];
     }else{
+        if (remindNum>9) {
+            [self.remindNumberLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+                 make.width.mas_greaterThanOrEqualTo(25);
+            }];
+        }
         [self.remindNumberLabel setText:[NSString stringWithFormat:@"%d",remindNum]];
+
     }
     
 }
@@ -53,9 +69,9 @@
 -(void)initUI{
     @weakify(self);
     [self.remindNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(weak_self.imageView.mas_right);
+        make.left.mas_equalTo(weak_self.imageView.mas_centerX).offset(20);
         make.top.mas_equalTo(weak_self.imageView).offset(-5);
-        make.width.mas_greaterThanOrEqualTo(30);
+        make.width.mas_greaterThanOrEqualTo(20);
         make.height.mas_equalTo(20);
     }];
 }

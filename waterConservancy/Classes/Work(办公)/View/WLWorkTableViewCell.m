@@ -1,0 +1,94 @@
+//
+//  WLWorkTableViewCell.m
+//  waterConservancy
+//
+//  Created by mac on 2018/8/15.
+//  Copyright © 2018年 com.yx.waterConservancy. All rights reserved.
+//
+
+#import "WLWorkTableViewCell.h"
+#import "WLVerticalButton.h"
+#import "WLWorkModel.h"
+
+#define WORKCELLIDENTIFITY @"WLWorkCell"
+#define itemW (kScreenWidth-56-20)/4
+#define itemH itemW
+
+
+@interface WLWorkTableViewCell()<UIScrollViewDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+@property (weak, nonatomic) IBOutlet UIView *subViewBgView;
+
+@property (nonatomic, strong) NSMutableArray *btnArr;
+@property (nonatomic, weak) UIScrollView *bgScrollView;
+@end
+
+@implementation WLWorkTableViewCell
+
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    self.btnArr = [NSMutableArray array];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+   
+}
+//-(instancetype)initWithFrame:(CGRect)frame{
+//    if (self = [super initWithFrame:frame]) {
+//        [self setupUI];
+//    }
+//    return self;
+//}
+
+-(void)setModelArr:(NSArray *)modelArr{
+    _modelArr = modelArr;
+    if (modelArr.count>4) {
+        [self setupScrollViewWithArray:modelArr];
+    }else{
+        [self setupBtnsWithArray:modelArr];
+    }
+}
+-(void)setupBtnsWithArray:(NSArray*)modelArr{
+    [self.subViewBgView removeAllSubviews];
+    for (int i = 0; i < self.modelArr.count; ++i) {
+        WLVerticalButton *btn = [[WLVerticalButton alloc]initWithFrame:CGRectMake(i*itemW, 0, itemW, itemH)];
+        [btn setTitleColor:COLOR_WITH_HEX(0x999999) forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(itemBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        WLWorkModel *model = [modelArr objectAtIndex:i];
+        [btn setTitle:model.title forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:model.iconURL] forState:UIControlStateNormal];
+        [self.subViewBgView addSubview:btn];
+    }
+}
+
+-(void)setupScrollViewWithArray:(NSArray*)modelArray{
+    if (!_bgScrollView) {
+        [self.subViewBgView removeAllSubviews];
+        UIScrollView *bgScrollView = [[UIScrollView alloc]init];
+        bgScrollView.contentSize = CGSizeMake(itemW*modelArray.count, 0);
+        bgScrollView.showsHorizontalScrollIndicator = NO;
+        bgScrollView.pagingEnabled = YES;
+        [self.subViewBgView addSubview:bgScrollView];
+        [bgScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.right.bottom.mas_equalTo(0);
+        }];
+        self.bgScrollView = bgScrollView;
+    }else{
+        [_bgScrollView removeAllSubviews];
+    }
+    for (int i = 0; i < self.modelArr.count; ++i) {
+        WLVerticalButton *btn = [[WLVerticalButton alloc]initWithFrame:CGRectMake(i*itemW, 0, itemW, itemH)];
+        [btn setTitleColor:COLOR_WITH_HEX(0x999999) forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(itemBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        WLWorkModel *model = [modelArray objectAtIndex:i];
+        [btn setTitle:model.title forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:model.iconURL] forState:UIControlStateNormal];
+        [_bgScrollView addSubview:btn];
+    }
+}
+
+-(void)itemBtnClick{
+    if (self.btnClickBlock) {
+        self.btnClickBlock();
+    }
+}
+@end
