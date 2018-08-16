@@ -62,7 +62,6 @@
         make.left.right.mas_equalTo(0);
         make.bottom.mas_equalTo(WC_HOMEBAR_HEIGHT);
     }];
-    
 }
 
 -(UITableView*)workList{
@@ -85,13 +84,16 @@
     return _workList;
 }
 
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 9;
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+   
     return SCALE_W(186);
 }
 
@@ -101,11 +103,7 @@
     if (self.dataArr.count>indexPath.row) {
         cell.modelArr = [self.dataArr objectAtIndex:indexPath.row];
     }
-    cell.btnClickBlock = ^{
-        NSLog(@"点击按钮");
-    };
     return cell;
-
 }
 
 -(WLWorkTopView*)setupTopView{
@@ -129,4 +127,5 @@
 }
 
 
-@end
+ @end
+        
