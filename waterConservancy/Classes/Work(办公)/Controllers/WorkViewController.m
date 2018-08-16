@@ -15,7 +15,6 @@
 
 @interface WorkViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-//@property (nonatomic, weak) WLWorkTopView *topView;
 @property (nonatomic, weak) UITableView *workList;
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @end
@@ -58,7 +57,7 @@
 }
 -(void)setupUI{
     [self.workList mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(-KStatusbarHeight);
+        make.top.mas_equalTo(0);
         make.left.right.mas_equalTo(0);
         make.bottom.mas_equalTo(WC_HOMEBAR_HEIGHT);
     }];
@@ -103,6 +102,9 @@
     if (self.dataArr.count>indexPath.row) {
         cell.modelArr = [self.dataArr objectAtIndex:indexPath.row];
     }
+    cell.btnClickBlock = ^{
+        NSLog(@"点击item");
+    };
     return cell;
 }
 
