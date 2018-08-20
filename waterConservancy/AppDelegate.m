@@ -23,25 +23,16 @@
     // Override point for customization after application launch.
 
     self.window = [[UIWindow alloc]initWithFrame:Screen];
-    
+    [self.window makeKeyAndVisible];
     //接受到退出信号 退出
 //    if ([isLogout isEqualToString:@"logout"]) {
 //        //         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"currentUser"];
 //        //
 //        [self showLoadControllers];
 //    }
-    
-    //如果账号或id存在
-    if (1) {
-        self.tabbarC = [[YXTabbarController alloc]init];
-        self.window.rootViewController = self.tabbarC;
-    }else{
-        DJLoadViewController *loadCtrl = [[DJLoadViewController alloc]init];
-        YXNavViewController *nav = [[YXNavViewController alloc]initWithRootViewController:loadCtrl setNavigationBarHidden:YES];
-        self.window.rootViewController = nav;
-    }
-    [self.window makeKeyAndVisible];
-    
+    NSLog(@"%@",WLShareUserManager);
+
+    [self login];
     return YES;
 }
 - (void)showMainControllers {
@@ -91,5 +82,41 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(void)login{
+
+    //如果账号或id存在
+    if (WLShareUserManager.isAutoLoginEnabled) {
+        //        [self login];
+        WLShareUserManager.userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentUser"];
+        WLShareUserManager.passWord = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentPassword"];
+        
+        [[YXNetTool shareTool]SOAPData:@"http://192.168.1.11:9080/uams/ws/uumsext/UserExt?wsdl" password:WLShareUserManager.passWord userName:WLShareUserManager.userName success:^(id responseObject) {
+            NSLog(@"%@",responseObject);
+            //        NSArray *respArr =(NSArray *)responseObject;
+            
+            if (WLShareUserManager.isWaterIndustry==1) {
+                //企事业用户
+                WLShareUserManager.bUserType = 3;
+            }else if (WLShareUserManager.isWaterIndustry==0){
+                //行政用户
+            }else{
+                //无此用户
+                NSLog(@"无此用户");
+            }
+            
+            
+        } failure:^(NSError *error){
+            NSLog(@"%@",error);
+        }];
+        self.tabbarC = [[YXTabbarController alloc]init];
+        self.window.rootViewController = self.tabbarC;
+    }else{
+        DJLoadViewController *loadCtrl = [[DJLoadViewController alloc]init];
+        YXNavViewController *nav = [[YXNavViewController alloc]initWithRootViewController:loadCtrl setNavigationBarHidden:YES];
+        self.window.rootViewController = nav;
+    }
+    
+    
+}
 
 @end

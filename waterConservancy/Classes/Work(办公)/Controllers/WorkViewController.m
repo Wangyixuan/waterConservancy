@@ -10,6 +10,7 @@
 #import "WLWorkTopView.h"
 #import "WLWorkModel.h"
 #import "WLWorkTableViewCell.h"
+#import "DJLoadViewController.h"
 //二级跳转ctrl
 #import "DJHiddenDrangeChartController.h"
 #import "DJElementCheckController.h"
@@ -33,39 +34,70 @@
     [self loadData];
 }
 -(void)loadData{
-    NSMutableArray *dicArr = [NSMutableArray array];
-
+    //企事业用户数据
+    NSMutableArray *BDicArr = [NSMutableArray array];
+    //行政用户数据
+    NSMutableArray *CDicArr = [NSMutableArray array];
+    //用户数据 根据用户类型区分数据（企事业用户包括报表管理、安全检查、事故、隐患、风险源）
+ 
     NSDictionary *baobiao1 =@{@"text":@"隐患报表",@"img":@"baobiao_yinhuan"};
     NSDictionary *baobiao2 =@{@"text":@"事故报表",@"img":@"baobiao_shigu"};
     NSDictionary *baobiao3 =@{@"text":@"检查报表",@"img":@"baobiao_anquan"};
     NSDictionary *baobiao4 =@{@"text":@"考核报表",@"img":@"baobiao_gongzuo"};
     NSArray *baobiaoArr = @[baobiao1,baobiao2,baobiao3,baobiao4];
     NSDictionary *baobiaoDic = @{@"title":@"报表管理",@"data":baobiaoArr,@"bgImage":@"baobiaoguanli"};
-    [dicArr addObject:baobiaoDic];
+    [CDicArr addObject:baobiaoDic];
+    [BDicArr addObject:baobiaoDic];
     
     NSDictionary *aq1 =@{@"text":@"现场检查",@"img":@"anquan_xianchang"};
     NSDictionary *aq2 =@{@"text":@"检查查询",@"img":@"anquan_chaxun"};
-    NSArray *aqArr = @[aq1,aq2];
-    NSDictionary *aqDic = @{@"title":@"安全检查",@"data":aqArr,@"bgImage":@"anquanjiancha"};
-    [dicArr addObject:aqDic];
+    NSDictionary *aq3 =@{@"text":@"元素检查",@"img":@""};
+    NSArray *aqArr1 = @[aq1,aq2];
+    NSDictionary *aqDic1 = @{@"title":@"安全检查",@"data":aqArr1,@"bgImage":@"anquanjiancha"};
+    [CDicArr addObject:aqDic1];
+    //企事业用户使用
+    // 技术服务 施工 监理单位 只有现场检查模块，项目法人和水利工程管理单位有元素检查
+     NSArray *aqArr2 = @[aq3,aq1];
+    if (WLShareUserManager.bUserType==BUserTypeCJFW||WLShareUserManager.bUserType==BUserTypeCJSG||
+        WLShareUserManager.bUserType==BUserTypeCJJL) {
+        aqArr2 = @[aq1];
+    }
+    NSDictionary *aqDic2 = @{@"title":@"安全检查",@"data":aqArr2,@"bgImage":@"anquanjiancha"};
+
+    [BDicArr addObject:aqDic2];
    
     NSDictionary *xh1 =@{@"text":@"隐患验收",@"img":@"yinhuan_yanshou"};
     NSDictionary *xh2 =@{@"text":@"隐患督办",@"img":@"yinhuan_duban"};
-    NSArray *xhArr = @[xh1,xh2];
-    NSDictionary *xhDic = @{@"title":@"隐患",@"data":xhArr,@"bgImage":@"yinhuan"};
-    [dicArr addObject:xhDic];
+    NSDictionary *xh3 =@{@"text":@"隐患上报",@"img":@""};
+    NSDictionary *xh4 =@{@"text":@"隐患整改",@"img":@""};
+    NSDictionary *xh5 =@{@"text":@"隐患销号",@"img":@""};
+   //行政用户使用
+    NSArray *xhArr1 = @[xh1,xh2];
+    NSDictionary *xhDic1 = @{@"title":@"隐患",@"data":xhArr1,@"bgImage":@"yinhuan"};
+    [CDicArr addObject:xhDic1];
+    //企事业用户使用
+    NSArray *xhArr2 = @[xh3,xh4,xh5];
+    NSDictionary *xhDic2 = @{@"title":@"隐患",@"data":xhArr2,@"bgImage":@"yinhuan"};
+    [BDicArr addObject:xhDic2];
     
     NSDictionary *sg1 =@{@"text":@"快报事故",@"img":@"shigu_kuaibao"};
     NSDictionary *sg2 =@{@"text":@"事故查询",@"img":@"shigu_chaxun"};
     NSArray *sgArr = @[sg1,sg2];
     NSDictionary *sgDic = @{@"title":@"事故",@"data":sgArr,@"bgImage":@"shigu"};
-    [dicArr addObject:sgDic];
-    
-    NSDictionary *fx1 =@{@"text":@"备案审核",@"img":@"weixian_beian"};
-    NSDictionary *fx2 =@{@"text":@"核销审核",@"img":@"weixian_hexiao"};
+    [CDicArr addObject:sgDic];
+    [BDicArr addObject:sgDic];
+    //企事业用户使用
+    NSDictionary *fx1 =@{@"text":@"风险源巡查",@"img":@"weixian_beian"};
+    NSDictionary *fx2 =@{@"text":@"风险源查询",@"img":@""};
     NSArray *fxArr = @[fx1,fx2];
     NSDictionary *fxDic = @{@"title":@"风险源",@"data":fxArr,@"bgImage":@"weixianyuan"};
-    [dicArr addObject:fxDic];
+    [BDicArr addObject:fxDic];
+    //行政用户使用
+    NSDictionary *wx1 =@{@"text":@"备案审核",@"img":@"weixian_beian"};
+    NSDictionary *wx2 =@{@"text":@"核销审核",@"img":@"weixian_hexiao"};
+    NSArray *wxArr = @[wx1,wx2];
+    NSDictionary *wxDic = @{@"title":@"危险源",@"data":wxArr,@"bgImage":@"weixianyuan"};
+    [CDicArr addObject:wxDic];
     
     NSDictionary *bb1 =@{@"text":@"形式初审",@"img":@"biaozhun_xingshi"};
     NSDictionary *bb2 =@{@"text":@"材料初审",@"img":@"biaozhun_cailiao"};
@@ -75,27 +107,28 @@
     NSDictionary *bb6 =@{@"text":@"公告",@"img":@"biaozhun_gonggao"};
     NSArray *bbArr = @[bb1,bb2,bb3,bb4,bb5,bb6];
     NSDictionary *bbDic = @{@"title":@"标准化",@"data":bbArr,@"bgImage":@"biaozhunhua"};
-    [dicArr addObject:bbDic];
+    [CDicArr addObject:bbDic];
     
     NSDictionary *gg1 =@{@"text":@"安全生产",@"img":@"gongzuo_shengchan"};
     NSDictionary *gg2 =@{@"text":@"水利稽查",@"img":@"gongzuo_jicha"};
     NSArray *ggArr = @[gg1,gg2];
     NSDictionary *ggDic = @{@"title":@"工作考核",@"data":ggArr,@"bgImage":@"gongzuokaohe"};
-    [dicArr addObject:ggDic];
+    [CDicArr addObject:ggDic];
     
     NSDictionary *jj1 =@{@"text":@"现场执法",@"img":@"jiandu_zhifa"};
     NSDictionary *jj2 =@{@"text":@"执法查询",@"img":@"jiandu_chaxun"};
     NSArray *jjArr = @[jj1,jj2];
     NSDictionary *jjDic = @{@"title":@"监督执法",@"data":jjArr,@"bgImage":@"jianduzhifa"};
-    [dicArr addObject:jjDic];
+    [CDicArr addObject:jjDic];
     
     NSDictionary *ss1 =@{@"text":@"现场稽查",@"img":@"shuili_xianchang"};
     NSDictionary *ss2 =@{@"text":@"稽查查询",@"img":@"shuili_chaxun"};
     NSArray *ssArr = @[ss1,ss2];
     NSDictionary *ssDic = @{@"title":@"水利稽查",@"data":ssArr,@"bgImage":@"shuiliducha"};
-    [dicArr addObject:ssDic];
+    [CDicArr addObject:ssDic];
+
     
-    for (NSDictionary*dic in dicArr) {
+    for (NSDictionary*dic in BDicArr) {
         WLWorkModel *model = [[WLWorkModel alloc]initWithDic:dic];
         [self.dataArr addObject:model];
     }
@@ -171,11 +204,15 @@
 #pragma  mark privateMethod
 -(WLWorkTopView*)setupTopView{
     WLWorkTopView *topView = [[WLWorkTopView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 210)];
+    @weakify(self)
     topView.noticeBlock = ^{
         NSLog(@"提醒通知");
     };
     topView.agencyWorkBlock = ^{
         NSLog(@"待办工作");
+        WLShareUserManager.autoLoginEnabled = NO;
+        DJLoadViewController *loadCtrl = [[DJLoadViewController alloc]init];
+        [weak_self.navigationController pushViewController:loadCtrl animated:YES];
     };
     topView.userInfoBlock = ^{
         NSLog(@"个人中心");
@@ -188,13 +225,10 @@
     };
     return topView;
 }
+
 -(void)pushControllerWithTitle:(NSString *)titie{
-    
-//    if ([titie isEqualToString:@"隐患报表"]) {
-        DJHiddenDrangeChartController *hiddenCtrl = [[DJHiddenDrangeChartController alloc]init];
-        [self.navigationController pushViewController:hiddenCtrl animated:YES];
-//    }
-//    else if (titie isEqualToString:@"")
+
+    [WLShareActionManager handleAction:self actionName:titie];
 }
 
 

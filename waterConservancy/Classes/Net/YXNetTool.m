@@ -166,6 +166,13 @@ typedef NS_ENUM(NSInteger,RequestType){
         }
         [[NSUserDefaults standardUserDefaults]setObject:orgIDStr forKey:@"ORGID"];
         [[NSUserDefaults standardUserDefaults]synchronize];
+        //判断用户类型  0表示非水利机构  1表示水利机构  无此用户时为3
+        NSRegularExpression *isWaterIndustry = [[NSRegularExpression alloc] initWithPattern:@"(?<=isWaterIndustry>).*?(?=</isWaterIndustry)" options:NSRegularExpressionCaseInsensitive error:nil];
+        NSString *waterIndustryStr;
+        for (NSTextCheckingResult *checkingResult in [isWaterIndustry matchesInString:result options:0 range:NSMakeRange(0, result.length)]) {
+            waterIndustryStr =  [result substringWithRange:checkingResult.range];
+        }
+        WLShareUserManager.isWaterIndustry = [waterIndustryStr intValue];
         // 请求成功并且结果有值把结果传出去
         if (success) {
             success(scodeArray);

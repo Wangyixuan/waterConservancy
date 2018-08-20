@@ -63,8 +63,10 @@
     NSString *remStr;
     if (btn.selected) {
         remStr = @"isRemember";
+        WLShareUserManager.autoLoginEnabled = YES;
     }else{
         remStr = @"notRemember";
+        WLShareUserManager.autoLoginEnabled = NO;
     }
     [[NSUserDefaults standardUserDefaults]setObject:remStr forKey:@"isrememberPassword"];
     [[NSUserDefaults standardUserDefaults]synchronize];
@@ -106,37 +108,50 @@
     NSString *password = [[self.passWordFiled.text md5String]uppercaseString];
     [[YXNetTool shareTool]SOAPData:@"http://192.168.1.11:9080/uams/ws/uumsext/UserExt?wsdl" password:password userName:self.userNameFiled.text success:^(id responseObject) {
         NSLog(@"%@",responseObject);
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSArray *userNameArray = [defaults objectForKey:@"loadUserName"];
-        NSMutableArray *usrMuA;
-        if (userNameArray.count) {
-            usrMuA = userNameArray.mutableCopy;
-        }else{
-            usrMuA = [NSMutableArray array];
-        }
-        //是否含有这个用户
-        NSString *userName = [self.userNameFiled.text lowercaseString];
-        NSLog(@"%@",userName);
-        NSString *password = self.passWordFiled.text;
-        BOOL isContain = NO;
-        [defaults setObject:userName forKey:@"currentUser"];
-        [defaults setObject:password forKey:@"currentPassword"];
-        for (NSDictionary *dic in usrMuA) {
-            if ([dic.allKeys containsObject:userName]) {
-                isContain = YES;
+        NSArray *respArr =(NSArray *)responseObject;
+//        if (respArr.count>0) {
+            if (WLShareUserManager.isWaterIndustry==1) {
+                //企事业用户
+                WLShareUserManager.bUserType = 3;
+            }else if (WLShareUserManager.isWaterIndustry==0){
+                //行政用户
+            }else{
+                //无此用户
+                NSLog(@"无此用户");
             }
-        }
-        if (!isContain && [isRememberPassword isEqualToString:@"isRemember"]) {
-            NSDictionary *nameAPassDic = [NSDictionary dictionaryWithObject:password forKey:userName];
-            [usrMuA addObject:nameAPassDic];
-            [defaults setObject:usrMuA forKey:@"loadUserName"];
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            NSArray *userNameArray = [defaults objectForKey:@"loadUserName"];
+            NSMutableArray *usrMuA;
+            if (userNameArray.count) {
+                usrMuA = userNameArray.mutableCopy;
+            }else{
+                usrMuA = [NSMutableArray array];
+            }
+            //是否含有这个用户
+            NSString *userName = [self.userNameFiled.text lowercaseString];
+            NSLog(@"%@",userName);
+            NSString *password = self.passWordFiled.text;
+            BOOL isContain = NO;
+            [defaults setObject:userName forKey:@"currentUser"];
+            [defaults setObject:password forKey:@"currentPassword"];
+            for (NSDictionary *dic in usrMuA) {
+                if ([dic.allKeys containsObject:userName]) {
+                    isContain = YES;
+                }
+            }
+            if (!isContain && [isRememberPassword isEqualToString:@"isRemember"]) {
+                NSDictionary *nameAPassDic = [NSDictionary dictionaryWithObject:password forKey:userName];
+                [usrMuA addObject:nameAPassDic];
+                [defaults setObject:usrMuA forKey:@"loadUserName"];
+            }
+        
+            //2.跳转页面
+            [(AppDelegate *)[UIApplication sharedApplication].delegate showMainControllers];
+//        }else{
+//            NSLog(@"无效用户");
+//        }
 
-        }
-      
-
-        //2.跳转页面
-        [(AppDelegate *)[UIApplication sharedApplication].delegate showMainControllers];
     } failure:nil];
 }
 
@@ -157,8 +172,10 @@
             weak_self.userNameFiled.text = userName;
             weak_self.passWordFiled.text = password;
             [weak_self.downListView removeFromSuperview];
+            if (weak_self.rememberBtn.selected==NO) {
+                [weak_self rememberClick:weak_self.rememberBtn];
+            }
         }
-        
     };
 }
 -(void)delDownList{
@@ -414,7 +431,7 @@
         tfiled.clearButtonMode = UITextFieldViewModeWhileEditing;
         tfiled.returnKeyType = UIReturnKeyDone;
         tfiled.delegate = self;
-        
+        tfiled.text = WLShareUserManager.userName;
         tfiled.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"账号" attributes:
                                         @{NSFontAttributeName:[UIFont systemFontOfSize:15.0f],
                                           NSForegroundColorAttributeName:COLOR_WITH_HEX(0x999999)
@@ -430,6 +447,7 @@
         [btn setImage:[UIImage imageNamed:@"downRow.png"] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(userbtnClick) forControlEvents:UIControlEventTouchUpInside];
         [self.userNameView addSubview:btn];
+        
         _userNameBtn = btn;
     }
     return _userNameBtn;

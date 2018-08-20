@@ -13,6 +13,10 @@
 #import "CommonMacro.h"
 #import "YXNetTool.h"
 #import "NSDictionary+JsonDict.h"
+#import "WLUserManager.h"
+#import "WLActionManager.h"
+
+#import "YXBaseViewController.h"
 
 #import <Masonry.h>
 #import <YYKit.h>

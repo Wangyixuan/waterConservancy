@@ -33,13 +33,6 @@
    
 }
 
-
--(void)setModelArr:(NSArray *)modelArr{
-    _modelArr = modelArr;
-    if (modelArr.count>4) {
-        [self setupScrollViewWithArray:modelArr];
-    }
-}
 -(void)setModel:(WLWorkModel *)model{
     _model = model;
     self.titleLab.text = model.title;
