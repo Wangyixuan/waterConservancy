@@ -10,11 +10,10 @@
 #import "WLWorkModel.h"
 
 @interface WLWorkTableViewCell : UITableViewCell
-<<<<<<< HEAD
+
 @property (nonatomic, strong) NSArray *modelArr;
 @property (nonatomic, copy) void(^btnClickBlock)(NSString *cellTitle);
-=======
+
 @property (nonatomic, strong) WLWorkModel *model;
-@property (nonatomic, copy) void(^btnClickBlock)();
->>>>>>> 802c57d34b2db7c54dcee0f377460f0c756f4398
+//@property (nonatomic, copy) void(^btnClickBlock)();
 @end

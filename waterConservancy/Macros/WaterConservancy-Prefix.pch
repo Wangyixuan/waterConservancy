@@ -91,7 +91,7 @@ static inline CGFloat FontSize(CGFloat fontSize){
 //参数
 #define TNParams(...) @{__VA_ARGS__}
 //网络请求地址
-#define YXNetAddress(urlString)  [NSString stringWithFormat:@"http:/%@",urlString]
+#define YXNetAddress(urlString)  [NSString stringWithFormat:@"http://192.168.1.8:8080/%@",urlString]
 
 //偏好设置
 #define CURRENTUSER  [[NSUserDefaults standardUserDefaults]objectForKey:@"currentUser"]
@@ -104,5 +104,8 @@ static inline CGFloat FontSize(CGFloat fontSize){
 #define isRememberPassword [[NSUserDefaults standardUserDefaults]objectForKey:@"isrememberPassword"]
 #define CURRENTUSER  [[NSUserDefaults standardUserDefaults]objectForKey:@"currentUser"]
 #define CURRENTPASSWORD  [[NSUserDefaults standardUserDefaults]objectForKey:@"currentPassword"]
+//用户组织id
+#define ORGID  [[NSUserDefaults standardUserDefaults]objectForKey:@"ORGID"]
+
 
 #endif /* WaterConservancy_Prefix_pch */

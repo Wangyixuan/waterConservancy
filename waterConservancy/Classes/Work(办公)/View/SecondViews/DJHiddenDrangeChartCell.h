@@ -7,8 +7,12 @@
 //
 
 #import "YXBaseTableViewCell.h"
+#import "DJMonthListModel.h"
 
-typedef void (^hiddenChartBtnClickBlock) (void);
+typedef void (^hiddenChartBtnClickBlock) (DJMonthListModel *model);
 @interface DJHiddenDrangeChartCell : YXBaseTableViewCell
+
 @property (nonatomic, copy) hiddenChartBtnClickBlock hiddenChartBtnClickBlock;
+
+-(void)initDataWithModel:(DJMonthListModel *)model;
 @end

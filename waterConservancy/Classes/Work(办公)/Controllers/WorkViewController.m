@@ -189,6 +189,7 @@
     return topView;
 }
 -(void)pushControllerWithTitle:(NSString *)titie{
+    
 //    if ([titie isEqualToString:@"隐患报表"]) {
         DJHiddenDrangeChartController *hiddenCtrl = [[DJHiddenDrangeChartController alloc]init];
         [self.navigationController pushViewController:hiddenCtrl animated:YES];

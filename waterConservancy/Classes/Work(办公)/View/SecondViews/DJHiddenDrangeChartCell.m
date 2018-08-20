@@ -15,6 +15,7 @@
 /**  催办按钮 */
 @property (nonatomic, weak) UIButton *cuibanBtn;
 
+@property (nonatomic, strong)DJMonthListModel  *model;
 @end
 @implementation DJHiddenDrangeChartCell
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -25,12 +26,18 @@
     }
     return self;
 }
+-(void)initDataWithModel:(DJMonthListModel *)model{
+    
+    [self.nameLabel setText:model.repName];
+    
+    self.model = model;
+}
 
 
 #pragma mark 催办
 -(void)cuibanClick{
     if (self.hiddenChartBtnClickBlock) {
-        self.hiddenChartBtnClickBlock();
+        self.hiddenChartBtnClickBlock(self.model);
     }
 }
 
@@ -87,7 +94,7 @@
 -(UIButton *)cuibanBtn{
     if (!_cuibanBtn) {
         UIButton *cuibanBtn = [[UIButton alloc]init];
-        [cuibanBtn setTitle:@"催办" forState:UIControlStateNormal];
+        [cuibanBtn setTitle:@"上报" forState:UIControlStateNormal];
         [cuibanBtn setBackgroundColor:FColor(0, 113.0, 226.0, 1.0)];
         [cuibanBtn.titleLabel setFont:YX26Font];
         [cuibanBtn setTintColor:FColor(255.0, 255.0, 255.0, 1.0)];

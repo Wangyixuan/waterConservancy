@@ -106,6 +106,7 @@
     NSString *password = [[self.passWordFiled.text md5String]uppercaseString];
     [[YXNetTool shareTool]SOAPData:@"http://192.168.1.11:9080/uams/ws/uumsext/UserExt?wsdl" password:password userName:self.userNameFiled.text success:^(id responseObject) {
         NSLog(@"%@",responseObject);
+        
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSArray *userNameArray = [defaults objectForKey:@"loadUserName"];
         NSMutableArray *usrMuA;
@@ -243,6 +244,7 @@
 
 
 -(void)setUI{
+    self.navigationController.navigationBarHidden = YES;
     @weakify(self);
     [self.backImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.mas_equalTo(weak_self.view);

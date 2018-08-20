@@ -39,6 +39,7 @@ typedef NS_ENUM(NSInteger,RequestType){
         _netManager.httpManger.requestSerializer = [AFJSONRequestSerializer serializer];
         [_netManager.httpManger.requestSerializer setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
         _netManager.httpManger.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/xml", @"text/plain",nil];
+        
         _netManager.httpManger.requestSerializer.timeoutInterval = 5;
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         _netManager.urlManager = [[AFURLSessionManager alloc]initWithSessionConfiguration:configuration];
@@ -106,16 +107,19 @@ typedef NS_ENUM(NSInteger,RequestType){
 
 
 -(void)postRequestWithURL:(NSString *)URL Parmars:(NSDictionary *)Parmars  success:(successBlock)success faild:(faildBlock)faild{
-    
     URL=[URL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSLog(@"posturl===%@",URL);
     [self.httpManger POST:URL parameters:Parmars progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+
+        NSLog(@"%@",task.response);
+        NSLog(@"%@",responseObject);
         if (success) {
             success(responseObject);
         }
        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
+        NSLog(@"%@",task.response);
         if (faild) {
             faild(error);
         }
@@ -154,6 +158,14 @@ typedef NS_ENUM(NSInteger,RequestType){
             NSString *scodeStr =  [result substringWithRange:checkingResult.range];
             [scodeArray addObject:scodeStr];
         }
+        //orgid为当前用户的组织id
+        NSRegularExpression *orgregular = [[NSRegularExpression alloc] initWithPattern:@"(?<=orgId>).*?(?=</orgId)" options:NSRegularExpressionCaseInsensitive error:nil];
+        NSString *orgIDStr;
+        for (NSTextCheckingResult *checkingResult in [orgregular matchesInString:result options:0 range:NSMakeRange(0, result.length)]) {
+            orgIDStr =  [result substringWithRange:checkingResult.range];
+        }
+        [[NSUserDefaults standardUserDefaults]setObject:orgIDStr forKey:@"ORGID"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
         // 请求成功并且结果有值把结果传出去
         if (success) {
             success(scodeArray);
