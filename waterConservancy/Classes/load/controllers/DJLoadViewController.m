@@ -107,25 +107,8 @@
     NSString *password = [[self.passWordFiled.text md5String]uppercaseString];
     [[YXNetTool shareTool]SOAPData:@"http://192.168.1.11:9080/uams/ws/uumsext/UserExt?wsdl" password:password userName:self.userNameFiled.text success:^(id responseObject) {
         NSLog(@"%@",responseObject);
-        NSArray *respArr =(NSArray *)responseObject;
-        if (respArr.count>0) {
-             NSMutableArray *scodeArray = [NSMutableArray array];
-            for (NSString *roleStr in respArr) {
-                if ([roleStr containsString:@"acci"]||[roleStr containsString:@"sins"]||[roleStr containsString:@"stan"]||[roleStr containsString:@"maha"]||[roleStr containsString:@"woas"]||[roleStr containsString:@"suen"]||[roleStr containsString:@"wins"]||[roleStr containsString:@"hidd"]) {
-                    [scodeArray addObject:roleStr];
-                }
-               
-            }
-            NSLog(@"%@",scodeArray);
-            if (WLShareUserManager.isWaterIndustry==1) {
-                //企事业用户
-                WLShareUserManager.bUserType = 3;
-            }else if (WLShareUserManager.isWaterIndustry==0){
-                //行政用户
-            }else{
-                //无此用户
-                NSLog(@"无此用户");
-            }
+        NSDictionary *respDic = (NSDictionary*)responseObject;
+        [WLShareUserManager updateUserInfoWithDataDic:respDic];
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             NSArray *userNameArray = [defaults objectForKey:@"loadUserName"];
@@ -156,9 +139,6 @@
             //2.跳转页面
             [(AppDelegate *)[UIApplication sharedApplication].delegate showMainControllers];
 
-        }else{
-            NSLog(@"无效用户");
-        }
     } failure:nil];
 }
 

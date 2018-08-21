@@ -59,13 +59,15 @@ static WLActionManager*instance;
 
     //安全检查
     else if ([action isEqualToString:@"现场检查"]){
-        
+        DJOnSpotCheckController *onSpotCheck = [[DJOnSpotCheckController alloc]init];
+        [viewController.navigationController pushViewController:onSpotCheck animated:YES];
     }
     else if ([action isEqualToString:@"检查查询"]){
         
     }
     else if ([action isEqualToString:@"元素检查"]){
-        
+        DJElementCheckController *eleCheck = [[DJElementCheckController alloc]init];
+        [viewController.navigationController pushViewController:eleCheck animated:YES];
     }
     
     //隐患

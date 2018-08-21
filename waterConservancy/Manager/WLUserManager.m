@@ -43,6 +43,21 @@ static WLUserManager*instance;
     }
     return self;
 }
+
+-(void)updateUserInfoWithDataDic:(NSDictionary *)infoDic{
+    WLShareUserManager.persName = [infoDic stringForKey:@"persName" defaultValue:@""];
+    WLShareUserManager.persID = [infoDic stringForKey:@"persId" defaultValue:@""];
+    NSString *orgIDStr = [infoDic stringForKey:@"orgId" defaultValue:@""];
+    WLShareUserManager.orgID =orgIDStr;
+    [[NSUserDefaults standardUserDefaults]setObject:orgIDStr forKey:@"ORGID"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    WLShareUserManager.mobileNub = [infoDic stringForKey:@"mobilenumb" defaultValue:@""];
+    NSString *waterIndustryStr = [infoDic stringForKey:@"isWaterIndustry" defaultValue:@""];
+    WLShareUserManager.isWaterIndustry = [waterIndustryStr intValue];
+    [[NSUserDefaults standardUserDefaults]setObject:waterIndustryStr forKey:@"isWaterIndustry"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+}
+
 /** 是否开启了自动登录 */
 - (BOOL)isAutoLoginEnabled {
     
@@ -63,17 +78,6 @@ static WLUserManager*instance;
     }
     
     _autoLoginEnabled = autoLoginEnabled;
-}
-
--(int)isWaterIndustry{
-    
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
-        
-        NSString *waterIndustryStr = [[NSUserDefaults standardUserDefaults] stringForKey:@"isWaterIndustry"];
-        self.isWaterIndustry = [waterIndustryStr intValue];
-    });
-    return _isWaterIndustry;
 }
 
 -(NSString *)userName{

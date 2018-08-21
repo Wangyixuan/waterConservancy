@@ -34,6 +34,8 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+
     //接受巡河状态变更的通知
 //    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(riverStatuschange:) name:RIVERSTATUSNONATIFICATION object:nil];
 }

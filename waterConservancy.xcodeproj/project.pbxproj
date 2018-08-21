@@ -19,6 +19,7 @@
 		047B506F212A8AA30007C477 /* WLUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B506E212A8AA30007C477 /* WLUserModel.m */; };
 		047B5073212A8C9E0007C477 /* WLUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5072212A8C9E0007C477 /* WLUserManager.m */; };
 		047B5076212AB76A0007C477 /* WLActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5075212AB76A0007C477 /* WLActionManager.m */; };
+		047B507A212C1F2C0007C477 /* WLHiddenReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5079212C1F2C0007C477 /* WLHiddenReportViewController.m */; };
 		04C5310021212BC900C90964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C530FF21212BC900C90964 /* AppDelegate.m */; };
 		04C5310821212BCB00C90964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310721212BCB00C90964 /* Assets.xcassets */; };
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
@@ -92,6 +93,8 @@
 		047B5072212A8C9E0007C477 /* WLUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLUserManager.m; sourceTree = "<group>"; };
 		047B5074212AB76A0007C477 /* WLActionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLActionManager.h; sourceTree = "<group>"; };
 		047B5075212AB76A0007C477 /* WLActionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLActionManager.m; sourceTree = "<group>"; };
+		047B5078212C1F2C0007C477 /* WLHiddenReportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLHiddenReportViewController.h; sourceTree = "<group>"; };
+		047B5079212C1F2C0007C477 /* WLHiddenReportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLHiddenReportViewController.m; sourceTree = "<group>"; };
 		04C530FB21212BC900C90964 /* waterConservancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterConservancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C530FE21212BC900C90964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04C530FF21212BC900C90964 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -211,7 +214,8 @@
 		047129942121734C00EEADE5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5A8BE23B21255D9D00F61665 /* SecondCtrl */,
+				047B5077212C1EBA0007C477 /* 报表管理 */,
+				5A8BE23B21255D9D00F61665 /* 安全检查 */,
 				047129B221217EF600EEADE5 /* WorkViewController.h */,
 				047129B321217EF600EEADE5 /* WorkViewController.m */,
 			);
@@ -359,6 +363,15 @@
 				047B5075212AB76A0007C477 /* WLActionManager.m */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		047B5077212C1EBA0007C477 /* 报表管理 */ = {
+			isa = PBXGroup;
+			children = (
+				047B5078212C1F2C0007C477 /* WLHiddenReportViewController.h */,
+				047B5079212C1F2C0007C477 /* WLHiddenReportViewController.m */,
+			);
+			path = "报表管理";
 			sourceTree = "<group>";
 		};
 		04C530F221212BC900C90964 = {
@@ -559,7 +572,7 @@
 			path = views;
 			sourceTree = "<group>";
 		};
-		5A8BE23B21255D9D00F61665 /* SecondCtrl */ = {
+		5A8BE23B21255D9D00F61665 /* 安全检查 */ = {
 			isa = PBXGroup;
 			children = (
 				5A8BE23D21255E0A00F61665 /* DJHiddenDrangeChartController.h */,
@@ -569,7 +582,7 @@
 				5A8BE2352125522700F61665 /* DJOnSpotCheckController.h */,
 				5A8BE2362125522700F61665 /* DJOnSpotCheckController.m */,
 			);
-			path = SecondCtrl;
+			path = "安全检查";
 			sourceTree = "<group>";
 		};
 		5A8BE23C21255DBF00F61665 /* SecondViews */ = {
@@ -809,6 +822,7 @@
 				047B506F212A8AA30007C477 /* WLUserModel.m in Sources */,
 				5A4CF16D21227B1600D72FE5 /* YXDownListView.m in Sources */,
 				5A8BE23A212553AB00F61665 /* DJOnSpotCheckCell.m in Sources */,
+				047B507A212C1F2C0007C477 /* WLHiddenReportViewController.m in Sources */,
 				047129C32122C81900EEADE5 /* WLWorkTopView.m in Sources */,
 				047B506421255DD50007C477 /* WLWorkModel.m in Sources */,
 			);

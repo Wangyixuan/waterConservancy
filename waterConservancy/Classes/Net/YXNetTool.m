@@ -147,37 +147,13 @@ typedef NS_ENUM(NSInteger,RequestType){
         return soapStr;
     }];
     [manager POST:url parameters:soapStr progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        // 把返回的二进制数据转为字符串
-        NSString *result = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",result);
-        // 利用正则表达式取出<score></score>之间的字符串
-        NSRegularExpression *regular = [[NSRegularExpression alloc] initWithPattern:@"(?<=scode>).*?(?=</scode)" options:NSRegularExpressionCaseInsensitive error:nil];
-        //储存此人身份数组
-        NSMutableArray *scodeArray = [NSMutableArray array];
-        for (NSTextCheckingResult *checkingResult in [regular matchesInString:result options:0 range:NSMakeRange(0, result.length)]) {
-            NSString *scodeStr =  [result substringWithRange:checkingResult.range];
-            [scodeArray addObject:scodeStr];
-        }
-        //orgid为当前用户的组织id
-        NSRegularExpression *orgregular = [[NSRegularExpression alloc] initWithPattern:@"(?<=orgId>).*?(?=</orgId)" options:NSRegularExpressionCaseInsensitive error:nil];
-        NSString *orgIDStr;
-        for (NSTextCheckingResult *checkingResult in [orgregular matchesInString:result options:0 range:NSMakeRange(0, result.length)]) {
-            orgIDStr =  [result substringWithRange:checkingResult.range];
-        }
-        [[NSUserDefaults standardUserDefaults]setObject:orgIDStr forKey:@"ORGID"];
-        [[NSUserDefaults standardUserDefaults]synchronize];
-        //判断用户类型  0表示非水利机构  1表示水利机构  无此用户时为3
-        NSRegularExpression *isWaterIndustry = [[NSRegularExpression alloc] initWithPattern:@"(?<=isWaterIndustry>).*?(?=</isWaterIndustry)" options:NSRegularExpressionCaseInsensitive error:nil];
-        NSString *waterIndustryStr;
-        for (NSTextCheckingResult *checkingResult in [isWaterIndustry matchesInString:result options:0 range:NSMakeRange(0, result.length)]) {
-            waterIndustryStr =  [result substringWithRange:checkingResult.range];
-        }
-        [[NSUserDefaults standardUserDefaults]setObject:waterIndustryStr forKey:@"isWaterIndustry"];
-        [[NSUserDefaults standardUserDefaults]synchronize];
-       
+        NSDictionary *respDic = [NSDictionary dictionaryWithXMLData:responseObject];
+        NSDictionary *soapBodyDic = [respDic objectForKey:@"soap:Body"];
+        NSDictionary *nsDic = [soapBodyDic objectForKey:@"ns2:isUamsValidPhoneUserByPhoneOrCodeOrNameResponse"];
+        NSDictionary *sucDic = [nsDic objectForKey:@"return"];
         // 请求成功并且结果有值把结果传出去
         if (success) {
-            success(scodeArray);
+            success(sucDic);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (failure) {

@@ -6,4 +6,5 @@ target "waterConservancy" do
    pod 'Masonry', '~> 1.1.0'
    pod 'LYEmptyView'
    pod 'UITableView+FDTemplateLayoutCell'
+   pod 'XMLDictionary'
 end

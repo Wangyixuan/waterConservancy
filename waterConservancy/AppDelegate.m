@@ -93,17 +93,10 @@
 
         [[YXNetTool shareTool]SOAPData:@"http://192.168.1.11:9080/uams/ws/uumsext/UserExt?wsdl" password:password userName:WLShareUserManager.userName success:^(id responseObject) {
             NSLog(@"%@",responseObject);
-            //        NSArray *respArr =(NSArray *)responseObject;
-
-            if (WLShareUserManager.isWaterIndustry==1) {
-                //企事业用户
-                WLShareUserManager.bUserType = 2;
-            }else if (WLShareUserManager.isWaterIndustry==0){
-                //行政用户
-            }else{
-                //无此用户
-                NSLog(@"无此用户");
-            }
+            NSDictionary *respDic = (NSDictionary*)responseObject;
+            [WLShareUserManager updateUserInfoWithDataDic:respDic];
+            self.tabbarC = [[YXTabbarController alloc]init];
+            self.window.rootViewController = self.tabbarC;
             [[NSNotificationCenter defaultCenter] postNotificationName:@"updateData" object:nil];
             
         } failure:^(NSError *error){
@@ -114,9 +107,7 @@
         DJLoadViewController *loadCtrl = [[DJLoadViewController alloc]init];
         YXNavViewController *nav = [[YXNavViewController alloc]initWithRootViewController:loadCtrl setNavigationBarHidden:YES];
         self.window.rootViewController = nav;
-    }
-    
-    
+    }  
 }
 
 @end
