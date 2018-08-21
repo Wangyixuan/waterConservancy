@@ -29,9 +29,10 @@
     [super viewDidLoad];
     self.dataArr = [NSMutableArray array];
     // Do any additional setup after loading the view.
- 
-    [self setupUI];
     [self loadData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"updateData" object:nil];
+    [self setupUI];
+    
 }
 -(void)loadData{
     //企事业用户数据
@@ -127,12 +128,14 @@
     NSDictionary *ssDic = @{@"title":@"水利稽查",@"data":ssArr,@"bgImage":@"shuiliducha"};
     [CDicArr addObject:ssDic];
 
-    
+    if (self.dataArr.count>0) {
+        [self.dataArr removeAllObjects];
+    }
     for (NSDictionary*dic in BDicArr) {
         WLWorkModel *model = [[WLWorkModel alloc]initWithDic:dic];
         [self.dataArr addObject:model];
     }
-    [self.tableView reloadData];
+    [self.workList reloadData];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

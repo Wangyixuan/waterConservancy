@@ -20,10 +20,10 @@
 -(instancetype)init{
     self = [super init];
     if (self) {
-        self.tabBar.backgroundColor = [UIColor clearColor];
+        self.tabBar.backgroundColor = [UIColor whiteColor];
         self.delegate = self;
         [self setUpAllChildViewController];
-        [self addCustomTabBar];
+//        [self addCustomTabBar];
     }
     return self;
 }
@@ -46,20 +46,31 @@
     
 }
 -(void)setUpAllChildViewController{
-    WorkViewController *homeCtrl = [[WorkViewController alloc]init];
-    [self setUpOneChildViewController:homeCtrl image:@"home" title:@"首页"];
-    
-    DJOnSpotCheckController *riverCtrl = [[DJOnSpotCheckController alloc]init];
-    [self setUpOneChildViewController:riverCtrl image:@"checkRiver" title:@"巡河"];
-    
-    UIViewController *reCtrl = [[UIViewController alloc]init];
-//    [reCtrl setCurrentTag:1];
-    [self setUpOneChildViewController:reCtrl image:@"rectification" title:@"整改"];
-    
-    UIViewController *meCtrl = [[UIViewController alloc]init];
-    [self setUpOneChildViewController:meCtrl image:@"me" title:@"我的"];
-    
-    
+    if (WLShareUserManager.isWaterIndustry==1) {
+        WorkViewController *homeCtrl = [[WorkViewController alloc]init];
+        [self setUpOneChildViewController:homeCtrl image:@"home" title:@"办公"];
+        DJOnSpotCheckController *riverCtrl = [[DJOnSpotCheckController alloc]init];
+        [self setUpOneChildViewController:riverCtrl image:@"me" title:@"通讯录"];
+        UIViewController *meCtrl = [[UIViewController alloc]init];
+
+        [self setUpOneChildViewController:meCtrl image:@"me" title:@"门户"];
+    }else{
+        WorkViewController *homeCtrl = [[WorkViewController alloc]init];
+        [self setUpOneChildViewController:homeCtrl image:@"home" title:@"办公"];
+        
+        DJOnSpotCheckController *riverCtrl = [[DJOnSpotCheckController alloc]init];
+        [self setUpOneChildViewController:riverCtrl image:@"checkRiver" title:@"安全云"];
+        
+        UIViewController *reCtrl = [[UIViewController alloc]init];
+        //    [reCtrl setCurrentTag:1];
+        [self setUpOneChildViewController:reCtrl image:@"rectification" title:@"专题图"];
+        
+        UIViewController *meCtrl = [[UIViewController alloc]init];
+        [self setUpOneChildViewController:meCtrl image:@"me" title:@"通讯录"];
+        
+        [self setUpOneChildViewController:meCtrl image:@"me" title:@"门户"];
+    }
+
 }
 - (UINavigationController *)setUpOneChildViewController:(YXBaseViewController *)vc image:(NSString *)imageStr title:(NSString *)title {
     vc.title = title;

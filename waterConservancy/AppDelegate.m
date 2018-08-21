@@ -86,30 +86,30 @@
 
     //如果账号或id存在
     if (WLShareUserManager.isAutoLoginEnabled) {
-        //        [self login];
-        WLShareUserManager.userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentUser"];
-        WLShareUserManager.passWord = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentPassword"];
-        
-        [[YXNetTool shareTool]SOAPData:@"http://192.168.1.11:9080/uams/ws/uumsext/UserExt?wsdl" password:WLShareUserManager.passWord userName:WLShareUserManager.userName success:^(id responseObject) {
+        self.tabbarC = [[YXTabbarController alloc]init];
+        self.window.rootViewController = self.tabbarC;
+
+        NSString *password = [[WLShareUserManager.passWord md5String]uppercaseString];
+
+        [[YXNetTool shareTool]SOAPData:@"http://192.168.1.11:9080/uams/ws/uumsext/UserExt?wsdl" password:password userName:WLShareUserManager.userName success:^(id responseObject) {
             NSLog(@"%@",responseObject);
             //        NSArray *respArr =(NSArray *)responseObject;
-            
+
             if (WLShareUserManager.isWaterIndustry==1) {
                 //企事业用户
-                WLShareUserManager.bUserType = 3;
+                WLShareUserManager.bUserType = 2;
             }else if (WLShareUserManager.isWaterIndustry==0){
                 //行政用户
             }else{
                 //无此用户
                 NSLog(@"无此用户");
             }
-            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"updateData" object:nil];
             
         } failure:^(NSError *error){
             NSLog(@"%@",error);
         }];
-        self.tabbarC = [[YXTabbarController alloc]init];
-        self.window.rootViewController = self.tabbarC;
+
     }else{
         DJLoadViewController *loadCtrl = [[DJLoadViewController alloc]init];
         YXNavViewController *nav = [[YXNavViewController alloc]initWithRootViewController:loadCtrl setNavigationBarHidden:YES];

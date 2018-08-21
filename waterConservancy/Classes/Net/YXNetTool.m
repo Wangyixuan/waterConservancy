@@ -172,7 +172,9 @@ typedef NS_ENUM(NSInteger,RequestType){
         for (NSTextCheckingResult *checkingResult in [isWaterIndustry matchesInString:result options:0 range:NSMakeRange(0, result.length)]) {
             waterIndustryStr =  [result substringWithRange:checkingResult.range];
         }
-        WLShareUserManager.isWaterIndustry = [waterIndustryStr intValue];
+        [[NSUserDefaults standardUserDefaults]setObject:waterIndustryStr forKey:@"isWaterIndustry"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+       
         // 请求成功并且结果有值把结果传出去
         if (success) {
             success(scodeArray);

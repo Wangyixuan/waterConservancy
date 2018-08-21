@@ -64,4 +64,34 @@ static WLUserManager*instance;
     
     _autoLoginEnabled = autoLoginEnabled;
 }
+
+-(int)isWaterIndustry{
+    
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        
+        NSString *waterIndustryStr = [[NSUserDefaults standardUserDefaults] stringForKey:@"isWaterIndustry"];
+        self.isWaterIndustry = [waterIndustryStr intValue];
+    });
+    return _isWaterIndustry;
+}
+
+-(NSString *)userName{
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        
+        self.userName = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentUser"];
+    });
+    return _userName;
+}
+
+-(NSString *)passWord{
+    
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        
+       self.passWord = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentPassword"];
+    });
+    return _passWord;
+}
 @end

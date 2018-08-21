@@ -50,6 +50,10 @@
     [super viewDidLoad];
      [self setUI];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
 #pragma mark Private Method
 
 -(void)forgetClick{
@@ -60,17 +64,12 @@
 -(void)rememberClick:(UIButton *)btn{
     //记住本次的是否记住密码
     btn.selected = !btn.selected;
-    NSString *remStr;
     if (btn.selected) {
-        remStr = @"isRemember";
         WLShareUserManager.autoLoginEnabled = YES;
     }else{
-        remStr = @"notRemember";
+      
         WLShareUserManager.autoLoginEnabled = NO;
     }
-    [[NSUserDefaults standardUserDefaults]setObject:remStr forKey:@"isrememberPassword"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
-    
 }
 
 //点击展示所有登陆过的用户
@@ -109,7 +108,15 @@
     [[YXNetTool shareTool]SOAPData:@"http://192.168.1.11:9080/uams/ws/uumsext/UserExt?wsdl" password:password userName:self.userNameFiled.text success:^(id responseObject) {
         NSLog(@"%@",responseObject);
         NSArray *respArr =(NSArray *)responseObject;
-//        if (respArr.count>0) {
+        if (respArr.count>0) {
+             NSMutableArray *scodeArray = [NSMutableArray array];
+            for (NSString *roleStr in respArr) {
+                if ([roleStr containsString:@"acci"]||[roleStr containsString:@"sins"]||[roleStr containsString:@"stan"]||[roleStr containsString:@"maha"]||[roleStr containsString:@"woas"]||[roleStr containsString:@"suen"]||[roleStr containsString:@"wins"]||[roleStr containsString:@"hidd"]) {
+                    [scodeArray addObject:roleStr];
+                }
+               
+            }
+            NSLog(@"%@",scodeArray);
             if (WLShareUserManager.isWaterIndustry==1) {
                 //企事业用户
                 WLShareUserManager.bUserType = 3;
@@ -148,10 +155,10 @@
         
             //2.跳转页面
             [(AppDelegate *)[UIApplication sharedApplication].delegate showMainControllers];
-//        }else{
-//            NSLog(@"无效用户");
-//        }
 
+        }else{
+            NSLog(@"无效用户");
+        }
     } failure:nil];
 }
 
@@ -553,9 +560,9 @@
     if (!_rememberBtn) {
         UIButton *btn = [[UIButton alloc]init];
         [btn setTitle:@"记住密码" forState:UIControlStateNormal];
-        if ([isRememberPassword isEqualToString:@"isRemember"]) {
-            btn.selected = YES;
-        }
+//        if ([isRememberPassword isEqualToString:@"isRemember"]) {
+//            btn.selected = YES;
+//        }
         [btn setImage:[UIImage imageNamed:@"remember"] forState:UIControlStateNormal];
         [btn setImage:[UIImage imageNamed:@"remember_selected"] forState:UIControlStateSelected];
         [btn setTitleColor:COLOR_WITH_HEX(0x999999) forState:UIControlStateNormal];
