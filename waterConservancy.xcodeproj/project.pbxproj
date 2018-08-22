@@ -692,7 +692,7 @@
 		04C530F321212BC900C90964 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = WL;
+				CLASSPREFIX = DJ;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = com.yx.waterConservancy;
 				TargetAttributes = {

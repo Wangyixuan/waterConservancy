@@ -24,7 +24,7 @@
 }
 
 -(void)setElementDataWithModel:(DJElemnetModel *)model{
-    [self.elementLabel setText:model.seChitName];
+    [self.elementLabel setText:model.seName];
     NSString *typeStr;
     if ([model.seStat isEqualToString:@"1"]) {
         typeStr = @"一般隐患";
@@ -99,6 +99,7 @@
     if (!_elementLabel) {
         UILabel *elementLabel = [[UILabel alloc]init];
         [elementLabel setText:@"元素名称元素名称元素名称"];
+        elementLabel.numberOfLines = 1;
         [elementLabel setFont:YX30Font];
         [elementLabel setTextColor:FColor(51.0, 51.0, 51.0, 1.0)];
         [elementLabel setTextAlignment:NSTextAlignmentLeft];

@@ -12,5 +12,5 @@
 
 @property (nonatomic, copy) NSString *seGuid;//元素id
 @property (nonatomic, copy) NSString *seStat;//元素状态
-
+@property (nonatomic, copy) NSString *guid;//元素状态
 @end

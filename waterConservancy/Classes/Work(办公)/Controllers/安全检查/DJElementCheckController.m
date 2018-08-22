@@ -12,6 +12,8 @@
 #import "DJElemnetModel.h"
 #import "DJOrgElementModel.h"
 
+#import <UITableView+FDTemplateLayoutCell.h>
+
 @interface DJElementCheckController ()
 /** 原始列表数据 总表 */
 @property (nonatomic, strong) NSArray *elementListArray;
@@ -54,7 +56,8 @@ static NSString *const ELEMENTCHECKCELLREUSEID = @"ELEMENTCHECKCELL";
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return SCALE_W(200);
+    return [tableView fd_heightForCellWithIdentifier:ELEMENTCHECKCELLREUSEID cacheByIndexPath:indexPath configuration:nil];
+//    return SCALE_W(120);
 }
 
 #pragma mark Net
@@ -65,6 +68,20 @@ static NSString *const ELEMENTCHECKCELLREUSEID = @"ELEMENTCHECKCELL";
     @weakify(self);
     dispatch_queue_t queue = dispatch_queue_create("com.dj", NULL);
     
+//    //获得元素的seguid 和 状态
+//    dispatch_async(queue, ^{
+//        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+//        NSString *urlStr = [NSString stringWithFormat:@"sjjk/v1/bis/se/bisSeWiunDecos"];
+//        [[YXNetTool shareTool]getRequestWithURL:YXNetAddress(urlStr)  Parmars:nil success:^(id responseObject) {
+//            @strongify(self);
+//            NSArray *dataArray = [responseObject objectForKey:@"data"];
+//            self.orgEModelArray = [NSArray modelArrayWithClass:[DJOrgElementModel class] json:dataArray];
+//            dispatch_semaphore_signal(semaphore);
+//        } faild:^(NSError *error) {
+//            NSLog(@"%@",error);
+//            dispatch_semaphore_signal(semaphore);
+//        }];
+//    });
     //获得元素的seguid 和 状态
     dispatch_async(queue, ^{
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
@@ -83,7 +100,7 @@ static NSString *const ELEMENTCHECKCELLREUSEID = @"ELEMENTCHECKCELL";
     //获得元素的名称
     dispatch_async(queue, ^{
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-        [[YXNetTool shareTool]getRequestWithURL:YXNetAddress(@"sjjk/v1/bis/se/bisSeChits/")  Parmars:nil success:^(id responseObject) {
+        [[YXNetTool shareTool]getRequestWithURL:YXNetAddress(@"sjjk/v1/obj/objSes/")  Parmars:nil success:^(id responseObject) {
             @strongify(self);
           
             NSArray *dataArray = [responseObject objectForKey:@"data"];
@@ -100,13 +117,10 @@ static NSString *const ELEMENTCHECKCELLREUSEID = @"ELEMENTCHECKCELL";
          dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
         [self.elementStaListArray removeAllObjects];
         for (DJOrgElementModel *orgModel in self.orgEModelArray) {
-            DJOrgElementModel *model = [[DJOrgElementModel alloc]init];
-            [model setSeGuid:@"B8B9E3C0294A451E8C86A82B0BEF2DE0"];
-            [model setSeStat:@"3"];
             for (DJElemnetModel *eleModel in self.elementListArray) {
-                NSLog(@"%@",eleModel.seGuid);
-                if ([eleModel.seGuid isEqualToString:model.seGuid]) {
-                    [eleModel setSeStat:model.seStat];
+                NSLog(@"%@",orgModel.seGuid);
+                if ([eleModel.guid isEqualToString:orgModel.seGuid]) {
+                    [eleModel setSeStat:orgModel.seStat];
                     [self.elementStaListArray addObject:eleModel];
                 }
             }
@@ -131,6 +145,7 @@ static NSString *const ELEMENTCHECKCELLREUSEID = @"ELEMENTCHECKCELL";
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.bottom.mas_equalTo(weak_self.view);
     }];
+    [self.tableView registerClass:[DJElementCheckCell class] forCellReuseIdentifier:ELEMENTCHECKCELLREUSEID];
 }
 
 -(NSArray *)elementListArray{
