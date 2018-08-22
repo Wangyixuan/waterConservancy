@@ -81,65 +81,14 @@ static NSString *const HIDDENDRANGECELLREUSEID = @"HIDDENDRANGECELL";
 #pragma mark 请求
 -(void)uploadHiddenDangerWithModel:(DJMonthListModel *)model{
     //422错误？？
-//    NSDictionary *parmars = TNParams(@"hiddGuid":model.guid,@"collTime":model.collTime);
-//    [[YXNetTool shareTool]postRequestWithURL:YXNetAddress(@"sjjk/v1/bis/hidd/rec/bisHiddRecRep/") Parmars:parmars success:^(id responseObject) {
-//        NSLog(@"%@",responseObject);
-//    } faild:^(NSError *error) {
-//        NSLog(@"%@",error);
-//    }];
+    NSDictionary *parmars = TNParams(@"hiddGuid":model.guid,@"collTime":model.collTime);
     
-    NSDictionary *headers = @{ @"content-type": @"multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
-                               @"Content-Type": @"application/json",
-                               @"Cache-Control": @"no-cache",
-                               @"Postman-Token": @"5430d6ab-11da-4a37-bf26-cdc9ea47743b" };
-    NSArray *parameters = @[ @{ @"name": @"hiddGuid", @"value": @"B8C488E3EFAF4E309D5DCFA3F65E03D9" },
-                             @{ @"name": @"collTime", @"value": @"2018-03-28 12:22:33" } ];
-    NSString *boundary = @"----WebKitFormBoundary7MA4YWxkTrZu0gW";
-    
-    NSError *error;
-    NSMutableString *body = [NSMutableString string];
-    for (NSDictionary *param in parameters) {
-        [body appendFormat:@"--%@\r\n", boundary];
-        if (param[@"fileName"]) {
-            [body appendFormat:@"Content-Disposition:form-data; name=\"%@\"; filename=\"%@\"\r\n", param[@"name"], param[@"fileName"]];
-            [body appendFormat:@"Content-Type: %@\r\n\r\n", param[@"contentType"]];
-            [body appendFormat:@"%@", [NSString stringWithContentsOfFile:param[@"fileName"] encoding:NSUTF8StringEncoding error:&error]];
-            if (error) {
-                NSLog(@"%@", error);
-            }
-        } else {
-            [body appendFormat:@"Content-Disposition:form-data; name=\"%@\"\r\n\r\n", param[@"name"]];
-            [body appendFormat:@"%@", param[@"value"]];
-        }
-    }
-    [body appendFormat:@"\r\n--%@--\r\n", boundary];
-    NSData *postData = [body dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://192.168.1.8:8080/sjjk/v1/bis/hidd/rec/bisHiddRecRep/"]
-                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:10.0];
-    [request setHTTPMethod:@"POST"];
-    [request setAllHTTPHeaderFields:headers];
-    [request setHTTPBody:postData];
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
-                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                    if (error) {
-                                                        NSLog(@"%@", error);
-                                                    } else {
-                                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                                                        NSLog(@"%@", httpResponse);
-                                                    }
-                                                }];
-    [dataTask resume];
-    
-//    NSDictionary *parmars = TNParams(@"repName":model.repName,@"collTime":model.collTime);
-//    [[YXNetTool shareTool]postRequestWithURL:YXNetAddress(@"sjjk/v1/bis/org/mon/rep/bisOrgMonRepPeri/") Parmars:parmars success:^(id responseObject) {
-//        NSLog(@"%@",responseObject);
-//    } faild:^(NSError *error) {
-//        NSLog(@"%@",error);
-//    }];
+    [[YXNetTool shareTool]postRequestWithURL:YXNetAddress(@"sjjk/v1/bis/hidd/rec/bisHiddRecRep/") Parmars:parmars success:^(id responseObject) {
+        NSLog(@"%@",responseObject);
+    } faild:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
+
     
 }
 

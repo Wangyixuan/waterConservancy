@@ -7,7 +7,8 @@
 //
 
 #import "YXBaseTableViewCell.h"
+#import "DJElemnetModel.h"
 
 @interface DJElementCheckCell : YXBaseTableViewCell
-
+-(void)setElementDataWithModel:(DJElemnetModel *)model;
 @end

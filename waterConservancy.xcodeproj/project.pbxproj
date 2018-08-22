@@ -44,6 +44,8 @@
 		5A8BE23F21255E0A00F61665 /* DJHiddenDrangeChartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE23E21255E0A00F61665 /* DJHiddenDrangeChartController.m */; };
 		5A8BE2432126A48F00F61665 /* DJHiddenDangerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE2422126A48F00F61665 /* DJHiddenDangerModel.m */; };
 		5A8BE2462126CA0500F61665 /* DJMonthListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE2452126CA0500F61665 /* DJMonthListModel.m */; };
+		5A8BE28A212A6AE300F61665 /* DJElemnetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE289212A6AE300F61665 /* DJElemnetModel.m */; };
+		5A8BE28D212A991500F61665 /* DJOrgElementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE28C212A991500F61665 /* DJOrgElementModel.m */; };
 		8841E8835D90F5303BCEA6DB /* libPods-waterConservancy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0C5E7A62458F22B4104EA4 /* libPods-waterConservancy.a */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +145,10 @@
 		5A8BE2422126A48F00F61665 /* DJHiddenDangerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJHiddenDangerModel.m; sourceTree = "<group>"; };
 		5A8BE2442126CA0500F61665 /* DJMonthListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJMonthListModel.h; sourceTree = "<group>"; };
 		5A8BE2452126CA0500F61665 /* DJMonthListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJMonthListModel.m; sourceTree = "<group>"; };
+		5A8BE288212A6AE300F61665 /* DJElemnetModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJElemnetModel.h; sourceTree = "<group>"; };
+		5A8BE289212A6AE300F61665 /* DJElemnetModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJElemnetModel.m; sourceTree = "<group>"; };
+		5A8BE28B212A991500F61665 /* DJOrgElementModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJOrgElementModel.h; sourceTree = "<group>"; };
+		5A8BE28C212A991500F61665 /* DJOrgElementModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJOrgElementModel.m; sourceTree = "<group>"; };
 		69E75B7A348455A4C6F7FB29 /* Pods-waterConservancy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-waterConservancy.release.xcconfig"; path = "Pods/Target Support Files/Pods-waterConservancy/Pods-waterConservancy.release.xcconfig"; sourceTree = "<group>"; };
 		852F732D60868C4918F85BA0 /* Pods-waterConservancy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-waterConservancy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-waterConservancy/Pods-waterConservancy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -578,6 +584,10 @@
 				5A8BE2422126A48F00F61665 /* DJHiddenDangerModel.m */,
 				5A8BE2442126CA0500F61665 /* DJMonthListModel.h */,
 				5A8BE2452126CA0500F61665 /* DJMonthListModel.m */,
+				5A8BE288212A6AE300F61665 /* DJElemnetModel.h */,
+				5A8BE289212A6AE300F61665 /* DJElemnetModel.m */,
+				5A8BE28B212A991500F61665 /* DJOrgElementModel.h */,
+				5A8BE28C212A991500F61665 /* DJOrgElementModel.m */,
 			);
 			path = "隐患";
 			sourceTree = "<group>";
@@ -773,6 +783,7 @@
 				5A8BE22521240CFF00F61665 /* DJElementCheckCell.m in Sources */,
 				5A4CF1662122795F00D72FE5 /* DJLoadViewController.m in Sources */,
 				5A4CF1862122801300D72FE5 /* YXNavViewController.m in Sources */,
+				5A8BE28D212A991500F61665 /* DJOrgElementModel.m in Sources */,
 				5A8BE22221240C4100F61665 /* DJElementCheckController.m in Sources */,
 				047129CD2122DEDB00EEADE5 /* WLVerticalButton.m in Sources */,
 				5A4CF17721227C6500D72FE5 /* TNIUDateTools.m in Sources */,
@@ -783,6 +794,7 @@
 				5A4CF18E2122806600D72FE5 /* YXBackBtn.m in Sources */,
 				5A4CF17821227C6500D72FE5 /* YXDataResolveTool.m in Sources */,
 				5A8BE2432126A48F00F61665 /* DJHiddenDangerModel.m in Sources */,
+				5A8BE28A212A6AE300F61665 /* DJElemnetModel.m in Sources */,
 				5A4CF16F21227B1600D72FE5 /* YXSaveUserCell.m in Sources */,
 				5A4CF1842122801300D72FE5 /* YXBaseViewController.m in Sources */,
 				04C5310E21212BCB00C90964 /* main.m in Sources */,

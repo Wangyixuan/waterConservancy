@@ -23,6 +23,20 @@
     return self;
 }
 
+-(void)setElementDataWithModel:(DJElemnetModel *)model{
+    [self.elementLabel setText:model.seChitName];
+    NSString *typeStr;
+    if ([model.seStat isEqualToString:@"1"]) {
+        typeStr = @"一般隐患";
+    }else if ([model.seStat isEqualToString:@"2"]){
+         typeStr = @"重大隐患";
+    }else if ([model.seStat isEqualToString:@"3"]){
+        typeStr = @"正常";
+    }else if ([model.seStat isEqualToString:@"4"]){
+        typeStr = @"待查";
+    }
+    [self.typeLabel setTitle:typeStr forState:UIControlStateNormal];
+}
 
 #pragma mark UI
 -(void)initElementCellUI{

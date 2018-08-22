@@ -38,9 +38,10 @@
         
         [self setNavigationBarHidden:NO animated:YES];
     }
-    if (![[super topViewController] isKindOfClass:[viewController class]]) {
-            [super pushViewController:viewController animated:animated];
-    }
+     [super pushViewController:viewController animated:animated];
+//    if (![[super topViewController] isKindOfClass:[viewController class]]) {
+//            [super pushViewController:viewController animated:animated];
+//    }
 }
 
 
@@ -83,15 +84,15 @@
 //}
 //
 //#pragma mark - 返回按钮事件(pop)
-//-(void)popself
-//{
-//    NSLog(@"%@",self.childViewControllers.lastObject);
-//    //初始页面count == 2
-//    if (self.childViewControllers.count == 2) {
-//        [self setNavigationBarHidden:YES animated:YES];
-//    }
-//    [self popViewControllerAnimated:YES];
-//
-//
-//}
+-(void)popself
+{
+    NSLog(@"%@",self.childViewControllers.lastObject);
+    //初始页面count == 2
+    if (self.childViewControllers.count == 2) {
+        [self setNavigationBarHidden:YES animated:YES];
+    }
+    [self popViewControllerAnimated:YES];
+
+
+}
 @end

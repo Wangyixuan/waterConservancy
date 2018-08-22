@@ -191,10 +191,13 @@
 -(void)pushControllerWithTitle:(NSString *)titie{
     
 //    if ([titie isEqualToString:@"隐患报表"]) {
-        DJHiddenDrangeChartController *hiddenCtrl = [[DJHiddenDrangeChartController alloc]init];
-        [self.navigationController pushViewController:hiddenCtrl animated:YES];
+//        DJHiddenDrangeChartController *hiddenCtrl = [[DJHiddenDrangeChartController alloc]init];
+//        [self.navigationController pushViewController:hiddenCtrl animated:YES];
 //    }
-//    else if (titie isEqualToString:@"")
+//    else if ([titie isEqualToString:@"元素检查"]){
+        DJElementCheckController *elementCheckCtrl = [[DJElementCheckController alloc]init];
+        [self.navigationController pushViewController:elementCheckCtrl animated:YES];
+//    }
 }
 
 
