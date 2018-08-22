@@ -13,10 +13,14 @@
 #import "CommonMacro.h"
 #import "YXNetTool.h"
 #import "NSDictionary+JsonDict.h"
+#import "WLUserManager.h"
+#import "WLActionManager.h"
+
+#import "YXBaseViewController.h"
 
 #import <Masonry.h>
 #import <YYKit.h>
-
+#import <XMLDictionary.h>
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.

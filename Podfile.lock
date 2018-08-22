@@ -18,6 +18,7 @@ PODS:
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.3)
   - "UITableView+FDTemplateLayoutCell (1.6)"
+  - XMLDictionary (1.4.1)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - Masonry (~> 1.1.0)
   - MJRefresh (~> 3.1.15.3)
   - "UITableView+FDTemplateLayoutCell"
+  - XMLDictionary
   - YYKit
 
 SPEC REPOS:
@@ -37,6 +39,7 @@ SPEC REPOS:
     - Masonry
     - MJRefresh
     - "UITableView+FDTemplateLayoutCell"
+    - XMLDictionary
     - YYKit
 
 SPEC CHECKSUMS:
@@ -45,8 +48,9 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  XMLDictionary: fa07b6ff422b3a91d47a5de9bc82e3fc04fbd167
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: d672af914284b35fcc4e383a1fa8c8d1a1e7137b
+PODFILE CHECKSUM: f6e78324b87bba97f0198243a11715826d31751a
 
 COCOAPODS: 1.5.3

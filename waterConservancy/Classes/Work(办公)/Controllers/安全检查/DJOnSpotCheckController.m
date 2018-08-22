@@ -20,7 +20,21 @@ static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
     self.title = @"现场检查";
     
     [self initOnSpotChecktUI];
+    [self loadData];
 }
+
+-(void)loadData{
+    
+    [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/bis/sins/bisSinsRecs/") Parmars:nil success:^(id responseObject) {
+        NSLog(@"%@",responseObject);
+        
+    } faild:^(NSError *error) {
+        NSLog(@"error%@",error);
+    }];
+    
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 3;
 }

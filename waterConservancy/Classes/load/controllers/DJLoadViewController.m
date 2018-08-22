@@ -50,6 +50,10 @@
     [super viewDidLoad];
      [self setUI];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
 #pragma mark Private Method
 
 -(void)forgetClick{
@@ -60,15 +64,12 @@
 -(void)rememberClick:(UIButton *)btn{
     //记住本次的是否记住密码
     btn.selected = !btn.selected;
-    NSString *remStr;
     if (btn.selected) {
-        remStr = @"isRemember";
+        WLShareUserManager.autoLoginEnabled = YES;
     }else{
-        remStr = @"notRemember";
+      
+        WLShareUserManager.autoLoginEnabled = NO;
     }
-    [[NSUserDefaults standardUserDefaults]setObject:remStr forKey:@"isrememberPassword"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
-    
 }
 
 //点击展示所有登陆过的用户
@@ -106,37 +107,38 @@
     NSString *password = [[self.passWordFiled.text md5String]uppercaseString];
     [[YXNetTool shareTool]SOAPData:@"http://192.168.1.11:9080/uams/ws/uumsext/UserExt?wsdl" password:password userName:self.userNameFiled.text success:^(id responseObject) {
         NSLog(@"%@",responseObject);
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSArray *userNameArray = [defaults objectForKey:@"loadUserName"];
-        NSMutableArray *usrMuA;
-        if (userNameArray.count) {
-            usrMuA = userNameArray.mutableCopy;
-        }else{
-            usrMuA = [NSMutableArray array];
-        }
-        //是否含有这个用户
-        NSString *userName = [self.userNameFiled.text lowercaseString];
-        NSLog(@"%@",userName);
-        NSString *password = self.passWordFiled.text;
-        BOOL isContain = NO;
-        [defaults setObject:userName forKey:@"currentUser"];
-        [defaults setObject:password forKey:@"currentPassword"];
-        for (NSDictionary *dic in usrMuA) {
-            if ([dic.allKeys containsObject:userName]) {
-                isContain = YES;
+        NSDictionary *respDic = (NSDictionary*)responseObject;
+        [WLShareUserManager updateUserInfoWithDataDic:respDic];
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            NSArray *userNameArray = [defaults objectForKey:@"loadUserName"];
+            NSMutableArray *usrMuA;
+            if (userNameArray.count) {
+                usrMuA = userNameArray.mutableCopy;
+            }else{
+                usrMuA = [NSMutableArray array];
             }
-        }
-        if (!isContain && [isRememberPassword isEqualToString:@"isRemember"]) {
-            NSDictionary *nameAPassDic = [NSDictionary dictionaryWithObject:password forKey:userName];
-            [usrMuA addObject:nameAPassDic];
-            [defaults setObject:usrMuA forKey:@"loadUserName"];
+            //是否含有这个用户
+            NSString *userName = [self.userNameFiled.text lowercaseString];
+            NSLog(@"%@",userName);
+            NSString *password = self.passWordFiled.text;
+            BOOL isContain = NO;
+            [defaults setObject:userName forKey:@"currentUser"];
+            [defaults setObject:password forKey:@"currentPassword"];
+            for (NSDictionary *dic in usrMuA) {
+                if ([dic.allKeys containsObject:userName]) {
+                    isContain = YES;
+                }
+            }
+            if (!isContain && [isRememberPassword isEqualToString:@"isRemember"]) {
+                NSDictionary *nameAPassDic = [NSDictionary dictionaryWithObject:password forKey:userName];
+                [usrMuA addObject:nameAPassDic];
+                [defaults setObject:usrMuA forKey:@"loadUserName"];
+            }
+        
+            //2.跳转页面
+            [(AppDelegate *)[UIApplication sharedApplication].delegate showMainControllers];
 
-        }
-      
-
-        //2.跳转页面
-        [(AppDelegate *)[UIApplication sharedApplication].delegate showMainControllers];
     } failure:nil];
 }
 
@@ -157,8 +159,10 @@
             weak_self.userNameFiled.text = userName;
             weak_self.passWordFiled.text = password;
             [weak_self.downListView removeFromSuperview];
+            if (weak_self.rememberBtn.selected==NO) {
+                [weak_self rememberClick:weak_self.rememberBtn];
+            }
         }
-        
     };
 }
 -(void)delDownList{
@@ -414,7 +418,7 @@
         tfiled.clearButtonMode = UITextFieldViewModeWhileEditing;
         tfiled.returnKeyType = UIReturnKeyDone;
         tfiled.delegate = self;
-        
+        tfiled.text = WLShareUserManager.userName;
         tfiled.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"账号" attributes:
                                         @{NSFontAttributeName:[UIFont systemFontOfSize:15.0f],
                                           NSForegroundColorAttributeName:COLOR_WITH_HEX(0x999999)
@@ -430,6 +434,7 @@
         [btn setImage:[UIImage imageNamed:@"downRow.png"] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(userbtnClick) forControlEvents:UIControlEventTouchUpInside];
         [self.userNameView addSubview:btn];
+        
         _userNameBtn = btn;
     }
     return _userNameBtn;
@@ -535,9 +540,9 @@
     if (!_rememberBtn) {
         UIButton *btn = [[UIButton alloc]init];
         [btn setTitle:@"记住密码" forState:UIControlStateNormal];
-        if ([isRememberPassword isEqualToString:@"isRemember"]) {
-            btn.selected = YES;
-        }
+//        if ([isRememberPassword isEqualToString:@"isRemember"]) {
+//            btn.selected = YES;
+//        }
         [btn setImage:[UIImage imageNamed:@"remember"] forState:UIControlStateNormal];
         [btn setImage:[UIImage imageNamed:@"remember_selected"] forState:UIControlStateSelected];
         [btn setTitleColor:COLOR_WITH_HEX(0x999999) forState:UIControlStateNormal];

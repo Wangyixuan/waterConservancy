@@ -11,9 +11,9 @@
 
 @interface WLWorkTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) NSArray *modelArr;
+
 @property (nonatomic, copy) void(^btnClickBlock)(NSString *cellTitle);
 
 @property (nonatomic, strong) WLWorkModel *model;
-//@property (nonatomic, copy) void(^btnClickBlock)();
+
 @end
