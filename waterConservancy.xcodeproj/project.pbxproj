@@ -20,6 +20,7 @@
 		047B5073212A8C9E0007C477 /* WLUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5072212A8C9E0007C477 /* WLUserManager.m */; };
 		047B5076212AB76A0007C477 /* WLActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5075212AB76A0007C477 /* WLActionManager.m */; };
 		047B507A212C1F2C0007C477 /* WLHiddenReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5079212C1F2C0007C477 /* WLHiddenReportViewController.m */; };
+		047B507E212D01B30007C477 /* WLOnSpotCheckModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B507D212D01B30007C477 /* WLOnSpotCheckModel.m */; };
 		04C5310021212BC900C90964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C530FF21212BC900C90964 /* AppDelegate.m */; };
 		04C5310821212BCB00C90964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310721212BCB00C90964 /* Assets.xcassets */; };
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
@@ -95,6 +96,8 @@
 		047B5075212AB76A0007C477 /* WLActionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLActionManager.m; sourceTree = "<group>"; };
 		047B5078212C1F2C0007C477 /* WLHiddenReportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLHiddenReportViewController.h; sourceTree = "<group>"; };
 		047B5079212C1F2C0007C477 /* WLHiddenReportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLHiddenReportViewController.m; sourceTree = "<group>"; };
+		047B507C212D01B30007C477 /* WLOnSpotCheckModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLOnSpotCheckModel.h; sourceTree = "<group>"; };
+		047B507D212D01B30007C477 /* WLOnSpotCheckModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLOnSpotCheckModel.m; sourceTree = "<group>"; };
 		04C530FB21212BC900C90964 /* waterConservancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterConservancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C530FE21212BC900C90964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04C530FF21212BC900C90964 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -327,6 +330,7 @@
 		047B506121255DD50007C477 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				047B507B212D01810007C477 /* 安全检查 */,
 				5A8BE2402126A46D00F61665 /* 隐患 */,
 				047B506221255DD50007C477 /* WLWorkModel.h */,
 				047B506321255DD50007C477 /* WLWorkModel.m */,
@@ -372,6 +376,15 @@
 				047B5079212C1F2C0007C477 /* WLHiddenReportViewController.m */,
 			);
 			path = "报表管理";
+			sourceTree = "<group>";
+		};
+		047B507B212D01810007C477 /* 安全检查 */ = {
+			isa = PBXGroup;
+			children = (
+				047B507C212D01B30007C477 /* WLOnSpotCheckModel.h */,
+				047B507D212D01B30007C477 /* WLOnSpotCheckModel.m */,
+			);
+			path = "安全检查";
 			sourceTree = "<group>";
 		};
 		04C530F221212BC900C90964 = {
@@ -755,10 +768,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-waterConservancy/Pods-waterConservancy-resources.sh",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -818,6 +833,7 @@
 				047B505821242DE50007C477 /* WLWorkTableViewCell.m in Sources */,
 				047B5068212564920007C477 /* NSDictionary+JsonDict.m in Sources */,
 				04C5310021212BC900C90964 /* AppDelegate.m in Sources */,
+				047B507E212D01B30007C477 /* WLOnSpotCheckModel.m in Sources */,
 				5A8BE23F21255E0A00F61665 /* DJHiddenDrangeChartController.m in Sources */,
 				047B506F212A8AA30007C477 /* WLUserModel.m in Sources */,
 				5A4CF16D21227B1600D72FE5 /* YXDownListView.m in Sources */,

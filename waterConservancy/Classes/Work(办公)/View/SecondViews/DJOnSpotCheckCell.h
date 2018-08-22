@@ -7,7 +7,11 @@
 //
 
 #import "YXBaseTableViewCell.h"
+#import "WLOnSpotCheckModel.h"
+
 typedef void (^onSpotCheckBtnClickBlock) (void);
 @interface DJOnSpotCheckCell : YXBaseTableViewCell
 @property (nonatomic, copy) onSpotCheckBtnClickBlock onSpotCheckBtnClickBlock;
+@property (nonatomic, strong) WLOnSpotCheckModel *model;
+@property (nonatomic, copy) void(^cellHBlock)(CGFloat cellH);
 @end

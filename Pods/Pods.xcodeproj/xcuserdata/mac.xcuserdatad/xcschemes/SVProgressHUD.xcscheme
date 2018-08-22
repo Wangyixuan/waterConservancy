@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D98D292E330BBCC87903499F193DB267"
-               BlueprintName = "XMLDictionary"
+               BlueprintIdentifier = "B5C6DB8583559F10B64C22C82FC73243"
+               BlueprintName = "SVProgressHUD"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libXMLDictionary.a">
+               BuildableName = "libSVProgressHUD.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
