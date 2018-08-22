@@ -8,7 +8,7 @@
 
 #import "DJOnSpotCheckCell.h"
 @interface DJOnSpotCheckCell()
-@property (nonatomic, weak) UIView  *MyContentView;
+//@property (nonatomic, weak) UIView  *MyContentView;
 @property (nonatomic, weak) UIImageView *backImgV;
 /** 姓名 */
 @property (nonatomic, weak) UILabel *nameLabel;
@@ -23,13 +23,18 @@
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        
+        self.contentView.backgroundColor = [UIColor redColor];
         [self initUI];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
 
+-(void)setModel:(WLOnSpotCheckModel *)model{
+    _model = model;
+    self.nameLabel.text = model.checkTimeStr;
+    self.contentLabel.text = model.checkNoteStr;
+}
 
 #pragma mark 催办
 -(void)cuibanClick{
@@ -42,22 +47,22 @@
     @weakify(self);
    
     
-    [self.MyContentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weak_self.mas_left).offset(SCALE_W(10));
-        make.top.mas_equalTo(weak_self.mas_top).offset(SCALE_W(10));
-        make.right.mas_equalTo(weak_self.mas_right).offset(SCALE_W(-10));
-        make.bottom.mas_equalTo(weak_self.mas_bottom);
-    }];
+//    [self.MyContentView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(weak_self.mas_left).offset(SCALE_W(10));
+//        make.top.mas_equalTo(weak_self.mas_top).offset(SCALE_W(10));
+//        make.right.mas_equalTo(weak_self.mas_right).offset(SCALE_W(-10));
+//        make.bottom.mas_equalTo(weak_self.mas_bottom);
+//    }];
     [self.backImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.mas_equalTo(weak_self.MyContentView);
+        make.left.top.right.mas_equalTo(weak_self.contentView);
         make.bottom.mas_equalTo(weak_self.contentLabel.mas_bottom).offset(SCALE_W(20));
     }];
    
     
     [self.cuibanBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(weak_self.MyContentView.mas_right)
+        make.right.mas_equalTo(weak_self.contentView.mas_right)
         .offset(SCALE_W(-20));
-        make.centerY.mas_equalTo(weak_self.MyContentView.mas_centerY);
+        make.centerY.mas_equalTo(weak_self.contentView.mas_centerY);
         make.width.mas_equalTo(SCALE_W(100));
         make.height.mas_equalTo(SCALE_W(40));
     }];
@@ -65,8 +70,8 @@
     self.cuibanBtn.layer.masksToBounds = YES;
     
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weak_self.MyContentView.mas_left).offset(SCALE_W(20));
-        make.centerY.mas_equalTo(weak_self.MyContentView.mas_centerY);
+        make.left.mas_equalTo(weak_self.contentView.mas_left).offset(SCALE_W(20));
+        make.top.mas_equalTo(weak_self.contentView).offset(SCALE_W(15));
         make.right.mas_equalTo(weak_self.cuibanBtn.mas_left).offset(SCALE_W(20));
     }];
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -75,24 +80,24 @@
 //        make.width.mas_equalTo(contentLabelWidth);
     }];
     
-    
-    
 }
--(UIView *)MyContentView{
-    if (!_MyContentView) {
-        UIView *view = [[UIView alloc]init];
-        [self.contentView addSubview:view];
-        _MyContentView = view;
-    }
-    return _MyContentView;
-}
+//-(UIView *)MyContentView{
+//    if (!_MyContentView) {
+//        UIView *view = [[UIView alloc]init];
+//        view.backgroundColor = [UIColor redColor];
+//        [self.contentView addSubview:view];
+//        _MyContentView = view;
+//    }
+//    return _MyContentView;
+//}
 -(UILabel *)nameLabel{
     if (!_nameLabel) {
         UILabel *nameLabel = [[UILabel alloc]init];
-        [nameLabel setText:@"检查时间:2018-8-16"];
+//        [nameLabel setText:@"检查时间:2018-8-16"];
         [nameLabel setTextColor:COLOR_WITH_HEX(0x333333)];
         [nameLabel setFont:YX30Font];
         [nameLabel setTextAlignment:NSTextAlignmentLeft];
+        nameLabel.numberOfLines = 1;
         [self.backImgV addSubview:nameLabel];
         _nameLabel =nameLabel;
     }
@@ -101,7 +106,7 @@
 -(UILabel *)contentLabel{
     if (!_contentLabel) {
         UILabel *contentLabel = [[UILabel alloc]init];
-        [contentLabel setText:@"检查内容:堤坝、水电站、在建工程、勘探、淤坝地"];
+//        [contentLabel setText:@"检查内容:堤坝、水电站、在建工程、勘探、淤坝地"];
         [contentLabel setTextColor:COLOR_WITH_HEX(0x999999)];
         [contentLabel setFont:YX26Font];
         contentLabel.preferredMaxLayoutWidth = contentLabelWidth;

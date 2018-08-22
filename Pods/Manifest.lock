@@ -17,6 +17,7 @@ PODS:
   - LYEmptyView (1.2.0)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.3)
+  - SVProgressHUD (2.2.5)
   - "UITableView+FDTemplateLayoutCell (1.6)"
   - XMLDictionary (1.4.1)
   - YYKit (1.0.9):
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - LYEmptyView
   - Masonry (~> 1.1.0)
   - MJRefresh (~> 3.1.15.3)
+  - SVProgressHUD
   - "UITableView+FDTemplateLayoutCell"
   - XMLDictionary
   - YYKit
@@ -38,6 +40,7 @@ SPEC REPOS:
     - LYEmptyView
     - Masonry
     - MJRefresh
+    - SVProgressHUD
     - "UITableView+FDTemplateLayoutCell"
     - XMLDictionary
     - YYKit
@@ -47,10 +50,11 @@ SPEC CHECKSUMS:
   LYEmptyView: f9a7b1bd6c61577c2765abba327332666f1b2857
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   XMLDictionary: fa07b6ff422b3a91d47a5de9bc82e3fc04fbd167
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: f6e78324b87bba97f0198243a11715826d31751a
+PODFILE CHECKSUM: 2202e48e94081e2eef91434d6e5d60fe6bfad07b
 
 COCOAPODS: 1.5.3

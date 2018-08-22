@@ -8,9 +8,10 @@
 
 #import "DJOnSpotCheckController.h"
 #import "DJOnSpotCheckCell.h"
+#import <UITableView+FDTemplateLayoutCell.h>
 
 @interface DJOnSpotCheckController ()
-
+@property (nonatomic, strong) NSMutableArray *dataArr;
 @end
 static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
 @implementation DJOnSpotCheckController
@@ -18,16 +19,31 @@ static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"现场检查";
-    
+    self.dataArr = [NSMutableArray array];
     [self initOnSpotChecktUI];
-    [self loadData];
+    MJRefreshHeader *header = [MJRefreshHeader headerWithRefreshingBlock:^{
+        [self loadData];
+    }];
+    self.tableView.mj_header = header;
+    [header beginRefreshing];
+
+//    [self loadData];
 }
 
 -(void)loadData{
-    
-    [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/bis/sins/bisSinsRecs/") Parmars:nil success:^(id responseObject) {
+    NSDictionary *param = @{@"pageSize":@(10)};
+    [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/bis/sins/bisSinsRecs/") Parmars:param success:^(id responseObject) {
         NSLog(@"%@",responseObject);
-        
+        [self.tableView.mj_header endRefreshing];
+        NSDictionary *respDic = (NSDictionary*)responseObject;
+        NSArray *data = [respDic objectForKey:@"data"];
+        if (data.count>0) {
+            for (NSDictionary *dic in data) {
+                WLOnSpotCheckModel *model = [[WLOnSpotCheckModel alloc]initWithDic:dic];
+                [self.dataArr addObject:model];
+            }
+        }
+        [self.tableView reloadData];
     } faild:^(NSError *error) {
         NSLog(@"error%@",error);
     }];
@@ -36,10 +52,10 @@ static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    DJOnSpotCheckCell *cell = [tableView dequeueReusableCellWithIdentifier:ONSPOTCHECKCELLREUSEID];
+    DJOnSpotCheckCell *cell = [tableView dequeueReusableCellWithIdentifier:ONSPOTCHECKCELLREUSEID forIndexPath:indexPath];
     if (!cell) {
         cell = [[DJOnSpotCheckCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ONSPOTCHECKCELLREUSEID];
     }
@@ -48,15 +64,21 @@ static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
         @strongify(self);
         
     };
+    if (self.dataArr.count>indexPath.row) {
+        cell.model = [self.dataArr objectAtIndex:indexPath.row];
+    }
     return cell;
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return SCALE_W(200);
+    CGFloat cellH = [tableView fd_heightForCellWithIdentifier:ONSPOTCHECKCELLREUSEID cacheByIndexPath:indexPath configuration:nil];
+    
+    return cellH;
 }
 
 #pragma mark UI
 -(void)initOnSpotChecktUI{
+    [self.tableView registerClass:[DJOnSpotCheckCell class] forCellReuseIdentifier:ONSPOTCHECKCELLREUSEID];
     [self.view addSubview:self.tableView];
     @weakify(self);
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {

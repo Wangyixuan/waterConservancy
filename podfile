@@ -7,4 +7,5 @@ target "waterConservancy" do
    pod 'LYEmptyView'
    pod 'UITableView+FDTemplateLayoutCell'
    pod 'XMLDictionary'
+   pod 'SVProgressHUD'
 end
