@@ -29,53 +29,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "waterConservancy/Classes/Work(&#x529e;&#x516c;)/Controllers/&#x5b89;&#x5168;&#x68c0;&#x67e5;/DJElementCheckController.m"
-            timestampString = "556610842.085162"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "-GetElementList"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__42-[DJElementCheckController GetElementList]_block_invoke.104"
-                  moduleName = "waterConservancy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liu/Desktop/waterConservancy/waterConservancy/Classes/Work(%E5%8A%9E%E5%85%AC)/Controllers/%E5%AE%89%E5%85%A8%E6%A3%80%E6%9F%A5/DJElementCheckController.m"
-                  timestampString = "556600480.494645"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "116"
-                  endingLineNumber = "116"
-                  offsetFromSymbolStart = "184">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__42-[DJElementCheckController GetElementList]_block_invoke.104"
-                  moduleName = "waterConservancy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liu/Desktop/waterConservancy/waterConservancy/Classes/Work(%E5%8A%9E%E5%85%AC)/Controllers/%E5%AE%89%E5%85%A8%E6%A3%80%E6%9F%A5/DJElementCheckController.m"
-                  timestampString = "556600480.4968539"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "116"
-                  endingLineNumber = "116"
-                  offsetFromSymbolStart = "192">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

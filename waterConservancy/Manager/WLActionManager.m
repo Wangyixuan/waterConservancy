@@ -44,8 +44,8 @@ static WLActionManager*instance;
 -(void)handleAction:(UIViewController *)viewController actionName:(NSString*)action{
     //报表管理
     if ([action isEqualToString:@"隐患报表"]) {
-        DJHiddenDrangeChartController *hiddenCtrl = [[DJHiddenDrangeChartController alloc]init];
-        [viewController.navigationController pushViewController:hiddenCtrl animated:YES];
+        UIViewController *ctrl = (UIViewController *)[[NSClassFromString(@"DJHiddenDrangeChartController") alloc]init];
+        [viewController.navigationController pushViewController:ctrl animated:YES];
     }
     else if ([action isEqualToString:@"事故报表"]){
 

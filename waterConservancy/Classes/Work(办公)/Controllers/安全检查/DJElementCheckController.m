@@ -7,12 +7,15 @@
 //
 
 #import "DJElementCheckController.h"
+#import "DJElementDetailController.h"
+
 #import "DJElementCheckCell.h"
 
 #import "DJElemnetModel.h"
 #import "DJOrgElementModel.h"
 
 #import <UITableView+FDTemplateLayoutCell.h>
+#import <SVProgressHUD.h>
 
 @interface DJElementCheckController ()
 /** 原始列表数据 总表 */
@@ -59,11 +62,21 @@ static NSString *const ELEMENTCHECKCELLREUSEID = @"ELEMENTCHECKCELL";
     return [tableView fd_heightForCellWithIdentifier:ELEMENTCHECKCELLREUSEID cacheByIndexPath:indexPath configuration:nil];
 //    return SCALE_W(120);
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DJElemnetModel *model = self.elementListArray[indexPath.row];
+    DJElementDetailController *detailCtrl = [[DJElementDetailController alloc]init];
+    [detailCtrl setSeGuid:model.seGuid];
+    [detailCtrl setGuid:model.guid];
+    [self.navigationController pushViewController:detailCtrl animated:YES];
+    
+}
+
 
 #pragma mark Net
 //获得元素列表
 -(void)GetElementList{
     //创建信号量
+    [SVProgressHUD show];
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(1);
     @weakify(self);
     dispatch_queue_t queue = dispatch_queue_create("com.dj", NULL);
@@ -121,7 +134,9 @@ static NSString *const ELEMENTCHECKCELLREUSEID = @"ELEMENTCHECKCELL";
                 NSLog(@"%@",orgModel.seGuid);
                 if ([eleModel.guid isEqualToString:orgModel.seGuid]) {
                     [eleModel setSeStat:orgModel.seStat];
+                    [eleModel setSeGuid:orgModel.seGuid];
                     [self.elementStaListArray addObject:eleModel];
+//                    1AEC2C6E5850410F9E7A555D8A3CF6D2
                 }
             }
         }
@@ -130,6 +145,7 @@ static NSString *const ELEMENTCHECKCELLREUSEID = @"ELEMENTCHECKCELL";
         dispatch_semaphore_signal(semaphore);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
+            [SVProgressHUD dismiss];
         });
 //
      });

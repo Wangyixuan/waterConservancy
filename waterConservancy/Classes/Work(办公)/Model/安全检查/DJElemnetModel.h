@@ -31,4 +31,5 @@
 @property (nonatomic, copy) NSString *pGuid;
 
 @property (nonatomic, copy) NSString *seStat;//元素状态
+@property (nonatomic, copy) NSString *seGuid;
 @end

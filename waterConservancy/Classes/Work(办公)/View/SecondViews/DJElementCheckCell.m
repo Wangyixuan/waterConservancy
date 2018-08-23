@@ -54,7 +54,7 @@
         make.left.mas_equalTo(weak_self.backImgV.mas_left).offset(SCALE_W(20));
         make.centerY.mas_equalTo(weak_self.backImgV.mas_centerY);
         make.width.mas_equalTo(SCALE_W(120));
-        make.height.mas_equalTo(SCALE_W(60));
+        make.height.mas_equalTo(SCALE_W(40));
     }];
     self.typeLabel.layer.cornerRadius = 5;
     self.typeLabel.layer.masksToBounds = YES;
