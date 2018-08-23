@@ -51,6 +51,13 @@
 -(void)initUI{
     @weakify(self);
 
+    [self.backImgV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.mas_equalTo(weak_self.contentView);
+        make.bottom.mas_equalTo(weak_self.contentView.mas_bottom)
+        .offset(SCALE_W(-10));
+    }];
+
+
     [self.cuibanBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(weak_self.backImgV.mas_right)
         .offset(SCALE_W(-20));
@@ -62,6 +69,7 @@
     self.cuibanBtn.layer.masksToBounds = YES;
     
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+
         make.left.mas_equalTo(weak_self.backImgV).offset(SCALE_W(20));
         make.top.mas_equalTo(weak_self.backImgV).offset(SCALE_W(30));
         make.right.mas_equalTo(weak_self.cuibanBtn.mas_left).offset(SCALE_W(20));
@@ -69,7 +77,8 @@
     }];
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weak_self.nameLabel.mas_left);
-        make.top.mas_equalTo(weak_self.nameLabel.mas_bottom).offset(SCALE_W(10));
+
+        make.top.mas_equalTo(weak_self.nameLabel.mas_bottom).offset(SCALE_W(20));
         make.right.mas_equalTo(weak_self.cuibanBtn.mas_left).offset(SCALE_W(-20));
     }];
     [self.backImgV mas_makeConstraints:^(MASConstraintMaker *make) {
