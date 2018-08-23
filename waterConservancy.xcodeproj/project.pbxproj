@@ -18,9 +18,12 @@
 		047B506B212565810007C477 /* NSObject+Convertor.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5069212565800007C477 /* NSObject+Convertor.m */; };
 		047B506F212A8AA30007C477 /* WLUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B506E212A8AA30007C477 /* WLUserModel.m */; };
 		047B5073212A8C9E0007C477 /* WLUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5072212A8C9E0007C477 /* WLUserManager.m */; };
-		047B5076212AB76A0007C477 /* WLActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5075212AB76A0007C477 /* WLActionManager.m */; };
 		047B507A212C1F2C0007C477 /* WLHiddenReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5079212C1F2C0007C477 /* WLHiddenReportViewController.m */; };
 		047B507E212D01B30007C477 /* WLOnSpotCheckModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B507D212D01B30007C477 /* WLOnSpotCheckModel.m */; };
+		047B5081212D4AF10007C477 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5080212D4AF10007C477 /* NSString+Size.m */; };
+		047B5084212D6FBA0007C477 /* WLOnSpotCheckDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5083212D6FBA0007C477 /* WLOnSpotCheckDetailController.m */; };
+		047B5087212D70E00007C477 /* mobile_security_check.html in Resources */ = {isa = PBXBuildFile; fileRef = 047B5086212D70E00007C477 /* mobile_security_check.html */; };
+		047B508A212D71190007C477 /* WLOnSpotMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5089212D71190007C477 /* WLOnSpotMapViewController.m */; };
 		04C5310021212BC900C90964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C530FF21212BC900C90964 /* AppDelegate.m */; };
 		04C5310821212BCB00C90964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310721212BCB00C90964 /* Assets.xcassets */; };
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
@@ -92,12 +95,17 @@
 		047B506E212A8AA30007C477 /* WLUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLUserModel.m; sourceTree = "<group>"; };
 		047B5071212A8C9E0007C477 /* WLUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLUserManager.h; sourceTree = "<group>"; };
 		047B5072212A8C9E0007C477 /* WLUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLUserManager.m; sourceTree = "<group>"; };
-		047B5074212AB76A0007C477 /* WLActionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLActionManager.h; sourceTree = "<group>"; };
-		047B5075212AB76A0007C477 /* WLActionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLActionManager.m; sourceTree = "<group>"; };
 		047B5078212C1F2C0007C477 /* WLHiddenReportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLHiddenReportViewController.h; sourceTree = "<group>"; };
 		047B5079212C1F2C0007C477 /* WLHiddenReportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLHiddenReportViewController.m; sourceTree = "<group>"; };
 		047B507C212D01B30007C477 /* WLOnSpotCheckModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLOnSpotCheckModel.h; sourceTree = "<group>"; };
 		047B507D212D01B30007C477 /* WLOnSpotCheckModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLOnSpotCheckModel.m; sourceTree = "<group>"; };
+		047B507F212D4AF10007C477 /* NSString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
+		047B5080212D4AF10007C477 /* NSString+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Size.m"; sourceTree = "<group>"; };
+		047B5082212D6FBA0007C477 /* WLOnSpotCheckDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLOnSpotCheckDetailController.h; sourceTree = "<group>"; };
+		047B5083212D6FBA0007C477 /* WLOnSpotCheckDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLOnSpotCheckDetailController.m; sourceTree = "<group>"; };
+		047B5086212D70E00007C477 /* mobile_security_check.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = mobile_security_check.html; sourceTree = "<group>"; };
+		047B5088212D71190007C477 /* WLOnSpotMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLOnSpotMapViewController.h; sourceTree = "<group>"; };
+		047B5089212D71190007C477 /* WLOnSpotMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLOnSpotMapViewController.m; sourceTree = "<group>"; };
 		04C530FB21212BC900C90964 /* waterConservancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterConservancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C530FE21212BC900C90964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04C530FF21212BC900C90964 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -341,6 +349,8 @@
 		047B5065212564920007C477 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				047B507F212D4AF10007C477 /* NSString+Size.h */,
+				047B5080212D4AF10007C477 /* NSString+Size.m */,
 				047B506A212565800007C477 /* NSObject+Convertor.h */,
 				047B5069212565800007C477 /* NSObject+Convertor.m */,
 				047B5066212564920007C477 /* NSDictionary+JsonDict.h */,
@@ -363,8 +373,6 @@
 			children = (
 				047B5071212A8C9E0007C477 /* WLUserManager.h */,
 				047B5072212A8C9E0007C477 /* WLUserManager.m */,
-				047B5074212AB76A0007C477 /* WLActionManager.h */,
-				047B5075212AB76A0007C477 /* WLActionManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -385,6 +393,14 @@
 				047B507D212D01B30007C477 /* WLOnSpotCheckModel.m */,
 			);
 			path = "安全检查";
+			sourceTree = "<group>";
+		};
+		047B5085212D70CD0007C477 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				047B5086212D70E00007C477 /* mobile_security_check.html */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		04C530F221212BC900C90964 = {
@@ -412,6 +428,7 @@
 		04C530FD21212BC900C90964 /* waterConservancy */ = {
 			isa = PBXGroup;
 			children = (
+				047B5085212D70CD0007C477 /* Resource */,
 				047B5070212A8C800007C477 /* Manager */,
 				047B5065212564920007C477 /* Category */,
 				04C5313521215BA300C90964 /* Classes */,
@@ -594,6 +611,10 @@
 				5A8BE22121240C4100F61665 /* DJElementCheckController.m */,
 				5A8BE2352125522700F61665 /* DJOnSpotCheckController.h */,
 				5A8BE2362125522700F61665 /* DJOnSpotCheckController.m */,
+				047B5082212D6FBA0007C477 /* WLOnSpotCheckDetailController.h */,
+				047B5083212D6FBA0007C477 /* WLOnSpotCheckDetailController.m */,
+				047B5088212D71190007C477 /* WLOnSpotMapViewController.h */,
+				047B5089212D71190007C477 /* WLOnSpotMapViewController.m */,
 			);
 			path = "安全检查";
 			sourceTree = "<group>";
@@ -738,6 +759,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				047B505D212441410007C477 /* WLWorkTableViewCell.xib in Resources */,
+				047B5087212D70E00007C477 /* mobile_security_check.html in Resources */,
 				5A4CF1922122832B00D72FE5 /* Main.storyboard in Resources */,
 				04C5310821212BCB00C90964 /* Assets.xcassets in Resources */,
 			);
@@ -819,12 +841,14 @@
 				5A8BE22221240C4100F61665 /* DJElementCheckController.m in Sources */,
 				047129CD2122DEDB00EEADE5 /* WLVerticalButton.m in Sources */,
 				5A4CF17721227C6500D72FE5 /* TNIUDateTools.m in Sources */,
-				047B5076212AB76A0007C477 /* WLActionManager.m in Sources */,
+				047B5081212D4AF10007C477 /* NSString+Size.m in Sources */,
+				047B508A212D71190007C477 /* WLOnSpotMapViewController.m in Sources */,
 				047129B421217EF600EEADE5 /* WorkViewController.m in Sources */,
 				047B506B212565810007C477 /* NSObject+Convertor.m in Sources */,
 				5A4CF16E21227B1600D72FE5 /* YXForgetView.m in Sources */,
 				5A8BE21F2123D13600F61665 /* DJHiddenDrangeChartCell.m in Sources */,
 				5A4CF18E2122806600D72FE5 /* YXBackBtn.m in Sources */,
+				047B5084212D6FBA0007C477 /* WLOnSpotCheckDetailController.m in Sources */,
 				5A4CF17821227C6500D72FE5 /* YXDataResolveTool.m in Sources */,
 				5A8BE2432126A48F00F61665 /* DJHiddenDangerModel.m in Sources */,
 				5A4CF16F21227B1600D72FE5 /* YXSaveUserCell.m in Sources */,

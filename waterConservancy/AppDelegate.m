@@ -23,6 +23,7 @@
     // Override point for customization after application launch.
 
     self.window = [[UIWindow alloc]initWithFrame:Screen];
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     //接受到退出信号 退出
 //    if ([isLogout isEqualToString:@"logout"]) {

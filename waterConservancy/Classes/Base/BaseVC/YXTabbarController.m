@@ -48,27 +48,27 @@
 -(void)setUpAllChildViewController{
     if (WLShareUserManager.isWaterIndustry==1) {
         WorkViewController *homeCtrl = [[WorkViewController alloc]init];
-        [self setUpOneChildViewController:homeCtrl image:@"home" title:@"办公"];
+        [self setUpOneChildViewController:homeCtrl image:@"bangong" title:@"办公"];
         DJOnSpotCheckController *riverCtrl = [[DJOnSpotCheckController alloc]init];
-        [self setUpOneChildViewController:riverCtrl image:@"me" title:@"通讯录"];
+        [self setUpOneChildViewController:riverCtrl image:@"tongxunlu" title:@"通讯录"];
         UIViewController *meCtrl = [[UIViewController alloc]init];
 
-        [self setUpOneChildViewController:meCtrl image:@"me" title:@"门户"];
+        [self setUpOneChildViewController:meCtrl image:@"menhu" title:@"门户"];
     }else{
         WorkViewController *homeCtrl = [[WorkViewController alloc]init];
-        [self setUpOneChildViewController:homeCtrl image:@"home" title:@"办公"];
+        [self setUpOneChildViewController:homeCtrl image:@"bangong" title:@"办公"];
         
         DJOnSpotCheckController *riverCtrl = [[DJOnSpotCheckController alloc]init];
-        [self setUpOneChildViewController:riverCtrl image:@"checkRiver" title:@"安全云"];
+        [self setUpOneChildViewController:riverCtrl image:@"anquanyun" title:@"安全云"];
         
         UIViewController *reCtrl = [[UIViewController alloc]init];
         //    [reCtrl setCurrentTag:1];
-        [self setUpOneChildViewController:reCtrl image:@"rectification" title:@"专题图"];
+        [self setUpOneChildViewController:reCtrl image:@"zhuantitu" title:@"专题图"];
         
         UIViewController *meCtrl = [[UIViewController alloc]init];
-        [self setUpOneChildViewController:meCtrl image:@"me" title:@"通讯录"];
-        
-        [self setUpOneChildViewController:meCtrl image:@"me" title:@"门户"];
+        [self setUpOneChildViewController:meCtrl image:@"tongxunlu" title:@"通讯录"];
+         UIViewController *menhuCtrl = [[UIViewController alloc]init];
+        [self setUpOneChildViewController:menhuCtrl image:@"menhu" title:@"门户"];
     }
 
 }

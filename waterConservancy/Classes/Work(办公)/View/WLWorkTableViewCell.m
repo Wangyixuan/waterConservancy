@@ -48,6 +48,7 @@
     [self.subViewBgView removeAllSubviews];
     for (int i = 0; i < modelArr.count; ++i) {
         WLVerticalButton *btn = [[WLVerticalButton alloc]initWithFrame:CGRectMake(i*itemW, 0, itemW, itemH)];
+        btn.tag = i;
         [btn setTitleColor:COLOR_WITH_HEX(0x999999) forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(itemBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         NSDictionary *modeldic = [modelArr objectAtIndex:i];
@@ -80,6 +81,7 @@
     }
     for (int i = 0; i < modelArray.count; ++i) {
         WLVerticalButton *btn = [[WLVerticalButton alloc]initWithFrame:CGRectMake(i*itemW, 0, itemW, itemH)];
+        btn.tag = i;
         [btn setTitleColor:COLOR_WITH_HEX(0x999999) forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(itemBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         NSDictionary *modelDic = [modelArray objectAtIndex:i];
@@ -96,8 +98,10 @@
 }
 
 -(void)itemBtnClick:(WLVerticalButton *)itemBtn{
+    NSDictionary *dic = [self.model.data objectAtIndex:itemBtn.tag];
+    NSString *ctrlStr = [dic stringForKey:@"ctrl" defaultValue:@""];
     if (self.btnClickBlock) {
-        self.btnClickBlock(itemBtn.titleLabel.text);
+        self.btnClickBlock(ctrlStr);
     }
 }
 @end

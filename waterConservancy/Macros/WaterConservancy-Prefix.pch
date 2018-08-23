@@ -14,7 +14,7 @@
 #import "YXNetTool.h"
 #import "NSDictionary+JsonDict.h"
 #import "WLUserManager.h"
-#import "WLActionManager.h"
+
 
 #import "YXBaseViewController.h"
 
