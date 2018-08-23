@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tables name="LocalCache">
+    <Table name="Local_Cache_Table" description="提交表">
+        <Field name="ID" type="char(36)" length="36" isKey="true" enableNull="false"/>
+        <Field name="url" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="JsonFilePath" type="varchar(255)" length="255" isKey="false" enableNull="false"/>
+        <Field name="BinaryFilePath" type="varchar(255)" length="255" isKey="false" enableNull="false"/>
+        <Field name="LocalStatus" type="int2" length="2" isKey="false" enableNull="true"/>
+    </Table>
+</Tables>

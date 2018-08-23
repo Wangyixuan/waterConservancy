@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tables name="Map">
+    <Table name="Map_Table" description="地图信息缓存表">
+        <Field name="serviceID" type="char(40)" length="40" isKey="false" enableNull="false"/>
+        <Field name="url" type="text" length="65536" isKey="true" enableNull="false"/>
+        <Field name="content" type="text" length="65536" isKey="false" enableNull="false"/>
+    </Table>
+</Tables>

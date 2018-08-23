@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tables name="AttachMent">
+    <Table name="AttachMent_Table" description="附件提交表">
+        <Field name="seriesKey" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="url" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="medName" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="medType" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="medPath" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="collTime" type="char(36)" length="36" isKey="false" enableNull="true"/>
+        <Field name="bisTableName" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="bisGuid" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="fromDate" type="char(36)" length="36" isKey="false" enableNull="true"/>
+        <Field name="localStatus" type="char(2)" length="2" isKey="false" enableNull="true"/>
+
+    </Table>
+</Tables>

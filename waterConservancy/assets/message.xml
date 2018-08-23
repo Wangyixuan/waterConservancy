@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tables name="MessageInfo">
+    <Table name="MessageInfo_Table" description="通知提醒表">
+        <Field name="messageId" type="char(36)" length="36" isKey="true" enableNull="false"/>
+        <Field name="title" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="content" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="publisher" type="varchar(255)" length="255" isKey="false" enableNull="false"/>
+        <Field name="publishDate" type="varchar(255)" length="255" isKey="false" enableNull="false"/>
+        <Field name="readStatus" type="varchar(255)" length="255" isKey="false" enableNull="true"/>
+        <Field name="serverDate" type="varchar(255)" length="255" isKey="false" enableNull="false"/>
+        <Field name="organizationId" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="isDelete" type="char(2)" length="2" isKey="false" enableNull="false"/>
+    </Table>
+</Tables>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tables name="UserInfo">
+    <Table name="UserInfo_Table" description="用户表">
+        <Field name="id" type="char(36)" length="36" isKey="true" enableNull="false"/>
+        <Field name="admDutyLevel" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="depCode" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="depId" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="depName" type="varchar(255)" length="255" isKey="false" enableNull="false"/>
+        <Field name="modifier" type="varchar(255)" length="255" isKey="false" enableNull="false"/>
+        <Field name="note" type="varchar(255)" length="255" isKey="false" enableNull="false"/>
+        <Field name="orgCode" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="orgId" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="orgName" type="varchar(255)" length="255" isKey="false" enableNull="false"/>
+        <Field name="password" type="varchar(255)" length="255" isKey="false" enableNull="true"/>
+        <Field name="persId" type="char(36)" length="36" isKey="false" enableNull="false"/>
+        <Field name="persName" type="varchar(255)" length="255" isKey="false" enableNull="true"/>
+        <Field name="persType" type="varchar(255)" length="255" isKey="false" enableNull="true"/>
+        <Field name="phone" type="varchar(255)" length="255" isKey="false" enableNull="true"/>
+        <Field name="status" type="varchar(255)" length="255" isKey="false" enableNull="true"/>
+        <Field name="ts" type="varchar(255)" length="255" isKey="false" enableNull="true"/>
+        <Field name="userCode" type="char(36)" length="36" isKey="false" enableNull="true"/>
+        <Field name="userName" type="varchar(36)" length="36" isKey="false" enableNull="true"/>
+        <Field name="userType" type="varchar(255)" length="255" isKey="false" enableNull="true"/>
+    </Table>
+</Tables>

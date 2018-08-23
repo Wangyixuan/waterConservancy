@@ -15,7 +15,7 @@
 #import "DJHiddenDrangeChartController.h"
 #import "DJElementCheckController.h"
 #import "DJOnSpotCheckController.h"
-
+#import "WLOnSpotMapViewController.h"
 
 @interface WorkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView *workList;
@@ -230,6 +230,8 @@
 }
 
 -(void)pushControllerWithTitle:(NSString *)titie{
+//    WLOnSpotMapViewController *mapView = [[WLOnSpotMapViewController alloc]init];
+//    [self.navigationController pushViewController:mapView animated:YES];
     if (titie.length>0) {
         YXBaseViewController *ctrl = [[NSClassFromString(titie) alloc] init];
         [self.navigationController pushViewController:ctrl animated:YES];
