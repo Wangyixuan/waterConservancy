@@ -12,7 +12,7 @@
 @interface WLWorkTableViewCell : UITableViewCell
 
 
-@property (nonatomic, copy) void(^btnClickBlock)(NSString *cellTitle);
+@property (nonatomic, copy) void(^btnClickBlock)(NSString *ctrlStr);
 
 @property (nonatomic, strong) WLWorkModel *model;
 

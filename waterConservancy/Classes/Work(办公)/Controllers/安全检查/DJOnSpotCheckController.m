@@ -8,7 +8,10 @@
 
 #import "DJOnSpotCheckController.h"
 #import "DJOnSpotCheckCell.h"
+#import "WLOnSpotMapViewController.h"
 #import <UITableView+FDTemplateLayoutCell.h>
+
+#define PAGESIZW 10
 
 @interface DJOnSpotCheckController ()
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -21,20 +24,33 @@ static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
     self.title = @"现场检查";
     self.dataArr = [NSMutableArray array];
     [self initOnSpotChecktUI];
-    MJRefreshHeader *header = [MJRefreshHeader headerWithRefreshingBlock:^{
-        [self loadData];
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self loadNewData];
     }];
     self.tableView.mj_header = header;
     [header beginRefreshing];
 
-//    [self loadData];
 }
 
--(void)loadData{
-    NSDictionary *param = @{@"pageSize":@(10)};
+-(void)loadNewData{
+    if (self.dataArr.count>0) {
+        [self.dataArr removeAllObjects];
+    }
+    NSDictionary *param = @{@"pageSize":@(PAGESIZW)};
+    [self loadDataWithParam:param];
+}
+
+-(void)loadMoreData{
+    NSDictionary *param = @{@"pageSize":@(PAGESIZW),@"currentPage":@(self.dataArr.count/PAGESIZW+1)};
+
+    [self loadDataWithParam:param];
+}
+
+-(void)loadDataWithParam:(NSDictionary*)param{
+
     [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/bis/sins/bisSinsRecs/") Parmars:param success:^(id responseObject) {
         NSLog(@"%@",responseObject);
-        [self.tableView.mj_header endRefreshing];
+       
         NSDictionary *respDic = (NSDictionary*)responseObject;
         NSArray *data = [respDic objectForKey:@"data"];
         if (data.count>0) {
@@ -42,12 +58,31 @@ static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
                 WLOnSpotCheckModel *model = [[WLOnSpotCheckModel alloc]initWithDic:dic];
                 [self.dataArr addObject:model];
             }
+            [self tableViewReload:data.count];
+        }else{
+            [self tableViewReload:0];
         }
-        [self.tableView reloadData];
+       
     } faild:^(NSError *error) {
         NSLog(@"error%@",error);
     }];
-    
+}
+
+-(void)tableViewReload:(NSInteger)arrCount{
+   @weakify(self)
+     [self.tableView.mj_header endRefreshing];
+     [self.tableView reloadData];
+    if(arrCount==PAGESIZW)
+    {
+        //显示加载更多
+        self.tableView.mj_footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [weak_self loadMoreData];
+        }];
+    }
+    else if (arrCount==0 &&self.dataArr.count!=0){
+        //无数据
+    }
+    else [self.tableView.mj_footer endRefreshingWithNoMoreData];
 }
 
 
@@ -62,7 +97,8 @@ static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
     @weakify(self);
     cell.onSpotCheckBtnClickBlock  = ^{
         @strongify(self);
-        
+        WLOnSpotMapViewController *mapView = [[WLOnSpotMapViewController alloc]init];
+        [self.navigationController pushViewController:mapView animated:YES];
     };
     if (self.dataArr.count>indexPath.row) {
         cell.model = [self.dataArr objectAtIndex:indexPath.row];
@@ -71,12 +107,26 @@ static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+<<<<<<< HEAD
     CGFloat cellH = [tableView fd_heightForCellWithIdentifier:ONSPOTCHECKCELLREUSEID cacheByIndexPath:indexPath configuration:^(DJOnSpotCheckCell * cell) {
          cell.model = [self.dataArr objectAtIndex:indexPath.row];
     }];
     
+=======
+    CGFloat cellH = [tableView fd_heightForCellWithIdentifier:ONSPOTCHECKCELLREUSEID cacheByIndexPath:indexPath configuration:^(DJOnSpotCheckCell *cell) {
+        if (self.dataArr.count>indexPath.row) {
+            cell.model = [self.dataArr objectAtIndex:indexPath.row];
+        }
+    }];
+>>>>>>> d19ab0871e537b16494629a4ce352271f6725e34
     return cellH;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+}
+
 
 #pragma mark UI
 -(void)initOnSpotChecktUI{
