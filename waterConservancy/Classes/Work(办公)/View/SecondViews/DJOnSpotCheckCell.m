@@ -24,7 +24,7 @@
 
 @end
 @implementation DJOnSpotCheckCell
-#define contentLabelWidth  ScreenWidth - SCALE_W(300)
+#define contentLabelWidth  ScreenWidth - SCALE_W(250)
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -62,16 +62,17 @@
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 
         make.left.mas_equalTo(weak_self.backImgV).offset(SCALE_W(20));
-        make.top.mas_equalTo(weak_self.backImgV).offset(SCALE_W(30));
+        make.top.mas_equalTo(weak_self.backImgV).offset(SCALE_W(20));
         make.right.mas_equalTo(weak_self.backImgV.mas_right).offset(SCALE_W(-20));
+        make.height.mas_equalTo(20);
 //        make.bottom.mas_equalTo(weak_self.cuibanBtn.mas_top).offset(SCALE_W(-15));
     }];
     
     [self.cuibanBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(weak_self.backImgV.mas_right)
         .offset(SCALE_W(-20));
-        make.top.mas_equalTo(weak_self.nameLabel.mas_bottom).offset(SCALE_W(20));
-//        make.centerY.mas_equalTo(weak_self.backImgV.mas_centerY);
+//        make.top.mas_equalTo(weak_self.nameLabel.mas_bottom);
+        make.centerY.mas_equalTo(weak_self.backImgV.mas_centerY);
         make.width.mas_equalTo(SCALE_W(100));
         make.height.mas_equalTo(SCALE_W(45));
     }];
@@ -81,10 +82,10 @@
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weak_self.nameLabel.mas_left);
         make.top.mas_equalTo(weak_self.nameLabel.mas_bottom).offset(SCALE_W(20));
-        make.width.mas_equalTo(SCALE_W(500));
+        make.width.mas_equalTo(SCALE_W(580));
     }];
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weak_self.contentLabel.mas_bottom).offset(5);
+        make.top.mas_equalTo(weak_self.contentLabel.mas_bottom).offset(15);
         make.bottom.mas_equalTo(weak_self.contentView.mas_bottom);
         make.left.right.mas_equalTo(weak_self.contentView);
         make.height.mas_equalTo(1);
@@ -95,6 +96,8 @@
     if (!_nameLabel) {
         UILabel *nameLabel = [[UILabel alloc]init];
         [nameLabel setTextColor:COLOR_WITH_HEX(0x333333)];
+//        nameLabel.backgroundColor = [UIColor redColor];
+
         [nameLabel setFont:YX30Font];
         [nameLabel setTextAlignment:NSTextAlignmentLeft];
         nameLabel.numberOfLines = 1;
@@ -110,7 +113,7 @@
         [contentLabel setFont:YX26Font];
         contentLabel.preferredMaxLayoutWidth =SCALE_W(500);
         contentLabel.numberOfLines = 0;
-        contentLabel.backgroundColor = [UIColor redColor];
+//        contentLabel.backgroundColor = [UIColor redColor];
 //        contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
         [contentLabel setTextAlignment:NSTextAlignmentLeft];
         [self.backImgV addSubview:contentLabel];
@@ -144,7 +147,7 @@
 -(UIView *)lineView{
     if (!_lineView) {
         UIView *view = [[UIView alloc]init];
-        view.backgroundColor = [UIColor redColor];
+//        view.backgroundColor = [UIColor redColor];
         [self.backImgV addSubview:view];
         _lineView = view;
     }

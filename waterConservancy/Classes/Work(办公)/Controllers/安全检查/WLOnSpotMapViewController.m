@@ -105,6 +105,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     _context = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     NSString *showMap = [NSString stringWithFormat:@"showMap(%f,%f)",self.userLoc.coordinate.longitude , self.userLoc.coordinate.latitude];
+//    NSString *showMap = @"showMap(116.35399257796078,39.88702198584958)";
     [_context evaluateScript:showMap];
     
 }
@@ -132,6 +133,7 @@
     [self.myLocBtn mas_makeConstraints:^(MASConstraintMaker *make) {
          make.right.mas_equalTo(-15);
          make.bottom.mas_equalTo(WC_HOMEBAR_HEIGHT-15);
+        make.width.height.mas_equalTo(SCALE_W(60));
     }];
     
 }
@@ -204,6 +206,7 @@
     if (!_myLocBtn) {
         UIButton *btn = [[UIButton alloc]init];
         [btn setImage:[UIImage imageNamed:@"myLoc"] forState:UIControlStateNormal];
+        btn.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:btn];
         [btn addTarget:self action:@selector(myLocBtnClick) forControlEvents:UIControlEventTouchUpInside];
         _myLocBtn = btn;

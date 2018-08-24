@@ -18,6 +18,7 @@
         NSString *end2 = [end substringToIndex:10];
         self.checkNoteStr = [NSString stringWithFormat:@"检查内容：%@",str];
         self.checkTimeStr = [NSString stringWithFormat:@"检查时间：%@-%@",star2,end2];
+        self.sinsGuidStr = [dic stringForKey:@"sinsGuid" defaultValue:@""];
     }
     return self;
 }

@@ -10,6 +10,7 @@
 #import "DJOnSpotCheckCell.h"
 #import "WLOnSpotMapViewController.h"
 #import <UITableView+FDTemplateLayoutCell.h>
+#import "WLOnSpotCheckDetailController.h"
 
 #define PAGESIZW 10
 
@@ -65,6 +66,7 @@ static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
        
     } faild:^(NSError *error) {
         NSLog(@"error%@",error);
+        [self tableViewReload:-1];
     }];
 }
 
@@ -81,6 +83,8 @@ static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
     }
     else if (arrCount==0 &&self.dataArr.count!=0){
         //无数据
+    }else if (arrCount==-1){
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
     }
     else [self.tableView.mj_footer endRefreshingWithNoMoreData];
 }
@@ -108,35 +112,20 @@ static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-<<<<<<< HEAD
+
     return [tableView fd_heightForCellWithIdentifier:ONSPOTCHECKCELLREUSEID configuration:^(DJOnSpotCheckCell *cell) {
         WLOnSpotCheckModel * model = [self.dataArr objectAtIndex:indexPath.row];
         [cell initDataWithModel:model];
     }];
-    
-    
-//    CGFloat cellH = [tableView fd_heightForCellWithIdentifier:ONSPOTCHECKCELLREUSEID cacheByIndexPath:indexPath configuration:^(DJOnSpotCheckCell *cell) {
-//        if (self.dataArr.count>indexPath.row) {
-//            cell.model = [self.dataArr objectAtIndex:indexPath.row];
-//        }
-//    }];
-//
-//    return cellH;
-=======
-
-    CGFloat cellH = [tableView fd_heightForCellWithIdentifier:ONSPOTCHECKCELLREUSEID cacheByIndexPath:indexPath configuration:^(DJOnSpotCheckCell *cell) {
-        if (self.dataArr.count>indexPath.row) {
-            cell.model = [self.dataArr objectAtIndex:indexPath.row];
-        }
-    }];
-
-    return cellH;
->>>>>>> 0846c9a2f922f14f8fe69f37374c3d330c9d9dbc
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
+    WLOnSpotCheckDetailController *detail = [[WLOnSpotCheckDetailController alloc] init];
+    if (self.dataArr.count>indexPath.row) {
+        detail.model = [self.dataArr objectAtIndex:indexPath.row];
+    }
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 

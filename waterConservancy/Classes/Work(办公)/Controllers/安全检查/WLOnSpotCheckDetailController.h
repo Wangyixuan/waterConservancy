@@ -7,7 +7,9 @@
 //
 
 #import "YXBaseViewController.h"
+#import "WLOnSpotCheckModel.h"
 
 @interface WLOnSpotCheckDetailController : YXBaseViewController
+@property (nonatomic, strong) WLOnSpotCheckModel *model;
 
 @end
