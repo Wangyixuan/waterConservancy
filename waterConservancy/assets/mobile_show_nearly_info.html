@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title data-i18n="resources.title_tiandituLayer_ll"></title>
+    <script type="text/javascript" src="./ol-debug.js"></script>
+    <link rel="stylesheet" href="./ol.css">
+    <script type="text/javascript" src="./AJLib.min.js"></script>
+    <link rel="stylesheet" href="./AJLib.min.css">
+</head>
+<body style=" margin: 0;overflow: hidden;background: #fff;width: 100%;height:100%;left: 0;right: 0;top: 0;bottom: 0;position: absolute;display: block;">
+<div id="map" style="width: 100%;height:100%"></div>
+<div id="mark" style="border-radius:8px; color:#333;height:50px;width:150px"><span id="title" style="font-size:16px; font-weight:bold;"></span></div>
+<script type="text/javascript">
+
+function showMap(x, y) {
+    window.mapDEMO = {};
+    window.mapDEMO.map = new AJMap.Map('map',{
+                                           zoomLevel: 5,
+                                           defaultControl: {
+                                               layerswitch: true
+                                           },
+                                           centerPoint: {
+                                               centerX: x,
+                                               centerY: y
+                                           },
+                                            ThemeLayers: {
+                [AJMap.THEMESLAYER.DMZ_TDTSL]:false
+            },
+                                            annotationVisible:true,
+                                       });
+
+    var mouseEvent = mapDEMO.map.getMapMouseEvent();
+    mouseEvent.on("AJMouseClick",test);
+    function test(e) {
+        var features = e.target.data.customFeature;
+        for(var i=0;i<features.length;i++){
+            var feature = features[i];
+            var id = feature.getProperties();
+            var objName = id["name"];
+            alert(objName);
+            var objGuid = feature.getId();
+            alert(objGuid);
+            if(id == undefined) return;
+            if(objName == undefined) return;
+            //此处应该加判断是否存在弹窗
+            var overlay = mapDEMO.map.getOverlayById(id);
+            if(overlay){
+                if(!overlay.getVisible()){
+                    overlay.setVisible(true);
+                }
+            }else{
+                overlay = new AJMap.Popup({
+                                              id:id,
+                                              popupClass: "default",
+                                              closeBox: true,
+                                              onshow: function(){ console.log("You opened the box"); },
+                                              onclose: function(){ console.log("You close the box"); },
+                                              positioning: 'auto',
+                                              autoPan: true,
+                                              autoPanAnimation: { duration: 250 }
+                                          });
+                mapDEMO.map.addOverlay(overlay);
+            }
+            var divMark = document.getElementById('mark');
+            var objTitle = document.getElementById('title').innerText=objName;
+            overlay.show(feature.getGeometry().getCoordinates(),divMark);
+            divMark.addEventListener("click", attribute);
+            function attribute(){
+            window.DEMO.go2ProjectInfoActivity(objGuid);
+            overlay.hide();
+            };
+            return;
+        }
+    }
+    current_point_x = x;
+    current_point_y = y;
+}
+
+// 更新当前点坐标
+var current_point_x = null;
+var current_point_y = null;
+var current_point_vector_layer = null;
+function updateCurrentPoint(x, y) {
+    // 删除旧的点
+    if (null != current_point_vector_layer) {
+        mapDEMO.map.getCustomLayerGroup().removeLayer(current_point_vector_layer);
+    }
+
+    // 初始化 source 源
+    var vectorSource = new ol.source.Vector({ wrapX: false });
+
+    // 初始化图层
+    current_point_vector_layer = new ol.layer.Vector({source: vectorSource, id:'current_point_vector'});
+
+    // 初始化 feature start
+    var Coordinates = [x, y];
+    var iconFeature = new ol.Feature(
+                {
+                    geometry: new ol.geom.Point(Coordinates),
+                    id:'current_point_vector_feature'
+                }
+                );
+
+    var style = new ol.style.Style(
+                {
+                    image: new ol.style.Icon(({
+                                                  src: './images/component/now.png',
+                                                  scale: 0.05
+                                              }))
+                }
+                );
+    iconFeature.setStyle(style);
+
+    current_point_vector_layer.getSource().addFeature(iconFeature);
+    // 初始化 feature end
+
+    // 图层加到容器中
+    mapDEMO.map.getCustomLayerGroup().addLayer(current_point_vector_layer);
+
+    current_point_x = x;
+    current_point_y = y;
+}
+
+// 定位到我当前的位置
+function centerOnCurrentPoint() {
+    mapDEMO.map.zoomTo([current_point_x, current_point_y], null);
+}
+
+
+///////////////////// 查附近相关 //////////////////////
+var _thisElementsQueryID = "_____ThisElementsQuery";
+var _thisElementsQueryLayer = null;
+
+function _layerClear() {
+    _stopAllController();
+    _thisElementsQueryLayer.getSource().clear();
+}
+
+function _stopAllController() {
+    // 为了保证对应的控制器可用，在之前先删除冗余的同id下的所有控制器
+    var getInteractions = mapDEMO.map.getInteractions().getArray();
+    for (var i = 0; i < getInteractions.length ; i++){
+        var obj = getInteractions[i];
+        if( !!obj && !!obj.id && obj.id == _thisElementsQueryID){
+            mapDEMO.map.removeInteraction(obj)
+            i--;
+        }
+    }
+}
+
+// 获取必要的位置信息用于网络请求
+function getNearGEOInfo(geo_json, near_radius) {
+    // 删除旧的图层
+    if (null != _thisElementsQueryLayer) {
+        mapDEMO.map.getCustomLayerGroup().removeLayer(_thisElementsQueryLayer);
+    }
+    _thisElementsQueryLayer = null;// 清楚历史图层记录
+    // 检查是否存在定位需要的图层，如果存在则直接清除并使用
+    var getLayers = mapDEMO.map.getLayersBy('id', _thisElementsQueryID);
+    if (getLayers.length > 0)
+        _thisElementsQueryLayer = getLayers[0];
+    if (!_thisElementsQueryLayer) {
+        // 不存在则初始化相关定位需要使用的图层
+        var vectorSource = new ol.source.Vector({
+                                                    wrapX: false
+                                                });
+        _thisElementsQueryLayer = new ol.layer.Vector({
+                                                          source: vectorSource
+                                                      });
+        _thisElementsQueryLayer.id = _thisElementsQueryID;
+        mapDEMO.map.getCustomLayerGroup().addLayer(_thisElementsQueryLayer);
+    }
+    _layerClear();
+    _queryGEO(geo_json, near_radius);
+}
+
+function _queryGEO(geo_json, near_radius) {
+    //缓冲区范围
+    var bufferGeoJson = AJMap.maptools.buffer( geo_json, near_radius );
+    _thisElementsQueryLayer.getSource().addFeatures( new ol.format.GeoJSON().readFeatures(bufferGeoJson) );
+
+    var geo = JSON.stringify(bufferGeoJson.features[0].geometry);
+
+    window.DEMO.queryNearGEOInfo(geo);
+}
+
+function showNearInfo(json_string) {
+    var resultInfoList = json_string.resultInfoList;
+    var Coordinates = [];
+    for(var i in resultInfoList){
+        Coordinates.push(JSON.parse(resultInfoList[i].geo).coordinates );
+        var obj = resultInfoList[i];
+        var str = JSON.stringify(obj);
+        var objName = JSON.parse(str).name;
+        var objGuid = JSON.parse(str).guid;
+    var iconFeature = new ol.Feature(
+                {
+                    geometry: new ol.geom.Point(Coordinates[i]),
+                    name:objName
+                }
+                );
+    var style = new ol.style.Style(
+                {
+                    image: new ol.style.Icon(({
+                                                  src: './images/component/coordinatePnt.png',
+                                                  scale: 0.05
+                                              }))
+                }
+                );
+    iconFeature.setStyle(style);
+    iconFeature.setId(objGuid);
+    _thisElementsQueryLayer.getSource().addFeature(iconFeature);
+    }
+}
+
+///////////////////// 查附近相关 //////////////////////
+
+</script>
+</body>
+</html>

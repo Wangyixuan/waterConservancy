@@ -22,8 +22,8 @@
 		047B507E212D01B30007C477 /* WLOnSpotCheckModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B507D212D01B30007C477 /* WLOnSpotCheckModel.m */; };
 		047B5081212D4AF10007C477 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5080212D4AF10007C477 /* NSString+Size.m */; };
 		047B5084212D6FBA0007C477 /* WLOnSpotCheckDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5083212D6FBA0007C477 /* WLOnSpotCheckDetailController.m */; };
-		047B5087212D70E00007C477 /* mobile_security_check.html in Resources */ = {isa = PBXBuildFile; fileRef = 047B5086212D70E00007C477 /* mobile_security_check.html */; };
 		047B508A212D71190007C477 /* WLOnSpotMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5089212D71190007C477 /* WLOnSpotMapViewController.m */; };
+		047B508E212E58770007C477 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 047B508D212E58760007C477 /* assets */; };
 		04C5310021212BC900C90964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C530FF21212BC900C90964 /* AppDelegate.m */; };
 		04C5310821212BCB00C90964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310721212BCB00C90964 /* Assets.xcassets */; };
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
@@ -109,9 +109,9 @@
 		047B5080212D4AF10007C477 /* NSString+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Size.m"; sourceTree = "<group>"; };
 		047B5082212D6FBA0007C477 /* WLOnSpotCheckDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLOnSpotCheckDetailController.h; sourceTree = "<group>"; };
 		047B5083212D6FBA0007C477 /* WLOnSpotCheckDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLOnSpotCheckDetailController.m; sourceTree = "<group>"; };
-		047B5086212D70E00007C477 /* mobile_security_check.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = mobile_security_check.html; sourceTree = "<group>"; };
 		047B5088212D71190007C477 /* WLOnSpotMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLOnSpotMapViewController.h; sourceTree = "<group>"; };
 		047B5089212D71190007C477 /* WLOnSpotMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLOnSpotMapViewController.m; sourceTree = "<group>"; };
+		047B508D212E58760007C477 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		04C530FB21212BC900C90964 /* waterConservancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterConservancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C530FE21212BC900C90964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04C530FF21212BC900C90964 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -420,14 +420,6 @@
 			path = "安全检查";
 			sourceTree = "<group>";
 		};
-		047B5085212D70CD0007C477 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				047B5086212D70E00007C477 /* mobile_security_check.html */,
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
 		04C530F221212BC900C90964 = {
 			isa = PBXGroup;
 			children = (
@@ -453,7 +445,7 @@
 		04C530FD21212BC900C90964 /* waterConservancy */ = {
 			isa = PBXGroup;
 			children = (
-				047B5085212D70CD0007C477 /* Resource */,
+				047B508D212E58760007C477 /* assets */,
 				047B5070212A8C800007C477 /* Manager */,
 				047B5065212564920007C477 /* Category */,
 				04C5313521215BA300C90964 /* Classes */,
@@ -805,7 +797,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				047B505D212441410007C477 /* WLWorkTableViewCell.xib in Resources */,
-				047B5087212D70E00007C477 /* mobile_security_check.html in Resources */,
+				047B508E212E58770007C477 /* assets in Resources */,
 				5A4CF1922122832B00D72FE5 /* Main.storyboard in Resources */,
 				04C5310821212BCB00C90964 /* Assets.xcassets in Resources */,
 			);

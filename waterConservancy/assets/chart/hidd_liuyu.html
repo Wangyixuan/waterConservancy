@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title data-i18n="resources.title_tiandituLayer_ll"></title>
+    <script type="text/javascript" src="../ol-debug.js"></script>
+    <link rel="stylesheet" href="../ol.css">
+    <script type="text/javascript" src="../AJLib.min.js"></script>
+    <link rel="stylesheet" href="../AJLib.min.css">
+</head>
+<body style=" margin: 0;overflow: hidden;background: #fff;width: 100%;height:100%;left: 0;right: 0;top: 0;bottom: 0;position: absolute;display: block;">
+<div id="map" style="width: 100%;height:100%"
+></div>
+<div id="mark" style="border-radius:8px; color:#333;height:100px;width:120px"><span id="title" style="font-size:16px; font-weight:bold;"></span><p style=" font-size:14px;">事故数量 <b style="font-size:16px; font-weight:bold;">5</b><br>死亡人数 <b style="font-size:16px; font-weight:bold;">17</b><br>经济损失 <b style="font-size:14px; font-weight:bold;">1600万</b></p><a style="font-size:12px; color:#ccc;">详情...</a></div>
+<script type="text/javascript">
+function showMap(x, y,level) {
+    window.mapDEMO = {};
+    window.mapDEMO.map = new AJMap.Map('map',{
+                                           BaseLayer:AJMap.BASELAYER.DMZ_TDTSL,
+                                           zoomLevel: level,
+                                           defaultControl: {
+                                               layerswitch: true
+                                           },
+                                                ThemeLayers: {
+                                             [AJMap.BASELAYER.DMZ_TDTSL]:false
+                                             },
+                                           centerPoint: {
+                                               centerX: x,
+                                               centerY: y
+                                           },
+                                            annotationVisible:true,
+                                       });
+    var mouseEvent = mapDEMO.map.getMapMouseEvent();
+    mouseEvent.on("AJMouseClick",test);
+    function test(e) {
+        var features = e.target.data.customFeature;
+        for(var i=0;i<features.length;i++){
+            var feature = features[i];
+            var id = feature.getProperties();
+            if(id == undefined) return;
+            //此处应该加判断是否存在弹窗
+            var overlay = mapDEMO.map.getOverlayById(id);
+            if(overlay){
+                if(!overlay.getVisible()){
+                    overlay.setVisible(true);
+                }
+            }else{
+                overlay = new AJMap.Popup({
+                                              id:id,
+                                              popupClass: "default",
+                                              closeBox: true,
+                                              onshow: function(){ console.log("You opened the box"); },
+                                              onclose: function(){ console.log("You close the box"); },
+                                              positioning: 'auto',
+                                              autoPan: true,
+                                              autoPanAnimation: { duration: 250 }
+                                          });
+                mapDEMO.map.addOverlay(overlay);
+            }
+            var objName = '整治工程';
+            var divMark = document.getElementById('mark');
+            var objTitle = document.getElementById('title').innerText=objName;
+            document.getElementsByTagName('b')[0].innerHTML = '1';
+            document.getElementsByTagName('b')[1].innerHTML = '2';
+            document.getElementsByTagName('b')[2].innerHTML = '3';
+            overlay.show(feature.getGeometry().getCoordinates(),divMark);
+        }
+    }
+    current_point_x = x;
+    current_point_y = y;
+      var sgLySetStyle = [  //流域样式
+       {
+		ids: ['040000'],
+		style: {
+			normal: { //默认渲染的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [190, 232, 255, 1],
+				textColor: [0, 0, 0, 1]         //地图文字标注
+			},
+			mouseon: { //鼠标移入的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [102, 198, 255, 1],
+				textColor: [0, 0, 0, 1]
+			},
+			selected: { //选中的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [60, 157, 255, 1],
+				textColor: [0, 0, 0, 1]
+			}
+		}
+	},
+	{
+		ids: ['030000'],
+		style: {
+			normal: { //默认渲染的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [190, 232, 255, 1],
+				textColor: [0, 0, 0, 1]
+			},
+			mouseon: { //鼠标移入的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [102, 198, 255, 1],
+				textColor: [0, 0, 0, 1]
+			},
+			selected: { //选中的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [60, 157, 255, 1],
+				textColor: [0, 0, 0, 1]
+			}
+		}
+	},
+	{
+		ids: ['020000'],
+		style: {
+			normal: { //默认渲染的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [190, 232, 255, 1],
+				textColor: [0, 0, 0, 1]
+			},
+			mouseon: { //鼠标移入的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [102, 198, 255, 1],
+				textColor: [0, 0, 0, 1]
+			},
+			selected: { //选中的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [60, 157, 255, 1],
+				textColor: [0, 0, 0, 1]
+			}
+		}
+	},
+	{
+		ids: ['010000'],
+		style: {
+			normal: { //默认渲染的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [190, 232, 255, 1],
+				textColor: [0, 0, 0, 1]
+			},
+			mouseon: { //鼠标移入的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [102, 198, 255, 1],
+				textColor: [0, 0, 0, 1]
+			},
+			selected: { //选中的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [60, 157, 255, 1],
+				textColor: [0, 0, 0, 1]
+			}
+		}
+	},
+	{
+		ids: ['050000'],
+		style: {
+			normal: { //默认渲染的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [190, 232, 255, 1],
+				textColor: [0, 0, 0, 1]
+			},
+			mouseon: { //鼠标移入的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [102, 198, 255, 1],
+				textColor: [0, 0, 0, 1]
+			},
+			selected: { //选中的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [60, 157, 255, 1],
+				textColor: [0, 0, 0, 1]
+			}
+		}
+	},
+	{
+		ids: ['060000'],
+		style: {
+			normal: { //默认渲染的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [190, 232, 255, 1],
+				textColor: [0, 0, 0, 1]
+			},
+			mouseon: { //鼠标移入的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [102, 198, 255, 1],
+				textColor: [0, 0, 0, 1]
+			},
+			selected: { //选中的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [60, 157, 255, 1],
+				textColor: [0, 0, 0, 1]
+			}
+		}
+	},
+	{
+		ids: ['070000'],
+		style: {
+			normal: { //默认渲染的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [190, 232, 255, 1],
+				textColor: [0, 0, 0, 1]
+			},
+			mouseon: { //鼠标移入的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [102, 198, 255, 1],
+				textColor: [0, 0, 0, 1]
+			},
+			selected: { //选中的颜色
+				lineColor: [123, 123, 123, 1],
+				fillColor: [60, 157, 255, 1],
+				textColor: [0, 0, 0, 1]
+			}
+
+		}
+	}
+];
+        mapDEMO.map.addQHVectorLayer(AJMap.QHVECTORLAYER.LYQH,sgLySetStyle);
+
+}
+    function showMapMark(x,y,x1,y1,level) {
+    // 初始化全局地图变量
+    window.mapDEMO = window.mapDEMO || {};
+    // 初始化地图分辨率、比例尺等地图必要数据
+    mapDEMO.mapOption = mapDEMO.mapOption || {};
+    if(!mapDEMO.map){
+        mapDEMO.map = new AJMap.Map('map',{
+            ThemeLayers: {
+                [AJMap.THEMESLAYER.DMZ_TDTSL]:false
+            },
+            zoomLevel: level,
+            defaultControl:{
+                layerswitch:true
+            },
+            annotationVisible:true,
+        });
+        mapDEMO.map.moveToExtent([x,y,x1,y1]);
+        showMarkInfo(x,y);
+
+
+    }
+    }
+    function  findCache(imageTile,id,src) {
+         var result = window.DEMO.getLocalUrl(id,src);
+         imageTile.getImage().src = result
+    }
+// 更新当前点坐标
+var current_point_x = null;
+var current_point_y = null;
+var current_point_vector_layer = null;
+function updateCurrentPoint(x, y) {
+    // 删除旧的点
+    if (null != current_point_vector_layer) {
+        mapDEMO.map.getCustomLayerGroup().removeLayer(current_point_vector_layer);
+    }
+
+    // 初始化 source 源
+    var vectorSource = new ol.source.Vector({ wrapX: false });
+
+    // 初始化图层
+    current_point_vector_layer = new ol.layer.Vector({source: vectorSource, id:'current_point_vector'});
+
+    // 初始化 feature start
+    var Coordinates = [x, y+2];
+    var iconFeature = new ol.Feature(
+                {
+                    geometry: new ol.geom.Point(Coordinates),
+                    id:'current_point_vector_feature'
+
+                }
+                );
+	var img = new ol.style.Circle({
+				        radius: 10,
+				        fill: new ol.style.Fill(
+				        	{
+				            	color:'rgba(255,128,0,1)'
+			        		}
+				      	)
+				    });
+    var style = new ol.style.Style(
+                {
+                    image:img
+                }
+                );
+    var projectLableNum = new ol.style.Text({
+						text:'10',
+						fill: new ol.style.Fill({
+							color: '#000'
+						}),
+						offsetY: 3
+					})
+	style.setText(projectLableNum);
+
+    iconFeature.setStyle(style);
+    current_point_vector_layer.getSource().addFeature(iconFeature);
+    // 初始化 feature end
+
+    // 图层加到容器中
+    mapDEMO.map.getCustomLayerGroup().addLayer(current_point_vector_layer);
+
+    current_point_x = x;
+    current_point_y = y;
+}
+
+
+</script>
+
+</body>
+</html>
