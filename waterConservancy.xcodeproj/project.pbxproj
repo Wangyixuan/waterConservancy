@@ -32,9 +32,13 @@
 		04C5311821212BCB00C90964 /* waterConservancyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5311721212BCB00C90964 /* waterConservancyTests.m */; };
 		04C5312321212BCB00C90964 /* waterConservancyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5312221212BCB00C90964 /* waterConservancyUITests.m */; };
 		5A3A7ED0212D3F550081BB16 /* DJElementDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A7ECF212D3F550081BB16 /* DJElementDetailController.m */; };
-		5A3A7ED3212D42640081BB16 /* DJElementCheckitemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A7ED2212D42640081BB16 /* DJElementCheckitemCell.m */; };
 		5A3A7EDB212D54990081BB16 /* DJElementCheckItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A7EDA212D54990081BB16 /* DJElementCheckItemModel.m */; };
 		5A3A7EE1212E966E0081BB16 /* DJElementCheckItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A7EDF212E966E0081BB16 /* DJElementCheckItemViewModel.m */; };
+		5A3A7EEB212FA5CA0081BB16 /* DJOnSpotCheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A7EE6212FA5CA0081BB16 /* DJOnSpotCheckCell.m */; };
+		5A3A7EEC212FA5CA0081BB16 /* DJElementCheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A7EE7212FA5CA0081BB16 /* DJElementCheckCell.m */; };
+		5A3A7EED212FA5CA0081BB16 /* DJElementCheckitemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A7EE8212FA5CA0081BB16 /* DJElementCheckitemCell.m */; };
+		5A3A7EF0212FA6020081BB16 /* DJHiddenItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A7EEF212FA6020081BB16 /* DJHiddenItemCell.m */; };
+		5A3A7EF3212FD90D0081BB16 /* DJItemCheckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A7EF2212FD90D0081BB16 /* DJItemCheckController.m */; };
 		5A4CF1662122795F00D72FE5 /* DJLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CF1652122795F00D72FE5 /* DJLoadViewController.m */; };
 		5A4CF16D21227B1600D72FE5 /* YXDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CF16921227B1600D72FE5 /* YXDownListView.m */; };
 		5A4CF16E21227B1600D72FE5 /* YXForgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CF16A21227B1600D72FE5 /* YXForgetView.m */; };
@@ -50,11 +54,8 @@
 		5A4CF1902122806600D72FE5 /* YXBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CF18D2122806500D72FE5 /* YXBaseTableViewCell.m */; };
 		5A4CF1922122832B00D72FE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A4CF1912122832B00D72FE5 /* Main.storyboard */; };
 		5A4CF195212283E200D72FE5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CF194212283E200D72FE5 /* ViewController.m */; };
-		5A8BE21F2123D13600F61665 /* DJHiddenDrangeChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE21E2123D13600F61665 /* DJHiddenDrangeChartCell.m */; };
 		5A8BE22221240C4100F61665 /* DJElementCheckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE22121240C4100F61665 /* DJElementCheckController.m */; };
-		5A8BE22521240CFF00F61665 /* DJElementCheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE22421240CFE00F61665 /* DJElementCheckCell.m */; };
 		5A8BE2372125522700F61665 /* DJOnSpotCheckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE2362125522700F61665 /* DJOnSpotCheckController.m */; };
-		5A8BE23A212553AB00F61665 /* DJOnSpotCheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE239212553AB00F61665 /* DJOnSpotCheckCell.m */; };
 		5A8BE23F21255E0A00F61665 /* DJHiddenDrangeChartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE23E21255E0A00F61665 /* DJHiddenDrangeChartController.m */; };
 		5A8BE2432126A48F00F61665 /* DJHiddenDangerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE2422126A48F00F61665 /* DJHiddenDangerModel.m */; };
 		5A8BE2462126CA0500F61665 /* DJMonthListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE2452126CA0500F61665 /* DJMonthListModel.m */; };
@@ -134,12 +135,20 @@
 		0C0C5E7A62458F22B4104EA4 /* libPods-waterConservancy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-waterConservancy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A3A7ECE212D3F550081BB16 /* DJElementDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJElementDetailController.h; sourceTree = "<group>"; };
 		5A3A7ECF212D3F550081BB16 /* DJElementDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJElementDetailController.m; sourceTree = "<group>"; };
-		5A3A7ED1212D42640081BB16 /* DJElementCheckitemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJElementCheckitemCell.h; sourceTree = "<group>"; };
-		5A3A7ED2212D42640081BB16 /* DJElementCheckitemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJElementCheckitemCell.m; sourceTree = "<group>"; };
 		5A3A7ED9212D54990081BB16 /* DJElementCheckItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJElementCheckItemModel.h; sourceTree = "<group>"; };
 		5A3A7EDA212D54990081BB16 /* DJElementCheckItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJElementCheckItemModel.m; sourceTree = "<group>"; };
 		5A3A7EDF212E966E0081BB16 /* DJElementCheckItemViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DJElementCheckItemViewModel.m; path = "waterConservancy/Classes/Work(办公)/ViewModel/未命名文件夹/DJElementCheckItemViewModel.m"; sourceTree = SOURCE_ROOT; };
 		5A3A7EE0212E966E0081BB16 /* DJElementCheckItemViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DJElementCheckItemViewModel.h; path = "waterConservancy/Classes/Work(办公)/ViewModel/未命名文件夹/DJElementCheckItemViewModel.h"; sourceTree = SOURCE_ROOT; };
+		5A3A7EE5212FA5CA0081BB16 /* DJElementCheckitemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJElementCheckitemCell.h; sourceTree = "<group>"; };
+		5A3A7EE6212FA5CA0081BB16 /* DJOnSpotCheckCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJOnSpotCheckCell.m; sourceTree = "<group>"; };
+		5A3A7EE7212FA5CA0081BB16 /* DJElementCheckCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJElementCheckCell.m; sourceTree = "<group>"; };
+		5A3A7EE8212FA5CA0081BB16 /* DJElementCheckitemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJElementCheckitemCell.m; sourceTree = "<group>"; };
+		5A3A7EE9212FA5CA0081BB16 /* DJElementCheckCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJElementCheckCell.h; sourceTree = "<group>"; };
+		5A3A7EEA212FA5CA0081BB16 /* DJOnSpotCheckCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJOnSpotCheckCell.h; sourceTree = "<group>"; };
+		5A3A7EEE212FA6020081BB16 /* DJHiddenItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJHiddenItemCell.h; sourceTree = "<group>"; };
+		5A3A7EEF212FA6020081BB16 /* DJHiddenItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJHiddenItemCell.m; sourceTree = "<group>"; };
+		5A3A7EF1212FD90D0081BB16 /* DJItemCheckController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJItemCheckController.h; sourceTree = "<group>"; };
+		5A3A7EF2212FD90D0081BB16 /* DJItemCheckController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJItemCheckController.m; sourceTree = "<group>"; };
 		5A4CF1642122795F00D72FE5 /* DJLoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJLoadViewController.h; sourceTree = "<group>"; };
 		5A4CF1652122795F00D72FE5 /* DJLoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJLoadViewController.m; sourceTree = "<group>"; };
 		5A4CF16721227B1600D72FE5 /* YXDownListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXDownListView.h; sourceTree = "<group>"; };
@@ -169,16 +178,10 @@
 		5A4CF1912122832B00D72FE5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5A4CF193212283E100D72FE5 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5A4CF194212283E200D72FE5 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		5A8BE21D2123D13600F61665 /* DJHiddenDrangeChartCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJHiddenDrangeChartCell.h; sourceTree = "<group>"; };
-		5A8BE21E2123D13600F61665 /* DJHiddenDrangeChartCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJHiddenDrangeChartCell.m; sourceTree = "<group>"; };
 		5A8BE22021240C4100F61665 /* DJElementCheckController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJElementCheckController.h; sourceTree = "<group>"; };
 		5A8BE22121240C4100F61665 /* DJElementCheckController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJElementCheckController.m; sourceTree = "<group>"; };
-		5A8BE22321240CFE00F61665 /* DJElementCheckCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJElementCheckCell.h; sourceTree = "<group>"; };
-		5A8BE22421240CFE00F61665 /* DJElementCheckCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJElementCheckCell.m; sourceTree = "<group>"; };
 		5A8BE2352125522700F61665 /* DJOnSpotCheckController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJOnSpotCheckController.h; sourceTree = "<group>"; };
 		5A8BE2362125522700F61665 /* DJOnSpotCheckController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJOnSpotCheckController.m; sourceTree = "<group>"; };
-		5A8BE238212553AB00F61665 /* DJOnSpotCheckCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJOnSpotCheckCell.h; sourceTree = "<group>"; };
-		5A8BE239212553AB00F61665 /* DJOnSpotCheckCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJOnSpotCheckCell.m; sourceTree = "<group>"; };
 		5A8BE23D21255E0A00F61665 /* DJHiddenDrangeChartController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJHiddenDrangeChartController.h; sourceTree = "<group>"; };
 		5A8BE23E21255E0A00F61665 /* DJHiddenDrangeChartController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJHiddenDrangeChartController.m; sourceTree = "<group>"; };
 		5A8BE2412126A48F00F61665 /* DJHiddenDangerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJHiddenDangerModel.h; sourceTree = "<group>"; };
@@ -537,6 +540,28 @@
 			path = "安全检查";
 			sourceTree = "<group>";
 		};
+		5A3A7EE3212FA5CA0081BB16 /* 隐患 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "隐患";
+			sourceTree = "<group>";
+		};
+		5A3A7EE4212FA5CA0081BB16 /* 安全检查 */ = {
+			isa = PBXGroup;
+			children = (
+				5A3A7EE5212FA5CA0081BB16 /* DJElementCheckitemCell.h */,
+				5A3A7EE6212FA5CA0081BB16 /* DJOnSpotCheckCell.m */,
+				5A3A7EE7212FA5CA0081BB16 /* DJElementCheckCell.m */,
+				5A3A7EE8212FA5CA0081BB16 /* DJElementCheckitemCell.m */,
+				5A3A7EE9212FA5CA0081BB16 /* DJElementCheckCell.h */,
+				5A3A7EEA212FA5CA0081BB16 /* DJOnSpotCheckCell.h */,
+				5A3A7EEE212FA6020081BB16 /* DJHiddenItemCell.h */,
+				5A3A7EEF212FA6020081BB16 /* DJHiddenItemCell.m */,
+			);
+			path = "安全检查";
+			sourceTree = "<group>";
+		};
 		5A4CF161212278A400D72FE5 /* load */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,6 +681,8 @@
 				047B5083212D6FBA0007C477 /* WLOnSpotCheckDetailController.m */,
 				047B5088212D71190007C477 /* WLOnSpotMapViewController.h */,
 				047B5089212D71190007C477 /* WLOnSpotMapViewController.m */,
+				5A3A7EF1212FD90D0081BB16 /* DJItemCheckController.h */,
+				5A3A7EF2212FD90D0081BB16 /* DJItemCheckController.m */,
 			);
 			path = "安全检查";
 			sourceTree = "<group>";
@@ -663,17 +690,11 @@
 		5A8BE23C21255DBF00F61665 /* SecondViews */ = {
 			isa = PBXGroup;
 			children = (
-				5A8BE21D2123D13600F61665 /* DJHiddenDrangeChartCell.h */,
-				5A8BE21E2123D13600F61665 /* DJHiddenDrangeChartCell.m */,
-				5A8BE22321240CFE00F61665 /* DJElementCheckCell.h */,
-				5A8BE22421240CFE00F61665 /* DJElementCheckCell.m */,
-				5A8BE238212553AB00F61665 /* DJOnSpotCheckCell.h */,
-				5A8BE239212553AB00F61665 /* DJOnSpotCheckCell.m */,
-				5A3A7ED1212D42640081BB16 /* DJElementCheckitemCell.h */,
-				5A3A7ED2212D42640081BB16 /* DJElementCheckitemCell.m */,
 				047B5095212FDEAA0007C477 /* WLCheckInfoCell.h */,
 				047B5096212FDEAA0007C477 /* WLCheckInfoCell.m */,
 				047B5097212FDEAA0007C477 /* WLCheckInfoCell.xib */,
+				5A3A7EE4212FA5CA0081BB16 /* 安全检查 */,
+				5A3A7EE3212FA5CA0081BB16 /* 隐患 */,
 			);
 			path = SecondViews;
 			sourceTree = "<group>";
@@ -882,12 +903,12 @@
 				047B5073212A8C9E0007C477 /* WLUserManager.m in Sources */,
 				5A4CF1902122806600D72FE5 /* YXBaseTableViewCell.m in Sources */,
 				5A8BE2462126CA0500F61665 /* DJMonthListModel.m in Sources */,
-				5A8BE22521240CFF00F61665 /* DJElementCheckCell.m in Sources */,
 				5A4CF1662122795F00D72FE5 /* DJLoadViewController.m in Sources */,
 				5A4CF1862122801300D72FE5 /* YXNavViewController.m in Sources */,
 				5A8BE28D212A991500F61665 /* DJOrgElementModel.m in Sources */,
 				5A8BE22221240C4100F61665 /* DJElementCheckController.m in Sources */,
 				047129CD2122DEDB00EEADE5 /* WLVerticalButton.m in Sources */,
+				5A3A7EF3212FD90D0081BB16 /* DJItemCheckController.m in Sources */,
 				5A4CF17721227C6500D72FE5 /* TNIUDateTools.m in Sources */,
 				5A3A7EDB212D54990081BB16 /* DJElementCheckItemModel.m in Sources */,
 				047B5081212D4AF10007C477 /* NSString+Size.m in Sources */,
@@ -895,12 +916,14 @@
 				047129B421217EF600EEADE5 /* WorkViewController.m in Sources */,
 				5A3A7ED0212D3F550081BB16 /* DJElementDetailController.m in Sources */,
 				047B506B212565810007C477 /* NSObject+Convertor.m in Sources */,
+				5A3A7EEC212FA5CA0081BB16 /* DJElementCheckCell.m in Sources */,
 				5A4CF16E21227B1600D72FE5 /* YXForgetView.m in Sources */,
-				5A8BE21F2123D13600F61665 /* DJHiddenDrangeChartCell.m in Sources */,
 				5A4CF18E2122806600D72FE5 /* YXBackBtn.m in Sources */,
+				5A3A7EEB212FA5CA0081BB16 /* DJOnSpotCheckCell.m in Sources */,
 				047B5084212D6FBA0007C477 /* WLOnSpotCheckDetailController.m in Sources */,
 				5A4CF17821227C6500D72FE5 /* YXDataResolveTool.m in Sources */,
 				5A8BE2432126A48F00F61665 /* DJHiddenDangerModel.m in Sources */,
+				5A3A7EED212FA5CA0081BB16 /* DJElementCheckitemCell.m in Sources */,
 				5A8BE28A212A6AE300F61665 /* DJElemnetModel.m in Sources */,
 				5A4CF16F21227B1600D72FE5 /* YXSaveUserCell.m in Sources */,
 				5A4CF1842122801300D72FE5 /* YXBaseViewController.m in Sources */,
@@ -908,14 +931,13 @@
 				047B505821242DE50007C477 /* WLWorkTableViewCell.m in Sources */,
 				047B5068212564920007C477 /* NSDictionary+JsonDict.m in Sources */,
 				04C5310021212BC900C90964 /* AppDelegate.m in Sources */,
+				5A3A7EF0212FA6020081BB16 /* DJHiddenItemCell.m in Sources */,
 				047B507E212D01B30007C477 /* WLOnSpotCheckModel.m in Sources */,
-				5A3A7ED3212D42640081BB16 /* DJElementCheckitemCell.m in Sources */,
 				5A8BE23F21255E0A00F61665 /* DJHiddenDrangeChartController.m in Sources */,
 				5A3A7EE1212E966E0081BB16 /* DJElementCheckItemViewModel.m in Sources */,
 				047B506F212A8AA30007C477 /* WLUserModel.m in Sources */,
 				047B5098212FDEAA0007C477 /* WLCheckInfoCell.m in Sources */,
 				5A4CF16D21227B1600D72FE5 /* YXDownListView.m in Sources */,
-				5A8BE23A212553AB00F61665 /* DJOnSpotCheckCell.m in Sources */,
 				047B507A212C1F2C0007C477 /* WLHiddenReportViewController.m in Sources */,
 				047129C32122C81900EEADE5 /* WLWorkTopView.m in Sources */,
 				047B506421255DD50007C477 /* WLWorkModel.m in Sources */,

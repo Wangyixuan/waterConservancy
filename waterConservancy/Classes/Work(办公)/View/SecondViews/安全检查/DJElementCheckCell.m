@@ -28,12 +28,16 @@
     NSString *typeStr;
     if ([model.seStat isEqualToString:@"1"]) {
         typeStr = @"一般隐患";
+        [self.typeLabel setBackgroundColor:FColor(64.0, 114.0, 216.0, 1.0)];
     }else if ([model.seStat isEqualToString:@"2"]){
-         typeStr = @"重大隐患";
+        typeStr = @"重大隐患";
+        [self.typeLabel setBackgroundColor:FColor(219.0, 44.0, 45.0, 1.0)];
     }else if ([model.seStat isEqualToString:@"3"]){
         typeStr = @"正常";
+        [self.typeLabel setBackgroundColor:FColor(115.0, 203.0, 192.0, 1.0)];
     }else if ([model.seStat isEqualToString:@"4"]){
         typeStr = @"待查";
+        [self.typeLabel setBackgroundColor:FColor(233.0, 164.0, 50.0, 1.0)];
     }
     [self.typeLabel setTitle:typeStr forState:UIControlStateNormal];
 }
@@ -87,7 +91,7 @@
 -(UIButton *)typeLabel{
     if (!_typeLabel) {
         UIButton *TypeLabel = [[UIButton alloc]init];
-        TypeLabel.backgroundColor = FColor(115.0, 203.0, 192.0, 1.0);
+        [TypeLabel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [TypeLabel.titleLabel setFont:YX20Font];
         [TypeLabel setTitle:@"一般隐患" forState:UIControlStateNormal];
         [self.backImgV addSubview:TypeLabel];
