@@ -18,12 +18,13 @@
 @property (nonatomic, weak) UILabel *contentLabel;
 /**  催办按钮 */
 @property (nonatomic, weak) UIButton *cuibanBtn;
+@property (nonatomic, weak) UIView   *lineView;
 
 @property (nonatomic, assign) CGFloat labH;
 
 @end
 @implementation DJOnSpotCheckCell
-#define contentLabelWidth  ScreenWidth - SCALE_W(40) - SCALE_W(100)-SCALE_W(20)
+#define contentLabelWidth  ScreenWidth - SCALE_W(300)
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -35,10 +36,13 @@
 
 -(void)setModel:(WLOnSpotCheckModel *)model{
     _model = model;
+    [self.contentLabel setText:model.checkNoteStr];
     self.nameLabel.text = model.checkTimeStr;
-    self.contentLabel.text = model.checkNoteStr;
-    CGSize labSiz = [self.model.checkNoteStr sizeWithFont:YX26Font maxSize:CGSizeMake(kScreenWidth-5-SCALE_W(60)-SCALE_W(100), 1000.f)];
-    self.labH =labSiz.height;
+//    self.contentLabel.text = model.checkNoteStr;
+}
+-(void)initDataWithModel:(WLOnSpotCheckModel *)model{
+    [self.contentLabel setText:model.checkNoteStr];
+    self.nameLabel.text = model.checkTimeStr;
 }
 
 #pragma mark 催办
@@ -52,40 +56,39 @@
     @weakify(self);
 
     [self.backImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.right.mas_equalTo(weak_self.contentView);
-        make.bottom.mas_equalTo(weak_self.contentView.mas_bottom)
-        .offset(SCALE_W(-10));
+        make.left.top.right.bottom.mas_equalTo(weak_self.contentView);
     }];
+    
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
 
-
+        make.left.mas_equalTo(weak_self.backImgV).offset(SCALE_W(20));
+        make.top.mas_equalTo(weak_self.backImgV).offset(SCALE_W(30));
+        make.right.mas_equalTo(weak_self.backImgV.mas_right).offset(SCALE_W(-20));
+//        make.bottom.mas_equalTo(weak_self.cuibanBtn.mas_top).offset(SCALE_W(-15));
+    }];
+    
     [self.cuibanBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(weak_self.backImgV.mas_right)
         .offset(SCALE_W(-20));
-        make.centerY.mas_equalTo(weak_self.backImgV.mas_centerY);
+        make.top.mas_equalTo(weak_self.nameLabel.mas_bottom).offset(SCALE_W(20));
+//        make.centerY.mas_equalTo(weak_self.backImgV.mas_centerY);
         make.width.mas_equalTo(SCALE_W(100));
         make.height.mas_equalTo(SCALE_W(45));
     }];
     self.cuibanBtn.layer.cornerRadius = SCALE_W(22.5);
     self.cuibanBtn.layer.masksToBounds = YES;
     
-    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-
-        make.left.mas_equalTo(weak_self.backImgV).offset(SCALE_W(20));
-        make.top.mas_equalTo(weak_self.backImgV).offset(SCALE_W(30));
-        make.right.mas_equalTo(weak_self.cuibanBtn.mas_left).offset(SCALE_W(20));
-        make.bottom.mas_equalTo(weak_self.cuibanBtn.mas_top).offset(SCALE_W(-15));
-    }];
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weak_self.nameLabel.mas_left);
-
         make.top.mas_equalTo(weak_self.nameLabel.mas_bottom).offset(SCALE_W(20));
-        make.right.mas_equalTo(weak_self.cuibanBtn.mas_left).offset(SCALE_W(-20));
+        make.width.mas_equalTo(SCALE_W(500));
     }];
-    [self.backImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.mas_equalTo(weak_self.contentView);
-        make.left.mas_equalTo(5);
-        make.right.mas_equalTo(-5);
-    }];  
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weak_self.contentLabel.mas_bottom).offset(5);
+        make.bottom.mas_equalTo(weak_self.contentView.mas_bottom);
+        make.left.right.mas_equalTo(weak_self.contentView);
+        make.height.mas_equalTo(1);
+    }];
 }
 
 -(UILabel *)nameLabel{
@@ -105,9 +108,10 @@
         UILabel *contentLabel = [[UILabel alloc]init];
         [contentLabel setTextColor:COLOR_WITH_HEX(0x999999)];
         [contentLabel setFont:YX26Font];
-        contentLabel.preferredMaxLayoutWidth = contentLabelWidth;
+        contentLabel.preferredMaxLayoutWidth =SCALE_W(500);
         contentLabel.numberOfLines = 0;
-        contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        contentLabel.backgroundColor = [UIColor redColor];
+//        contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
         [contentLabel setTextAlignment:NSTextAlignmentLeft];
         [self.backImgV addSubview:contentLabel];
         _contentLabel =contentLabel;
@@ -136,6 +140,15 @@
         _backImgV = imgV;
     }
     return _backImgV;
+}
+-(UIView *)lineView{
+    if (!_lineView) {
+        UIView *view = [[UIView alloc]init];
+        view.backgroundColor = [UIColor redColor];
+        [self.backImgV addSubview:view];
+        _lineView = view;
+    }
+    return _lineView;
 }
 
 @end

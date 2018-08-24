@@ -230,25 +230,11 @@
 }
 
 -(void)pushControllerWithTitle:(NSString *)titie{
-<<<<<<< HEAD
-    [WLShareActionManager handleAction:self actionName:titie];
-//    if ([titie isEqualToString:@"隐患报表"]) {
-//        DJHiddenDrangeChartController *hiddenCtrl = [[DJHiddenDrangeChartController alloc]init];
-//        [self.navigationController pushViewController:hiddenCtrl animated:YES];
-//    }
-//    else if ([titie isEqualToString:@"元素检查"]){
-//    DJElementCheckController *elementCheckCtrl = [[DJElementCheckController alloc]init];
-//
-//    [self.navigationController pushViewController:elementCheckCtrl animated:YES];
-//    }
-//    UIViewController *ctrl = (UIViewController *)NSClassFromString(@"DJHiddenDrangeChartController");
-//    [self.navigationController pushViewController:ctrl animated:YES];
-=======
+
     if (titie.length>0) {
         YXBaseViewController *ctrl = [[NSClassFromString(titie) alloc] init];
         [self.navigationController pushViewController:ctrl animated:YES];
     }
->>>>>>> d19ab0871e537b16494629a4ce352271f6725e34
 }
 
 
