@@ -31,6 +31,7 @@
 }
 //获得隐患数据
 -(void)getElementHiddenWithGuid:(NSString *)Guid successBlock:(UploadSuccessBlock)successBlock {
+//
     [[YXNetTool shareTool]getRequestWithURL:YXNetAddress(@"sjjk/v1/bis/obj/objHidds/")  Parmars:TNParams(@"guid":Guid) success:^(id responseObject) {
         NSArray *dataArray = [responseObject objectForKey:@"data"];
         NSArray *modelArray = [NSArray modelArrayWithClass:[DJHiddenDangerModel class] json:dataArray];

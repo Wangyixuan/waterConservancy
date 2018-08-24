@@ -11,6 +11,7 @@
 #import "DJElementCheckItemViewModel.h"
 
 #import "DJElementCheckitemCell.h"
+#import "DJHiddenItemCell.h"
 
 #import <UITableView+FDTemplateLayoutCell.h>
 
@@ -30,6 +31,7 @@
 @property (nonatomic, strong) NSArray *hiddenItemArray;
 @end
 static NSString *const ELEMENTDETAILCELLREUSEID = @"ELEMENTDETAILCELL";
+static NSString *const ELEMENTHIDDENCELLREUSEID = @"ELEMENTHIDDENCELL";
 @implementation DJElementDetailController
 
 - (void)viewDidLoad {
@@ -46,14 +48,15 @@ static NSString *const ELEMENTDETAILCELLREUSEID = @"ELEMENTDETAILCELL";
         if (modelArray.count>0) {
             self.isCheckItem = YES;
             self.checkItemArray = [NSArray arrayWithArray:modelArray];
+             [self.tableView reloadData];
         }
-        [self.tableView reloadSection:0 withRowAnimation:UITableViewRowAnimationTop];
-        NSLog(@"%@",modelArray);
+       
     }];
     [self.tableViewModel getElementHiddenWithGuid:self.Guid successBlock:^(NSArray *modelArray) {
         if (modelArray.count>0) {
             self.isHiddenItem = YES;
             self.hiddenItemArray = [NSArray arrayWithArray:modelArray];
+            [self.tableView reloadData];
         }
     }];
     
@@ -64,18 +67,25 @@ static NSString *const ELEMENTDETAILCELLREUSEID = @"ELEMENTDETAILCELL";
     return 2;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (self.isCheckItem == YES) {
-        if (section == 0) {
-             return self.checkItemArray.count;
-        }else{
-        return 0;
-        }
-    }else if(self.isHiddenItem == YES){
-        if (section == 1) {
-            return  self.hiddenItemArray.count;
-        }else{
-            return 0;
-        }
+//    if (self.isCheckItem == YES) {
+//        if (section == 0) {
+//             return self.checkItemArray.count;
+//        }else{
+//        return 0;
+//        }
+//    }else if(self.isHiddenItem == YES){
+//        if (section == 1) {
+//            return  self.hiddenItemArray.count;
+//        }else{
+//            return 0;
+//        }
+//    }else{
+//        return 0;
+//    }
+    if (section == 0) {
+        return self.checkItemArray.count;
+    }else if(section == 1){
+        return self.hiddenItemArray.count;
     }else{
         return 0;
     }
@@ -83,25 +93,23 @@ static NSString *const ELEMENTDETAILCELLREUSEID = @"ELEMENTDETAILCELL";
     
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.isCheckItem == YES) {
-        if (indexPath.section == 0) {
-            DJElementCheckitemCell *cell = [tableView dequeueReusableCellWithIdentifier:ELEMENTDETAILCELLREUSEID];
-            if (!cell) {
-                cell = [[DJElementCheckitemCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ELEMENTDETAILCELLREUSEID];
-            }
-            [cell initDataWithModel:self.checkItemArray indexPath:indexPath];
-            
-            return cell;
-        }else{
-            return nil;
+   
+    if (indexPath.section == 0) {
+        DJElementCheckitemCell *cell = [tableView dequeueReusableCellWithIdentifier:ELEMENTDETAILCELLREUSEID];
+        if (!cell) {
+            cell = [[DJElementCheckitemCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ELEMENTDETAILCELLREUSEID];
         }
-    }else if(self.isHiddenItem == YES){
-        if (indexPath.section == 1) {
-            return nil;
-//            return  self.hiddenItemArray.count;
-        }else{
-            return nil;
+        [cell initDataWithModel:self.checkItemArray indexPath:indexPath];
+        
+        return cell;
+    }else  if (indexPath.section == 1) {
+        DJHiddenItemCell *cell = [tableView dequeueReusableCellWithIdentifier:ELEMENTHIDDENCELLREUSEID];
+        if (!cell) {
+            cell = [[DJHiddenItemCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ELEMENTHIDDENCELLREUSEID];
         }
+        [cell initHiddenItemDataWithModel:self.hiddenItemArray indexPath:indexPath];
+        
+        return cell;
     }else{
         return nil;
     }
@@ -113,10 +121,16 @@ static NSString *const ELEMENTDETAILCELLREUSEID = @"ELEMENTDETAILCELL";
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [tableView fd_heightForCellWithIdentifier:ELEMENTDETAILCELLREUSEID cacheByIndexPath:indexPath configuration:^(DJElementCheckitemCell* cell) {
-         [cell initDataWithModel:self.checkItemArray indexPath:indexPath];
-    }];
-//    return SCALE_W(200);
+    if (indexPath.section ==0) {
+        return  [tableView fd_heightForCellWithIdentifier:ELEMENTDETAILCELLREUSEID cacheByIndexPath:indexPath configuration:^(DJElementCheckitemCell* cell) {
+            [cell initDataWithModel:self.checkItemArray indexPath:indexPath];
+        }];
+    }else if (indexPath.section == 1){
+        return SCALE_W(150);
+    }else{
+        return 0;
+    }
+
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, SCALE_W(100))];
@@ -164,6 +178,7 @@ static NSString *const ELEMENTDETAILCELLREUSEID = @"ELEMENTDETAILCELL";
         make.left.right.top.bottom.mas_equalTo(weak_self.view);
     }];
     [self.tableView registerClass:[DJElementCheckitemCell class] forCellReuseIdentifier:ELEMENTDETAILCELLREUSEID];
+    [self.tableView registerClass:[DJHiddenItemCell class] forCellReuseIdentifier:ELEMENTHIDDENCELLREUSEID];
 }
 
 

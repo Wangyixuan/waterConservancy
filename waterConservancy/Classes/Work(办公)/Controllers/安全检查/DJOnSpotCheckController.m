@@ -108,21 +108,7 @@ static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-<<<<<<< HEAD
-    return [tableView fd_heightForCellWithIdentifier:ONSPOTCHECKCELLREUSEID configuration:^(DJOnSpotCheckCell *cell) {
-        WLOnSpotCheckModel * model = [self.dataArr objectAtIndex:indexPath.row];
-        [cell initDataWithModel:model];
-    }];
-    
-    
-//    CGFloat cellH = [tableView fd_heightForCellWithIdentifier:ONSPOTCHECKCELLREUSEID cacheByIndexPath:indexPath configuration:^(DJOnSpotCheckCell *cell) {
-//        if (self.dataArr.count>indexPath.row) {
-//            cell.model = [self.dataArr objectAtIndex:indexPath.row];
-//        }
-//    }];
-//
-//    return cellH;
-=======
+
 
     CGFloat cellH = [tableView fd_heightForCellWithIdentifier:ONSPOTCHECKCELLREUSEID cacheByIndexPath:indexPath configuration:^(DJOnSpotCheckCell *cell) {
         if (self.dataArr.count>indexPath.row) {
@@ -131,7 +117,6 @@ static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
     }];
 
     return cellH;
->>>>>>> 0846c9a2f922f14f8fe69f37374c3d330c9d9dbc
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

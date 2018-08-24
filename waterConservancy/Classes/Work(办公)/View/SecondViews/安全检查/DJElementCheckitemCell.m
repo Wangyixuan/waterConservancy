@@ -35,7 +35,7 @@
 }
 -(void)initDataWithModel:(NSArray *)modelArray indexPath:(NSIndexPath *)indexpath{
     DJElementCheckItemModel *model = modelArray[indexpath.row];
-    NSString *labelStr = [NSString stringWithFormat:@"%ld、%@",(long)indexpath.row,model.seChitName];
+    NSString *labelStr = [NSString stringWithFormat:@"%ld、%@",(long)indexpath.row+1,model.seChitName];
     [self.ItemLabel setText:labelStr];
     
 }
