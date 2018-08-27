@@ -10,9 +10,10 @@
 #import "WLCheckInfoCell.h"
 #import "WLHiddenCell.h"
 #import "DJHiddenDangerModel.h"
+#import "WLEngListCell.h"
 
 #define InfoCellIdentifity @"WLCheckInfoCell"
-#define RecordCellIdentifity @"RecordCell"
+#define RecordCellIdentifity @"WLEngListCell"
 #define HiddenItemCellIdentifity @"WLHiddenCell"
 
 @interface WLOnSpotCheckDetailController ()<UITableViewDelegate,UITableViewDataSource>
@@ -49,6 +50,7 @@
     }];
     [self.tableView registerNib:[UINib nibWithNibName:InfoCellIdentifity bundle:nil] forCellReuseIdentifier:InfoCellIdentifity];
     [self.tableView registerNib:[UINib nibWithNibName:HiddenItemCellIdentifity bundle:nil] forCellReuseIdentifier:HiddenItemCellIdentifity];
+     [self.tableView registerNib:[UINib nibWithNibName:RecordCellIdentifity bundle:nil] forCellReuseIdentifier:RecordCellIdentifity];
 }
 
 -(void)loadEngNameWithEngGuid:(NSString*)engGuid{
@@ -122,23 +124,10 @@
         return cell;
     }
     else if (indexPath.section==1){
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:RecordCellIdentifity];
-        if (!cell) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:RecordCellIdentifity];
-            }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        UIImageView *bgImgView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 0, kScreenWidth-10, 60)];
-        bgImgView.image = [UIImage imageNamed:@"flow2"];
-        [cell.contentView addSubview:bgImgView];
+        WLEngListCell *cell = [tableView dequeueReusableCellWithIdentifier:RecordCellIdentifity forIndexPath:indexPath];
         if (self.recordArr.count>indexPath.row) {
-            cell.textLabel.text = [self.recordArr objectAtIndex:indexPath.row];
+            cell.engNameLab.text = [self.recordArr objectAtIndex:indexPath.row];
         }
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(10, 59, kScreenWidth-20, 1)];
-        lineView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-        [cell.contentView addSubview:lineView];
-
-
         return cell;
     }else{
         WLHiddenCell *cell = [tableView dequeueReusableCellWithIdentifier:HiddenItemCellIdentifity forIndexPath:indexPath];

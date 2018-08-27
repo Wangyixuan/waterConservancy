@@ -69,7 +69,7 @@
    
     NSDictionary *xh1 =@{@"text":@"隐患验收",@"img":@"yinhuan_yanshou",@"ctrl":@""};
     NSDictionary *xh2 =@{@"text":@"隐患督办",@"img":@"yinhuan_duban",@"ctrl":@""};
-    NSDictionary *xh3 =@{@"text":@"隐患上报",@"img":@"yinhuan_shangbao",@"ctrl":@""};
+    NSDictionary *xh3 =@{@"text":@"隐患上报",@"img":@"yinhuan_shangbao",@"ctrl":@"WLHiddenEngListController"};
     NSDictionary *xh4 =@{@"text":@"隐患整改",@"img":@"yinhuan_zhenggai",@"ctrl":@""};
     NSDictionary *xh5 =@{@"text":@"隐患销号",@"img":@"yinhuan_xiaohao",@"ctrl":@""};
    //行政用户使用

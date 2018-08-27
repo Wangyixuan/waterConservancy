@@ -12,7 +12,7 @@
 #import <UITableView+FDTemplateLayoutCell.h>
 #import "WLOnSpotCheckDetailController.h"
 
-#define PAGESIZW 10
+
 
 @interface DJOnSpotCheckController ()
 @property (nonatomic, strong) NSMutableArray *dataArr;
