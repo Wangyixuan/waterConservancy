@@ -36,14 +36,12 @@
 
 -(void)setModel:(WLOnSpotCheckModel *)model{
     _model = model;
-    [self.contentLabel setText:model.checkNoteStr];
+    NSString *str = [NSString stringWithFormat:@"检查内容：%@",model.checkNoteStr];
+    [self.contentLabel setText:str];
     self.nameLabel.text = model.checkTimeStr;
 //    self.contentLabel.text = model.checkNoteStr;
 }
--(void)initDataWithModel:(WLOnSpotCheckModel *)model{
-    [self.contentLabel setText:model.checkNoteStr];
-    self.nameLabel.text = model.checkTimeStr;
-}
+
 
 #pragma mark 催办
 -(void)cuibanClick{

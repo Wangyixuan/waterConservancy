@@ -13,6 +13,8 @@
 @property (nonatomic, copy) NSString *checkTimeStr;
 @property (nonatomic, copy) NSString *checkNoteStr;
 @property (nonatomic, copy) NSString *sinsGuidStr;
+@property (nonatomic, copy) NSString *startTimeStr;
+@property (nonatomic, copy) NSString *endTimeStr;
 
 -(instancetype)initWithDic:(NSDictionary*)dic;
 

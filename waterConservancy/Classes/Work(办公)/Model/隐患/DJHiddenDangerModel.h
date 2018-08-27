@@ -4,7 +4,7 @@
 //
 //  Created by liu on 2018/8/17.
 //  Copyright © 2018年 com.yx.waterConservancy. All rights reserved.
-//
+// 隐患模型
 
 #import <Foundation/Foundation.h>
 
@@ -36,12 +36,17 @@
 //"occuNum": null,
 //"sinsScheGuid": null
 @property (nonatomic, copy) NSString *guid;
+//隐患名称
 @property (nonatomic, copy) NSString *hiddName;
+//所属工程ID
 @property (nonatomic, copy) NSString *engGuid;
+//所属工程
+@property (nonatomic, copy) NSString *hiddProjectName;
 @property (nonatomic, copy) NSString *tendGuid;
 @property (nonatomic, copy) NSString *seGuid;
 @property (nonatomic, copy) NSString *orgGuid;
 @property (nonatomic, copy) NSString *hiddSour;
+//隐患级别
 @property (nonatomic, copy) NSString *hiddGrad;
 @property (nonatomic, copy) NSString *hiddClas;
 @property (nonatomic, copy) NSString *ifFound;
@@ -55,10 +60,14 @@
 @property (nonatomic, copy) NSString *hiddMergGuid;
 @property (nonatomic, copy) NSString *recOrgGuid;
 @property (nonatomic, copy) NSString *note;
+//采集时间
 @property (nonatomic, copy) NSString  *collTime;
 @property (nonatomic, copy) NSString  *updTime;
 @property (nonatomic, copy) NSString *recPers;
 @property (nonatomic, copy) NSString *hiddsGuid;
 @property (nonatomic, copy) NSString *occuNum;
 @property (nonatomic, copy) NSString *sinsScheGuid;
+
+-(instancetype)initWithDic:(NSDictionary*)dic;
+
 @end

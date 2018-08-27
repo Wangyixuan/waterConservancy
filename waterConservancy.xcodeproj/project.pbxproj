@@ -26,6 +26,9 @@
 		047B508E212E58770007C477 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 047B508D212E58760007C477 /* assets */; };
 		047B5098212FDEAA0007C477 /* WLCheckInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5096212FDEAA0007C477 /* WLCheckInfoCell.m */; };
 		047B5099212FDEAA0007C477 /* WLCheckInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B5097212FDEAA0007C477 /* WLCheckInfoCell.xib */; };
+		047B509C212FE28E0007C477 /* DJHiddenDrangeChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B509B212FE28D0007C477 /* DJHiddenDrangeChartCell.m */; };
+		047B50A0213398940007C477 /* WLHiddenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B509E213398940007C477 /* WLHiddenCell.m */; };
+		047B50A1213398940007C477 /* WLHiddenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B509F213398940007C477 /* WLHiddenCell.xib */; };
 		04C5310021212BC900C90964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C530FF21212BC900C90964 /* AppDelegate.m */; };
 		04C5310821212BCB00C90964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310721212BCB00C90964 /* Assets.xcassets */; };
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
@@ -118,6 +121,11 @@
 		047B5095212FDEAA0007C477 /* WLCheckInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLCheckInfoCell.h; sourceTree = "<group>"; };
 		047B5096212FDEAA0007C477 /* WLCheckInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLCheckInfoCell.m; sourceTree = "<group>"; };
 		047B5097212FDEAA0007C477 /* WLCheckInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLCheckInfoCell.xib; sourceTree = "<group>"; };
+		047B509A212FE28D0007C477 /* DJHiddenDrangeChartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJHiddenDrangeChartCell.h; sourceTree = "<group>"; };
+		047B509B212FE28D0007C477 /* DJHiddenDrangeChartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJHiddenDrangeChartCell.m; sourceTree = "<group>"; };
+		047B509D213398940007C477 /* WLHiddenCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLHiddenCell.h; sourceTree = "<group>"; };
+		047B509E213398940007C477 /* WLHiddenCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLHiddenCell.m; sourceTree = "<group>"; };
+		047B509F213398940007C477 /* WLHiddenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLHiddenCell.xib; sourceTree = "<group>"; };
 		04C530FB21212BC900C90964 /* waterConservancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterConservancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C530FE21212BC900C90964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04C530FF21212BC900C90964 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -543,6 +551,8 @@
 		5A3A7EE3212FA5CA0081BB16 /* 隐患 */ = {
 			isa = PBXGroup;
 			children = (
+				047B509A212FE28D0007C477 /* DJHiddenDrangeChartCell.h */,
+				047B509B212FE28D0007C477 /* DJHiddenDrangeChartCell.m */,
 			);
 			path = "隐患";
 			sourceTree = "<group>";
@@ -558,6 +568,9 @@
 				5A3A7EEA212FA5CA0081BB16 /* DJOnSpotCheckCell.h */,
 				5A3A7EEE212FA6020081BB16 /* DJHiddenItemCell.h */,
 				5A3A7EEF212FA6020081BB16 /* DJHiddenItemCell.m */,
+				047B509D213398940007C477 /* WLHiddenCell.h */,
+				047B509E213398940007C477 /* WLHiddenCell.m */,
+				047B509F213398940007C477 /* WLHiddenCell.xib */,
 			);
 			path = "安全检查";
 			sourceTree = "<group>";
@@ -825,6 +838,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				047B50A1213398940007C477 /* WLHiddenCell.xib in Resources */,
 				047B505D212441410007C477 /* WLWorkTableViewCell.xib in Resources */,
 				047B508E212E58770007C477 /* assets in Resources */,
 				5A4CF1922122832B00D72FE5 /* Main.storyboard in Resources */,
@@ -903,6 +917,7 @@
 				047B5073212A8C9E0007C477 /* WLUserManager.m in Sources */,
 				5A4CF1902122806600D72FE5 /* YXBaseTableViewCell.m in Sources */,
 				5A8BE2462126CA0500F61665 /* DJMonthListModel.m in Sources */,
+				047B50A0213398940007C477 /* WLHiddenCell.m in Sources */,
 				5A4CF1662122795F00D72FE5 /* DJLoadViewController.m in Sources */,
 				5A4CF1862122801300D72FE5 /* YXNavViewController.m in Sources */,
 				5A8BE28D212A991500F61665 /* DJOrgElementModel.m in Sources */,
@@ -923,6 +938,7 @@
 				047B5084212D6FBA0007C477 /* WLOnSpotCheckDetailController.m in Sources */,
 				5A4CF17821227C6500D72FE5 /* YXDataResolveTool.m in Sources */,
 				5A8BE2432126A48F00F61665 /* DJHiddenDangerModel.m in Sources */,
+				047B509C212FE28E0007C477 /* DJHiddenDrangeChartCell.m in Sources */,
 				5A3A7EED212FA5CA0081BB16 /* DJElementCheckitemCell.m in Sources */,
 				5A8BE28A212A6AE300F61665 /* DJElemnetModel.m in Sources */,
 				5A4CF16F21227B1600D72FE5 /* YXSaveUserCell.m in Sources */,

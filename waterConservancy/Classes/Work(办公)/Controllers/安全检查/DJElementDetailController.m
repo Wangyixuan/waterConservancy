@@ -137,7 +137,10 @@ static NSString *const ELEMENTHIDDENCELLREUSEID = @"ELEMENTHIDDENCELL";
     UIImageView *backImgV = [[UIImageView alloc]initWithFrame:CGRectMake(SCALE_W(20), 0, ScreenWidth-SCALE_W(40), SCALE_W(60))];
     [backImgV setImage:[UIImage imageNamed:@"flow1"]];
     [headView addSubview:backImgV];
-    UILabel *SeactionLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCALE_W(20), SCALE_W(15), ScreenWidth, SCALE_W(45))];
+    UIView *line1View = [[UIView alloc]initWithFrame:CGRectMake(SCALE_W(30), SCALE_W(22), SCALE_W(5), SCALE_W(30))];
+    line1View.backgroundColor = FColor(64.0, 114.0, 216.0, 1.0);
+    [backImgV addSubview:line1View];
+    UILabel *SeactionLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCALE_W(45), SCALE_W(15), ScreenWidth, SCALE_W(45))];
     if (section == 0) {
          [SeactionLabel setText:@"检测项"];
     }else{

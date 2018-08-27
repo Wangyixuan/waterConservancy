@@ -15,5 +15,4 @@ typedef void (^onSpotCheckBtnClickBlock) (void);
 @property (nonatomic, strong) WLOnSpotCheckModel *model;
 @property (nonatomic, copy) void(^cellHBlock)(CGFloat cellH);
 
--(void)initDataWithModel:(WLOnSpotCheckModel *)model;
 @end

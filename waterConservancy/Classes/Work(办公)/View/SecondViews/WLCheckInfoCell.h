@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WLOnSpotCheckModel.h"
 
 @interface WLCheckInfoCell : UITableViewCell
-
+@property (nonatomic, strong)  WLOnSpotCheckModel*model;
 @end

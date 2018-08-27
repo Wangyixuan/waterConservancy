@@ -11,12 +11,11 @@
 @implementation WLOnSpotCheckModel
 -(instancetype)initWithDic:(NSDictionary*)dic{
     if (self = [super init]) {
-        NSString *str = [dic stringForKey:@"inspCont" defaultValue:@""];
-        NSString *star = [dic stringForKey:@"startDate" defaultValue:@""];
-        NSString *star2 = [star substringToIndex:10];
-        NSString *end = [dic stringForKey:@"endDate" defaultValue:@""];
-        NSString *end2 = [end substringToIndex:10];
-        self.checkNoteStr = [NSString stringWithFormat:@"检查内容：%@",str];
+        self.startTimeStr = [dic stringForKey:@"startDate" defaultValue:@""];
+        NSString *star2 = [self.startTimeStr substringToIndex:10];
+        self.endTimeStr = [dic stringForKey:@"endDate" defaultValue:@""];
+        NSString *end2 = [self.endTimeStr substringToIndex:10];
+        self.checkNoteStr = [dic stringForKey:@"inspCont" defaultValue:@""];
         self.checkTimeStr = [NSString stringWithFormat:@"检查时间：%@-%@",star2,end2];
         self.sinsGuidStr = [dic stringForKey:@"sinsGuid" defaultValue:@""];
     }

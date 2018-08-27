@@ -7,12 +7,18 @@
 //
 
 #import "WLOnSpotCheckDetailController.h"
-#import "DJElementCheckCell.h"
+#import "WLCheckInfoCell.h"
+#import "WLHiddenCell.h"
+#import "DJHiddenDangerModel.h"
 
-
+#define InfoCellIdentifity @"WLCheckInfoCell"
+#define RecordCellIdentifity @"RecordCell"
+#define HiddenItemCellIdentifity @"WLHiddenCell"
 
 @interface WLOnSpotCheckDetailController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic, strong) NSMutableArray *recordArr;
+@property (nonatomic, strong) NSMutableArray *hiddArr;
 @end
 
 @implementation WLOnSpotCheckDetailController
@@ -21,7 +27,12 @@
     [super viewDidLoad];
     self.title = @"检查记录详情";
     // Do any additional setup after loading the view.
+    self.recordArr = [NSMutableArray array];
+    self.hiddArr = [NSMutableArray array];
+    
     [self loadHiddData];
+   
+    [self setUpSubViews];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,15 +47,45 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.bottom.mas_equalTo(weak_self.view);
     }];
-//    [self.tableView registerClass:[DJElementCheckitemCell class] forCellReuseIdentifier:ELEMENTDETAILCELLREUSEID];
-    
+    [self.tableView registerNib:[UINib nibWithNibName:InfoCellIdentifity bundle:nil] forCellReuseIdentifier:InfoCellIdentifity];
+    [self.tableView registerNib:[UINib nibWithNibName:HiddenItemCellIdentifity bundle:nil] forCellReuseIdentifier:HiddenItemCellIdentifity];
+}
+
+-(void)loadEngNameWithEngGuid:(NSString*)engGuid{
+    NSDictionary *param = @{@"guid":engGuid};
+    [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/jck/obj/objEngs/") Parmars:param success:^(id responseObject) {
+        NSLog(@"%@",responseObject);
+        NSString *str =@"北京市水利局";
+        for (DJHiddenDangerModel *model in self.hiddArr) {
+            model.hiddProjectName = str;
+        };
+         [self.tableView reloadData];
+    } faild:^(NSError *error) {
+        
+    }];
+}
+
+-(void)loadRecordData{
+    NSString *str = @"2018-10-10 检查轨迹";
+    [self.recordArr addObject:str];
+    [self.recordArr addObject:str];
+    [self.recordArr addObject:str];
+   
 }
 
 -(void)loadHiddData{
     NSDictionary *param = @{@"orgGuid":WLShareUserManager.orgID,@"inspRecGuid":self.model.sinsGuidStr};
     [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/bis/obj/objHidds/") Parmars:param success:^(id responseObject) {
         NSLog(@"%@",responseObject);
-        
+        NSDictionary *dic = @{@"key":@"value"};
+        DJHiddenDangerModel *model = [[DJHiddenDangerModel alloc] initWithDic:dic];
+        [self.hiddArr addObject:model];
+        [self.hiddArr addObject:model];
+        [self.hiddArr addObject:model];
+        [self loadEngNameWithEngGuid:model.engGuid];
+        [self loadRecordData];
+       
+    
     } faild:^(NSError *error) {
         
     }];
@@ -56,25 +97,76 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section==0) {
+        return 1;
+    }
     return 3;
 }
 
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    DJElementCheckCell *cell = [[DJElementCheckCell alloc]init];
-    return cell;
-    
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==0) {
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.estimatedRowHeight = 130;
+        return self.tableView.rowHeight;
+    }else if (indexPath.section==2){
+        return 67;
+    }
+    return 60;
+
 }
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==0) {
+        WLCheckInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:InfoCellIdentifity forIndexPath:indexPath];
+        cell.model = self.model;
+        return cell;
+    }
+    else if (indexPath.section==1){
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:RecordCellIdentifity];
+        if (!cell) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:RecordCellIdentifity];
+            }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        UIImageView *bgImgView = [[UIImageView alloc]initWithFrame:CGRectMake(5, 0, kScreenWidth-10, 60)];
+        bgImgView.image = [UIImage imageNamed:@"flow2"];
+        [cell.contentView addSubview:bgImgView];
+        if (self.recordArr.count>indexPath.row) {
+            cell.textLabel.text = [self.recordArr objectAtIndex:indexPath.row];
+        }
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(10, 59, kScreenWidth-20, 1)];
+        lineView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        [cell.contentView addSubview:lineView];
+
+
+        return cell;
+    }else{
+        WLHiddenCell *cell = [tableView dequeueReusableCellWithIdentifier:HiddenItemCellIdentifity forIndexPath:indexPath];
+        if (self.hiddArr.count>indexPath.row) {
+             cell.model = [self.hiddArr objectAtIndex:indexPath.row];
+        }
+        return  cell;
+    }
+}
+
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, SCALE_W(100))];
-    UIImageView *backImgV = [[UIImageView alloc]initWithFrame:CGRectMake(SCALE_W(20), 0, ScreenWidth-SCALE_W(40), SCALE_W(60))];
+    UIImageView *backImgV = [[UIImageView alloc]initWithFrame:CGRectMake(5, 0, ScreenWidth-10, SCALE_W(60))];
     [backImgV setImage:[UIImage imageNamed:@"flow1"]];
     [headView addSubview:backImgV];
-    UILabel *SeactionLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCALE_W(20), SCALE_W(15), ScreenWidth, SCALE_W(45))];
+    UIView *line1View = [[UIView alloc]initWithFrame:CGRectMake(SCALE_W(30), SCALE_W(22), SCALE_W(5), SCALE_W(30))];
+    line1View.backgroundColor = FColor(64.0, 114.0, 216.0, 1.0);
+    [backImgV addSubview:line1View];
+
+    UILabel *SeactionLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCALE_W(45), SCALE_W(15), ScreenWidth, SCALE_W(45))];
     if (section == 0) {
-        [SeactionLabel setText:@"检测项"];
+        [SeactionLabel setText:@"检测记录信息"];
+    }else if (section==1)
+    {
+        [SeactionLabel setText:@"检查轨迹"];
     }else{
-        [SeactionLabel setText:@"可能存在的隐患"];
+        [SeactionLabel setText:@"隐患列表"];
     }
     
     [SeactionLabel setTextColor:FColor(64.0, 114.0, 216.0, 1.0)];
@@ -88,7 +180,7 @@
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIView *footView = [[UIView alloc]init];
-    UIImageView *backImgV = [[UIImageView alloc]initWithFrame:CGRectMake(SCALE_W(20), 0, ScreenWidth-SCALE_W(40), SCALE_W(40))];
+    UIImageView *backImgV = [[UIImageView alloc]initWithFrame:CGRectMake(5, 0, ScreenWidth-10, SCALE_W(40))];
     [backImgV setImage:[UIImage imageNamed:@"flow3"]];
     [footView addSubview:backImgV];
     return footView;

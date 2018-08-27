@@ -28,27 +28,29 @@
     return self;
 }
 -(void)initHiddenItemDataWithModel:(NSArray *)modelArray indexPath:(NSIndexPath *)indexpath{
-    DJHiddenDangerModel *model = modelArray[indexpath.row];
-    [self.nameLabel setText:model.hiddName];
-    NSString *typeStr;
-    if ([model.hiddStat isEqualToString:@"1"]) {
-        typeStr = @"一般隐患";
-        [self.typeLabel setBackgroundColor:FColor(64.0, 114.0, 216.0, 1.0)];
-    }else if ([model.hiddStat isEqualToString:@"2"]){
-        typeStr = @"重大隐患";
-        [self.typeLabel setBackgroundColor:FColor(219.0, 44.0, 45.0, 1.0)];
-    }else if ([model.hiddStat isEqualToString:@"3"]){
-        typeStr = @"正常";
-        [self.typeLabel setBackgroundColor:FColor(115.0, 203.0, 192.0, 1.0)];
-    }else if ([model.hiddStat isEqualToString:@"4"]){
-        typeStr = @"待查";
-        [self.typeLabel setBackgroundColor:FColor(233.0, 164.0, 50.0, 1.0)];
+    if (modelArray.count>0) {
+        DJHiddenDangerModel *model = modelArray[indexpath.row];
+        [self.nameLabel setText:model.hiddName];
+        NSString *typeStr = @"2";
+        if ([model.hiddStat isEqualToString:@"1"]) {
+            typeStr = @"一般隐患";
+            [self.typeLabel setBackgroundColor:FColor(64.0, 114.0, 216.0, 1.0)];
+        }else if ([model.hiddStat isEqualToString:@"2"]){
+            typeStr = @"重大隐患";
+            [self.typeLabel setBackgroundColor:FColor(219.0, 44.0, 45.0, 1.0)];
+        }else if ([model.hiddStat isEqualToString:@"3"]){
+            typeStr = @"正常";
+            [self.typeLabel setBackgroundColor:FColor(115.0, 203.0, 192.0, 1.0)];
+        }else if ([model.hiddStat isEqualToString:@"4"]){
+            typeStr = @"待查";
+            [self.typeLabel setBackgroundColor:FColor(233.0, 164.0, 50.0, 1.0)];
+        }
+        [self.typeLabel setTitle:typeStr forState:UIControlStateNormal];
+        NSArray *timeArray = [model.updTime componentsSeparatedByString:@" "];
+        
+        [self.TimeLabel setText:timeArray.firstObject];
+        [self.contentLabel setText:[NSString stringWithFormat:@"所属工程:%@",model.proPart]];
     }
-    [self.typeLabel setTitle:typeStr forState:UIControlStateNormal];
-    NSArray *timeArray = [model.updTime componentsSeparatedByString:@" "];
-    
-    [self.TimeLabel setText:timeArray.firstObject];
-    [self.contentLabel setText:[NSString stringWithFormat:@"所属工程:%@",model.proPart]];
 }
 
 

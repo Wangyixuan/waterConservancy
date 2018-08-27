@@ -85,6 +85,7 @@ static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
         //无数据
     }else if (arrCount==-1){
         [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [SVProgressHUD dismissWithDelay:1.5];
     }
     else [self.tableView.mj_footer endRefreshingWithNoMoreData];
 }
@@ -105,8 +106,7 @@ static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
         [self.navigationController pushViewController:mapView animated:YES];
     };
     if (self.dataArr.count>indexPath.row) {
-        WLOnSpotCheckModel * model = [self.dataArr objectAtIndex:indexPath.row];
-        [cell initDataWithModel:model];
+    cell.model =[self.dataArr objectAtIndex:indexPath.row];
     }
     return cell;
     
