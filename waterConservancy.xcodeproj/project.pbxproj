@@ -34,10 +34,30 @@
 		047B50AA2133C9500007C477 /* WLEngListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B50A82133C9500007C477 /* WLEngListCell.xib */; };
 		047B50AD2133CF7F0007C477 /* WLTendPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B50AC2133CF7F0007C477 /* WLTendPopView.m */; };
 		047B50AF2133CF8C0007C477 /* WLTendPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B50AE2133CF8C0007C477 /* WLTendPopView.xib */; };
-		047B50B22133EA2C0007C477 /* WLUploadHiddenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B50B12133EA2C0007C477 /* WLUploadHiddenController.m */; };
 		047B50B62133EA730007C477 /* WLUploadHiddenInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B50B42133EA730007C477 /* WLUploadHiddenInfoCell.m */; };
 		047B50B72133EA730007C477 /* WLUploadHiddenInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B50B52133EA730007C477 /* WLUploadHiddenInfoCell.xib */; };
 		047B50BB2133F2EC0007C477 /* WLUploadDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B50B92133F2EC0007C477 /* WLUploadDetailInfoCell.m */; };
+		047B513B213536640007C477 /* YXRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B513A213536630007C477 /* YXRecordModel.m */; };
+		047B514A21353AED0007C477 /* WLUploadHiddenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B514921353AEC0007C477 /* WLUploadHiddenController.m */; };
+		047B515121353C070007C477 /* WLRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B515021353C070007C477 /* WLRecordView.m */; };
+		047B515421353CCA0007C477 /* WJTimeCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B515321353CCA0007C477 /* WJTimeCircle.m */; };
+		047B515721353D0E0007C477 /* YSCCircleRippleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B515621353D0D0007C477 /* YSCCircleRippleView.m */; };
+		047B515D21353D950007C477 /* Mp3Recorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B515921353D940007C477 /* Mp3Recorder.m */; };
+		047B515E21353D950007C477 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 047B515A21353D940007C477 /* libmp3lame.a */; };
+		047B51632135470D0007C477 /* YXPhotoImgBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B51602135470B0007C477 /* YXPhotoImgBtn.m */; };
+		047B51642135470D0007C477 /* YXVideoPlayBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B51622135470C0007C477 /* YXVideoPlayBtn.m */; };
+		047B51722135517B0007C477 /* WKWAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B51662135517A0007C477 /* WKWAsset.m */; };
+		047B51732135517B0007C477 /* SmallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B51672135517A0007C477 /* SmallCell.m */; };
+		047B51742135517B0007C477 /* PhotosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B51682135517A0007C477 /* PhotosController.m */; };
+		047B51752135517B0007C477 /* FullCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B516E2135517A0007C477 /* FullCell.m */; };
+		047B51762135517B0007C477 /* UIImage+Original.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B51702135517A0007C477 /* UIImage+Original.m */; };
+		047B51772135517B0007C477 /* AssetsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B51712135517A0007C477 /* AssetsHelper.m */; };
+		047B5182213552710007C477 /* btn_video_flip_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 047B517B213552700007C477 /* btn_video_flip_camera@2x.png */; };
+		047B5183213552710007C477 /* HVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B517C213552700007C477 /* HVideoViewController.m */; };
+		047B5184213552710007C477 /* HAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B517E213552700007C477 /* HAVPlayer.m */; };
+		047B5185213552710007C477 /* HProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5180213552700007C477 /* HProgressView.m */; };
+		047B5186213552710007C477 /* HVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B5181213552700007C477 /* HVideoViewController.xib */; };
+		047B518A213554E20007C477 /* GCMAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5189213554E10007C477 /* GCMAssetModel.m */; };
 		04C5310021212BC900C90964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C530FF21212BC900C90964 /* AppDelegate.m */; };
 		04C5310821212BCB00C90964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310721212BCB00C90964 /* Assets.xcassets */; };
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
@@ -144,12 +164,50 @@
 		047B50AC2133CF7F0007C477 /* WLTendPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLTendPopView.m; sourceTree = "<group>"; };
 		047B50AE2133CF8C0007C477 /* WLTendPopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLTendPopView.xib; sourceTree = "<group>"; };
 		047B50B02133EA2C0007C477 /* WLUploadHiddenController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLUploadHiddenController.h; sourceTree = "<group>"; };
-		047B50B12133EA2C0007C477 /* WLUploadHiddenController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLUploadHiddenController.m; sourceTree = "<group>"; };
 		047B50B32133EA730007C477 /* WLUploadHiddenInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLUploadHiddenInfoCell.h; sourceTree = "<group>"; };
 		047B50B42133EA730007C477 /* WLUploadHiddenInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLUploadHiddenInfoCell.m; sourceTree = "<group>"; };
 		047B50B52133EA730007C477 /* WLUploadHiddenInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLUploadHiddenInfoCell.xib; sourceTree = "<group>"; };
 		047B50B82133F2EC0007C477 /* WLUploadDetailInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLUploadDetailInfoCell.h; sourceTree = "<group>"; };
 		047B50B92133F2EC0007C477 /* WLUploadDetailInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLUploadDetailInfoCell.m; sourceTree = "<group>"; };
+		047B5139213536630007C477 /* YXRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXRecordModel.h; sourceTree = "<group>"; };
+		047B513A213536630007C477 /* YXRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXRecordModel.m; sourceTree = "<group>"; };
+		047B514921353AEC0007C477 /* WLUploadHiddenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLUploadHiddenController.m; sourceTree = "<group>"; };
+		047B514F21353C070007C477 /* WLRecordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLRecordView.h; sourceTree = "<group>"; };
+		047B515021353C070007C477 /* WLRecordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLRecordView.m; sourceTree = "<group>"; };
+		047B515221353CC90007C477 /* WJTimeCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJTimeCircle.h; sourceTree = "<group>"; };
+		047B515321353CCA0007C477 /* WJTimeCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJTimeCircle.m; sourceTree = "<group>"; };
+		047B515521353D0D0007C477 /* YSCCircleRippleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCCircleRippleView.h; sourceTree = "<group>"; };
+		047B515621353D0D0007C477 /* YSCCircleRippleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCCircleRippleView.m; sourceTree = "<group>"; };
+		047B515921353D940007C477 /* Mp3Recorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mp3Recorder.m; sourceTree = "<group>"; };
+		047B515A21353D940007C477 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		047B515B21353D940007C477 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		047B515C21353D940007C477 /* Mp3Recorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mp3Recorder.h; sourceTree = "<group>"; };
+		047B515F2135470B0007C477 /* YXVideoPlayBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXVideoPlayBtn.h; sourceTree = "<group>"; };
+		047B51602135470B0007C477 /* YXPhotoImgBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXPhotoImgBtn.m; sourceTree = "<group>"; };
+		047B51612135470C0007C477 /* YXPhotoImgBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPhotoImgBtn.h; sourceTree = "<group>"; };
+		047B51622135470C0007C477 /* YXVideoPlayBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXVideoPlayBtn.m; sourceTree = "<group>"; };
+		047B51662135517A0007C477 /* WKWAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWAsset.m; sourceTree = "<group>"; };
+		047B51672135517A0007C477 /* SmallCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallCell.m; sourceTree = "<group>"; };
+		047B51682135517A0007C477 /* PhotosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosController.m; sourceTree = "<group>"; };
+		047B51692135517A0007C477 /* FullCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullCell.h; sourceTree = "<group>"; };
+		047B516A2135517A0007C477 /* UIImage+Original.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Original.h"; sourceTree = "<group>"; };
+		047B516B2135517A0007C477 /* AssetsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsHelper.h; sourceTree = "<group>"; };
+		047B516C2135517A0007C477 /* SmallCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallCell.h; sourceTree = "<group>"; };
+		047B516D2135517A0007C477 /* WKWAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWAsset.h; sourceTree = "<group>"; };
+		047B516E2135517A0007C477 /* FullCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullCell.m; sourceTree = "<group>"; };
+		047B516F2135517A0007C477 /* PhotosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosController.h; sourceTree = "<group>"; };
+		047B51702135517A0007C477 /* UIImage+Original.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Original.m"; sourceTree = "<group>"; };
+		047B51712135517A0007C477 /* AssetsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsHelper.m; sourceTree = "<group>"; };
+		047B5179213552700007C477 /* HAVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAVPlayer.h; sourceTree = "<group>"; };
+		047B517B213552700007C477 /* btn_video_flip_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_video_flip_camera@2x.png"; sourceTree = "<group>"; };
+		047B517C213552700007C477 /* HVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVideoViewController.m; sourceTree = "<group>"; };
+		047B517D213552700007C477 /* HProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HProgressView.h; sourceTree = "<group>"; };
+		047B517E213552700007C477 /* HAVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAVPlayer.m; sourceTree = "<group>"; };
+		047B517F213552700007C477 /* HVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVideoViewController.h; sourceTree = "<group>"; };
+		047B5180213552700007C477 /* HProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HProgressView.m; sourceTree = "<group>"; };
+		047B5181213552700007C477 /* HVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HVideoViewController.xib; sourceTree = "<group>"; };
+		047B5188213554E10007C477 /* GCMAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMAssetModel.h; sourceTree = "<group>"; };
+		047B5189213554E10007C477 /* GCMAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMAssetModel.m; sourceTree = "<group>"; };
 		04C530FB21212BC900C90964 /* waterConservancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterConservancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C530FE21212BC900C90964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04C530FF21212BC900C90964 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -233,6 +291,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				047B515E21353D950007C477 /* libmp3lame.a in Frameworks */,
 				047129AE21217B5A00EEADE5 /* Foundation.framework in Frameworks */,
 				8841E8835D90F5303BCEA6DB /* libPods-waterConservancy.a in Frameworks */,
 			);
@@ -467,9 +526,92 @@
 				047B50A32133AC250007C477 /* WLHiddenEngListController.h */,
 				047B50A42133AC250007C477 /* WLHiddenEngListController.m */,
 				047B50B02133EA2C0007C477 /* WLUploadHiddenController.h */,
-				047B50B12133EA2C0007C477 /* WLUploadHiddenController.m */,
+				047B514921353AEC0007C477 /* WLUploadHiddenController.m */,
 			);
 			path = "隐患";
+			sourceTree = "<group>";
+		};
+		047B514E21353BEE0007C477 /* madieViews */ = {
+			isa = PBXGroup;
+			children = (
+				047B5187213554E10007C477 /* videozhuan */,
+				047B5178213552700007C477 /* KJCamera */,
+				047B51652135517A0007C477 /* photo */,
+				047B51612135470C0007C477 /* YXPhotoImgBtn.h */,
+				047B51602135470B0007C477 /* YXPhotoImgBtn.m */,
+				047B515F2135470B0007C477 /* YXVideoPlayBtn.h */,
+				047B51622135470C0007C477 /* YXVideoPlayBtn.m */,
+				047B515821353D940007C477 /* recordVoice */,
+				047B515521353D0D0007C477 /* YSCCircleRippleView.h */,
+				047B515621353D0D0007C477 /* YSCCircleRippleView.m */,
+				047B515221353CC90007C477 /* WJTimeCircle.h */,
+				047B515321353CCA0007C477 /* WJTimeCircle.m */,
+				047B514F21353C070007C477 /* WLRecordView.h */,
+				047B515021353C070007C477 /* WLRecordView.m */,
+			);
+			path = madieViews;
+			sourceTree = "<group>";
+		};
+		047B515821353D940007C477 /* recordVoice */ = {
+			isa = PBXGroup;
+			children = (
+				047B515921353D940007C477 /* Mp3Recorder.m */,
+				047B515A21353D940007C477 /* libmp3lame.a */,
+				047B515B21353D940007C477 /* lame.h */,
+				047B515C21353D940007C477 /* Mp3Recorder.h */,
+			);
+			path = recordVoice;
+			sourceTree = "<group>";
+		};
+		047B51652135517A0007C477 /* photo */ = {
+			isa = PBXGroup;
+			children = (
+				047B516D2135517A0007C477 /* WKWAsset.h */,
+				047B51662135517A0007C477 /* WKWAsset.m */,
+				047B516C2135517A0007C477 /* SmallCell.h */,
+				047B51672135517A0007C477 /* SmallCell.m */,
+				047B516F2135517A0007C477 /* PhotosController.h */,
+				047B51682135517A0007C477 /* PhotosController.m */,
+				047B516B2135517A0007C477 /* AssetsHelper.h */,
+				047B51712135517A0007C477 /* AssetsHelper.m */,
+				047B51692135517A0007C477 /* FullCell.h */,
+				047B516E2135517A0007C477 /* FullCell.m */,
+				047B516A2135517A0007C477 /* UIImage+Original.h */,
+				047B51702135517A0007C477 /* UIImage+Original.m */,
+			);
+			path = photo;
+			sourceTree = "<group>";
+		};
+		047B5178213552700007C477 /* KJCamera */ = {
+			isa = PBXGroup;
+			children = (
+				047B5179213552700007C477 /* HAVPlayer.h */,
+				047B517A213552700007C477 /* images */,
+				047B517C213552700007C477 /* HVideoViewController.m */,
+				047B517D213552700007C477 /* HProgressView.h */,
+				047B517E213552700007C477 /* HAVPlayer.m */,
+				047B517F213552700007C477 /* HVideoViewController.h */,
+				047B5180213552700007C477 /* HProgressView.m */,
+				047B5181213552700007C477 /* HVideoViewController.xib */,
+			);
+			path = KJCamera;
+			sourceTree = "<group>";
+		};
+		047B517A213552700007C477 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				047B517B213552700007C477 /* btn_video_flip_camera@2x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		047B5187213554E10007C477 /* videozhuan */ = {
+			isa = PBXGroup;
+			children = (
+				047B5188213554E10007C477 /* GCMAssetModel.h */,
+				047B5189213554E10007C477 /* GCMAssetModel.m */,
+			);
+			path = videozhuan;
 			sourceTree = "<group>";
 		};
 		04C530F221212BC900C90964 = {
@@ -587,6 +729,7 @@
 		5A3A7EE3212FA5CA0081BB16 /* 隐患 */ = {
 			isa = PBXGroup;
 			children = (
+				047B514E21353BEE0007C477 /* madieViews */,
 				047B509A212FE28D0007C477 /* DJHiddenDrangeChartCell.h */,
 				047B509B212FE28D0007C477 /* DJHiddenDrangeChartCell.m */,
 				047B50A62133C9500007C477 /* WLEngListCell.h */,
@@ -762,6 +905,8 @@
 		5A8BE2402126A46D00F61665 /* 隐患 */ = {
 			isa = PBXGroup;
 			children = (
+				047B5139213536630007C477 /* YXRecordModel.h */,
+				047B513A213536630007C477 /* YXRecordModel.m */,
 				5A8BE2412126A48F00F61665 /* DJHiddenDangerModel.h */,
 				5A8BE2422126A48F00F61665 /* DJHiddenDangerModel.m */,
 				5A8BE2442126CA0500F61665 /* DJMonthListModel.h */,
@@ -892,6 +1037,8 @@
 				047B50B72133EA730007C477 /* WLUploadHiddenInfoCell.xib in Resources */,
 				047B508E212E58770007C477 /* assets in Resources */,
 				5A4CF1922122832B00D72FE5 /* Main.storyboard in Resources */,
+				047B5186213552710007C477 /* HVideoViewController.xib in Resources */,
+				047B5182213552710007C477 /* btn_video_flip_camera@2x.png in Resources */,
 				047B5099212FDEAA0007C477 /* WLCheckInfoCell.xib in Resources */,
 				04C5310821212BCB00C90964 /* Assets.xcassets in Resources */,
 			);
@@ -960,26 +1107,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A4CF195212283E200D72FE5 /* ViewController.m in Sources */,
+				047B5184213552710007C477 /* HAVPlayer.m in Sources */,
 				5A8BE2372125522700F61665 /* DJOnSpotCheckController.m in Sources */,
 				5A4CF1832122801300D72FE5 /* YXTabbarController.m in Sources */,
 				047B50A52133AC250007C477 /* WLHiddenEngListController.m in Sources */,
 				5A4CF17921227C6500D72FE5 /* YXNetTool.m in Sources */,
 				5A4CF18F2122806600D72FE5 /* YXTarbar.m in Sources */,
+				047B51762135517B0007C477 /* UIImage+Original.m in Sources */,
 				047B5073212A8C9E0007C477 /* WLUserManager.m in Sources */,
 				5A4CF1902122806600D72FE5 /* YXBaseTableViewCell.m in Sources */,
+				047B51642135470D0007C477 /* YXVideoPlayBtn.m in Sources */,
 				5A8BE2462126CA0500F61665 /* DJMonthListModel.m in Sources */,
+				047B51722135517B0007C477 /* WKWAsset.m in Sources */,
+				047B51732135517B0007C477 /* SmallCell.m in Sources */,
+				047B514A21353AED0007C477 /* WLUploadHiddenController.m in Sources */,
+				047B515421353CCA0007C477 /* WJTimeCircle.m in Sources */,
+				047B51742135517B0007C477 /* PhotosController.m in Sources */,
 				047B50A0213398940007C477 /* WLHiddenCell.m in Sources */,
+				047B5185213552710007C477 /* HProgressView.m in Sources */,
 				5A4CF1662122795F00D72FE5 /* DJLoadViewController.m in Sources */,
 				5A4CF1862122801300D72FE5 /* YXNavViewController.m in Sources */,
 				5A8BE28D212A991500F61665 /* DJOrgElementModel.m in Sources */,
 				047B50AD2133CF7F0007C477 /* WLTendPopView.m in Sources */,
 				5A8BE22221240C4100F61665 /* DJElementCheckController.m in Sources */,
 				047129CD2122DEDB00EEADE5 /* WLVerticalButton.m in Sources */,
+				047B515721353D0E0007C477 /* YSCCircleRippleView.m in Sources */,
 				5A3A7EF3212FD90D0081BB16 /* DJItemCheckController.m in Sources */,
+				047B51752135517B0007C477 /* FullCell.m in Sources */,
 				5A4CF17721227C6500D72FE5 /* TNIUDateTools.m in Sources */,
 				5A3A7EDB212D54990081BB16 /* DJElementCheckItemModel.m in Sources */,
+				047B515D21353D950007C477 /* Mp3Recorder.m in Sources */,
 				047B5081212D4AF10007C477 /* NSString+Size.m in Sources */,
 				047B508A212D71190007C477 /* WLOnSpotMapViewController.m in Sources */,
+				047B5183213552710007C477 /* HVideoViewController.m in Sources */,
+				047B513B213536640007C477 /* YXRecordModel.m in Sources */,
 				047129B421217EF600EEADE5 /* WorkViewController.m in Sources */,
 				5A3A7ED0212D3F550081BB16 /* DJElementDetailController.m in Sources */,
 				047B506B212565810007C477 /* NSObject+Convertor.m in Sources */,
@@ -992,6 +1153,7 @@
 				047B50B62133EA730007C477 /* WLUploadHiddenInfoCell.m in Sources */,
 				047B5084212D6FBA0007C477 /* WLOnSpotCheckDetailController.m in Sources */,
 				5A4CF17821227C6500D72FE5 /* YXDataResolveTool.m in Sources */,
+				047B51632135470D0007C477 /* YXPhotoImgBtn.m in Sources */,
 				5A8BE2432126A48F00F61665 /* DJHiddenDangerModel.m in Sources */,
 				047B509C212FE28E0007C477 /* DJHiddenDrangeChartCell.m in Sources */,
 				5A3A7EED212FA5CA0081BB16 /* DJElementCheckitemCell.m in Sources */,
@@ -1002,16 +1164,18 @@
 				047B505821242DE50007C477 /* WLWorkTableViewCell.m in Sources */,
 				047B5068212564920007C477 /* NSDictionary+JsonDict.m in Sources */,
 				04C5310021212BC900C90964 /* AppDelegate.m in Sources */,
-				047B50B22133EA2C0007C477 /* WLUploadHiddenController.m in Sources */,
 				5A3A7EF0212FA6020081BB16 /* DJHiddenItemCell.m in Sources */,
 				047B507E212D01B30007C477 /* WLOnSpotCheckModel.m in Sources */,
 				5A8BE23F21255E0A00F61665 /* DJHiddenDrangeChartController.m in Sources */,
 				5A3A7EE1212E966E0081BB16 /* DJElementCheckItemViewModel.m in Sources */,
+				047B51772135517B0007C477 /* AssetsHelper.m in Sources */,
 				047B506F212A8AA30007C477 /* WLUserModel.m in Sources */,
 				047B5098212FDEAA0007C477 /* WLCheckInfoCell.m in Sources */,
 				5A4CF16D21227B1600D72FE5 /* YXDownListView.m in Sources */,
 				047B507A212C1F2C0007C477 /* WLHiddenReportViewController.m in Sources */,
+				047B518A213554E20007C477 /* GCMAssetModel.m in Sources */,
 				047129C32122C81900EEADE5 /* WLWorkTopView.m in Sources */,
+				047B515121353C070007C477 /* WLRecordView.m in Sources */,
 				047B506421255DD50007C477 /* WLWorkModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1166,9 +1330,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8RG9BDMV8Q;
+				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/waterConservancy/Macros/WaterConservancy-Prefix.pch";
 				INFOPLIST_FILE = waterConservancy/Info.plist;
@@ -1176,6 +1342,11 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/waterConservancy/Classes/Work(办公)/View/SecondViews/隐患/mediaView/recordVoice",
+					"$(PROJECT_DIR)/waterConservancy/Classes/Work(办公)/View/SecondViews/隐患/madieViews/recordVoice",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yx.shuili;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1191,9 +1362,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8RG9BDMV8Q;
+				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/waterConservancy/Macros/WaterConservancy-Prefix.pch";
 				INFOPLIST_FILE = waterConservancy/Info.plist;
@@ -1201,6 +1374,11 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/waterConservancy/Classes/Work(办公)/View/SecondViews/隐患/mediaView/recordVoice",
+					"$(PROJECT_DIR)/waterConservancy/Classes/Work(办公)/View/SecondViews/隐患/madieViews/recordVoice",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yx.shuili;
 				PRODUCT_NAME = "$(TARGET_NAME)";
