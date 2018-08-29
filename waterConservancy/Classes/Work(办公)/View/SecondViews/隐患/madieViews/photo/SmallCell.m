@@ -33,7 +33,8 @@
 }
 
 - (void)tapImage {
-    [self.delegate pushIndex:self.imageView.tag];
+//    [self.delegate pushIndex:self.imageView.tag];
+    [self checkBtnSelect:self.checkBtn];
 }
 
 //创建标识图片是否选中的按钮

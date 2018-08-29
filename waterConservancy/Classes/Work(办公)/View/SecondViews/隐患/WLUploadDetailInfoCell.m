@@ -7,6 +7,14 @@
 //
 
 #import "WLUploadDetailInfoCell.h"
+#import "YXPhotoImgBtn.h"
+#import <XLPhotoBrowser+CoderXL/XLPhotoBrowser.h>
+#import "YXVideoPlayBtn.h"
+#import <Photos/PHPhotoLibrary.h>
+#import <AVFoundation/AVFoundation.h>
+
+
+#define MARGIN 10
 
 @interface WLUploadDetailInfoCell()<UITextFieldDelegate,YYTextViewDelegate>
 @property (nonatomic, weak) UIImageView *topBgImageView;
@@ -25,6 +33,8 @@
 @property (nonatomic, weak) UITextField *nameText;
 @property (nonatomic, weak) UITextField *gradText;
 @property (nonatomic, weak) UITextField *placeHoldLab;
+@property (nonatomic, weak) YYTextView *descText;
+@property (nonatomic, weak) UIView *photoImgV;
 
 
 @end
@@ -55,6 +65,135 @@
     }
 }
 
+-(void)setDescStr:(NSString *)descStr{
+    _descStr = descStr;
+    if (descStr.length>0) {
+        self.descText.text = descStr;
+        self.placeHoldLab.hidden = YES;
+    }else{
+        self.placeHoldLab.hidden= NO;
+    }
+    CGFloat height =  self.descText.textLayout.textBoundingSize.height;
+   @weakify(self)
+    if (height>55) {
+        [self.lineView3 mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(weak_self.lineView2).offset(height+20);
+        }];
+        if (self.uploadHeightBlock) {
+            self.uploadHeightBlock(height-55);
+        }
+    }else{
+        [self.lineView3 mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(weak_self.lineView2).offset(75);
+        }];
+    }
+}
+//视频播放
+-(void)videoPlay:(YXVideoPlayBtn*)btn{
+    NSURL *url = [self.photoArr objectAtIndex:btn.tag];
+    
+    if (self.videoPlayBlock) {
+        self.videoPlayBlock(url);
+    }
+    
+}
+-(void)thumbnailImagewithVideo:(NSURL *)videoUrl AndBtn:(YXVideoPlayBtn*)btn{
+    @weakify(self);
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        if (status == PHAuthorizationStatusAuthorized) {
+            NSLog(@"相册已授权打开");
+            @strongify(self);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImage*subImg = [self thumbnailImageForVideo:videoUrl atTime:1];
+                [btn setImage:subImg forState:UIControlStateNormal];
+            });
+            
+            
+        }else{
+            NSLog(@"Denied or Restricted");
+            dispatch_async(dispatch_get_main_queue(), ^{
+//                [EasyTextView showText:@"相册权限尚未打开"];
+            });
+        }
+    }];
+}
+- (UIImage*)thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time {
+    
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
+    NSParameterAssert(asset);
+    AVAssetImageGenerator *assetImageGenerator =[[AVAssetImageGenerator alloc] initWithAsset:asset];
+    assetImageGenerator.appliesPreferredTrackTransform = YES;
+    assetImageGenerator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
+    
+    CGImageRef thumbnailImageRef = NULL;
+    CFTimeInterval thumbnailImageTime = time;
+    NSError *thumbnailImageGenerationError = nil;
+    thumbnailImageRef = [assetImageGenerator copyCGImageAtTime:CMTimeMake(thumbnailImageTime, 60)actualTime:NULL error:&thumbnailImageGenerationError];
+    
+    if(!thumbnailImageRef)
+        NSLog(@"thumbnailImageGenerationError %@",thumbnailImageGenerationError);
+    
+    UIImage*thumbnailImage = thumbnailImageRef ? [[UIImage alloc]initWithCGImage: thumbnailImageRef] : nil;
+    
+    return thumbnailImage;
+}
+-(void)setPhotoArr:(NSMutableArray *)photoArr{
+    _photoArr = photoArr;
+    [self.photoImgV removeAllSubviews];
+    @weakify(self);
+    CGFloat imgW = (kScreenWidth-40-30)/4;
+    CGFloat imgH = 70;
+
+    if (photoArr.count != 4) {
+        [self.photoImgV addSubview:self.addPhotoBtn];
+        [self.addPhotoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(weak_self.photoImgV.mas_left).offset((MARGIN+imgW) *photoArr.count);
+            make.width.height.mas_equalTo(70);
+            make.centerY.mas_equalTo(weak_self.photoImgV.mas_centerY);
+        }];
+    }
+
+    for (int i = 0; i<photoArr.count;i++) {
+        id item = photoArr[i];
+        if ([item isKindOfClass:[NSURL class]]) {
+            NSURL *url = (NSURL*)item;
+            YXVideoPlayBtn *videoBtn = [[YXVideoPlayBtn alloc]initWithFrame:CGRectMake(((MARGIN+imgW) * i), 0, imgW, imgH)];
+            videoBtn.tag = i;
+            [videoBtn addTarget:self action:@selector(videoPlay:) forControlEvents:UIControlEventTouchUpInside];
+            @weakify(self);
+            videoBtn.videodelBtnBlock = ^{
+                
+                if (weak_self.videodelBlock) {
+                    weak_self.videodelBlock(i);
+                }
+            };
+            [self.photoImgV addSubview:videoBtn];
+            [self thumbnailImagewithVideo:url AndBtn:videoBtn];
+        }else{
+            UIImage *img = (UIImage*)item;
+            YXPhotoImgBtn *imgview = [[YXPhotoImgBtn alloc]init];
+            imgview.tag = i;
+            [imgview loadImg:img];
+            
+            imgview.frame = CGRectMake(((MARGIN+imgW) * i), 0, imgW, imgH);
+            [self.photoImgV addSubview:imgview];
+            
+            //删除照片
+            imgview.delBtnBlock = ^{
+                if (weak_self.delPhotoBtnBlock) {
+                    weak_self.delPhotoBtnBlock(i);
+                }
+            };
+            //点击大图
+            @weakify(imgview);
+            imgview.biggerBlock = ^{
+                @strongify(imgview);
+                [XLPhotoBrowser showPhotoBrowserWithImages:photoArr currentImageIndex:imgview.tag];
+            };
+        }
+     
+    }
+}
 
 -(void)initUI{
     @weakify(self)
@@ -126,12 +265,10 @@
         make.width.mas_equalTo(68);
         make.left.mas_equalTo(weak_self.lineView1.mas_left);
         make.top.mas_equalTo(weak_self.lineView3.mas_bottom).offset(10);
-        make.bottom.mas_equalTo(weak_self.addPhotoBtn.mas_top).offset(-10);
+        make.bottom.mas_equalTo(weak_self.photoImgV.mas_top);
+        make.height.mas_equalTo(55);
     }];
-    [self.addPhotoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weak_self.lineView1.mas_left);
-        make.bottom.mas_equalTo(weak_self.bottomBgImageView.mas_bottom).offset(-10);
-    }];
+
     [self.nameText mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weak_self.nameTitleLab.mas_right).offset(15);
         make.right.mas_equalTo(weak_self.lineView1.mas_right);
@@ -154,6 +291,10 @@
         make.top.mas_equalTo(weak_self.lineView2.mas_bottom).offset(10);
         make.bottom.mas_equalTo(weak_self.lineView3.mas_top).offset(-10);
     }];
+    [self.photoImgV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(weak_self.lineView1);        make.bottom.mas_equalTo(weak_self.bottomBgImageView.mas_bottom).offset(-10);
+    }];
+
 }
 
 #pragma mark - YYTextViewDelagate
@@ -303,16 +444,7 @@
     }
     return _vioceBtn;
 }
--(UIButton*)addPhotoBtn{
-    if (!_addPhotoBtn) {
-        UIButton *btn = [[UIButton alloc]init];
-        [btn setImage:[UIImage imageNamed:@"addPhotoIcon"] forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(addPhotoBtnClick) forControlEvents:UIControlEventTouchUpInside];
-        [self.contentView addSubview:btn];
-        _addPhotoBtn = btn;
-    }
-    return _addPhotoBtn;
-}
+
 -(UITextField*)nameText{
     if (!_nameText) {
         UITextField *field = [[UITextField alloc]init];
@@ -357,5 +489,23 @@
         _placeHoldLab = field;
     }
     return _placeHoldLab;
+}
+-(UIView *)photoImgV{
+    if (!_photoImgV) {
+        UIView *view = [[UIView alloc]init];
+        [self.contentView addSubview:view];
+        _photoImgV = view;
+    }
+    return _photoImgV;
+}
+-(UIButton*)addPhotoBtn{
+    if (!_addPhotoBtn) {
+        UIButton *btn = [[UIButton alloc]init];
+        [btn setImage:[UIImage imageNamed:@"addPhotoIcon"] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(addPhotoBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [self.photoImgV addSubview:btn];
+        _addPhotoBtn = btn;
+    }
+    return _addPhotoBtn;
 }
 @end

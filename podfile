@@ -8,4 +8,5 @@ target "waterConservancy" do
    pod 'UITableView+FDTemplateLayoutCell'
    pod 'XMLDictionary'
    pod 'SVProgressHUD'
+   pod 'XLPhotoBrowser+CoderXL'
 end

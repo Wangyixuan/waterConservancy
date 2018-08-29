@@ -37,6 +37,7 @@
 -(UIImageView *)imgV{
     if (!_imgV) {
         UIImageView *imgV = [[UIImageView alloc]init];
+        imgV.contentMode = UIViewContentModeScaleAspectFit;
         imgV.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(bigerClick)];
         [imgV addGestureRecognizer:tap];

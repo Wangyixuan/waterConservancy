@@ -10,11 +10,13 @@
 #import <AVFoundation/AVFoundation.h>
 #import "WJTimeCircle.h"
 #import "YSCCircleRippleView.h"
+#import <iflyMSC/iflyMSC.h>
+#import "ISRDataHelper.h"
 
 #define ciciWidth SCALE_W(550)
 #define ciciY SCALE_H(140)
 
-@interface WLRecordView()
+@interface WLRecordView()<IFlySpeechRecognizerDelegate>
 @property (nonatomic, strong) AVAudioPlayer *play;
 @property (nonatomic, weak)  UIButton *endBtn;//结束录音
 @property (nonatomic, strong) NSData *voiceData;
@@ -23,6 +25,8 @@
 @property (nonatomic,strong)WJTimeCircle *timeCircle;
 @property (nonatomic, strong) YSCCircleRippleView *rippleView;
 
+@property (nonatomic, strong) IFlySpeechRecognizer *iFlySpeechRecognizer;
+@property (nonatomic, copy) NSString *resultStr;
 @end
 
 @implementation WLRecordView
@@ -52,54 +56,35 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeAnim) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop]addTimer:self.timer forMode:NSRunLoopCommonModes];
     [self.timer fire];
-    mp3 = [[Mp3Recorder alloc]initWithDelegate:self];
-    [mp3 startRecord];
+
+    //启动识别服务
+    [self.iFlySpeechRecognizer startListening];
     
     [self setUI];
 }
 
 -(void)endClick{
     //正常停止录音，开始转换数据
-    [mp3 stopRecord];
-    
+
+    [self.iFlySpeechRecognizer stopListening];
     [self.timer invalidate];
     self.timer = nil;
     
     [self removeFromSuperview];
 }
 
-
-#pragma mark Mp3RecordDelegate
--(void)beginConvert{
-}
-
-//录音失败
-- (void)failRecord
-{
-    NSLog(@"失败");
-}
-
-
-//回调录音资料
-- (void)endConvertWithData:(NSData *)voiceData
-{
-    //    NSLog(@"%@",voiceData);
-    self.voiceData = voiceData;
-    int useSecond = 60 - (int)self.second;
-    if (voiceData.length>0) {
-        if (self.endRecordBlock) {
-            self.endRecordBlock(voiceData,useSecond);
-        }
+-(IFlySpeechRecognizer*)iFlySpeechRecognizer{
+    if (!_iFlySpeechRecognizer) {
+        _iFlySpeechRecognizer = [IFlySpeechRecognizer sharedInstance];
+        _iFlySpeechRecognizer.delegate = self;
+        //设置音频源为音频流（-1）
+        [_iFlySpeechRecognizer setParameter:@"1" forKey:@"audio_source"];
+        [_iFlySpeechRecognizer setParameter: @"iat" forKey:@"domain"];
+        [_iFlySpeechRecognizer setParameter: @"json" forKey:@"result_type"];
+        //asr_audio_path 是录音文件名，设置value为nil或者为空取消保存，默认保存目录在Library/cache下。
+        [_iFlySpeechRecognizer setParameter:@"iat.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
     }
-}
-
-//超期结束
--(void)recording:(float)recordTime volume:(float)volume{
-    if (recordTime>maxTime) {
-        [self endClick];
-    }
-    //    [self removeAllSubviews];
-    //    [self removeFromSuperview];
+    return _iFlySpeechRecognizer;
 }
 
 - (void)timeAnim{
@@ -108,6 +93,7 @@
     self.timeCircle.second = self.second;
     if (self.second < 0) {
         self.second = 0;
+        [self endClick];
     }
     [self.timeCircle.secLabel setText:[NSString stringWithFormat:@"剩余%ld秒",(long)self.second]];
     
@@ -170,5 +156,29 @@
     self.timer = nil;
 }
 
-
+//识别结果返回代理
+- (void) onResults:(NSArray *) results isLast:(BOOL)isLast{
+    NSMutableString *resultString = [[NSMutableString alloc] init];
+    NSDictionary *dic = results[0];
+    
+    for (NSString *key in dic) {
+        [resultString appendFormat:@"%@",key];
+    }
+    
+    if (isLast){
+        self.resultStr = [ISRDataHelper stringFromJson:resultString];
+        if (self.endRecordBlock) {
+            self.endRecordBlock(self.resultStr);
+        }
+        NSLog(@"ISR Results(json)：%@",  self.resultStr);
+    }
+}
+//识别会话结束返回代理
+- (void)onCompleted: (IFlySpeechError *) error{
+    
+}
+//会话取消回调
+- (void) onCancel{
+    
+}
 @end

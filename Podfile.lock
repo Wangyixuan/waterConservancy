@@ -17,8 +17,13 @@ PODS:
   - LYEmptyView (1.2.0)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.3)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SVProgressHUD (2.2.5)
   - "UITableView+FDTemplateLayoutCell (1.6)"
+  - "XLPhotoBrowser+CoderXL (1.2.0)":
+    - SDWebImage (~> 4.0.0)
   - XMLDictionary (1.4.1)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
@@ -31,6 +36,7 @@ DEPENDENCIES:
   - MJRefresh (~> 3.1.15.3)
   - SVProgressHUD
   - "UITableView+FDTemplateLayoutCell"
+  - "XLPhotoBrowser+CoderXL"
   - XMLDictionary
   - YYKit
 
@@ -40,8 +46,10 @@ SPEC REPOS:
     - LYEmptyView
     - Masonry
     - MJRefresh
+    - SDWebImage
     - SVProgressHUD
     - "UITableView+FDTemplateLayoutCell"
+    - "XLPhotoBrowser+CoderXL"
     - XMLDictionary
     - YYKit
 
@@ -50,11 +58,13 @@ SPEC CHECKSUMS:
   LYEmptyView: f9a7b1bd6c61577c2765abba327332666f1b2857
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  "XLPhotoBrowser+CoderXL": 2bf4036e2af4611b24bde1681e24c64ed01fbe98
   XMLDictionary: fa07b6ff422b3a91d47a5de9bc82e3fc04fbd167
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 2202e48e94081e2eef91434d6e5d60fe6bfad07b
+PODFILE CHECKSUM: 5437dc84a6b07cbf7a2f264f8bc211941ffa75a6
 
 COCOAPODS: 1.5.3

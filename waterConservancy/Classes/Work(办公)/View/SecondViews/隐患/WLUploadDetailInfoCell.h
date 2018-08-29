@@ -14,5 +14,10 @@
 @property (nonatomic, copy) void(^uploadHeightBlock)(CGFloat H);
 @property (nonatomic, copy) void(^voiceBlock)(void);
 @property (nonatomic, copy) void(^addPhotoBlock)(void);
-@property (nonatomic, weak) YYTextView *descText;
+@property (nonatomic, copy) void(^delPhotoBtnBlock)(NSInteger i);
+@property (nonatomic, copy) void(^videodelBlock)(NSInteger i);
+@property (nonatomic, copy) void(^videoPlayBlock)(NSURL *url);
+@property (nonatomic, copy) NSString *descStr;
+@property (nonatomic, strong) NSMutableArray *photoArr;
+
 @end

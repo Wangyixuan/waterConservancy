@@ -8,7 +8,7 @@
 
 #import "PhotosController.h"
 #import "SmallCell.h"
-#import "FullCell.h"
+//#import "FullCell.h"
 
 #define SCREEN_W [UIScreen mainScreen].bounds.size.width
 #define SCREEN_H [UIScreen mainScreen].bounds.size.height
@@ -25,7 +25,7 @@
 //UI
 @property (nonatomic,retain)UIView                      *keyView;
 @property (nonatomic,retain)UICollectionView            *myCo;
-@property (nonatomic,retain)UICollectionView            *FullCollectionView;
+//@property (nonatomic,retain)UICollectionView            *FullCollectionView;
 @property (nonatomic,retain)UICollectionViewFlowLayout  *layout;
 
 //存储图片信息的数组
@@ -48,7 +48,6 @@
 @implementation PhotosController
 
 static NSString *PhotoCellId = @"PhotosCell";
-static NSString *FullCellId = @"FullCellId";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -68,12 +67,6 @@ static NSString *FullCellId = @"FullCellId";
         [self createNav];
  
     }
-//    [self getImages];
-//    [self.view addSubview:self.myCo];
-//    [self createNav];
-  
-    
-  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -147,51 +140,6 @@ static NSString *FullCellId = @"FullCellId";
     _keyView = [[UIApplication sharedApplication] keyWindow];
 }
 
-//创建全屏图片导航等
-- (void)creatFullUI {
-    UIView *navagationV = [[UIView alloc]initWithFrame:CGRectMake(0, 0,SCREEN_W, 64)];
-    _navagationView     = navagationV;
-    _navagationView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
-    UIButton *leftButton = [[UIButton alloc] initWithFrame: CGRectMake(15, 25, 32,24)];
-    [leftButton setImage:[[UIImage imageNamed:@"back"] original]forState:UIControlStateNormal];
-    [leftButton addTarget:self action:@selector(Taping) forControlEvents:UIControlEventTouchUpInside];
-    [_navagationView addSubview:leftButton];
-    [_keyView addSubview:_navagationView];
-    
-    _indexLable = [[UILabel alloc] init];
-    _indexLable.bounds = CGRectMake(0, 0, 80, 30);
-    _indexLable.center = CGPointMake(SCREEN_W/2.0, 32);
-    _indexLable.textAlignment = NSTextAlignmentCenter;
-    [_navagationView addSubview:_indexLable];
-    [_indexLable setTextColor:[UIColor whiteColor]];
-    
-    _okButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_W-40, 25, 26, 26)];
-    //    [_okButton setImage:[[UIImage imageNamed:@"selected_normal"] original] forState:UIControlStateNormal];
-    [self imageIsSelect];
-    [_okButton addTarget:self action:@selector(SelectPhotos:) forControlEvents:UIControlEventTouchUpInside];
-    [_navagationView addSubview:_okButton];
-    
-    _barView  = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_H -49,SCREEN_W, 49)];
-    _barView.backgroundColor =  [[UIColor blackColor] colorWithAlphaComponent:0.6];
-    [_keyView addSubview:_barView];
-    UIButton *completBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_W-70, 10, 60, 30)];
-    [completBtn setTitle:@"完成" forState:UIControlStateNormal];
-    [completBtn.titleLabel setFont:[UIFont systemFontOfSize:15]];
-    [completBtn setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
-    [completBtn addTarget:self action:@selector(complete) forControlEvents:UIControlEventTouchUpInside];
-    [_barView addSubview:completBtn];
-    
-    photosNumLab = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_W-100,11.5,26,26)];
-    photosNumLab.clipsToBounds = YES;
-    photosNumLab.layer.cornerRadius = 13;
-    [photosNumLab setTextColor:[UIColor whiteColor]];
-    [photosNumLab setBackgroundColor:[UIColor greenColor]];
-    [_barView addSubview:photosNumLab];
-    [photosNumLab setTextAlignment:NSTextAlignmentCenter];
-    [photosNumLab setFont:[UIFont systemFontOfSize:14]];
-    [photosNumLab setText:[NSString stringWithFormat:@"%ld",_photosCount]];
-    
-}
 
 //导航返回方法
 - (void)Taping {
@@ -199,17 +147,13 @@ static NSString *FullCellId = @"FullCellId";
     [UIView animateWithDuration:0.4 animations:^{
         _barView.frame                = CGRectMake(SCREEN_W,SCREEN_H-49,0,49);
         _navagationView.frame         = CGRectMake(SCREEN_W,0,0,64);
-        _FullCollectionView.frame     = CGRectMake(SCREEN_W,0,0,SCREEN_H);
-        
         
     } completion:^(BOOL finished) {
         [_navagationView removeFromSuperview];
         [_barView removeFromSuperview];
-        [self.FullCollectionView removeFromSuperview];
     }];
     [_myCo reloadData];
-    
-    
+  
 }
 //图片选择按钮执行方法
 - (void)SelectPhotos:(UIButton *)sender {
@@ -239,22 +183,6 @@ static NSString *FullCellId = @"FullCellId";
     NSLog(@"lll%ld",_photosCount);
     [photosNumLab setText:[NSString stringWithFormat:@"%ld",_photosCount]];
 }
-//选择完成后执行的方法
-- (void)complete {
-    [self.delegate getImagesArray:[self selectImages]];
-    [self.navigationController popViewControllerAnimated:YES];
-    [UIView animateWithDuration:0.4 animations:^{
-        _barView.frame                = CGRectMake(SCREEN_W,SCREEN_H-49,0,49);
-        _navagationView.frame         = CGRectMake(SCREEN_W,0,0,64);
-        self.FullCollectionView.frame = CGRectMake(SCREEN_W, 0, 0, SCREEN_H);
-    } completion:^(BOOL finished) {
-        [_navagationView removeFromSuperview];
-        [_barView removeFromSuperview];
-        [self.FullCollectionView removeFromSuperview];
-    }];
-    
-}
-
 
 #pragma mark - 导航按钮执行方法
 - (void)back {
@@ -318,7 +246,6 @@ static NSString *FullCellId = @"FullCellId";
     return 1;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (collectionView.tag == 1000) {
         SmallCell *cell= [collectionView dequeueReusableCellWithReuseIdentifier:PhotoCellId forIndexPath:indexPath];
         cell.checkBtn.tag = indexPath.row+100;
         cell.imageView.tag = indexPath.row;
@@ -329,20 +256,8 @@ static NSString *FullCellId = @"FullCellId";
             //传递图片是否被选中的状态信息
             [cell checkBtnIsSelected:self.ImagesSelectedArray[indexPath.item]];
         }
-//        }else {
-//            [cell makeImageCell:nil takePhotos:@"Camaral"];
-//        }
-//        cell.delegate = self;
+        cell.delegate = self;
         return cell;
-        
-    }else {
-        PHAsset *asset = self.assets[indexPath.item];
-        FullCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FullCellId forIndexPath:indexPath];
-        [cell makeUI:asset];
-        cell.backgroundColor = [UIColor redColor];
-        return cell;
-    }
-    
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -383,39 +298,6 @@ static NSString *FullCellId = @"FullCellId";
 }
 
 #pragma mark - SmallCellDelegate
-- (void)pushIndex:(NSInteger)index {
-    _pageIndex = index;
-    _FullCollectionView.frame = CGRectMake(SCREEN_W, 0, 0, SCREEN_H);
-    _barView.frame                = CGRectMake(SCREEN_W,SCREEN_H-49,0,49);
-    _navagationView.frame         = CGRectMake(SCREEN_W,0,0,64);
-    
-#pragma mark 两种方法跳到指定界面（
-    //1.第一种使用有局限性（对滑动方向有一定要求）
-    //   NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
-    //    [self.FullCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
-    //2.第二种方式适用于所有情况
-    [self.FullCollectionView setContentOffset:CGPointMake(index*SCREEN_W, 0) animated:YES];
-    [self.FullCollectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:index inSection:0]]];
-    
-    [UIView animateWithDuration:0.4 animations:^{
-        _FullCollectionView.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
-        _barView.frame                = CGRectMake(0,SCREEN_H-49,SCREEN_W,49);
-        _navagationView.frame         = CGRectMake(SCREEN_W,0,SCREEN_W,64);
-        
-    } completion:^(BOOL finished) {
-        [_barView removeFromSuperview];
-        [_navagationView removeFromSuperview];
-        [self creatFullUI];
-        [_indexLable setText:[NSString stringWithFormat:@"%ld/%ld",index+1,self.assets.count]];
-        
-    }];
-    [_keyView addSubview:self.FullCollectionView];
-    //      [self imageIsSelect];
-    
-    [_FullCollectionView reloadData];
-    [self getPhotosNum];
-    self.FullCollectionView.backgroundColor = [UIColor blackColor];
-}
 
 //根据SmallCell的点击改变checkBtn的选中状态
 - (void)pushCheckBtnIndex:(NSInteger)index StatusString:(NSString *)statusStr {
@@ -504,7 +386,6 @@ static NSString *FullCellId = @"FullCellId";
     } error:&error1];
     
 }
-#pragma mark -FullCellDelegate
 
 #pragma mark - LazyLoad
 - (UICollectionView *)myCo {
@@ -528,27 +409,4 @@ static NSString *FullCellId = @"FullCellId";
     }
     return _myCo;
 }
-
-- (UICollectionView *)FullCollectionView {
-    if (!_FullCollectionView) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.minimumLineSpacing = 0;
-        layout.minimumInteritemSpacing = 0;
-        layout.itemSize = CGSizeMake(SCREEN_W, SCREEN_H);
-        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        _FullCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(SCREEN_W,0,0,SCREEN_H) collectionViewLayout:layout];
-        [_FullCollectionView registerClass:[FullCell class] forCellWithReuseIdentifier:FullCellId];
-        _FullCollectionView.delegate = self;
-        _FullCollectionView.dataSource = self;
-        _FullCollectionView.tag = 2000;
-        _FullCollectionView.pagingEnabled = YES;
-        _FullCollectionView.showsHorizontalScrollIndicator = NO;
-        _FullCollectionView.showsVerticalScrollIndicator = NO;
-        _FullCollectionView.bounces = NO;
-    }
-    return _FullCollectionView;
-}
-
-
-
 @end

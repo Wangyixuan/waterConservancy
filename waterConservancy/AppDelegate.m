@@ -11,6 +11,8 @@
 #import "DJLoadViewController.h"
 #import "YXTabbarController.h"
 #import "YXNavViewController.h"
+#import <iflyMSC/iflyMSC.h>
+
 @interface AppDelegate ()
 @property (nonatomic, strong)  YXTabbarController *tabbarC;
 @end
@@ -34,6 +36,9 @@
     NSLog(@"%@",WLShareUserManager);
 
     [self login];
+    
+    //讯飞
+    [IFlySpeechUtility createUtility:@"appid=5b8656fd"];
     return YES;
 }
 - (void)showMainControllers {
@@ -109,6 +114,14 @@
         YXNavViewController *nav = [[YXNavViewController alloc]initWithRootViewController:loadCtrl setNavigationBarHidden:YES];
         self.window.rootViewController = nav;
     }  
+}
+
+//是否允许横屏
+-(UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    if (self.allowRotation) {
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+    }
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end
