@@ -17,7 +17,7 @@
 @property (nonatomic, copy) void(^delPhotoBtnBlock)(NSInteger i);
 @property (nonatomic, copy) void(^videodelBlock)(NSInteger i);
 @property (nonatomic, copy) void(^videoPlayBlock)(NSURL *url);
-@property (nonatomic, copy) NSString *descStr;
+@property (nonatomic, copy) void(^reloadBlock)(void);
 @property (nonatomic, strong) NSMutableArray *photoArr;
 
 @end

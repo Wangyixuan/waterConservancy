@@ -15,7 +15,7 @@
 #import "DJHiddenDrangeChartController.h"
 #import "DJElementCheckController.h"
 #import "DJOnSpotCheckController.h"
-#import "WLOnSpotMapViewController.h"
+
 
 @interface WorkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView *workList;
@@ -70,8 +70,8 @@
     NSDictionary *xh1 =@{@"text":@"隐患验收",@"img":@"yinhuan_yanshou",@"ctrl":@""};
     NSDictionary *xh2 =@{@"text":@"隐患督办",@"img":@"yinhuan_duban",@"ctrl":@""};
     NSDictionary *xh3 =@{@"text":@"隐患上报",@"img":@"yinhuan_shangbao",@"ctrl":@"WLHiddenEngListController"};
-    NSDictionary *xh4 =@{@"text":@"隐患整改",@"img":@"yinhuan_zhenggai",@"ctrl":@""};
-    NSDictionary *xh5 =@{@"text":@"隐患销号",@"img":@"yinhuan_xiaohao",@"ctrl":@""};
+    NSDictionary *xh4 =@{@"text":@"隐患整改",@"img":@"yinhuan_zhenggai",@"ctrl":@"WLHiddenRepairListController"};
+    NSDictionary *xh5 =@{@"text":@"隐患销号",@"img":@"yinhuan_xiaohao",@"ctrl":@"WLHiddenDeleteListController"};
    //行政用户使用
     NSArray *xhArr1 = @[xh1,xh2];
     NSDictionary *xhDic1 = @{@"title":@"隐患",@"data":xhArr1,@"bgImage":@"yinhuan"};
@@ -230,9 +230,6 @@
 }
 
 -(void)pushControllerWithTitle:(NSString *)titie{
-
-//    WLOnSpotMapViewController *mapView = [[WLOnSpotMapViewController alloc]init];
-//    [self.navigationController pushViewController:mapView animated:YES];
 
     if (titie.length>0) {
         YXBaseViewController *ctrl = [[NSClassFromString(titie) alloc] init];

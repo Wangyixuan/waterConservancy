@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WLHiddenRepairPopView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="358"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tendPopViewBg" translatesAutoresizingMaskIntoConstraints="NO" id="oj9-yJ-M3F">
+                    <rect key="frame" x="32" y="70.5" width="256" height="218"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="oj9-yJ-M3F" secondAttribute="height" multiplier="300:255" id="I3h-Ks-bUC"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="整改情况说明" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68M-9p-Y9p">
+                    <rect key="frame" x="31.5" y="70.5" width="257" height="51.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KrP-Sb-GWg">
+                    <rect key="frame" x="165" y="237" width="108" height="40"/>
+                    <state key="normal" title="确认" backgroundImage="popqueren"/>
+                    <connections>
+                        <action selector="commitBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="nQw-o4-6y8"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDM-mv-btU">
+                    <rect key="frame" x="47" y="237" width="108" height="40"/>
+                    <state key="normal" title="取消" backgroundImage="popquxiao"/>
+                    <connections>
+                        <action selector="cancelBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="wyU-dP-AMw"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCA-ug-9Nu">
+                    <rect key="frame" x="47" y="131" width="226" height="96"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入内容" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FSl-bn-hsK">
+                            <rect key="frame" x="5" y="0.0" width="97" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="d2V-h1-hDK"/>
+                                <constraint firstAttribute="width" constant="97" id="lpH-pg-chr"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63H-Vf-IVx">
+                            <rect key="frame" x="0.0" y="0.0" width="226" height="96"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <connections>
+                                <outlet property="delegate" destination="iN0-l3-epB" id="nOv-T5-hw9"/>
+                            </connections>
+                        </textView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="MCA-ug-9Nu" secondAttribute="height" multiplier="113:48" id="2cR-sg-VX9"/>
+                        <constraint firstItem="FSl-bn-hsK" firstAttribute="leading" secondItem="MCA-ug-9Nu" secondAttribute="leading" constant="5" id="3Ry-yY-ba5"/>
+                        <constraint firstItem="63H-Vf-IVx" firstAttribute="leading" secondItem="MCA-ug-9Nu" secondAttribute="leading" id="N8M-ed-w0P"/>
+                        <constraint firstItem="63H-Vf-IVx" firstAttribute="top" secondItem="MCA-ug-9Nu" secondAttribute="top" id="WgQ-Pt-aWu"/>
+                        <constraint firstAttribute="trailing" secondItem="63H-Vf-IVx" secondAttribute="trailing" id="ZEv-un-0PH"/>
+                        <constraint firstAttribute="bottom" secondItem="63H-Vf-IVx" secondAttribute="bottom" id="hNy-Ht-6Td"/>
+                        <constraint firstItem="FSl-bn-hsK" firstAttribute="top" secondItem="MCA-ug-9Nu" secondAttribute="top" id="ycY-aw-JFx"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.36970427849999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="MCA-ug-9Nu" firstAttribute="leading" secondItem="oj9-yJ-M3F" secondAttribute="leading" constant="15" id="7Ge-gR-E7z"/>
+                <constraint firstItem="KrP-Sb-GWg" firstAttribute="centerY" secondItem="RDM-mv-btU" secondAttribute="centerY" id="CYF-4d-aet"/>
+                <constraint firstItem="RDM-mv-btU" firstAttribute="top" secondItem="MCA-ug-9Nu" secondAttribute="bottom" constant="10" id="Dtw-IA-Oo0"/>
+                <constraint firstItem="68M-9p-Y9p" firstAttribute="height" secondItem="oj9-yJ-M3F" secondAttribute="height" multiplier="60:255" id="FwV-0k-VIn"/>
+                <constraint firstItem="oj9-yJ-M3F" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="600:750" id="GUc-Ud-z4g"/>
+                <constraint firstItem="oj9-yJ-M3F" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Jx4-pb-qV1"/>
+                <constraint firstItem="KrP-Sb-GWg" firstAttribute="width" secondItem="RDM-mv-btU" secondAttribute="width" id="MIK-Qm-2Yb"/>
+                <constraint firstItem="KrP-Sb-GWg" firstAttribute="trailing" secondItem="MCA-ug-9Nu" secondAttribute="trailing" id="NCW-dz-Byv"/>
+                <constraint firstItem="RDM-mv-btU" firstAttribute="leading" secondItem="MCA-ug-9Nu" secondAttribute="leading" id="SuO-W3-DJk"/>
+                <constraint firstItem="KrP-Sb-GWg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RDM-mv-btU" secondAttribute="trailing" constant="10" id="Wbh-ZX-94Q"/>
+                <constraint firstItem="MCA-ug-9Nu" firstAttribute="trailing" secondItem="oj9-yJ-M3F" secondAttribute="trailing" constant="-15" id="Zfn-pU-dPK"/>
+                <constraint firstItem="oj9-yJ-M3F" firstAttribute="top" secondItem="68M-9p-Y9p" secondAttribute="top" id="kBn-u9-a2z"/>
+                <constraint firstItem="MCA-ug-9Nu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="laN-zs-0gO"/>
+                <constraint firstItem="oj9-yJ-M3F" firstAttribute="trailing" secondItem="68M-9p-Y9p" secondAttribute="trailing" id="xco-Ls-IgT"/>
+                <constraint firstItem="oj9-yJ-M3F" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="y0g-bK-7HS"/>
+                <constraint firstItem="MCA-ug-9Nu" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zlg-fB-9BE"/>
+                <constraint firstItem="oj9-yJ-M3F" firstAttribute="leading" secondItem="68M-9p-Y9p" secondAttribute="leading" id="ztM-9W-oW5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="contentText" destination="63H-Vf-IVx" id="NRZ-XT-Ix5"/>
+                <outlet property="placeHoldLab" destination="FSl-bn-hsK" id="Jum-vY-QvW"/>
+            </connections>
+            <point key="canvasLocation" x="58" y="65"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="popqueren" width="118" height="40"/>
+        <image name="popquxiao" width="118" height="40"/>
+        <image name="tendPopViewBg" width="300" height="255"/>
+    </resources>
+</document>

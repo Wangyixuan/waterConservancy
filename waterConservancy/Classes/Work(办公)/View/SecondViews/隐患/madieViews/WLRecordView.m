@@ -27,6 +27,7 @@
 
 @property (nonatomic, strong) IFlySpeechRecognizer *iFlySpeechRecognizer;
 @property (nonatomic, copy) NSString *resultStr;
+@property (nonatomic, copy) NSString *tempStr;
 @end
 
 @implementation WLRecordView
@@ -69,7 +70,7 @@
     [self.iFlySpeechRecognizer stopListening];
     [self.timer invalidate];
     self.timer = nil;
-    
+
     [self removeFromSuperview];
 }
 
@@ -82,7 +83,7 @@
         [_iFlySpeechRecognizer setParameter: @"iat" forKey:@"domain"];
         [_iFlySpeechRecognizer setParameter: @"json" forKey:@"result_type"];
         //asr_audio_path 是录音文件名，设置value为nil或者为空取消保存，默认保存目录在Library/cache下。
-        [_iFlySpeechRecognizer setParameter:@"iat.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
+//        [_iFlySpeechRecognizer setParameter:@"iat.pcm" forKey:[IFlySpeechConstant ASR_AUDIO_PATH]];
     }
     return _iFlySpeechRecognizer;
 }
@@ -165,12 +166,22 @@
         [resultString appendFormat:@"%@",key];
     }
     
+    _resultStr =[NSString stringWithFormat:@"%@%@", _tempStr,resultString];
+    
+    NSString * resultFromJson =  nil;
+    
+    resultFromJson = [ISRDataHelper stringFromJson:resultString];
+    
+    _resultStr =[NSString stringWithFormat:@"%@%@", _tempStr,resultFromJson];
+    
     if (isLast){
-        self.resultStr = [ISRDataHelper stringFromJson:resultString];
-        if (self.endRecordBlock) {
-            self.endRecordBlock(self.resultStr);
-        }
-        NSLog(@"ISR Results(json)：%@",  self.resultStr);
+        NSLog(@"ISR Results(json)：%@",_resultStr);
+//        if (self.endRecordBlock) {
+//            self.endRecordBlock(_resultStr);
+//        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"recordText" object:nil userInfo:@{@"text":_resultStr}];
+    }else{
+        _tempStr = resultFromJson;
     }
 }
 //识别会话结束返回代理

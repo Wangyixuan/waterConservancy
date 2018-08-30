@@ -98,7 +98,6 @@
         if (self.photoArray) {
             cell.photoArr = self.photoArray;
         }
-        cell.descStr = self.descText;
         @weakify(self)
         cell.beginEditBlock = ^{
             weak_self.scrolContensize = weak_self.tableView.contentOffset;
@@ -107,15 +106,12 @@
         };
         cell.endEditBlock = ^{
              [weak_self.tableView setContentOffset:weak_self.scrolContensize animated:YES];
-             [weak_self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
         };
-        cell.uploadHeightBlock = ^(CGFloat H) {
-            NSLog(@"h %f",H);
-            weak_self.cellH = H;
-        };
+//        cell.uploadHeightBlock = ^(CGFloat H) {
+//            NSLog(@"h %f",H);
+//            weak_self.cellH = H;
+//        };
         cell.voiceBlock = ^{
-            //启动识别服务
-//            [weak_self.iFlySpeechRecognizer startListening];
             [weak_self.tabBarController.view addSubview:weak_self.recordView];
         };
         cell.addPhotoBlock = ^{
@@ -130,7 +126,6 @@
             AC_VideoModel *model2 = [[AC_VideoModel alloc] initWithName:@"上传视频" url:url];
             AC_AVPlayerViewController *ctr = [[AC_AVPlayerViewController alloc] initWithVideoList:@[model2]];
             [weak_self presentViewController:ctr animated:YES completion:^{
-                
             }];
         };        
         cell.videodelBlock = ^(NSInteger i){
@@ -139,6 +134,9 @@
             [weak_self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
             weak_self.videoUrl = nil;
             weak_self.videoModel = nil;
+        };
+        cell.reloadBlock = ^{
+            [weak_self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
         };
         return cell;
     }
@@ -185,7 +183,6 @@
                 }else{
 //                    [EasyTextView showText:@"最多上传3张照片"];
                 }
-                
             }
              [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
         };
@@ -232,16 +229,6 @@
 -(void)commitBtnClick{
     
 }
-//
-//-(IFlySpeechRecognizer*)iFlySpeechRecognizer{
-//    if (!_iFlySpeechRecognizer) {
-//        _iFlySpeechRecognizer = [IFlySpeechRecognizer sharedInstance];
-//        _iFlySpeechRecognizer.delegate = self;
-//        //设置音频源为音频流（-1）
-//        [_iFlySpeechRecognizer setParameter:@"-1" forKey:@"audio_source"];
-//    }
-//    return _iFlySpeechRecognizer;
-//}
 
 -(WLRecordView *)recordView{
     if (!_recordView) {
@@ -251,17 +238,10 @@
         self.recordView.endRecordBlock = ^(NSString *text) {
             weak_self.descText = text;
             [weak_self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
+//            [weak_self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
         };
     }
     return _recordView;
 }
-
-//- (void) onCompleted:(IFlySpeechError *) errorCode{
-//    NSLog(@"error %@",errorCode);
-//    [self.iFlySpeechRecognizer stopListening];
-//}
-//- (void) onResults:(NSArray *) results isLast:(BOOL)isLast{
-//    NSLog(@"%@",results);
-//}
 
 @end

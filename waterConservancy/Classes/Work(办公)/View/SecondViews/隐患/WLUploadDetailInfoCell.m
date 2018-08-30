@@ -36,6 +36,7 @@
 @property (nonatomic, weak) YYTextView *descText;
 @property (nonatomic, weak) UIView *photoImgV;
 
+//@property (nonatomic, copy) NSString *descTemp;
 
 @end
 
@@ -45,8 +46,19 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self initUI];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recordText:) name:@"recordText" object:nil];
     }
     return self;
+}
+
+-(void)recordText:(NSNotification*)dic{
+    NSString *voiceStr =[dic.userInfo stringForKey:@"text" defaultValue:@""];
+    if (self.descText.text.length==0) {
+         self.descText.text = voiceStr;
+    }else{
+       NSString *temp =self.descText.text;
+       self.descText.text = [NSString stringWithFormat:@"%@%@",temp,voiceStr];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -55,39 +67,22 @@
     // Configure the view for the selected state
 }
 -(void)voiceBtnClick{
+    [self.nameText resignFirstResponder];
+    [self.gradText resignFirstResponder];
+    [self.descText resignFirstResponder];
     if (self.voiceBlock) {
         self.voiceBlock();
     }
 }
 -(void)addPhotoBtnClick{
+    [self.nameText resignFirstResponder];
+    [self.gradText resignFirstResponder];
+    [self.descText resignFirstResponder];
     if (self.addPhotoBlock) {
         self.addPhotoBlock();
     }
 }
 
--(void)setDescStr:(NSString *)descStr{
-    _descStr = descStr;
-    if (descStr.length>0) {
-        self.descText.text = descStr;
-        self.placeHoldLab.hidden = YES;
-    }else{
-        self.placeHoldLab.hidden= NO;
-    }
-    CGFloat height =  self.descText.textLayout.textBoundingSize.height;
-   @weakify(self)
-    if (height>55) {
-        [self.lineView3 mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(weak_self.lineView2).offset(height+20);
-        }];
-        if (self.uploadHeightBlock) {
-            self.uploadHeightBlock(height-55);
-        }
-    }else{
-        [self.lineView3 mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(weak_self.lineView2).offset(75);
-        }];
-    }
-}
 //视频播放
 -(void)videoPlay:(YXVideoPlayBtn*)btn{
     NSURL *url = [self.photoArr objectAtIndex:btn.tag];
@@ -310,6 +305,12 @@
     if (textView.text.length==0) {
         self.placeHoldLab.hidden= NO;
     }else{
+        CGFloat height = textView.textLayout.textBoundingSize.height;
+        if (height>55) {
+            if (self.reloadBlock) {
+                self.reloadBlock();
+            }
+        }
         if (self.endEditBlock) {
             self.endEditBlock();
         }
@@ -318,20 +319,23 @@
 }
 
 - (void)textViewDidChange:(YYTextView *)textView{
-   @weakify(self)
-    CGFloat height = textView.textLayout.textBoundingSize.height;
-    if (height>55) {
-        [self.lineView3 mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(weak_self.lineView2).offset(height+20);
-        }];
-        if (self.uploadHeightBlock) {
-            self.uploadHeightBlock(height-55);
-        }
-    }else{
-        [self.lineView3 mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(weak_self.lineView2).offset(75);
-        }];
+//   @weakify(self)
+    if (textView.text.length !=0) {
+        self.placeHoldLab.hidden= YES;
     }
+//    CGFloat height = textView.textLayout.textBoundingSize.height;
+//    if (height>55) {
+//        [self.lineView3 mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.top.mas_equalTo(weak_self.lineView2).offset(height+20);
+//        }];
+//        if (self.uploadHeightBlock) {
+//            self.uploadHeightBlock(height-55);
+//        }
+//    }else{
+//        [self.lineView3 mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.top.mas_equalTo(weak_self.lineView2).offset(75);
+//        }];
+//    }
 }
 
 -(UIImageView*)topBgImageView{
@@ -481,10 +485,9 @@
 -(UITextField*)placeHoldLab{
     if (!_placeHoldLab) {
         UITextField *field = [[UITextField alloc]init];
-        field.placeholder = @"请输入问题描述";
+        field.placeholder = @"请填写详情";
         [self.contentView addSubview:field];
         [self.contentView insertSubview:field belowSubview:self.descText];
-//        field.backgroundColor = [UIColor blueColor];
         field.userInteractionEnabled = NO;
         _placeHoldLab = field;
     }

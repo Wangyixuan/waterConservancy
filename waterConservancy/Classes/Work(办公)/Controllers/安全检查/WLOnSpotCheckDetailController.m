@@ -53,41 +53,26 @@
      [self.tableView registerNib:[UINib nibWithNibName:RecordCellIdentifity bundle:nil] forCellReuseIdentifier:RecordCellIdentifity];
 }
 
--(void)loadEngNameWithEngGuid:(NSString*)engGuid{
-    NSDictionary *param = @{@"guid":engGuid};
-    [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/jck/obj/objEngs/") Parmars:param success:^(id responseObject) {
-        NSLog(@"%@",responseObject);
-        NSString *str =@"北京市水利局";
-        for (DJHiddenDangerModel *model in self.hiddArr) {
-            model.hiddProjectName = str;
-        };
-         [self.tableView reloadData];
-    } faild:^(NSError *error) {
-        
-    }];
-}
-
 -(void)loadRecordData{
     NSString *str = @"2018-10-10 检查轨迹";
     [self.recordArr addObject:str];
     [self.recordArr addObject:str];
     [self.recordArr addObject:str];
-   
+   [self.tableView reloadData];
 }
 
 -(void)loadHiddData{
     NSDictionary *param = @{@"orgGuid":WLShareUserManager.orgID,@"inspRecGuid":self.model.sinsGuidStr};
     [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/bis/obj/objHidds/") Parmars:param success:^(id responseObject) {
         NSLog(@"%@",responseObject);
-        NSDictionary *dic = @{@"key":@"value"};
-        DJHiddenDangerModel *model = [[DJHiddenDangerModel alloc] initWithDic:dic];
-        [self.hiddArr addObject:model];
-        [self.hiddArr addObject:model];
-        [self.hiddArr addObject:model];
-        [self loadEngNameWithEngGuid:model.engGuid];
+        NSDictionary *dic = (NSDictionary*)responseObject;
+        NSArray *respArr = [dic objectForKey:@"data"];
+        for (NSDictionary *dic in respArr) {
+            DJHiddenDangerModel *model = [[DJHiddenDangerModel alloc] initWithDic:dic];
+            [self.hiddArr addObject:model];
+        }
         [self loadRecordData];
-       
-    
+ 
     } faild:^(NSError *error) {
         
     }];

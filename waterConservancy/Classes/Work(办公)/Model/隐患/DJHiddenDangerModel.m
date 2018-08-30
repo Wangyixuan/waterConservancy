@@ -13,14 +13,35 @@
 
 -(instancetype)initWithDic:(NSDictionary *)dic{
     if (self = [super init]) {
-        self.hiddName =@"上游灌浆作业面配电箱内漏电保护器失灵";// [dic stringForKey:@"hiddName" defaultValue:@""];
-        NSString *timeStr = @"2018-04-08 17:25:03";//[dic stringForKey:@"collTime" defaultValue:@""];
-        self.collTime = [timeStr substringToIndex:10];
-        self.hiddGrad = @"2";//[dic integerForKey:@"hiddGrad" defaultValue:0];
-        self.engGuid =@"610102000006"; //[dic stringForKey:@"engGuid" defaultValue:@""];
+        self.hiddName = [dic stringForKey:@"hiddName" defaultValue:@""];
+        NSString *timeStr = [dic stringForKey:@"collTime" defaultValue:@""];
+        if (timeStr.length>0) {
+            self.collTime = [timeStr substringToIndex:10];
+        }
+        self.hiddGrad = [dic stringForKey:@"hiddGrad" defaultValue:@""];
+        NSString *engGuid =[dic stringForKey:@"engGuid" defaultValue:@""];
+        if (engGuid) {
+            self.engGuid = engGuid;
+            [self loadEngNameWithEngGuid:engGuid];
+        }
+        self.hiddProjectName = @"无";
+        self.guid = [dic stringForKey:@"guid" defaultValue:@""];
     }
     return self;
 }
 
+-(void)loadEngNameWithEngGuid:(NSString*)engGuid{
 
+        NSDictionary *param = @{@"guid":engGuid};
+        [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/jck/obj/objEngs/") Parmars:param success:^(id responseObject) {
+            NSLog(@"%@",responseObject);
+            NSDictionary *respDic = (NSDictionary*)responseObject;
+            NSArray *respArr = [respDic objectForKey:@"data"];
+            for (NSDictionary *dic in respArr) {
+                self.hiddProjectName = [dic stringForKey:@"engName" defaultValue:@"无"];
+            }
+        } faild:^(NSError *error) {
+            
+        }];
+}
 @end
