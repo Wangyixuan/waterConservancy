@@ -9,5 +9,7 @@
 #import "YXBaseTableViewCell.h"
 
 @interface WLUploadHiddenInfoCell : YXBaseTableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *engNameLab;
 
+@property (weak, nonatomic) IBOutlet UILabel *tendNameLab;
 @end

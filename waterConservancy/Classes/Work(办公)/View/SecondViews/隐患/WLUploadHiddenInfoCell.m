@@ -9,9 +9,7 @@
 #import "WLUploadHiddenInfoCell.h"
 
 @interface WLUploadHiddenInfoCell()
-@property (weak, nonatomic) IBOutlet UILabel *engNameLab;
 
-@property (weak, nonatomic) IBOutlet UILabel *tendNameLab;
 
 @end
 

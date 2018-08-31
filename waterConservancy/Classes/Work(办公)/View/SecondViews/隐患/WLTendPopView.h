@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface WLTendPopView : UIView
-@property (nonatomic, copy) void(^uploadHiddenBlock)(void);
+@property (nonatomic, copy) void(^uploadHiddenBlock)(NSString*tendName,NSString*tendGuid);
 
 +(instancetype)creatTendPopViewWithData:(NSArray*)dataArr;
 @end

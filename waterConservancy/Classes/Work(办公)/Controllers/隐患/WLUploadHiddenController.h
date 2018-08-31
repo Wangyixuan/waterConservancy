@@ -9,5 +9,8 @@
 #import "YXBaseViewController.h"
 
 @interface WLUploadHiddenController : YXBaseViewController
-
+@property (nonatomic, copy) NSString *engName;
+@property (nonatomic, copy) NSString *engGuid;
+@property (nonatomic, copy) NSString *tendName;
+@property (nonatomic, copy) NSString *tendGuid;
 @end

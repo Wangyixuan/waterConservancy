@@ -15,6 +15,9 @@
 
 @interface WLHiddenEngListController ()
 @property (nonatomic, strong) NSMutableArray *engArr;
+@property (nonatomic, strong) NSMutableArray *tendArr;
+//工程名 传入下个页面
+@property (nonatomic, copy) NSString *engName;
 @end
 
 @implementation WLHiddenEngListController
@@ -23,6 +26,7 @@
     [super viewDidLoad];
     self.title = @"隐患上报";
     self.engArr = [NSMutableArray array];
+    self.tendArr = [NSMutableArray array];
     // Do any additional setup after loading the view.
     [self loadNewData];
 //    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -124,34 +128,53 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    WLTendPopView *popView = [WLTendPopView creatTendPopViewWithData:self.engArr];
-    popView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-    @weakify(self)
-    popView.uploadHiddenBlock = ^{
-        WLUploadHiddenController *upload = [[WLUploadHiddenController alloc]init];
-        [weak_self.navigationController pushViewController:upload animated:YES];
-    };
-    [self.tabBarController.view addSubview:popView];
-   
     if (self.engArr.count>indexPath.row) {
-         NSDictionary *dic = [self.engArr objectAtIndex:indexPath.row];
+        NSDictionary *dic = [self.engArr objectAtIndex:indexPath.row];
         NSString *engID = [dic stringForKey:@"engId" defaultValue:@""];
+        self.engName = [dic stringForKey:@"name" defaultValue:@""];
         [self loadTendDataWith:engID];
     }
-   
 }
-
+//根据工程guid查找包含标段
 -(void)loadTendDataWith:(NSString*)engGuid{
     NSDictionary *param = @{@"engGuid":engGuid};
     [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/jck/obj/objTends/") Parmars:param success:^(id responseObject) {
         NSLog(@"%@",responseObject);
-        
+        NSDictionary *respDic = (NSDictionary*)responseObject;
+        NSArray *respArr = [respDic objectForKey:@"data"];
+        //有标段数据 显示标段选择页面
+        if (respArr.count>0) {
+            self.tendArr = [NSMutableArray arrayWithArray:respArr];
+            [self showTendPopViewWith:self.tendArr and:engGuid];
+        }else{
+            //没标段数据 直接下一页面
+            WLUploadHiddenController *upload = [[WLUploadHiddenController alloc]init];
+            upload.tendName = @"无";
+            upload.engGuid = engGuid;
+            upload.engName = self.engName;
+            [self.navigationController pushViewController:upload animated:YES];
+        }
     } faild:^(NSError *error) {
-        
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [SVProgressHUD dismissWithDelay:1.5];
     }];
-    
 }
 
+-(void)showTendPopViewWith:(NSArray*)dataArr and:(NSString*)engGuid{
+    WLTendPopView *popView = [WLTendPopView creatTendPopViewWithData:self.tendArr];
+    popView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    @weakify(self)
+    popView.uploadHiddenBlock = ^(NSString *tendName,NSString*tendGuid) {
+        WLUploadHiddenController *upload = [[WLUploadHiddenController alloc]init];
+        upload.tendName = tendName;
+        upload.engGuid = engGuid;
+        upload.tendGuid = tendGuid;
+        upload.engName = self.engName;
+        [weak_self.navigationController pushViewController:upload animated:YES];
+    };
+    [self.tabBarController.view addSubview:popView];
+    
+}
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, SCALE_W(100))];

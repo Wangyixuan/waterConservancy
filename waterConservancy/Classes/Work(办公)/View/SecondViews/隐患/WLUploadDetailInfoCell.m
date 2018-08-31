@@ -31,11 +31,11 @@
 @property (nonatomic, weak) UIButton *vioceBtn;
 @property (nonatomic, weak) UIButton *addPhotoBtn;
 @property (nonatomic, weak) UITextField *nameText;
-@property (nonatomic, weak) UITextField *gradText;
+
 @property (nonatomic, weak) UITextField *placeHoldLab;
 @property (nonatomic, weak) YYTextView *descText;
 @property (nonatomic, weak) UIView *photoImgV;
-
+@property (nonatomic, weak) UIButton *chooseGradBtn;
 //@property (nonatomic, copy) NSString *descTemp;
 
 @end
@@ -82,7 +82,14 @@
         self.addPhotoBlock();
     }
 }
-
+-(void)chooseGradBtnClick{
+    [self.nameText resignFirstResponder];
+    [self.gradText resignFirstResponder];
+    [self.descText resignFirstResponder];
+    if (self.chooseGradBlock) {
+        self.chooseGradBlock();
+    }
+}
 //视频播放
 -(void)videoPlay:(YXVideoPlayBtn*)btn{
     NSURL *url = [self.photoArr objectAtIndex:btn.tag];
@@ -107,7 +114,8 @@
         }else{
             NSLog(@"Denied or Restricted");
             dispatch_async(dispatch_get_main_queue(), ^{
-//                [EasyTextView showText:@"相册权限尚未打开"];
+                [SVProgressHUD showErrorWithStatus:@"相册权限尚未打开"];
+                [SVProgressHUD dismissWithDelay:1.5];
             });
         }
     }];
@@ -254,6 +262,7 @@
     [self.vioceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(weak_self.lineView1.mas_right);
         make.centerY.mas_equalTo(weak_self.descTitleLab.mas_centerY);
+        make.height.width.mas_equalTo(30);
     }];
 
     [self.onSpotTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -288,6 +297,12 @@
     }];
     [self.photoImgV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(weak_self.lineView1);        make.bottom.mas_equalTo(weak_self.bottomBgImageView.mas_bottom).offset(-10);
+    }];
+    [self.chooseGradBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(weak_self.lineView1.mas_right);
+        make.left.mas_equalTo(weak_self.gradTitleLab.mas_right).offset(15);
+        make.top.mas_equalTo(weak_self.lineView1.mas_bottom).offset(10);
+        make.bottom.mas_equalTo(weak_self.lineView2.mas_top).offset(-10);
     }];
 
 }
@@ -463,6 +478,7 @@
     if (!_gradText) {
         UITextField *field = [[UITextField alloc]init];
         field.placeholder = @"请选择隐患级别";
+        field.userInteractionEnabled = NO;
         [self.contentView addSubview:field];
         _gradText = field;
     }
@@ -511,4 +527,16 @@
     }
     return _addPhotoBtn;
 }
+-(UIButton*)chooseGradBtn{
+    if (!_chooseGradBtn) {
+        UIButton *btn = [[UIButton alloc]init];
+        [btn addTarget:self action:@selector(chooseGradBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//        btn.backgroundColor = [UIColor redColor];
+        [self.contentView addSubview:btn];
+        [self.contentView insertSubview:btn aboveSubview:self.gradText];
+        _chooseGradBtn = btn;
+    }
+    return _chooseGradBtn;
+}
+
 @end

@@ -299,6 +299,7 @@ static NSString *PhotoCellId = @"PhotosCell";
 
 #pragma mark - SmallCellDelegate
 
+
 //根据SmallCell的点击改变checkBtn的选中状态
 - (void)pushCheckBtnIndex:(NSInteger)index StatusString:(NSString *)statusStr {
     [self.ImagesSelectedArray replaceObjectAtIndex:index withObject:statusStr];

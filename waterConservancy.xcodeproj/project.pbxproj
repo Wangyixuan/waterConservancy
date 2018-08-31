@@ -91,6 +91,8 @@
 		047B51D92137D99A0007C477 /* WLHiddenDeleteListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B51D82137D99A0007C477 /* WLHiddenDeleteListController.m */; };
 		047B51DC2137E7AF0007C477 /* WLHiddenRepairPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B51DB2137E7AF0007C477 /* WLHiddenRepairPopView.m */; };
 		047B51DE2137E7BC0007C477 /* WLHiddenRepairPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B51DD2137E7BC0007C477 /* WLHiddenRepairPopView.xib */; };
+		047B51E12138D6C40007C477 /* WLHiddenDelDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B51E02138D6C40007C477 /* WLHiddenDelDetailController.m */; };
+		047B51E42138D7570007C477 /* WLHiddenRepairDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B51E32138D7570007C477 /* WLHiddenRepairDetailViewController.m */; };
 		04C5310021212BC900C90964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C530FF21212BC900C90964 /* AppDelegate.m */; };
 		04C5310821212BCB00C90964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310721212BCB00C90964 /* Assets.xcassets */; };
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
@@ -284,6 +286,10 @@
 		047B51DA2137E7AF0007C477 /* WLHiddenRepairPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLHiddenRepairPopView.h; sourceTree = "<group>"; };
 		047B51DB2137E7AF0007C477 /* WLHiddenRepairPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLHiddenRepairPopView.m; sourceTree = "<group>"; };
 		047B51DD2137E7BC0007C477 /* WLHiddenRepairPopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLHiddenRepairPopView.xib; sourceTree = "<group>"; };
+		047B51DF2138D6C40007C477 /* WLHiddenDelDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLHiddenDelDetailController.h; sourceTree = "<group>"; };
+		047B51E02138D6C40007C477 /* WLHiddenDelDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLHiddenDelDetailController.m; sourceTree = "<group>"; };
+		047B51E22138D7570007C477 /* WLHiddenRepairDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLHiddenRepairDetailViewController.h; sourceTree = "<group>"; };
+		047B51E32138D7570007C477 /* WLHiddenRepairDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLHiddenRepairDetailViewController.m; sourceTree = "<group>"; };
 		04C530FB21212BC900C90964 /* waterConservancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterConservancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C530FE21212BC900C90964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04C530FF21212BC900C90964 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -631,6 +637,10 @@
 				047B51D02137BF3D0007C477 /* WLHiddenRepairListController.m */,
 				047B51D72137D99A0007C477 /* WLHiddenDeleteListController.h */,
 				047B51D82137D99A0007C477 /* WLHiddenDeleteListController.m */,
+				047B51DF2138D6C40007C477 /* WLHiddenDelDetailController.h */,
+				047B51E02138D6C40007C477 /* WLHiddenDelDetailController.m */,
+				047B51E22138D7570007C477 /* WLHiddenRepairDetailViewController.h */,
+				047B51E32138D7570007C477 /* WLHiddenRepairDetailViewController.m */,
 			);
 			path = "隐患";
 			sourceTree = "<group>";
@@ -1269,6 +1279,7 @@
 				5A4CF195212283E200D72FE5 /* ViewController.m in Sources */,
 				047B5184213552710007C477 /* HAVPlayer.m in Sources */,
 				5A8BE2372125522700F61665 /* DJOnSpotCheckController.m in Sources */,
+				047B51E12138D6C40007C477 /* WLHiddenDelDetailController.m in Sources */,
 				5A4CF1832122801300D72FE5 /* YXTabbarController.m in Sources */,
 				047B50A52133AC250007C477 /* WLHiddenEngListController.m in Sources */,
 				5A4CF17921227C6500D72FE5 /* YXNetTool.m in Sources */,
@@ -1317,6 +1328,7 @@
 				5A3A7EEB212FA5CA0081BB16 /* DJOnSpotCheckCell.m in Sources */,
 				047B50B62133EA730007C477 /* WLUploadHiddenInfoCell.m in Sources */,
 				047B51A121367C2E0007C477 /* AC_ProgressSlider.m in Sources */,
+				047B51E42138D7570007C477 /* WLHiddenRepairDetailViewController.m in Sources */,
 				047B5084212D6FBA0007C477 /* WLOnSpotCheckDetailController.m in Sources */,
 				5A4CF17821227C6500D72FE5 /* YXDataResolveTool.m in Sources */,
 				047B51632135470D0007C477 /* YXPhotoImgBtn.m in Sources */,

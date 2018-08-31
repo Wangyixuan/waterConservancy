@@ -9,6 +9,8 @@
 #import "WLHiddenDeleteListController.h"
 #import "DJHiddenDangerModel.h"
 #import "WLHiddenRepairCell.h"
+#import "WLHiddenDelDetailController.h"
+#import "WLHiddenRepairDetailViewController.h"
 
 #define cellIdentifity @"WLHiddenRepairCell"
 
@@ -93,6 +95,20 @@
     if (self.dataArr.count>indexPath.row) {
         cell.model = [self.dataArr objectOrNilAtIndex:indexPath.row];
     }
+    @weakify(self)
+    cell.actionBlock = ^(NSString *hiddGuid) {
+        WLHiddenDelDetailController *detail = [[WLHiddenDelDetailController alloc] init];
+        detail.hiddGuid = hiddGuid;
+        [weak_self.navigationController pushViewController:detail animated:YES];
+    };
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    WLHiddenRepairDetailViewController *detail = [[WLHiddenRepairDetailViewController alloc] init];
+    if (self.dataArr.count>indexPath.row) {
+        detail.model = [self.dataArr objectOrNilAtIndex:indexPath.row];
+    }
+    [self.navigationController pushViewController:detail animated:YES];
 }
 @end

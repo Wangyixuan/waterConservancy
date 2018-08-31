@@ -10,11 +10,13 @@
 #import "DJHiddenDangerModel.h"
 #import "WLHiddenRepairCell.h"
 #import "WLHiddenRepairPopView.h"
+#import "WLHiddenRepairDetailViewController.h"
 
 #define cellIdentifity @"WLHiddenRepairCell"
 
 @interface WLHiddenRepairListController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *dataArr;
+@property (nonatomic, strong) WLHiddenRepairPopView *popView;
 @end
 
 @implementation WLHiddenRepairListController
@@ -83,9 +85,19 @@
     };
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    WLHiddenRepairDetailViewController *detail = [[WLHiddenRepairDetailViewController alloc] init];
+    if (self.dataArr.count>indexPath.row) {
+        detail.model = [self.dataArr objectOrNilAtIndex:indexPath.row];
+    }
+    [self.navigationController pushViewController:detail animated:YES];
+}
+
 -(void)showPopViewWithGuid:(NSString*)hiddGuid{
     WLHiddenRepairPopView *popView = [WLHiddenRepairPopView showRepairPopView];
     popView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    self.popView = popView;
     [self.tabBarController.view addSubview:popView];
     @weakify(self)
     popView.commitBlock = ^(NSString *text) {
@@ -96,8 +108,13 @@
     NSDictionary *param = @{@"hiddGuid":hiddGuid,@"rectProg":text,@"recPers":WLShareUserManager.persID};
     [[YXNetTool shareTool] postRequestWithURL:YXNetAddressCJ(@"cjapi/cj/bis/hidd/rectPro/addObjHiddRectPro") Parmars:param success:^(id responseObject) {
         NSLog(@"%@",responseObject);
+        [SVProgressHUD showSuccessWithStatus:@"提交成功"];
+        [SVProgressHUD dismissWithDelay:1.5];
+        [self.popView removeFromSuperview];
     } faild:^(NSError *error) {
-        
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+        [SVProgressHUD dismissWithDelay:1.5];
     }];
+    
 }
 @end

@@ -32,10 +32,14 @@
     
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"2113");
     [self removeFromSuperview];
-    if (self.uploadHiddenBlock) {
-        self.uploadHiddenBlock();
+    if (self.dataArr.count>indexPath.row) {
+      NSDictionary *dic = [self.dataArr objectAtIndex:indexPath.row];
+        NSString *name = [dic stringForKey:@"tendName" defaultValue:@""];
+        NSString *tendGuid = [dic stringForKey:@"guid" defaultValue:@""];
+        if (self.uploadHiddenBlock) {
+            self.uploadHiddenBlock(name,tendGuid);
+        }
     }
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -52,7 +56,10 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifity];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = @"1111";
+    if (self.dataArr.count>indexPath.row) {
+        NSDictionary *dic = [self.dataArr objectAtIndex:indexPath.row];
+        cell.textLabel.text = [dic stringForKey:@"tendName" defaultValue:@""];
+    }
     return cell;
 }
 - (IBAction)backBtnClick:(id)sender {
