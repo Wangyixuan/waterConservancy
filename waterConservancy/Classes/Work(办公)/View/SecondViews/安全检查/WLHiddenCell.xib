@@ -30,10 +30,10 @@
                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <state key="normal" title="一般隐患" backgroundImage="yuansu_yiban"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-12-30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUa-7O-nWC">
-                        <rect key="frame" x="227" y="13" width="75" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2028-02-30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUa-7O-nWC">
+                        <rect key="frame" x="224" y="13" width="78" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="75" id="3dv-Is-dmL"/>
+                            <constraint firstAttribute="width" constant="78" id="3dv-Is-dmL"/>
                             <constraint firstAttribute="height" constant="16" id="Qrs-R6-MOR"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -57,7 +57,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="路面塌方" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1QE-1W-k6P">
-                        <rect key="frame" x="73" y="11.5" width="144" height="20"/>
+                        <rect key="frame" x="73" y="11.5" width="141" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="OgP-5O-voI"/>
                         </constraints>

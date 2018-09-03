@@ -81,8 +81,8 @@
     NSDictionary *xhDic2 = @{@"title":@"隐患",@"data":xhArr2,@"bgImage":@"yinhuan"};
     [BDicArr addObject:xhDic2];
     
-    NSDictionary *sg1 =@{@"text":@"快报事故",@"img":@"shigu_kuaibao",@"ctrl":@""};
-    NSDictionary *sg2 =@{@"text":@"事故查询",@"img":@"shigu_chaxun",@"ctrl":@""};
+    NSDictionary *sg1 =@{@"text":@"快报事故",@"img":@"shigu_kuaibao",@"ctrl":@"WLReportAccidentListController"};
+    NSDictionary *sg2 =@{@"text":@"事故查询",@"img":@"shigu_chaxun",@"ctrl":@"WLAccidentInquiryListController"};
     NSArray *sgArr = @[sg1,sg2];
     NSDictionary *sgDic = @{@"title":@"事故",@"data":sgArr,@"bgImage":@"shigu"};
     [CDicArr addObject:sgDic];

@@ -10,7 +10,7 @@
 #import "DJHiddenDangerModel.h"
 #import "WLHiddenRepairCell.h"
 #import "WLHiddenDelDetailController.h"
-#import "WLHiddenRepairDetailViewController.h"
+#import "WLHiddenDetailController.h"
 
 #define cellIdentifity @"WLHiddenRepairCell"
 
@@ -105,7 +105,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    WLHiddenRepairDetailViewController *detail = [[WLHiddenRepairDetailViewController alloc] init];
+    WLHiddenDetailController *detail = [[WLHiddenDetailController alloc] init];
     if (self.dataArr.count>indexPath.row) {
         detail.model = [self.dataArr objectOrNilAtIndex:indexPath.row];
     }
