@@ -9,5 +9,6 @@
 #import "YXBaseTableViewCell.h"
 
 @interface WLHiddDetailCell : YXBaseTableViewCell
-
+@property (nonatomic, strong) NSMutableArray *photoArr;
+@property (nonatomic, copy) void(^videoPlayBlock)(NSURL*url);
 @end

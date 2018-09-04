@@ -7,7 +7,8 @@
 //
 
 #import "YXBaseTableViewCell.h"
+#import "WLAcciModel.h"
 
 @interface WLAccidentInquiryCell : YXBaseTableViewCell
-
+@property (nonatomic, strong) WLAcciModel *model;
 @end

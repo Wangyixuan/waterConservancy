@@ -19,29 +19,12 @@
             self.collTime = [timeStr substringToIndex:10];
         }
         self.hiddGrad = [dic stringForKey:@"hiddGrad" defaultValue:@""];
-        NSString *engGuid =[dic stringForKey:@"engGuid" defaultValue:@""];
-        if (engGuid) {
-            self.engGuid = engGuid;
-            [self loadEngNameWithEngGuid:engGuid];
-        }
+        self.engGuid =[dic stringForKey:@"engGuid" defaultValue:@""];
         self.hiddProjectName = @"无";
         self.guid = [dic stringForKey:@"guid" defaultValue:@""];
     }
     return self;
 }
 
--(void)loadEngNameWithEngGuid:(NSString*)engGuid{
 
-        NSDictionary *param = @{@"guid":engGuid};
-        [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/jck/obj/objEngs/") Parmars:param success:^(id responseObject) {
-            NSLog(@"%@",responseObject);
-            NSDictionary *respDic = (NSDictionary*)responseObject;
-            NSArray *respArr = [respDic objectForKey:@"data"];
-            for (NSDictionary *dic in respArr) {
-                self.hiddProjectName = [dic stringForKey:@"engName" defaultValue:@"无"];
-            }
-        } faild:^(NSError *error) {
-            
-        }];
-}
 @end

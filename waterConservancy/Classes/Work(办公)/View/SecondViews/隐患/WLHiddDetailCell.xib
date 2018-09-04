@@ -177,6 +177,9 @@
                     <constraint firstAttribute="trailing" secondItem="tyg-K2-0Ol" secondAttribute="trailing" constant="20" id="yfI-0x-eIN"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="photoImgV" destination="hit-iT-HUi" id="Iim-Ty-Ba6"/>
+            </connections>
             <point key="canvasLocation" x="71" y="185"/>
         </tableViewCell>
     </objects>

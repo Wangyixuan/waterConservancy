@@ -66,19 +66,21 @@
 }
 
 -(void)loadEngNameWithEngGuid:(DJHiddenDangerModel*)model{
-    NSDictionary *param = @{@"guid":model.engGuid};
-    [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/jck/obj/objEngs/") Parmars:param success:^(id responseObject) {
-        NSLog(@"%@",responseObject);
-        NSDictionary *respDic = (NSDictionary*)responseObject;
-        NSArray *respArr = [respDic objectForKey:@"data"];
-        for (NSDictionary *dic in respArr) {
-            model.hiddProjectName = [dic stringForKey:@"engName" defaultValue:@""];
-            [self.dataArr addObject:model];
-        }
-        [self.tableView reloadData];
-    } faild:^(NSError *error) {
-        
-    }];
+    if (model.engGuid) {
+        NSDictionary *param = @{@"guid":model.engGuid};
+        [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/jck/obj/objEngs/") Parmars:param success:^(id responseObject) {
+            NSLog(@"%@",responseObject);
+            NSDictionary *respDic = (NSDictionary*)responseObject;
+            NSArray *respArr = [respDic objectForKey:@"data"];
+            for (NSDictionary *dic in respArr) {
+                model.hiddProjectName = [dic stringForKey:@"engName" defaultValue:@""];
+                [self.dataArr addObject:model];
+            }
+            [self.tableView reloadData];
+        } faild:^(NSError *error) {
+            
+        }];
+    }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

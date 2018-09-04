@@ -56,13 +56,29 @@
         if (reapArr.count>0) {
             for (NSDictionary *dic in reapArr) {
                 DJHiddenDangerModel *model = [[DJHiddenDangerModel alloc]initWithDic:dic];
-                [self.dataArr addObject:model];
+                [self loadEngNameWithEngGuid:model];
             }
-            [self.tableView reloadData];
         }
     } faild:^(NSError *error) {
         
     }];
+}
+-(void)loadEngNameWithEngGuid:(DJHiddenDangerModel*)model{
+    if (model.engGuid) {
+        NSDictionary *param = @{@"guid":model.engGuid};
+        [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/jck/obj/objEngs/") Parmars:param success:^(id responseObject) {
+            NSLog(@"%@",responseObject);
+            NSDictionary *respDic = (NSDictionary*)responseObject;
+            NSArray *respArr = [respDic objectForKey:@"data"];
+            for (NSDictionary *dic in respArr) {
+                model.hiddProjectName = [dic stringForKey:@"engName" defaultValue:@"无"];
+                [self.dataArr addObject:model];
+            }
+            [self.tableView reloadData];
+        } faild:^(NSError *error) {
+            
+        }];
+    }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

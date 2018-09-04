@@ -7,6 +7,11 @@
 //
 
 #import "WLHiddenDetailController.h"
+#import "HVideoViewController.h"
+#import "GCMAssetModel.h"
+#import "AC_AVPlayerViewController.h"
+#import <iflyMSC/iflyMSC.h>
+
 
 #import "WLHiddDetailPerInfoCell.h"
 #import "WLHiddAdviseCell.h"
@@ -59,7 +64,7 @@
 }
 
 -(void)loadData{
-    NSDictionary*param = @{@"hiddGuid":self.model.guid};
+    NSDictionary*param = @{@"hiddGuid":@"54195AB9F7BA4E648F594281A923FD2C"};
     //隐患排查信息
     [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/bis/hidd/bisHiddInves/") Parmars:param success:^(id responseObject) {
         NSLog(@"1-%@",responseObject);
@@ -69,18 +74,27 @@
     //整改进度
     [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/bis/hidd/rect/bisHiddRectProgs/") Parmars:param success:^(id responseObject) {
          NSLog(@"2-%@",responseObject);
+        //整改进展情况 rectProg
     } faild:^(NSError *error) {
         
     }];
     //隐患督办信息
     [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/bis/maj/bisMajHiddSups/") Parmars:param success:^(id responseObject) {
          NSLog(@"3-%@",responseObject);
+        //要求完成日期 rectPeri
+        //督办日期 supDate
+        
     } faild:^(NSError *error) {
         
     }];
     //隐患整改信息
     [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/bis/hidd/rect/selectBisHiddRectImplWithAttOrgBase/") Parmars:param success:^(id responseObject) {
          NSLog(@"4-%@",responseObject);
+        //治理目标 goveObjeTasks
+        //应急预案 emerPlanSame
+        //整改措施 corrMeas
+        //整改责任人 rectLegPers
+        //
     } faild:^(NSError *error) {
         
     }];
@@ -127,6 +141,13 @@
         return cell;
     }else if (indexPath.section==0){
         WLHiddDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:cellDetailIdentifity forIndexPath:indexPath];
+        @weakify(self)
+        cell.videoPlayBlock = ^(NSURL *url) {
+            AC_VideoModel *model2 = [[AC_VideoModel alloc] initWithName:@"上传视频" url:url];
+            AC_AVPlayerViewController *ctr = [[AC_AVPlayerViewController alloc] initWithVideoList:@[model2]];
+            [weak_self presentViewController:ctr animated:YES completion:^{
+            }];
+        };
         return cell;
     }
     WLHiddAdviseCell *cell = [tableView dequeueReusableCellWithIdentifier:cellAdviseIdentifity forIndexPath:indexPath];
