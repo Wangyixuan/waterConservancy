@@ -10,6 +10,7 @@
 #import "WLReportAccidentCell.h"
 #import "WLAcciModel.h"
 #import "WLAccidentDetailController.h"
+#import "WLAddAccidentController.h"
 
 #define cellIdentifity @"WLReportAccidentCell"
 
@@ -125,6 +126,7 @@
     return _addAcciBtn;
 }
 -(void)addAcciBtnClick{
-    
+    WLAddAccidentController *addacc = [[WLAddAccidentController alloc]init];
+    [self.navigationController pushViewController:addacc animated:YES];
 }
 @end

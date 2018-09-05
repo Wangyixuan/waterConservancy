@@ -52,7 +52,10 @@ object:ojbect];
 
 #define WC_HOMEBAR_HEIGHT ((WCScreenHeight==KKScreenHeightIphoneX)?34:0)
 #define WC_STATUSBAR_HEIGHT    [[UIApplication sharedApplication] statusBarFrame].size.height
+#define WC_NAVIGATIONBAR_HEIGHT   self.navigationController.navigationBar.frame.size.height
+#define WC_STATUSBAR_AND_NAVIGATIONBAR_HEIGHT (WC_NAVIGATIONBAR_HEIGHT+WC_STATUSBAR_HEIGHT)
 
 #define PAGESIZW 10
+#define MARGIN 10
 
 #endif /* CommonMacro_h */
