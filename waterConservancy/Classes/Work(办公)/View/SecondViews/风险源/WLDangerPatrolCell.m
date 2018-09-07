@@ -43,6 +43,9 @@
 
 
 - (IBAction)patrolBtnClick:(id)sender {
+    if (self.btnClickBlock) {
+        self.btnClickBlock();
+    }
 }
 
 @end

@@ -12,4 +12,5 @@
 @interface WLDangerPatrolCell : UITableViewCell
 @property (nonatomic, strong) WLDangerModel *model;
 @property (weak, nonatomic) IBOutlet UIButton *patrolBtn;
+@property (nonatomic, copy) void(^btnClickBlock)(void);
 @end

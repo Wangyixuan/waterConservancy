@@ -129,6 +129,14 @@
 		047B524C2140CE140007C477 /* WLDangerPatrolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B524A2140CE140007C477 /* WLDangerPatrolCell.m */; };
 		047B524D2140CE140007C477 /* WLDangerPatrolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B524B2140CE140007C477 /* WLDangerPatrolCell.xib */; };
 		047B525121411DFE0007C477 /* WLDangerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B525021411DFE0007C477 /* WLDangerModel.m */; };
+		047B525421421B110007C477 /* WLAddPatrolController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B525321421B110007C477 /* WLAddPatrolController.m */; };
+		047B526121421CBC0007C477 /* WLAddPatrolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B526021421CBC0007C477 /* WLAddPatrolView.m */; };
+		047B526321421CCB0007C477 /* WLAddPatrolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B526221421CCB0007C477 /* WLAddPatrolView.xib */; };
+		047B52662142703A0007C477 /* WLDangerDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52652142703A0007C477 /* WLDangerDetailController.m */; };
+		047B526A214270730007C477 /* WLDangerInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5268214270730007C477 /* WLDangerInfoCell.m */; };
+		047B526B214270730007C477 /* WLDangerInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B5269214270730007C477 /* WLDangerInfoCell.xib */; };
+		047B526F214271340007C477 /* WLPatrolRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B526D214271340007C477 /* WLPatrolRecordCell.m */; };
+		047B5270214271340007C477 /* WLPatrolRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B526E214271340007C477 /* WLPatrolRecordCell.xib */; };
 		04C5310021212BC900C90964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C530FF21212BC900C90964 /* AppDelegate.m */; };
 		04C5310821212BCB00C90964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310721212BCB00C90964 /* Assets.xcassets */; };
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
@@ -385,6 +393,19 @@
 		047B524B2140CE140007C477 /* WLDangerPatrolCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLDangerPatrolCell.xib; sourceTree = "<group>"; };
 		047B524F21411DFE0007C477 /* WLDangerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLDangerModel.h; sourceTree = "<group>"; };
 		047B525021411DFE0007C477 /* WLDangerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLDangerModel.m; sourceTree = "<group>"; };
+		047B525221421B110007C477 /* WLAddPatrolController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLAddPatrolController.h; sourceTree = "<group>"; };
+		047B525321421B110007C477 /* WLAddPatrolController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLAddPatrolController.m; sourceTree = "<group>"; };
+		047B525F21421CBC0007C477 /* WLAddPatrolView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLAddPatrolView.h; sourceTree = "<group>"; };
+		047B526021421CBC0007C477 /* WLAddPatrolView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLAddPatrolView.m; sourceTree = "<group>"; };
+		047B526221421CCB0007C477 /* WLAddPatrolView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLAddPatrolView.xib; sourceTree = "<group>"; };
+		047B52642142703A0007C477 /* WLDangerDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLDangerDetailController.h; sourceTree = "<group>"; };
+		047B52652142703A0007C477 /* WLDangerDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLDangerDetailController.m; sourceTree = "<group>"; };
+		047B5267214270730007C477 /* WLDangerInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLDangerInfoCell.h; sourceTree = "<group>"; };
+		047B5268214270730007C477 /* WLDangerInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLDangerInfoCell.m; sourceTree = "<group>"; };
+		047B5269214270730007C477 /* WLDangerInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLDangerInfoCell.xib; sourceTree = "<group>"; };
+		047B526C214271340007C477 /* WLPatrolRecordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLPatrolRecordCell.h; sourceTree = "<group>"; };
+		047B526D214271340007C477 /* WLPatrolRecordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLPatrolRecordCell.m; sourceTree = "<group>"; };
+		047B526E214271340007C477 /* WLPatrolRecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLPatrolRecordCell.xib; sourceTree = "<group>"; };
 		04C530FB21212BC900C90964 /* waterConservancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterConservancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C530FE21212BC900C90964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04C530FF21212BC900C90964 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -923,6 +944,10 @@
 				047B52432140CAD30007C477 /* WLDangerPatrolController.m */,
 				047B52452140CBFB0007C477 /* WLDangerInquiryController.h */,
 				047B52462140CBFB0007C477 /* WLDangerInquiryController.m */,
+				047B525221421B110007C477 /* WLAddPatrolController.h */,
+				047B525321421B110007C477 /* WLAddPatrolController.m */,
+				047B52642142703A0007C477 /* WLDangerDetailController.h */,
+				047B52652142703A0007C477 /* WLDangerDetailController.m */,
 			);
 			path = "风险源";
 			sourceTree = "<group>";
@@ -933,6 +958,15 @@
 				047B52492140CE140007C477 /* WLDangerPatrolCell.h */,
 				047B524A2140CE140007C477 /* WLDangerPatrolCell.m */,
 				047B524B2140CE140007C477 /* WLDangerPatrolCell.xib */,
+				047B525F21421CBC0007C477 /* WLAddPatrolView.h */,
+				047B526021421CBC0007C477 /* WLAddPatrolView.m */,
+				047B526221421CCB0007C477 /* WLAddPatrolView.xib */,
+				047B5267214270730007C477 /* WLDangerInfoCell.h */,
+				047B5268214270730007C477 /* WLDangerInfoCell.m */,
+				047B5269214270730007C477 /* WLDangerInfoCell.xib */,
+				047B526C214271340007C477 /* WLPatrolRecordCell.h */,
+				047B526D214271340007C477 /* WLPatrolRecordCell.m */,
+				047B526E214271340007C477 /* WLPatrolRecordCell.xib */,
 			);
 			path = "风险源";
 			sourceTree = "<group>";
@@ -1400,7 +1434,9 @@
 				047B5240213F79EF0007C477 /* WLAddAccView.xib in Resources */,
 				047B508E212E58770007C477 /* assets in Resources */,
 				047B51AD21367C2E0007C477 /* playBtn.png in Resources */,
+				047B5270214271340007C477 /* WLPatrolRecordCell.xib in Resources */,
 				5A4CF1922122832B00D72FE5 /* Main.storyboard in Resources */,
+				047B526B214270730007C477 /* WLDangerInfoCell.xib in Resources */,
 				047B51FE213CFC190007C477 /* WLHiddSuperviseCell.xib in Resources */,
 				047B521F213D25BC0007C477 /* WLReportAccidentCell.xib in Resources */,
 				047B5233213E81F00007C477 /* WLAcciInfoCell.xib in Resources */,
@@ -1421,6 +1457,7 @@
 				047B51F4213CE7B50007C477 /* WLHiddDetailPerInfoCell.xib in Resources */,
 				047B521A213D25A40007C477 /* WLAccidentInquiryCell.xib in Resources */,
 				04C5310821212BCB00C90964 /* Assets.xcassets in Resources */,
+				047B526321421CCB0007C477 /* WLAddPatrolView.xib in Resources */,
 				047B51A221367C2E0007C477 /* gobackBtn.png in Resources */,
 				047B51F9213CF6B10007C477 /* WLHiddAdviseCell.xib in Resources */,
 				047B51A621367C2E0007C477 /* iconfont-yuan.png in Resources */,
@@ -1492,6 +1529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				047B51FD213CFC190007C477 /* WLHiddSuperviseCell.m in Sources */,
+				047B52662142703A0007C477 /* WLDangerDetailController.m in Sources */,
 				5A4CF195212283E200D72FE5 /* ViewController.m in Sources */,
 				047B5184213552710007C477 /* HAVPlayer.m in Sources */,
 				5A8BE2372125522700F61665 /* DJOnSpotCheckController.m in Sources */,
@@ -1514,6 +1552,7 @@
 				047B51722135517B0007C477 /* WKWAsset.m in Sources */,
 				047B51732135517B0007C477 /* SmallCell.m in Sources */,
 				047B514A21353AED0007C477 /* WLUploadHiddenController.m in Sources */,
+				047B526121421CBC0007C477 /* WLAddPatrolView.m in Sources */,
 				047B515421353CCA0007C477 /* WJTimeCircle.m in Sources */,
 				047B51742135517B0007C477 /* PhotosController.m in Sources */,
 				047B50A0213398940007C477 /* WLHiddenCell.m in Sources */,
@@ -1544,11 +1583,13 @@
 				5A3A7ED0212D3F550081BB16 /* DJElementDetailController.m in Sources */,
 				047B506B212565810007C477 /* NSObject+Convertor.m in Sources */,
 				047B50BB2133F2EC0007C477 /* WLUploadDetailInfoCell.m in Sources */,
+				047B525421421B110007C477 /* WLAddPatrolController.m in Sources */,
 				047B50A92133C9500007C477 /* WLEngListCell.m in Sources */,
 				5A3A7EEC212FA5CA0081BB16 /* DJElementCheckCell.m in Sources */,
 				047B51D12137BF3D0007C477 /* WLHiddenRepairListController.m in Sources */,
 				5A4CF16E21227B1600D72FE5 /* YXForgetView.m in Sources */,
 				5A4CF18E2122806600D72FE5 /* YXBackBtn.m in Sources */,
+				047B526A214270730007C477 /* WLDangerInfoCell.m in Sources */,
 				047B51F8213CF6B10007C477 /* WLHiddAdviseCell.m in Sources */,
 				047B520C213D0DF00007C477 /* WLHiddDetailCell.m in Sources */,
 				047B51DC2137E7AF0007C477 /* WLHiddenRepairPopView.m in Sources */,
@@ -1591,6 +1632,7 @@
 				047129C32122C81900EEADE5 /* WLWorkTopView.m in Sources */,
 				047B523E213F79D70007C477 /* WLAddAccView.m in Sources */,
 				047B5214213D251F0007C477 /* WLAccidentInquiryListController.m in Sources */,
+				047B526F214271340007C477 /* WLPatrolRecordCell.m in Sources */,
 				047B515121353C070007C477 /* WLRecordView.m in Sources */,
 				047B522D213E7B0C0007C477 /* WLAcciDeailCell.m in Sources */,
 				047B52442140CAD30007C477 /* WLDangerPatrolController.m in Sources */,

@@ -9,6 +9,7 @@
 #import "WLDangerInquiryController.h"
 #import "WLDangerPatrolCell.h"
 #import "WLDangerModel.h"
+#import "WLDangerDetailController.h"
 
 #define cellIdentifity @"WLDangerPatrolCell"
 
@@ -118,5 +119,11 @@
     }
     return cell;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    WLDangerDetailController *detail = [[WLDangerDetailController alloc]init];
+    if (self.dataArr.count>indexPath.row) {
+        detail.model  = [self.dataArr objectAtIndex:indexPath.row];
+    }
+    [self.navigationController pushViewController:detail animated:YES];
+}
 @end

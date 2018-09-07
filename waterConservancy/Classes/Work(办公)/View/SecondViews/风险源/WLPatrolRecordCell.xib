@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="WLPatrolRecordCell" id="KGk-i7-Jjw" customClass="WLPatrolRecordCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="viewBg" translatesAutoresizingMaskIntoConstraints="NO" id="uCA-yh-NjI">
+                        <rect key="frame" x="5" y="0.0" width="310" height="50"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="巡查记录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ge9-IE-1at">
+                        <rect key="frame" x="20" y="14" width="100" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Mg0-iw-1Hc"/>
+                            <constraint firstAttribute="width" constant="100" id="d24-ro-buN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detailArrow" translatesAutoresizingMaskIntoConstraints="NO" id="1Gq-R7-emh">
+                        <rect key="frame" x="292" y="17.5" width="8" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="M7k-mD-iec"/>
+                            <constraint firstAttribute="width" constant="8" id="bZk-WR-gKe"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1z-2v-ACQ">
+                        <rect key="frame" x="130" y="15" width="152" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="iUj-FO-hLL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.25098039215686274" green="0.45490196078431372" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="1Gq-R7-emh" firstAttribute="leading" secondItem="m1z-2v-ACQ" secondAttribute="trailing" constant="10" id="4LF-30-qKq"/>
+                    <constraint firstItem="ge9-IE-1at" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="5xw-pY-9pe"/>
+                    <constraint firstAttribute="bottom" secondItem="uCA-yh-NjI" secondAttribute="bottom" id="Bnd-sO-ZRc"/>
+                    <constraint firstAttribute="trailing" secondItem="1Gq-R7-emh" secondAttribute="trailing" constant="20" id="Ctw-rs-5Hv"/>
+                    <constraint firstItem="1Gq-R7-emh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Dr4-M8-flL"/>
+                    <constraint firstItem="uCA-yh-NjI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="G4R-f2-tdn"/>
+                    <constraint firstItem="m1z-2v-ACQ" firstAttribute="leading" secondItem="ge9-IE-1at" secondAttribute="trailing" constant="10" id="QEq-vU-rZA"/>
+                    <constraint firstAttribute="trailing" secondItem="uCA-yh-NjI" secondAttribute="trailing" constant="5" id="boI-am-lYO"/>
+                    <constraint firstItem="ge9-IE-1at" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ggg-kj-UnJ"/>
+                    <constraint firstItem="m1z-2v-ACQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="iYm-98-Tgn"/>
+                    <constraint firstItem="uCA-yh-NjI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="rcb-Cr-oXH"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="recordCountLab" destination="m1z-2v-ACQ" id="PW6-zK-LX8"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="detailArrow" width="8" height="15"/>
+        <image name="viewBg" width="353" height="113"/>
+    </resources>
+</document>

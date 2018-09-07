@@ -14,7 +14,7 @@
 #import "GCMAssetModel.h"
 #import "AC_AVPlayerViewController.h"
 #import <iflyMSC/iflyMSC.h>
-#import "TNIUDateTools.h"
+
 
 #define RandomNum (arc4random() % 9999999999999999)
 
