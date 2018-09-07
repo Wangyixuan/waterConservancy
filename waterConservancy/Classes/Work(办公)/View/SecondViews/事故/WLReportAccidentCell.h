@@ -12,4 +12,5 @@
 
 @interface WLReportAccidentCell : YXBaseTableViewCell
 @property (nonatomic, strong) WLAcciModel *model;
+@property (nonatomic, copy) void(^btnClickBlock)(WLAcciModel *model);
 @end

@@ -88,8 +88,8 @@
     [CDicArr addObject:sgDic];
     [BDicArr addObject:sgDic];
     //企事业用户使用
-    NSDictionary *fx1 =@{@"text":@"风险源巡查",@"img":@"weixian_beian",@"ctrl":@""};
-    NSDictionary *fx2 =@{@"text":@"风险源查询",@"img":@"weixian_chaxun",@"ctrl":@""};
+    NSDictionary *fx1 =@{@"text":@"风险源巡查",@"img":@"weixian_beian",@"ctrl":@"WLDangerPatrolController"};
+    NSDictionary *fx2 =@{@"text":@"风险源查询",@"img":@"weixian_chaxun",@"ctrl":@"WLDangerInquiryController"};
     NSArray *fxArr = @[fx1,fx2];
     NSDictionary *fxDic = @{@"title":@"风险源",@"data":fxArr,@"bgImage":@"weixianyuan"};
     [BDicArr addObject:fxDic];

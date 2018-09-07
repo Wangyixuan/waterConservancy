@@ -81,7 +81,7 @@ static NSString *const ONSPOTCHECKCELLREUSEID = @"ONSPOTCHECKCELL";
             [weak_self loadMoreData];
         }];
     }
-    else if (arrCount==0 &&self.dataArr.count!=0){
+    else if (arrCount==0 &&self.dataArr.count==0){
         //无数据
     }else if (arrCount==-1){
         [SVProgressHUD showErrorWithStatus:@"网络异常"];

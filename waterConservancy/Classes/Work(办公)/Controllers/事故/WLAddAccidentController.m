@@ -43,7 +43,7 @@
    [self registerForKeyboardNotifications];
     UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, self.view.frame.size.height-30-SCALE_W(70)-WC_STATUSBAR_AND_NAVIGATIONBAR_HEIGHT)];
     scrollView.delegate = self;
-    if (scrollView.frame.size.height<695) {
+    if (scrollView.frame.size.height<690) {
          scrollView.contentSize = CGSizeMake(0, 695);
     }
     scrollView.bounces = NO;
@@ -51,7 +51,10 @@
     _bgView = scrollView;
     @weakify(self)
     WLAddAccView *view = [WLAddAccView createAddAccView];
-    view.frame = CGRectMake(0, 5, kScreenWidth, 695);
+    view.frame = CGRectMake(0, 5, kScreenWidth, 690);
+    if (self.model) {
+        view.accName.text = self.model.accName;
+    }
     [view showMediaDataWith:self.photoArray];
     view.voiceBlock = ^{
         [weak_self.tabBarController.view addSubview:weak_self.recordView];
@@ -243,7 +246,6 @@
 // Called when the UIKeyboardWillHideNotification is sent
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
-
   self.bgView.contentSize = self.bgViewConSize;
 }
 

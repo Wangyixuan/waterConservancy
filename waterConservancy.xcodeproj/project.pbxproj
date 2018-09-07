@@ -124,6 +124,11 @@
 		047B523B213F773B0007C477 /* WLAddAccidentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B523A213F773B0007C477 /* WLAddAccidentController.m */; };
 		047B523E213F79D70007C477 /* WLAddAccView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B523D213F79D70007C477 /* WLAddAccView.m */; };
 		047B5240213F79EF0007C477 /* WLAddAccView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B523F213F79EF0007C477 /* WLAddAccView.xib */; };
+		047B52442140CAD30007C477 /* WLDangerPatrolController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52432140CAD30007C477 /* WLDangerPatrolController.m */; };
+		047B52472140CBFB0007C477 /* WLDangerInquiryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52462140CBFB0007C477 /* WLDangerInquiryController.m */; };
+		047B524C2140CE140007C477 /* WLDangerPatrolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B524A2140CE140007C477 /* WLDangerPatrolCell.m */; };
+		047B524D2140CE140007C477 /* WLDangerPatrolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B524B2140CE140007C477 /* WLDangerPatrolCell.xib */; };
+		047B525121411DFE0007C477 /* WLDangerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B525021411DFE0007C477 /* WLDangerModel.m */; };
 		04C5310021212BC900C90964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C530FF21212BC900C90964 /* AppDelegate.m */; };
 		04C5310821212BCB00C90964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310721212BCB00C90964 /* Assets.xcassets */; };
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
@@ -371,6 +376,15 @@
 		047B523C213F79D70007C477 /* WLAddAccView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLAddAccView.h; sourceTree = "<group>"; };
 		047B523D213F79D70007C477 /* WLAddAccView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLAddAccView.m; sourceTree = "<group>"; };
 		047B523F213F79EF0007C477 /* WLAddAccView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLAddAccView.xib; sourceTree = "<group>"; };
+		047B52422140CAD30007C477 /* WLDangerPatrolController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLDangerPatrolController.h; sourceTree = "<group>"; };
+		047B52432140CAD30007C477 /* WLDangerPatrolController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLDangerPatrolController.m; sourceTree = "<group>"; };
+		047B52452140CBFB0007C477 /* WLDangerInquiryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLDangerInquiryController.h; sourceTree = "<group>"; };
+		047B52462140CBFB0007C477 /* WLDangerInquiryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLDangerInquiryController.m; sourceTree = "<group>"; };
+		047B52492140CE140007C477 /* WLDangerPatrolCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLDangerPatrolCell.h; sourceTree = "<group>"; };
+		047B524A2140CE140007C477 /* WLDangerPatrolCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLDangerPatrolCell.m; sourceTree = "<group>"; };
+		047B524B2140CE140007C477 /* WLDangerPatrolCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLDangerPatrolCell.xib; sourceTree = "<group>"; };
+		047B524F21411DFE0007C477 /* WLDangerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLDangerModel.h; sourceTree = "<group>"; };
+		047B525021411DFE0007C477 /* WLDangerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLDangerModel.m; sourceTree = "<group>"; };
 		04C530FB21212BC900C90964 /* waterConservancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterConservancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C530FE21212BC900C90964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04C530FF21212BC900C90964 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -517,6 +531,7 @@
 		047129942121734C00EEADE5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				047B52412140C9830007C477 /* 风险源 */,
 				047B520E213D235B0007C477 /* 事故 */,
 				047B50A22133ABD50007C477 /* 隐患 */,
 				047B5077212C1EBA0007C477 /* 报表管理 */,
@@ -645,6 +660,7 @@
 		047B506121255DD50007C477 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				047B524E21411DE60007C477 /* 风险源 */,
 				047B5220213D3F050007C477 /* 事故 */,
 				047B507B212D01810007C477 /* 安全检查 */,
 				5A8BE2402126A46D00F61665 /* 隐患 */,
@@ -898,6 +914,36 @@
 				047B5222213D3F170007C477 /* WLAcciModel.m */,
 			);
 			path = "事故";
+			sourceTree = "<group>";
+		};
+		047B52412140C9830007C477 /* 风险源 */ = {
+			isa = PBXGroup;
+			children = (
+				047B52422140CAD30007C477 /* WLDangerPatrolController.h */,
+				047B52432140CAD30007C477 /* WLDangerPatrolController.m */,
+				047B52452140CBFB0007C477 /* WLDangerInquiryController.h */,
+				047B52462140CBFB0007C477 /* WLDangerInquiryController.m */,
+			);
+			path = "风险源";
+			sourceTree = "<group>";
+		};
+		047B52482140CC2B0007C477 /* 风险源 */ = {
+			isa = PBXGroup;
+			children = (
+				047B52492140CE140007C477 /* WLDangerPatrolCell.h */,
+				047B524A2140CE140007C477 /* WLDangerPatrolCell.m */,
+				047B524B2140CE140007C477 /* WLDangerPatrolCell.xib */,
+			);
+			path = "风险源";
+			sourceTree = "<group>";
+		};
+		047B524E21411DE60007C477 /* 风险源 */ = {
+			isa = PBXGroup;
+			children = (
+				047B524F21411DFE0007C477 /* WLDangerModel.h */,
+				047B525021411DFE0007C477 /* WLDangerModel.m */,
+			);
+			path = "风险源";
 			sourceTree = "<group>";
 		};
 		04C530F221212BC900C90964 = {
@@ -1203,6 +1249,7 @@
 		5A8BE23C21255DBF00F61665 /* SecondViews */ = {
 			isa = PBXGroup;
 			children = (
+				047B52482140CC2B0007C477 /* 风险源 */,
 				047B5215213D254A0007C477 /* 事故 */,
 				047B5095212FDEAA0007C477 /* WLCheckInfoCell.h */,
 				047B5096212FDEAA0007C477 /* WLCheckInfoCell.m */,
@@ -1362,6 +1409,7 @@
 				047B5186213552710007C477 /* HVideoViewController.xib in Resources */,
 				047B51A321367C2E0007C477 /* playBtn@2x.png in Resources */,
 				047B5208213D056F0007C477 /* WLHiddRepairSchemeCell.xib in Resources */,
+				047B524D2140CE140007C477 /* WLDangerPatrolCell.xib in Resources */,
 				047B520D213D0DF10007C477 /* WLHiddDetailCell.xib in Resources */,
 				047B5182213552710007C477 /* btn_video_flip_camera@2x.png in Resources */,
 				047B51A421367C2E0007C477 /* playBtn@3x.png in Resources */,
@@ -1458,6 +1506,7 @@
 				047B5073212A8C9E0007C477 /* WLUserManager.m in Sources */,
 				5A4CF1902122806600D72FE5 /* YXBaseTableViewCell.m in Sources */,
 				047B51642135470D0007C477 /* YXVideoPlayBtn.m in Sources */,
+				047B524C2140CE140007C477 /* WLDangerPatrolCell.m in Sources */,
 				5A8BE2462126CA0500F61665 /* DJMonthListModel.m in Sources */,
 				047B5211213D24DD0007C477 /* WLReportAccidentListController.m in Sources */,
 				047B51A021367C2E0007C477 /* AC_AVPlayerViewController.m in Sources */,
@@ -1508,6 +1557,7 @@
 				047B51A121367C2E0007C477 /* AC_ProgressSlider.m in Sources */,
 				047B51E42138D7570007C477 /* WLHiddenRepairDetailViewController.m in Sources */,
 				047B5084212D6FBA0007C477 /* WLOnSpotCheckDetailController.m in Sources */,
+				047B52472140CBFB0007C477 /* WLDangerInquiryController.m in Sources */,
 				5A4CF17821227C6500D72FE5 /* YXDataResolveTool.m in Sources */,
 				047B51632135470D0007C477 /* YXPhotoImgBtn.m in Sources */,
 				5A8BE2432126A48F00F61665 /* DJHiddenDangerModel.m in Sources */,
@@ -1536,12 +1586,14 @@
 				5A4CF16D21227B1600D72FE5 /* YXDownListView.m in Sources */,
 				047B5202213CFF070007C477 /* WLHiddRecordCell.m in Sources */,
 				047B507A212C1F2C0007C477 /* WLHiddenReportViewController.m in Sources */,
+				047B525121411DFE0007C477 /* WLDangerModel.m in Sources */,
 				047B518A213554E20007C477 /* GCMAssetModel.m in Sources */,
 				047129C32122C81900EEADE5 /* WLWorkTopView.m in Sources */,
 				047B523E213F79D70007C477 /* WLAddAccView.m in Sources */,
 				047B5214213D251F0007C477 /* WLAccidentInquiryListController.m in Sources */,
 				047B515121353C070007C477 /* WLRecordView.m in Sources */,
 				047B522D213E7B0C0007C477 /* WLAcciDeailCell.m in Sources */,
+				047B52442140CAD30007C477 /* WLDangerPatrolController.m in Sources */,
 				047B506421255DD50007C477 /* WLWorkModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -29,6 +29,11 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)btnClick:(id)sender {
+    if (self.btnClickBlock) {
+        self.btnClickBlock(self.model);
+    }
+}
 
 -(void)setModel:(WLAcciModel *)model{
     _model = model;

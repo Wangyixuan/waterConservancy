@@ -28,12 +28,12 @@
     self.engArr = [NSMutableArray array];
     self.tendArr = [NSMutableArray array];
     // Do any additional setup after loading the view.
-    [self loadNewData];
-//    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//        [self loadNewData];
-//    }];
-//    self.tableView.mj_header = header;
-//    [header beginRefreshing];
+//    [self loadNewData];
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self loadNewData];
+    }];
+    self.tableView.mj_header = header;
+    [header beginRefreshing];
     [self setUpSubViews];
 }
 
@@ -82,7 +82,7 @@
             [weak_self loadMoreData];
         }];
     }
-    else if (arrCount==0 &&self.engArr.count!=0){
+    else if (arrCount==0 &&self.engArr.count==0){
         //无数据
     }else if (arrCount==-1){
         [SVProgressHUD showErrorWithStatus:@"网络异常"];

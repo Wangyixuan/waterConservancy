@@ -104,6 +104,12 @@
     if (self.dataArr.count>indexPath.row) {
         cell.model = [self.dataArr objectAtIndex:indexPath.row];
     }
+    @weakify(self)
+    cell.btnClickBlock = ^(WLAcciModel *model) {
+        WLAddAccidentController *addacc = [[WLAddAccidentController alloc]init];
+        addacc.model = model;
+        [weak_self.navigationController pushViewController:addacc animated:YES];
+    };
     return cell;
 }
 
