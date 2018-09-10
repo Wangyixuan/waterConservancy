@@ -31,7 +31,7 @@
 -(void)setModel:(WLDangerModel *)model{
     _model = model;
     self.nameLab.text = model.name;
-    self.wiunNameLab.text = model.engName;
+    self.wiunNameLab.text = [NSString stringWithFormat:@"所属工程：%@",model.engName];
     if ([model.grad intValue]==2) {
         [self.gradBtn setTitle:@"重大危险源" forState:UIControlStateNormal];
         [self.gradBtn setBackgroundImage:[UIImage imageNamed:@"weixian_zhongda"] forState:UIControlStateNormal];
@@ -39,6 +39,7 @@
         [self.gradBtn setTitle:@"一般危险源" forState:UIControlStateNormal];
         [self.gradBtn setBackgroundImage:[UIImage imageNamed:@"weixian_yiban"] forState:UIControlStateNormal];
     }
+    
 }
 
 

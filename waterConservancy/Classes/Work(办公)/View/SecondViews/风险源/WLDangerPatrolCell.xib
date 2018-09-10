@@ -52,7 +52,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6DX-9o-xTo">
-                        <rect key="frame" x="20" y="36" width="220" height="18"/>
+                        <rect key="frame" x="20" y="41" width="220" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="XT4-OY-CvL"/>
                         </constraints>
@@ -75,7 +75,7 @@
                     <constraint firstItem="uW3-ea-m8e" firstAttribute="leading" secondItem="6DX-9o-xTo" secondAttribute="trailing" constant="10" id="mSG-DS-tZG"/>
                     <constraint firstItem="mRm-Qi-Dol" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="mdf-oW-XQ2"/>
                     <constraint firstItem="uW3-ea-m8e" firstAttribute="leading" secondItem="PUU-VZ-YvW" secondAttribute="trailing" constant="10" id="nA1-gy-Qbe"/>
-                    <constraint firstItem="6DX-9o-xTo" firstAttribute="top" secondItem="TMu-hf-XZz" secondAttribute="bottom" constant="5" id="sKL-HT-7jG"/>
+                    <constraint firstItem="6DX-9o-xTo" firstAttribute="top" secondItem="TMu-hf-XZz" secondAttribute="bottom" constant="10" id="sKL-HT-7jG"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

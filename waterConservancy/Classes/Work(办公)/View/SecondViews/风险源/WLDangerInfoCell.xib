@@ -197,6 +197,15 @@
                     <constraint firstItem="t9V-da-5fR" firstAttribute="top" secondItem="yfx-D6-N3U" secondAttribute="top" id="zw8-kL-uzn"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="collTimeLab" destination="MZh-gr-sh8" id="LS6-BK-uyj"/>
+                <outlet property="engNameLab" destination="D9U-0Y-anc" id="IVV-wE-iEE"/>
+                <outlet property="gradLab" destination="4X3-L5-fCv" id="UG7-7L-BjR"/>
+                <outlet property="ifNoticeLab" destination="4pH-41-Eoq" id="r8t-Wo-7Vd"/>
+                <outlet property="supPersLab" destination="2Uo-vc-fX4" id="Ivm-LH-Ugh"/>
+                <outlet property="telLab" destination="t9V-da-5fR" id="mgX-Ca-RqT"/>
+                <outlet property="wuinNameLab" destination="qca-Ks-jPe" id="Qu8-F2-RPo"/>
+            </connections>
             <point key="canvasLocation" x="42" y="81"/>
         </tableViewCell>
     </objects>

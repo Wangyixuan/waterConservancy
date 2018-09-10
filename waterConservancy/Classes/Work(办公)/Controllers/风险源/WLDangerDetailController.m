@@ -10,6 +10,8 @@
 #import "WLDangerInfoCell.h"
 #import "WLPatrolRecordCell.h"
 #import "WLHiddAdviseCell.h"
+#import "WLPatrolRecordController.h"
+#import "WLPatrolRecordModel.h"
 
 #define cellInfoIdentifity @"WLDangerInfoCell"
 #define cellRecordIdentifity @"WLPatrolRecordCell"
@@ -34,6 +36,41 @@
     [self.tableView registerNib:[UINib nibWithNibName:cellInfoIdentifity bundle:nil] forCellReuseIdentifier:cellInfoIdentifity ];
     [self.tableView registerNib:[UINib nibWithNibName:cellRecordIdentifity bundle:nil] forCellReuseIdentifier:cellRecordIdentifity ];
     [self.tableView registerNib:[UINib nibWithNibName:cellAdviseIdentifity bundle:nil] forCellReuseIdentifier:cellAdviseIdentifity ];
+    [self loadDangerDeatil];
+    [self loadPatrolRecordData];
+}
+
+-(void)loadDangerDeatil{
+    NSDictionary *param = @{@"guid":self.model.guid,@"hazGuid":self.model.guid};
+    [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/bis/obj/selectHazInfoDetails/") Parmars:param success:^(id responseObject) {
+        NSLog(@"%@",responseObject);
+        NSDictionary *respDic = (NSDictionary*)responseObject;
+        NSArray *respArr = [respDic objectForKey:@"data"];
+        for (NSDictionary *dic in respArr) {
+            self.model.orgName = [dic stringForKey:@"wiunName" defaultValue:@""];
+        }
+        [self.tableView reloadData];
+    } faild:^(NSError *error) {
+        
+    }];
+}
+
+-(void)loadPatrolRecordData{
+    NSDictionary *param = @{@"hazGuid":self.model.guid};
+    [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/bis/haz/bisHazPatRecs/") Parmars:param success:^(id responseObject) {
+        NSLog(@"%@",responseObject);
+        NSDictionary *respDic = (NSDictionary*)responseObject;
+        NSArray *respArr = [respDic objectForKey:@"data"];
+        if (respArr.count>0) {
+            for (NSDictionary *dic in respArr) {
+                WLPatrolRecordModel *model = [[WLPatrolRecordModel alloc]initWithData:dic];
+                [self.recordArr addObject:model];
+            }
+        }
+        [self.tableView reloadData];
+    } faild:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,11 +82,7 @@
     return 4;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section==3) {
-        return 3;
-    }else{
-        return 1;
-    }
+    return 1;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
@@ -58,25 +91,41 @@
         return 140;
     }
     else{
-        return 50;
+        return 60;
     }
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
         WLDangerInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:cellInfoIdentifity forIndexPath:indexPath];
+        cell.model = self.model;
         return cell;
     }
     else if (indexPath.section==1||indexPath.section==2){
         WLHiddAdviseCell *cell = [tableView dequeueReusableCellWithIdentifier:cellAdviseIdentifity forIndexPath:indexPath];
+        if (indexPath.section==1) {
+            cell.contentText.text = self.model.harmRisk;
+        }else{
+            cell.contentText.text = self.model.moniPrec;
+        }
         return cell;
     }
     else{
         WLPatrolRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:cellRecordIdentifity forIndexPath:indexPath];
+        cell.recordCountLab.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.recordArr.count];
         return cell;
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==3) {
+//        if (self.recordArr.count>0) {
+            WLPatrolRecordController *record = [[WLPatrolRecordController alloc]init];
+            record.dataArr = self.recordArr;
+            [self.navigationController pushViewController:record animated:YES];
+//        }
+    }
+}
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, SCALE_W(100))];

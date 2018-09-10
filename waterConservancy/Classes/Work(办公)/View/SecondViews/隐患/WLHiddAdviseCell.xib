@@ -39,6 +39,9 @@
                     <constraint firstItem="4Gt-vu-6Mf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="t29-AB-e5F"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="contentText" destination="mi8-Ie-evE" id="fri-6b-IvV"/>
+            </connections>
             <point key="canvasLocation" x="34" y="77.5"/>
         </tableViewCell>
     </objects>

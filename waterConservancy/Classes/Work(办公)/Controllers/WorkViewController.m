@@ -41,7 +41,7 @@
     NSMutableArray *CDicArr = [NSMutableArray array];
     //用户数据 根据用户类型区分数据（企事业用户包括报表管理、安全检查、事故、隐患、风险源）
  
-    NSDictionary *baobiao1 =@{@"text":@"隐患报表",@"img":@"baobiao_yinhuan",@"ctrl":@"DJHiddenDrangeChartController"};
+    NSDictionary *baobiao1 =@{@"text":@"隐患报表",@"img":@"baobiao_yinhuan",@"ctrl":@"WLHiddenReportViewController"};
     NSDictionary *baobiao2 =@{@"text":@"事故报表",@"img":@"baobiao_shigu",@"ctrl":@""};
     NSDictionary *baobiao3 =@{@"text":@"检查报表",@"img":@"baobiao_anquan",@"ctrl":@""};
     NSDictionary *baobiao4 =@{@"text":@"考核报表",@"img":@"baobiao_gongzuo",@"ctrl":@""};

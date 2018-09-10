@@ -7,7 +7,8 @@
 //
 
 #import "YXBaseTableViewCell.h"
+#import "WLDangerModel.h"
 
 @interface WLDangerInfoCell : YXBaseTableViewCell
-
+@property (nonatomic, strong) WLDangerModel *model;
 @end

@@ -7,8 +7,11 @@
 //
 
 #import "WLHiddenReportViewController.h"
+#import "WLReportListCell.h"
 
-@interface WLHiddenReportViewController ()
+#define cellIdentifity @"WLReportListCell"
+
+@interface WLHiddenReportViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 
@@ -18,21 +21,42 @@
     [super viewDidLoad];
     self.title = @"隐患报表";
     // Do any additional setup after loading the view.
+    [self.view addSubview:self.tableView];
+    @weakify(self);
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.bottom.mas_equalTo(weak_self.view);
+    }];
+    [self.tableView registerNib:[UINib nibWithNibName:cellIdentifity bundle:nil] forCellReuseIdentifier:cellIdentifity];
+    [self loadReportData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)loadReportData{
+    NSDictionary * param =@{@"repOrgGuid":@"21260E691D454685B61086E7F2074B71",@"repTime":@"2018年08月",@"repType":@"1"};
+    [[YXNetTool shareTool]getRequestWithURL:YXNetAddress(@"sjjk/v1/bis/org/mon/rep/hazy-bisOrgMonRepPeris/")  Parmars:param success:^(id responseObject) {
+//        NSArray *dataArray = [responseObject objectForKey:@"data"];
+//        self.monthListArray = [NSArray modelArrayWithClass:[DJMonthListModel class] json:dataArray];
+//        [self.tableView reloadData];
+        NSLog(@"%@",responseObject);
+    } faild:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
 }
-*/
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 5;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
+}
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    WLReportListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifity forIndexPath:indexPath];
+    return cell;
+}
 @end

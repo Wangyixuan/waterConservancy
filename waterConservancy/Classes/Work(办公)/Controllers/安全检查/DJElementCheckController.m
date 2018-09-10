@@ -37,12 +37,6 @@ static NSString *const ELEMENTCHECKCELLREUSEID = @"ELEMENTCHECKCELL";
     //获得元素列表
     [self GetElementList];
   
-    
-    
-    
-    
-    
-  
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -98,7 +92,7 @@ static NSString *const ELEMENTCHECKCELLREUSEID = @"ELEMENTCHECKCELL";
     //获得元素的seguid 和 状态
     dispatch_async(queue, ^{
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-        NSString *urlStr = [NSString stringWithFormat:@"sjjk/v1/bis/se/bisSeWiuns/?orgGuid=%@",ORGID];
+        NSString *urlStr = [NSString stringWithFormat:@"sjjk/v1/bis/se/bisSeWiuns/?orgGuid=21260E691D454685B61086E7F2074B71"];
         [[YXNetTool shareTool]getRequestWithURL:YXNetAddress(urlStr)  Parmars:nil success:^(id responseObject) {
             @strongify(self);
             NSArray *dataArray = [responseObject objectForKey:@"data"];

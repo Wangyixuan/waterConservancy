@@ -137,6 +137,15 @@
 		047B526B214270730007C477 /* WLDangerInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B5269214270730007C477 /* WLDangerInfoCell.xib */; };
 		047B526F214271340007C477 /* WLPatrolRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B526D214271340007C477 /* WLPatrolRecordCell.m */; };
 		047B5270214271340007C477 /* WLPatrolRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B526E214271340007C477 /* WLPatrolRecordCell.xib */; };
+		047B52732146070F0007C477 /* WLPatrolRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52722146070F0007C477 /* WLPatrolRecordController.m */; };
+		047B5276214609C90007C477 /* WLPatrolRecordDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5275214609C90007C477 /* WLPatrolRecordDetailController.m */; };
+		047B527A21460B9D0007C477 /* WLPatrolRecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B527821460B9D0007C477 /* WLPatrolRecordListCell.m */; };
+		047B527B21460B9D0007C477 /* WLPatrolRecordListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B527921460B9D0007C477 /* WLPatrolRecordListCell.xib */; };
+		047B527E214648100007C477 /* WLPatrolRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B527D214648100007C477 /* WLPatrolRecordModel.m */; };
+		047B528221464ACD0007C477 /* WLRecordInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B528021464ACD0007C477 /* WLRecordInfoCell.m */; };
+		047B528321464ACD0007C477 /* WLRecordInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B528121464ACD0007C477 /* WLRecordInfoCell.xib */; };
+		047B528821466BEC0007C477 /* WLReportListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B528621466BEC0007C477 /* WLReportListCell.m */; };
+		047B528921466BEC0007C477 /* WLReportListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B528721466BEC0007C477 /* WLReportListCell.xib */; };
 		04C5310021212BC900C90964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C530FF21212BC900C90964 /* AppDelegate.m */; };
 		04C5310821212BCB00C90964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310721212BCB00C90964 /* Assets.xcassets */; };
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
@@ -406,6 +415,21 @@
 		047B526C214271340007C477 /* WLPatrolRecordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLPatrolRecordCell.h; sourceTree = "<group>"; };
 		047B526D214271340007C477 /* WLPatrolRecordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLPatrolRecordCell.m; sourceTree = "<group>"; };
 		047B526E214271340007C477 /* WLPatrolRecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLPatrolRecordCell.xib; sourceTree = "<group>"; };
+		047B52712146070F0007C477 /* WLPatrolRecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLPatrolRecordController.h; sourceTree = "<group>"; };
+		047B52722146070F0007C477 /* WLPatrolRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLPatrolRecordController.m; sourceTree = "<group>"; };
+		047B5274214609C90007C477 /* WLPatrolRecordDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLPatrolRecordDetailController.h; sourceTree = "<group>"; };
+		047B5275214609C90007C477 /* WLPatrolRecordDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLPatrolRecordDetailController.m; sourceTree = "<group>"; };
+		047B527721460B9D0007C477 /* WLPatrolRecordListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLPatrolRecordListCell.h; sourceTree = "<group>"; };
+		047B527821460B9D0007C477 /* WLPatrolRecordListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLPatrolRecordListCell.m; sourceTree = "<group>"; };
+		047B527921460B9D0007C477 /* WLPatrolRecordListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLPatrolRecordListCell.xib; sourceTree = "<group>"; };
+		047B527C214648100007C477 /* WLPatrolRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLPatrolRecordModel.h; sourceTree = "<group>"; };
+		047B527D214648100007C477 /* WLPatrolRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLPatrolRecordModel.m; sourceTree = "<group>"; };
+		047B527F21464ACD0007C477 /* WLRecordInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLRecordInfoCell.h; sourceTree = "<group>"; };
+		047B528021464ACD0007C477 /* WLRecordInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLRecordInfoCell.m; sourceTree = "<group>"; };
+		047B528121464ACD0007C477 /* WLRecordInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLRecordInfoCell.xib; sourceTree = "<group>"; };
+		047B528521466BEC0007C477 /* WLReportListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLReportListCell.h; sourceTree = "<group>"; };
+		047B528621466BEC0007C477 /* WLReportListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLReportListCell.m; sourceTree = "<group>"; };
+		047B528721466BEC0007C477 /* WLReportListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLReportListCell.xib; sourceTree = "<group>"; };
 		04C530FB21212BC900C90964 /* waterConservancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterConservancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C530FE21212BC900C90964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04C530FF21212BC900C90964 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -948,6 +972,10 @@
 				047B525321421B110007C477 /* WLAddPatrolController.m */,
 				047B52642142703A0007C477 /* WLDangerDetailController.h */,
 				047B52652142703A0007C477 /* WLDangerDetailController.m */,
+				047B52712146070F0007C477 /* WLPatrolRecordController.h */,
+				047B52722146070F0007C477 /* WLPatrolRecordController.m */,
+				047B5274214609C90007C477 /* WLPatrolRecordDetailController.h */,
+				047B5275214609C90007C477 /* WLPatrolRecordDetailController.m */,
 			);
 			path = "风险源";
 			sourceTree = "<group>";
@@ -967,6 +995,12 @@
 				047B526C214271340007C477 /* WLPatrolRecordCell.h */,
 				047B526D214271340007C477 /* WLPatrolRecordCell.m */,
 				047B526E214271340007C477 /* WLPatrolRecordCell.xib */,
+				047B527721460B9D0007C477 /* WLPatrolRecordListCell.h */,
+				047B527821460B9D0007C477 /* WLPatrolRecordListCell.m */,
+				047B527921460B9D0007C477 /* WLPatrolRecordListCell.xib */,
+				047B527F21464ACD0007C477 /* WLRecordInfoCell.h */,
+				047B528021464ACD0007C477 /* WLRecordInfoCell.m */,
+				047B528121464ACD0007C477 /* WLRecordInfoCell.xib */,
 			);
 			path = "风险源";
 			sourceTree = "<group>";
@@ -976,8 +1010,20 @@
 			children = (
 				047B524F21411DFE0007C477 /* WLDangerModel.h */,
 				047B525021411DFE0007C477 /* WLDangerModel.m */,
+				047B527C214648100007C477 /* WLPatrolRecordModel.h */,
+				047B527D214648100007C477 /* WLPatrolRecordModel.m */,
 			);
 			path = "风险源";
+			sourceTree = "<group>";
+		};
+		047B528421466BB60007C477 /* 报表管理 */ = {
+			isa = PBXGroup;
+			children = (
+				047B528521466BEC0007C477 /* WLReportListCell.h */,
+				047B528621466BEC0007C477 /* WLReportListCell.m */,
+				047B528721466BEC0007C477 /* WLReportListCell.xib */,
+			);
+			path = "报表管理";
 			sourceTree = "<group>";
 		};
 		04C530F221212BC900C90964 = {
@@ -1140,6 +1186,9 @@
 		5A3A7EE4212FA5CA0081BB16 /* 安全检查 */ = {
 			isa = PBXGroup;
 			children = (
+				047B5095212FDEAA0007C477 /* WLCheckInfoCell.h */,
+				047B5096212FDEAA0007C477 /* WLCheckInfoCell.m */,
+				047B5097212FDEAA0007C477 /* WLCheckInfoCell.xib */,
 				5A3A7EE5212FA5CA0081BB16 /* DJElementCheckitemCell.h */,
 				5A3A7EE6212FA5CA0081BB16 /* DJOnSpotCheckCell.m */,
 				5A3A7EE7212FA5CA0081BB16 /* DJElementCheckCell.m */,
@@ -1283,11 +1332,9 @@
 		5A8BE23C21255DBF00F61665 /* SecondViews */ = {
 			isa = PBXGroup;
 			children = (
+				047B528421466BB60007C477 /* 报表管理 */,
 				047B52482140CC2B0007C477 /* 风险源 */,
 				047B5215213D254A0007C477 /* 事故 */,
-				047B5095212FDEAA0007C477 /* WLCheckInfoCell.h */,
-				047B5096212FDEAA0007C477 /* WLCheckInfoCell.m */,
-				047B5097212FDEAA0007C477 /* WLCheckInfoCell.xib */,
 				5A3A7EE4212FA5CA0081BB16 /* 安全检查 */,
 				5A3A7EE3212FA5CA0081BB16 /* 隐患 */,
 			);
@@ -1431,6 +1478,7 @@
 				047B5203213CFF070007C477 /* WLHiddRecordCell.xib in Resources */,
 				047B50B72133EA730007C477 /* WLUploadHiddenInfoCell.xib in Resources */,
 				047B51DE2137E7BC0007C477 /* WLHiddenRepairPopView.xib in Resources */,
+				047B527B21460B9D0007C477 /* WLPatrolRecordListCell.xib in Resources */,
 				047B5240213F79EF0007C477 /* WLAddAccView.xib in Resources */,
 				047B508E212E58770007C477 /* assets in Resources */,
 				047B51AD21367C2E0007C477 /* playBtn.png in Resources */,
@@ -1443,6 +1491,7 @@
 				047B51A721367C2E0007C477 /* player_fit@2x.png in Resources */,
 				047B522E213E7B0C0007C477 /* WLAcciDeailCell.xib in Resources */,
 				047B5186213552710007C477 /* HVideoViewController.xib in Resources */,
+				047B528321464ACD0007C477 /* WLRecordInfoCell.xib in Resources */,
 				047B51A321367C2E0007C477 /* playBtn@2x.png in Resources */,
 				047B5208213D056F0007C477 /* WLHiddRepairSchemeCell.xib in Resources */,
 				047B524D2140CE140007C477 /* WLDangerPatrolCell.xib in Resources */,
@@ -1460,6 +1509,7 @@
 				047B526321421CCB0007C477 /* WLAddPatrolView.xib in Resources */,
 				047B51A221367C2E0007C477 /* gobackBtn.png in Resources */,
 				047B51F9213CF6B10007C477 /* WLHiddAdviseCell.xib in Resources */,
+				047B528921466BEC0007C477 /* WLReportListCell.xib in Resources */,
 				047B51A621367C2E0007C477 /* iconfont-yuan.png in Resources */,
 				047B51AA21367C2E0007C477 /* pauseBtn@2x.png in Resources */,
 				047B51A521367C2E0007C477 /* player_fit@3x.png in Resources */,
@@ -1575,6 +1625,7 @@
 				047B508A212D71190007C477 /* WLOnSpotMapViewController.m in Sources */,
 				047B5232213E81F00007C477 /* WLAcciInfoCell.m in Sources */,
 				047B5183213552710007C477 /* HVideoViewController.m in Sources */,
+				047B528221464ACD0007C477 /* WLRecordInfoCell.m in Sources */,
 				047B513B213536640007C477 /* YXRecordModel.m in Sources */,
 				047B5223213D3F170007C477 /* WLAcciModel.m in Sources */,
 				047B523B213F773B0007C477 /* WLAddAccidentController.m in Sources */,
@@ -1585,6 +1636,7 @@
 				047B50BB2133F2EC0007C477 /* WLUploadDetailInfoCell.m in Sources */,
 				047B525421421B110007C477 /* WLAddPatrolController.m in Sources */,
 				047B50A92133C9500007C477 /* WLEngListCell.m in Sources */,
+				047B527E214648100007C477 /* WLPatrolRecordModel.m in Sources */,
 				5A3A7EEC212FA5CA0081BB16 /* DJElementCheckCell.m in Sources */,
 				047B51D12137BF3D0007C477 /* WLHiddenRepairListController.m in Sources */,
 				5A4CF16E21227B1600D72FE5 /* YXForgetView.m in Sources */,
@@ -1595,6 +1647,7 @@
 				047B51DC2137E7AF0007C477 /* WLHiddenRepairPopView.m in Sources */,
 				5A3A7EEB212FA5CA0081BB16 /* DJOnSpotCheckCell.m in Sources */,
 				047B50B62133EA730007C477 /* WLUploadHiddenInfoCell.m in Sources */,
+				047B52732146070F0007C477 /* WLPatrolRecordController.m in Sources */,
 				047B51A121367C2E0007C477 /* AC_ProgressSlider.m in Sources */,
 				047B51E42138D7570007C477 /* WLHiddenRepairDetailViewController.m in Sources */,
 				047B5084212D6FBA0007C477 /* WLOnSpotCheckDetailController.m in Sources */,
@@ -1621,11 +1674,14 @@
 				047B51CB2136AFBF0007C477 /* ISRDataHelper.m in Sources */,
 				5A8BE23F21255E0A00F61665 /* DJHiddenDrangeChartController.m in Sources */,
 				5A3A7EE1212E966E0081BB16 /* DJElementCheckItemViewModel.m in Sources */,
+				047B5276214609C90007C477 /* WLPatrolRecordDetailController.m in Sources */,
 				047B51772135517B0007C477 /* AssetsHelper.m in Sources */,
 				047B506F212A8AA30007C477 /* WLUserModel.m in Sources */,
 				047B5098212FDEAA0007C477 /* WLCheckInfoCell.m in Sources */,
 				5A4CF16D21227B1600D72FE5 /* YXDownListView.m in Sources */,
+				047B527A21460B9D0007C477 /* WLPatrolRecordListCell.m in Sources */,
 				047B5202213CFF070007C477 /* WLHiddRecordCell.m in Sources */,
+				047B528821466BEC0007C477 /* WLReportListCell.m in Sources */,
 				047B507A212C1F2C0007C477 /* WLHiddenReportViewController.m in Sources */,
 				047B525121411DFE0007C477 /* WLDangerModel.m in Sources */,
 				047B518A213554E20007C477 /* GCMAssetModel.m in Sources */,

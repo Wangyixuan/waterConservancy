@@ -65,6 +65,7 @@
                 WLDangerModel *model = [[WLDangerModel alloc]initWithDic:dic];
                 [self.dataArr addObject:model];
             }
+            [self loadEngInfo];
             [self tableViewReload:data.count];
         }else{
             [self tableViewReload:0];
@@ -74,6 +75,25 @@
         NSLog(@"error%@",error);
         [self tableViewReload:-1];
     }];
+}
+
+-(void)loadEngInfo{
+    for (WLDangerModel *model in self.dataArr) {
+        if (model.engGuid.length>0) {
+            NSDictionary *param = @{@"guid":model.engGuid};
+            [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/jck/obj/objEngs/") Parmars:param success:^(id responseObject) {
+                NSLog(@"%@",responseObject);
+                NSDictionary *respDic = (NSDictionary*)responseObject;
+                NSArray *respArr = [respDic objectForKey:@"data"];
+                for (NSDictionary *dic in respArr) {
+                    model.engName = [dic stringForKey:@"engName" defaultValue:@"无"];
+                }
+                [self.tableView reloadData];
+            } faild:^(NSError *error) {
+                
+            }];
+        }
+    }
 }
 
 -(void)tableViewReload:(NSInteger)arrCount{

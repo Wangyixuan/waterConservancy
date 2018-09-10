@@ -9,5 +9,6 @@
 #import "YXBaseTableViewCell.h"
 
 @interface WLHiddAdviseCell : YXBaseTableViewCell
+@property (weak, nonatomic) IBOutlet UITextView *contentText;
 
 @end

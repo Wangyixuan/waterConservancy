@@ -16,6 +16,7 @@
 
 @interface WLDangerPatrolController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *dataArr;
+@property (nonatomic, strong) NSMutableArray *engArr;
 @end
 
 @implementation WLDangerPatrolController
@@ -24,6 +25,7 @@
     [super viewDidLoad];
     self.title = @"风险源巡查";
     self.dataArr = [NSMutableArray array];
+    self.engArr = [NSMutableArray array];
     // Do any additional setup after loading the view.
     [self.view addSubview:self.tableView];
     @weakify(self)
@@ -64,6 +66,7 @@
                 WLDangerModel *model = [[WLDangerModel alloc]initWithDic:dic];
                 [self.dataArr addObject:model];
             }
+            [self loadEngInfo];
             [self tableViewReload:data.count];
         }else{
             [self tableViewReload:0];
@@ -73,6 +76,25 @@
         NSLog(@"error%@",error);
         [self tableViewReload:-1];
     }];
+}
+
+-(void)loadEngInfo{
+    for (WLDangerModel *model in self.dataArr) {
+        if (model.engGuid.length>0) {
+            NSDictionary *param = @{@"guid":model.engGuid};
+            [[YXNetTool shareTool] getRequestWithURL:YXNetAddress(@"sjjk/v1/jck/obj/objEngs/") Parmars:param success:^(id responseObject) {
+                NSLog(@"%@",responseObject);
+                NSDictionary *respDic = (NSDictionary*)responseObject;
+                NSArray *respArr = [respDic objectForKey:@"data"];
+                for (NSDictionary *dic in respArr) {
+                    model.engName = [dic stringForKey:@"engName" defaultValue:@"无"];
+                }
+                [self.tableView reloadData];
+            } faild:^(NSError *error) {
+                
+            }];
+        }
+    }
 }
 
 -(void)tableViewReload:(NSInteger)arrCount{
