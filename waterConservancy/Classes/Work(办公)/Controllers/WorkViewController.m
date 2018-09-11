@@ -11,11 +11,10 @@
 #import "WLWorkModel.h"
 #import "WLWorkTableViewCell.h"
 #import "DJLoadViewController.h"
-//二级跳转ctrl
-#import "DJHiddenDrangeChartController.h"
-#import "DJElementCheckController.h"
-#import "DJOnSpotCheckController.h"
-
+#import "WLUserInfoController.h"
+#import "WLNoticeListController.h"
+#import "WLPendingWorkController.h"
+#import "UIViewController+QRCode.h"
 
 @interface WorkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView *workList;
@@ -42,9 +41,9 @@
     //用户数据 根据用户类型区分数据（企事业用户包括报表管理、安全检查、事故、隐患、风险源）
  
     NSDictionary *baobiao1 =@{@"text":@"隐患报表",@"img":@"baobiao_yinhuan",@"ctrl":@"WLHiddenReportViewController"};
-    NSDictionary *baobiao2 =@{@"text":@"事故报表",@"img":@"baobiao_shigu",@"ctrl":@""};
-    NSDictionary *baobiao3 =@{@"text":@"检查报表",@"img":@"baobiao_anquan",@"ctrl":@""};
-    NSDictionary *baobiao4 =@{@"text":@"考核报表",@"img":@"baobiao_gongzuo",@"ctrl":@""};
+    NSDictionary *baobiao2 =@{@"text":@"事故报表",@"img":@"baobiao_shigu",@"ctrl":@"WLAccReportListController"};
+    NSDictionary *baobiao3 =@{@"text":@"检查报表",@"img":@"baobiao_anquan",@"ctrl":@"WLCheckReportController"};
+    NSDictionary *baobiao4 =@{@"text":@"考核报表",@"img":@"baobiao_gongzuo",@"ctrl":@"WLAssessmentReportController"};
     NSArray *baobiaoArr = @[baobiao1,baobiao2,baobiao3,baobiao4];
     NSDictionary *baobiaoDic = @{@"title":@"报表管理",@"data":baobiaoArr,@"bgImage":@"baobiaoguanli"};
     [CDicArr addObject:baobiaoDic];
@@ -210,21 +209,28 @@
     @weakify(self)
     topView.noticeBlock = ^{
         NSLog(@"提醒通知");
+        WLNoticeListController *notice = [[WLNoticeListController alloc]init];
+        [weak_self.navigationController pushViewController:notice animated:YES];
     };
     topView.agencyWorkBlock = ^{
         NSLog(@"待办工作");
-        WLShareUserManager.autoLoginEnabled = NO;
-        DJLoadViewController *loadCtrl = [[DJLoadViewController alloc]init];
-        [weak_self.navigationController pushViewController:loadCtrl animated:YES];
+//        WLShareUserManager.autoLoginEnabled = NO;
+//        DJLoadViewController *loadCtrl = [[DJLoadViewController alloc]init];
+//        [weak_self.navigationController pushViewController:loadCtrl animated:YES];
+        WLPendingWorkController *pend = [[WLPendingWorkController alloc]init];
+        [weak_self.navigationController pushViewController:pend animated:YES];
     };
     topView.userInfoBlock = ^{
         NSLog(@"个人中心");
+        WLUserInfoController *user = WCViewControllerOfMainSB(@"WLUserInfoController");
+        [weak_self.navigationController pushViewController:user animated:YES];
     };
     topView.nearBlock = ^{
         NSLog(@"附近隐患");
     };
     topView.QRCodeBlock = ^{
         NSLog(@"二维码");
+        [self operateQRCode];
     };
     return topView;
 }

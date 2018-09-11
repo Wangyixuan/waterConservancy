@@ -7,7 +7,8 @@
 //
 
 #import "YXBaseTableViewCell.h"
+#import "WLReportModel.h"
 
 @interface WLReportListCell : YXBaseTableViewCell
-
+@property (nonatomic, strong) WLReportModel *model;
 @end

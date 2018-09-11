@@ -26,6 +26,7 @@
     [string addAttribute:NSUnderlineColorAttributeName value:[UIColor redColor] range:titleRange];
     [string addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:titleRange];
     [self.backBtn setAttributedTitle:string forState:UIControlStateNormal];
+    self.backBtn.hidden = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -33,6 +34,23 @@
 
     // Configure the view for the selected state
 }
+-(void)setModel:(WLReportModel *)model{
+    _model = model;
+    self.nameLab.text = model.repName;
+    self.reportBtn.enabled = YES;
+    self.backBtn.hidden = YES;
+    if ([model.repAct integerValue]==1) {
+        self.reportBtn.enabled = NO;
+    }else if([model.repAct integerValue]==2){
+         self.backBtn.hidden = NO;
+        [self.reportBtn setTitle:@"上报" forState:UIControlStateNormal];
+        [self.reportBtn setBackgroundImage:[UIImage imageNamed:@"smallbtnBg"] forState:UIControlStateNormal];
+    }else if ([model.repAct integerValue]==3){
+        
+    }
+}
+
+
 - (IBAction)reportBtnClick:(id)sender {
     
 }

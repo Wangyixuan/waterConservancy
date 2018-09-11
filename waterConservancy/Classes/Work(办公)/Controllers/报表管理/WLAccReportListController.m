@@ -1,26 +1,27 @@
 //
-//  WLHiddenReportViewController.m
+//  WLAccReportListController.m
 //  waterConservancy
 //
-//  Created by mac on 2018/8/21.
+//  Created by mac on 2018/9/11.
 //  Copyright © 2018年 com.yx.waterConservancy. All rights reserved.
 //
 
-#import "WLHiddenReportViewController.h"
+#import "WLAccReportListController.h"
 #import "WLReportListCell.h"
 #import "WLReportModel.h"
 
 #define cellIdentifity @"WLReportListCell"
 
-@interface WLHiddenReportViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface WLAccReportListController ()
 @property (nonatomic, strong) NSMutableArray *dataArr;
+
 @end
 
-@implementation WLHiddenReportViewController
+@implementation WLAccReportListController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"隐患报表";
+    self.title = @"事故报表";
     self.dataArr = [NSMutableArray array];
     // Do any additional setup after loading the view.
     [self.view addSubview:self.tableView];
@@ -41,7 +42,7 @@
     [formatter setDateFormat:@"yyyy年"];
     NSString *dateStr = [formatter stringFromDate:[NSDate date]];
     
-    NSDictionary * param =@{@"repOrgGuid":@"21260E691D454685B61086E7F2074B71",@"repTime":dateStr,@"repType":@"0"};
+    NSDictionary * param =@{@"repOrgGuid":@"21260E691D454685B61086E7F2074B71",@"repTime":dateStr,@"repType":@"1"};
     [[YXNetTool shareTool]getRequestWithURL:YXNetAddress(@"sjjk/v1/bis/org/mon/rep/hazy-bisOrgMonRepPeris/")  Parmars:param success:^(id responseObject) {
         NSLog(@"%@",responseObject);
         NSDictionary *respDic = (NSDictionary*)responseObject;
@@ -52,7 +53,7 @@
         }
         [self loadReportAct];
         [self.tableView reloadData];
-      
+        
     } faild:^(NSError *error) {
         NSLog(@"%@",error);
     }];
@@ -68,7 +69,7 @@
                 NSArray *reapArr = [respDic objectForKey:@"data"];
                 for (NSDictionary *dic in reapArr) {
                     model.repAct = [dic stringForKey:@"repAct" defaultValue:@""];
-                }                
+                }
             } faild:^(NSError *error) {
                 
             }];
@@ -92,4 +93,5 @@
     }
     return cell;
 }
+
 @end

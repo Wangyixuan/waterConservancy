@@ -146,6 +146,22 @@
 		047B528321464ACD0007C477 /* WLRecordInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B528121464ACD0007C477 /* WLRecordInfoCell.xib */; };
 		047B528821466BEC0007C477 /* WLReportListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B528621466BEC0007C477 /* WLReportListCell.m */; };
 		047B528921466BEC0007C477 /* WLReportListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B528721466BEC0007C477 /* WLReportListCell.xib */; };
+		047B528D21476C850007C477 /* WLReportModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B528C21476C850007C477 /* WLReportModel.m */; };
+		047B529021478F6A0007C477 /* WLAccReportListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B528F21478F6A0007C477 /* WLAccReportListController.m */; };
+		047B5293214794970007C477 /* WLCheckReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5292214794970007C477 /* WLCheckReportController.m */; };
+		047B5296214796B30007C477 /* WLAssessmentReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B5295214796B30007C477 /* WLAssessmentReportController.m */; };
+		047B529921479B8A0007C477 /* WLNoticeListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B529821479B8A0007C477 /* WLNoticeListController.m */; };
+		047B529C21479BC80007C477 /* WLPendingWorkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B529B21479BC80007C477 /* WLPendingWorkController.m */; };
+		047B529F21479C470007C477 /* WLUserInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B529E21479C470007C477 /* WLUserInfoController.m */; };
+		047B52A32147A7360007C477 /* WLPendingWorkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52A12147A7360007C477 /* WLPendingWorkCell.m */; };
+		047B52A42147A7360007C477 /* WLPendingWorkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B52A22147A7360007C477 /* WLPendingWorkCell.xib */; };
+		047B52A82147B53C0007C477 /* WLNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52A62147B53C0007C477 /* WLNoticeCell.m */; };
+		047B52A92147B53C0007C477 /* WLNoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B52A72147B53C0007C477 /* WLNoticeCell.xib */; };
+		047B52AC2147C52A0007C477 /* UIViewController+QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52AB2147C5290007C477 /* UIViewController+QRCode.m */; };
+		047B52B72147C5B80007C477 /* QRCameraSwitchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52B02147C5B80007C477 /* QRCameraSwitchButton.m */; };
+		047B52B82147C5B80007C477 /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52B22147C5B80007C477 /* QRCodeReaderViewController.m */; };
+		047B52B92147C5B80007C477 /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52B32147C5B80007C477 /* QRCodeReaderView.m */; };
+		047B52BA2147C5B80007C477 /* QRCodeReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52B62147C5B80007C477 /* QRCodeReader.m */; };
 		04C5310021212BC900C90964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C530FF21212BC900C90964 /* AppDelegate.m */; };
 		04C5310821212BCB00C90964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310721212BCB00C90964 /* Assets.xcassets */; };
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
@@ -430,6 +446,37 @@
 		047B528521466BEC0007C477 /* WLReportListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLReportListCell.h; sourceTree = "<group>"; };
 		047B528621466BEC0007C477 /* WLReportListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLReportListCell.m; sourceTree = "<group>"; };
 		047B528721466BEC0007C477 /* WLReportListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLReportListCell.xib; sourceTree = "<group>"; };
+		047B528B21476C850007C477 /* WLReportModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLReportModel.h; sourceTree = "<group>"; };
+		047B528C21476C850007C477 /* WLReportModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLReportModel.m; sourceTree = "<group>"; };
+		047B528E21478F6A0007C477 /* WLAccReportListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLAccReportListController.h; sourceTree = "<group>"; };
+		047B528F21478F6A0007C477 /* WLAccReportListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLAccReportListController.m; sourceTree = "<group>"; };
+		047B5291214794970007C477 /* WLCheckReportController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLCheckReportController.h; sourceTree = "<group>"; };
+		047B5292214794970007C477 /* WLCheckReportController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLCheckReportController.m; sourceTree = "<group>"; };
+		047B5294214796B30007C477 /* WLAssessmentReportController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLAssessmentReportController.h; sourceTree = "<group>"; };
+		047B5295214796B30007C477 /* WLAssessmentReportController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLAssessmentReportController.m; sourceTree = "<group>"; };
+		047B529721479B8A0007C477 /* WLNoticeListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLNoticeListController.h; sourceTree = "<group>"; };
+		047B529821479B8A0007C477 /* WLNoticeListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLNoticeListController.m; sourceTree = "<group>"; };
+		047B529A21479BC80007C477 /* WLPendingWorkController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLPendingWorkController.h; sourceTree = "<group>"; };
+		047B529B21479BC80007C477 /* WLPendingWorkController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLPendingWorkController.m; sourceTree = "<group>"; };
+		047B529D21479C470007C477 /* WLUserInfoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLUserInfoController.h; sourceTree = "<group>"; };
+		047B529E21479C470007C477 /* WLUserInfoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLUserInfoController.m; sourceTree = "<group>"; };
+		047B52A02147A7360007C477 /* WLPendingWorkCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLPendingWorkCell.h; sourceTree = "<group>"; };
+		047B52A12147A7360007C477 /* WLPendingWorkCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLPendingWorkCell.m; sourceTree = "<group>"; };
+		047B52A22147A7360007C477 /* WLPendingWorkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLPendingWorkCell.xib; sourceTree = "<group>"; };
+		047B52A52147B53C0007C477 /* WLNoticeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLNoticeCell.h; sourceTree = "<group>"; };
+		047B52A62147B53C0007C477 /* WLNoticeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLNoticeCell.m; sourceTree = "<group>"; };
+		047B52A72147B53C0007C477 /* WLNoticeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLNoticeCell.xib; sourceTree = "<group>"; };
+		047B52AA2147C5290007C477 /* UIViewController+QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+QRCode.h"; sourceTree = "<group>"; };
+		047B52AB2147C5290007C477 /* UIViewController+QRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+QRCode.m"; sourceTree = "<group>"; };
+		047B52AE2147C5B80007C477 /* QRCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderView.h; sourceTree = "<group>"; };
+		047B52AF2147C5B80007C477 /* QRCodeReaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderDelegate.h; sourceTree = "<group>"; };
+		047B52B02147C5B80007C477 /* QRCameraSwitchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCameraSwitchButton.m; sourceTree = "<group>"; };
+		047B52B12147C5B80007C477 /* QRCodeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReader.h; sourceTree = "<group>"; };
+		047B52B22147C5B80007C477 /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController.m; sourceTree = "<group>"; };
+		047B52B32147C5B80007C477 /* QRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderView.m; sourceTree = "<group>"; };
+		047B52B42147C5B80007C477 /* QRCameraSwitchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCameraSwitchButton.h; sourceTree = "<group>"; };
+		047B52B52147C5B80007C477 /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController.h; sourceTree = "<group>"; };
+		047B52B62147C5B80007C477 /* QRCodeReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReader.m; sourceTree = "<group>"; };
 		04C530FB21212BC900C90964 /* waterConservancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterConservancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C530FE21212BC900C90964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04C530FF21212BC900C90964 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -569,6 +616,12 @@
 				047B505621242DE50007C477 /* WLWorkTableViewCell.h */,
 				047B505C212441410007C477 /* WLWorkTableViewCell.xib */,
 				047B505721242DE50007C477 /* WLWorkTableViewCell.m */,
+				047B52A02147A7360007C477 /* WLPendingWorkCell.h */,
+				047B52A12147A7360007C477 /* WLPendingWorkCell.m */,
+				047B52A22147A7360007C477 /* WLPendingWorkCell.xib */,
+				047B52A52147B53C0007C477 /* WLNoticeCell.h */,
+				047B52A62147B53C0007C477 /* WLNoticeCell.m */,
+				047B52A72147B53C0007C477 /* WLNoticeCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -576,6 +629,7 @@
 		047129942121734C00EEADE5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				047B52AD2147C5B80007C477 /* QRCodeReaderViewController */,
 				047B52412140C9830007C477 /* 风险源 */,
 				047B520E213D235B0007C477 /* 事故 */,
 				047B50A22133ABD50007C477 /* 隐患 */,
@@ -583,6 +637,12 @@
 				5A8BE23B21255D9D00F61665 /* 安全检查 */,
 				047129B221217EF600EEADE5 /* WorkViewController.h */,
 				047129B321217EF600EEADE5 /* WorkViewController.m */,
+				047B529721479B8A0007C477 /* WLNoticeListController.h */,
+				047B529821479B8A0007C477 /* WLNoticeListController.m */,
+				047B529A21479BC80007C477 /* WLPendingWorkController.h */,
+				047B529B21479BC80007C477 /* WLPendingWorkController.m */,
+				047B529D21479C470007C477 /* WLUserInfoController.h */,
+				047B529E21479C470007C477 /* WLUserInfoController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -705,6 +765,7 @@
 		047B506121255DD50007C477 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				047B528A21476C6B0007C477 /* 报表管理 */,
 				047B524E21411DE60007C477 /* 风险源 */,
 				047B5220213D3F050007C477 /* 事故 */,
 				047B507B212D01810007C477 /* 安全检查 */,
@@ -720,6 +781,8 @@
 		047B5065212564920007C477 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				047B52AA2147C5290007C477 /* UIViewController+QRCode.h */,
+				047B52AB2147C5290007C477 /* UIViewController+QRCode.m */,
 				047B507F212D4AF10007C477 /* NSString+Size.h */,
 				047B5080212D4AF10007C477 /* NSString+Size.m */,
 				047B506A212565800007C477 /* NSObject+Convertor.h */,
@@ -753,6 +816,12 @@
 			children = (
 				047B5078212C1F2C0007C477 /* WLHiddenReportViewController.h */,
 				047B5079212C1F2C0007C477 /* WLHiddenReportViewController.m */,
+				047B528E21478F6A0007C477 /* WLAccReportListController.h */,
+				047B528F21478F6A0007C477 /* WLAccReportListController.m */,
+				047B5291214794970007C477 /* WLCheckReportController.h */,
+				047B5292214794970007C477 /* WLCheckReportController.m */,
+				047B5294214796B30007C477 /* WLAssessmentReportController.h */,
+				047B5295214796B30007C477 /* WLAssessmentReportController.m */,
 			);
 			path = "报表管理";
 			sourceTree = "<group>";
@@ -1024,6 +1093,31 @@
 				047B528721466BEC0007C477 /* WLReportListCell.xib */,
 			);
 			path = "报表管理";
+			sourceTree = "<group>";
+		};
+		047B528A21476C6B0007C477 /* 报表管理 */ = {
+			isa = PBXGroup;
+			children = (
+				047B528B21476C850007C477 /* WLReportModel.h */,
+				047B528C21476C850007C477 /* WLReportModel.m */,
+			);
+			path = "报表管理";
+			sourceTree = "<group>";
+		};
+		047B52AD2147C5B80007C477 /* QRCodeReaderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				047B52AE2147C5B80007C477 /* QRCodeReaderView.h */,
+				047B52AF2147C5B80007C477 /* QRCodeReaderDelegate.h */,
+				047B52B02147C5B80007C477 /* QRCameraSwitchButton.m */,
+				047B52B12147C5B80007C477 /* QRCodeReader.h */,
+				047B52B22147C5B80007C477 /* QRCodeReaderViewController.m */,
+				047B52B32147C5B80007C477 /* QRCodeReaderView.m */,
+				047B52B42147C5B80007C477 /* QRCameraSwitchButton.h */,
+				047B52B52147C5B80007C477 /* QRCodeReaderViewController.h */,
+				047B52B62147C5B80007C477 /* QRCodeReader.m */,
+			);
+			path = QRCodeReaderViewController;
 			sourceTree = "<group>";
 		};
 		04C530F221212BC900C90964 = {
@@ -1483,6 +1577,7 @@
 				047B508E212E58770007C477 /* assets in Resources */,
 				047B51AD21367C2E0007C477 /* playBtn.png in Resources */,
 				047B5270214271340007C477 /* WLPatrolRecordCell.xib in Resources */,
+				047B52A92147B53C0007C477 /* WLNoticeCell.xib in Resources */,
 				5A4CF1922122832B00D72FE5 /* Main.storyboard in Resources */,
 				047B526B214270730007C477 /* WLDangerInfoCell.xib in Resources */,
 				047B51FE213CFC190007C477 /* WLHiddSuperviseCell.xib in Resources */,
@@ -1502,6 +1597,7 @@
 				047B5099212FDEAA0007C477 /* WLCheckInfoCell.xib in Resources */,
 				047B51A921367C2E0007C477 /* gobackBtn@2x.png in Resources */,
 				047B51AC21367C2E0007C477 /* gobackBtn@3x.png in Resources */,
+				047B52A42147A7360007C477 /* WLPendingWorkCell.xib in Resources */,
 				047B51A821367C2E0007C477 /* pauseBtn.png in Resources */,
 				047B51F4213CE7B50007C477 /* WLHiddDetailPerInfoCell.xib in Resources */,
 				047B521A213D25A40007C477 /* WLAccidentInquiryCell.xib in Resources */,
@@ -1580,6 +1676,8 @@
 			files = (
 				047B51FD213CFC190007C477 /* WLHiddSuperviseCell.m in Sources */,
 				047B52662142703A0007C477 /* WLDangerDetailController.m in Sources */,
+				047B528D21476C850007C477 /* WLReportModel.m in Sources */,
+				047B529C21479BC80007C477 /* WLPendingWorkController.m in Sources */,
 				5A4CF195212283E200D72FE5 /* ViewController.m in Sources */,
 				047B5184213552710007C477 /* HAVPlayer.m in Sources */,
 				5A8BE2372125522700F61665 /* DJOnSpotCheckController.m in Sources */,
@@ -1590,7 +1688,9 @@
 				047B5207213D056F0007C477 /* WLHiddRepairSchemeCell.m in Sources */,
 				5A4CF17921227C6500D72FE5 /* YXNetTool.m in Sources */,
 				5A4CF18F2122806600D72FE5 /* YXTarbar.m in Sources */,
+				047B5293214794970007C477 /* WLCheckReportController.m in Sources */,
 				047B51762135517B0007C477 /* UIImage+Original.m in Sources */,
+				047B529021478F6A0007C477 /* WLAccReportListController.m in Sources */,
 				047B5073212A8C9E0007C477 /* WLUserManager.m in Sources */,
 				5A4CF1902122806600D72FE5 /* YXBaseTableViewCell.m in Sources */,
 				047B51642135470D0007C477 /* YXVideoPlayBtn.m in Sources */,
@@ -1628,12 +1728,19 @@
 				047B528221464ACD0007C477 /* WLRecordInfoCell.m in Sources */,
 				047B513B213536640007C477 /* YXRecordModel.m in Sources */,
 				047B5223213D3F170007C477 /* WLAcciModel.m in Sources */,
+				047B52A32147A7360007C477 /* WLPendingWorkCell.m in Sources */,
 				047B523B213F773B0007C477 /* WLAddAccidentController.m in Sources */,
+				047B52B82147C5B80007C477 /* QRCodeReaderViewController.m in Sources */,
+				047B52B92147C5B80007C477 /* QRCodeReaderView.m in Sources */,
 				047B51F3213CE7B50007C477 /* WLHiddDetailPerInfoCell.m in Sources */,
 				047129B421217EF600EEADE5 /* WorkViewController.m in Sources */,
 				5A3A7ED0212D3F550081BB16 /* DJElementDetailController.m in Sources */,
+				047B52AC2147C52A0007C477 /* UIViewController+QRCode.m in Sources */,
 				047B506B212565810007C477 /* NSObject+Convertor.m in Sources */,
+				047B52B72147C5B80007C477 /* QRCameraSwitchButton.m in Sources */,
+				047B5296214796B30007C477 /* WLAssessmentReportController.m in Sources */,
 				047B50BB2133F2EC0007C477 /* WLUploadDetailInfoCell.m in Sources */,
+				047B529F21479C470007C477 /* WLUserInfoController.m in Sources */,
 				047B525421421B110007C477 /* WLAddPatrolController.m in Sources */,
 				047B50A92133C9500007C477 /* WLEngListCell.m in Sources */,
 				047B527E214648100007C477 /* WLPatrolRecordModel.m in Sources */,
@@ -1678,8 +1785,10 @@
 				047B51772135517B0007C477 /* AssetsHelper.m in Sources */,
 				047B506F212A8AA30007C477 /* WLUserModel.m in Sources */,
 				047B5098212FDEAA0007C477 /* WLCheckInfoCell.m in Sources */,
+				047B529921479B8A0007C477 /* WLNoticeListController.m in Sources */,
 				5A4CF16D21227B1600D72FE5 /* YXDownListView.m in Sources */,
 				047B527A21460B9D0007C477 /* WLPatrolRecordListCell.m in Sources */,
+				047B52A82147B53C0007C477 /* WLNoticeCell.m in Sources */,
 				047B5202213CFF070007C477 /* WLHiddRecordCell.m in Sources */,
 				047B528821466BEC0007C477 /* WLReportListCell.m in Sources */,
 				047B507A212C1F2C0007C477 /* WLHiddenReportViewController.m in Sources */,
@@ -1687,6 +1796,7 @@
 				047B518A213554E20007C477 /* GCMAssetModel.m in Sources */,
 				047129C32122C81900EEADE5 /* WLWorkTopView.m in Sources */,
 				047B523E213F79D70007C477 /* WLAddAccView.m in Sources */,
+				047B52BA2147C5B80007C477 /* QRCodeReader.m in Sources */,
 				047B5214213D251F0007C477 /* WLAccidentInquiryListController.m in Sources */,
 				047B526F214271340007C477 /* WLPatrolRecordCell.m in Sources */,
 				047B515121353C070007C477 /* WLRecordView.m in Sources */,
