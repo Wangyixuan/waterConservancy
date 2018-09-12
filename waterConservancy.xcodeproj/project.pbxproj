@@ -162,6 +162,8 @@
 		047B52B82147C5B80007C477 /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52B22147C5B80007C477 /* QRCodeReaderViewController.m */; };
 		047B52B92147C5B80007C477 /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52B32147C5B80007C477 /* QRCodeReaderView.m */; };
 		047B52BA2147C5B80007C477 /* QRCodeReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52B62147C5B80007C477 /* QRCodeReader.m */; };
+		047B52BD2148B0930007C477 /* WLNearMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52BC2148B0930007C477 /* WLNearMapController.m */; };
+		047B52C02148FB270007C477 /* WLSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52BF2148FB270007C477 /* WLSettingController.m */; };
 		04C5310021212BC900C90964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C530FF21212BC900C90964 /* AppDelegate.m */; };
 		04C5310821212BCB00C90964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310721212BCB00C90964 /* Assets.xcassets */; };
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
@@ -477,6 +479,10 @@
 		047B52B42147C5B80007C477 /* QRCameraSwitchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCameraSwitchButton.h; sourceTree = "<group>"; };
 		047B52B52147C5B80007C477 /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController.h; sourceTree = "<group>"; };
 		047B52B62147C5B80007C477 /* QRCodeReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReader.m; sourceTree = "<group>"; };
+		047B52BB2148B0930007C477 /* WLNearMapController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLNearMapController.h; sourceTree = "<group>"; };
+		047B52BC2148B0930007C477 /* WLNearMapController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLNearMapController.m; sourceTree = "<group>"; };
+		047B52BE2148FB270007C477 /* WLSettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLSettingController.h; sourceTree = "<group>"; };
+		047B52BF2148FB270007C477 /* WLSettingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLSettingController.m; sourceTree = "<group>"; };
 		04C530FB21212BC900C90964 /* waterConservancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterConservancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C530FE21212BC900C90964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04C530FF21212BC900C90964 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -643,6 +649,10 @@
 				047B529B21479BC80007C477 /* WLPendingWorkController.m */,
 				047B529D21479C470007C477 /* WLUserInfoController.h */,
 				047B529E21479C470007C477 /* WLUserInfoController.m */,
+				047B52BB2148B0930007C477 /* WLNearMapController.h */,
+				047B52BC2148B0930007C477 /* WLNearMapController.m */,
+				047B52BE2148FB270007C477 /* WLSettingController.h */,
+				047B52BF2148FB270007C477 /* WLSettingController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1765,6 +1775,7 @@
 				047B509C212FE28E0007C477 /* DJHiddenDrangeChartCell.m in Sources */,
 				5A3A7EED212FA5CA0081BB16 /* DJElementCheckitemCell.m in Sources */,
 				5A8BE28A212A6AE300F61665 /* DJElemnetModel.m in Sources */,
+				047B52BD2148B0930007C477 /* WLNearMapController.m in Sources */,
 				5A4CF16F21227B1600D72FE5 /* YXSaveUserCell.m in Sources */,
 				047B51EF213CD6550007C477 /* WLHiddenDetailController.m in Sources */,
 				5A4CF1842122801300D72FE5 /* YXBaseViewController.m in Sources */,
@@ -1789,6 +1800,7 @@
 				5A4CF16D21227B1600D72FE5 /* YXDownListView.m in Sources */,
 				047B527A21460B9D0007C477 /* WLPatrolRecordListCell.m in Sources */,
 				047B52A82147B53C0007C477 /* WLNoticeCell.m in Sources */,
+				047B52C02148FB270007C477 /* WLSettingController.m in Sources */,
 				047B5202213CFF070007C477 /* WLHiddRecordCell.m in Sources */,
 				047B528821466BEC0007C477 /* WLReportListCell.m in Sources */,
 				047B507A212C1F2C0007C477 /* WLHiddenReportViewController.m in Sources */,

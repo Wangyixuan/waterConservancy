@@ -11,10 +11,11 @@
 #import "WLWorkModel.h"
 #import "WLWorkTableViewCell.h"
 #import "DJLoadViewController.h"
-#import "WLUserInfoController.h"
+#import "WLSettingController.h"
 #import "WLNoticeListController.h"
 #import "WLPendingWorkController.h"
 #import "UIViewController+QRCode.h"
+#import "WLNearMapController.h"
 
 @interface WorkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView *workList;
@@ -214,19 +215,19 @@
     };
     topView.agencyWorkBlock = ^{
         NSLog(@"待办工作");
-//        WLShareUserManager.autoLoginEnabled = NO;
-//        DJLoadViewController *loadCtrl = [[DJLoadViewController alloc]init];
-//        [weak_self.navigationController pushViewController:loadCtrl animated:YES];
+
         WLPendingWorkController *pend = [[WLPendingWorkController alloc]init];
         [weak_self.navigationController pushViewController:pend animated:YES];
     };
     topView.userInfoBlock = ^{
         NSLog(@"个人中心");
-        WLUserInfoController *user = WCViewControllerOfMainSB(@"WLUserInfoController");
+        WLSettingController *user = WCViewControllerOfMainSB(@"WLSettingController");
         [weak_self.navigationController pushViewController:user animated:YES];
     };
     topView.nearBlock = ^{
         NSLog(@"附近隐患");
+        WLNearMapController *map = [[WLNearMapController alloc]init];
+        [weak_self.navigationController pushViewController:map animated:YES];
     };
     topView.QRCodeBlock = ^{
         NSLog(@"二维码");
