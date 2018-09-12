@@ -10,9 +10,8 @@
 #import "YXTarbar.h"
 #import "YXBaseViewController.h"
 #import "YXNavViewController.h"
-#import "DJOnSpotCheckController.h"
 #import "WorkViewController.h"
-
+#import "WLMailListController.h"
 
 @interface YXTabbarController ()<TNTabBarDelegate,UITabBarControllerDelegate>
 @end
@@ -46,29 +45,26 @@
     
 }
 -(void)setUpAllChildViewController{
-    if (WLShareUserManager.isWaterIndustry==1) {
+    if (WLShareUserManager.isWaterIndustry==3) {
         WorkViewController *homeCtrl = [[WorkViewController alloc]init];
         [self setUpOneChildViewController:homeCtrl image:@"bangong" title:@"办公"];
-        DJOnSpotCheckController *riverCtrl = [[DJOnSpotCheckController alloc]init];
-        [self setUpOneChildViewController:riverCtrl image:@"tongxunlu" title:@"通讯录"];
-        UIViewController *meCtrl = [[UIViewController alloc]init];
-
-        [self setUpOneChildViewController:meCtrl image:@"menhu" title:@"门户"];
+        WLMailListController *mailList = [[WLMailListController alloc]init];
+        [self setUpOneChildViewController:mailList image:@"tongxunlu" title:@"通讯录"];
+//        UIViewController *meCtrl = [[UIViewController alloc]init];
+//
+//        [self setUpOneChildViewController:meCtrl image:@"menhu" title:@"门户"];
     }else{
         WorkViewController *homeCtrl = [[WorkViewController alloc]init];
         [self setUpOneChildViewController:homeCtrl image:@"bangong" title:@"办公"];
         
-        DJOnSpotCheckController *riverCtrl = [[DJOnSpotCheckController alloc]init];
-        [self setUpOneChildViewController:riverCtrl image:@"anquanyun" title:@"安全云"];
-        
-        UIViewController *reCtrl = [[UIViewController alloc]init];
-        //    [reCtrl setCurrentTag:1];
-        [self setUpOneChildViewController:reCtrl image:@"zhuantitu" title:@"专题图"];
-        
-        UIViewController *meCtrl = [[UIViewController alloc]init];
-        [self setUpOneChildViewController:meCtrl image:@"tongxunlu" title:@"通讯录"];
-         UIViewController *menhuCtrl = [[UIViewController alloc]init];
-        [self setUpOneChildViewController:menhuCtrl image:@"menhu" title:@"门户"];
+//        UIViewController *reCtrl = [[UIViewController alloc]init];
+//        //    [reCtrl setCurrentTag:1];
+//        [self setUpOneChildViewController:reCtrl image:@"zhuantitu" title:@"专题图"];
+//        
+//        UIViewController *meCtrl = [[UIViewController alloc]init];
+//        [self setUpOneChildViewController:meCtrl image:@"tongxunlu" title:@"通讯录"];
+//         UIViewController *menhuCtrl = [[UIViewController alloc]init];
+//        [self setUpOneChildViewController:menhuCtrl image:@"menhu" title:@"门户"];
     }
 
 }

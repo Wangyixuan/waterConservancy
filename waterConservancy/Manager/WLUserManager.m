@@ -56,6 +56,7 @@ static WLUserManager*instance;
     WLShareUserManager.isWaterIndustry = [waterIndustryStr intValue];
     [[NSUserDefaults standardUserDefaults]setObject:waterIndustryStr forKey:@"isWaterIndustry"];
     [[NSUserDefaults standardUserDefaults]synchronize];
+    WLShareUserManager.userCode = [infoDic stringForKey:@"userCode" defaultValue:@""];
 }
 
 /** 是否开启了自动登录 */

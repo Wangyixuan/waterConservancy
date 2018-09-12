@@ -10,6 +10,13 @@
 
 @interface WLUserInfoController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *userCodeLab;
+@property (weak, nonatomic) IBOutlet UITextField *userNameText;
+@property (weak, nonatomic) IBOutlet UITextField *userTel;
+@property (weak, nonatomic) IBOutlet UITextField *userOrg;
+@property (weak, nonatomic) IBOutlet UITextField *userTeam;
+@property (weak, nonatomic) IBOutlet UITextField *userJob;
+
 @end
 
 @implementation WLUserInfoController
@@ -29,12 +36,47 @@
     self.navigationItem.leftBarButtonItem = leftItem;
     
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
+    [rightBtn setTitle:@"完成" forState:UIControlStateSelected];
+    [rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(editClick:) forControlEvents:UIControlEventTouchUpInside];
+    rightBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [rightBtn sizeToFit];
     
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightBtn];
+    self.navigationItem.rightBarButtonItem = rightItem;
     
+    self.userNameText.enabled = NO;
+    self.userTel.enabled = NO;
+    self.userOrg.enabled = NO;
+    self.userTeam.enabled = NO;
+    self.userJob.enabled = NO;
+    
+    self.userCodeLab.text = WLShareUserManager.userCode;
 }
+
 -(void)backBtnClick{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+-(void)editClick:(UIButton*)btn{
+    if (btn.selected==YES) {
+        self.userNameText.enabled = NO;
+        self.userTel.enabled = NO;
+        self.userOrg.enabled = NO;
+        self.userTeam.enabled = NO;
+        self.userJob.enabled = NO;
+    }else{
+        self.userNameText.enabled = YES;
+        self.userTel.enabled = YES;
+        self.userOrg.enabled = YES;
+        self.userTeam.enabled = YES;
+        self.userJob.enabled = YES;
+    }
+    btn.selected = !btn.selected;
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

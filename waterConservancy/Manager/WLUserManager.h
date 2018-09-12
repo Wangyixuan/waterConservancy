@@ -49,6 +49,7 @@ typedef NS_ENUM(NSInteger,CUserType){
 @property (nonatomic, copy) NSString *persName;
 @property (nonatomic, copy) NSString *persID;
 @property (nonatomic, strong) NSArray* roleList;
+@property (nonatomic, copy) NSString *userCode;
 //自动登陆
 @property(assign,nonatomic,getter=isAutoLoginEnabled) BOOL autoLoginEnabled;
 
