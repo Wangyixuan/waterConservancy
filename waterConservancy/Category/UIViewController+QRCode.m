@@ -41,6 +41,8 @@ NSString const *qrReaderKey = @"qrReaderKey";
         //回调拿到结果
         [self.qrReader setCompletionWithBlock:^(NSString *resultAsString) {
             [weak_self.qrReader dismissViewControllerAnimated:YES completion:^{
+                //二维码扫描结果拼接参数 ?type 0登陆 1分享 2工程信息
+                NSLog(@"%@",resultAsString);
                 
             }];
             
@@ -50,7 +52,7 @@ NSString const *qrReaderKey = @"qrReaderKey";
         
     }
     else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"无法扫描二维码" message:@"请在“设置-隐私-相机”选项中允许快快访问你的相机" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"无法扫描二维码" message:@"请在“设置-隐私-相机”选项中允许访问你的相机" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         
         [alert show];
     }

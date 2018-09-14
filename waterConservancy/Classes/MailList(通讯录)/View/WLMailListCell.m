@@ -7,6 +7,11 @@
 //
 
 #import "WLMailListCell.h"
+@interface WLMailListCell()
+@property (weak, nonatomic) IBOutlet UILabel *nameLab;
+@property (weak, nonatomic) IBOutlet UILabel *orgNameLab;
+
+@end
 
 @implementation WLMailListCell
 
@@ -21,4 +26,9 @@
     // Configure the view for the selected state
 }
 
+-(void)setModel:(WLPersonModel *)model{
+    _model = model;
+    self.nameLab.text = model.name;
+    self.orgNameLab.text = model.orgName;
+}
 @end

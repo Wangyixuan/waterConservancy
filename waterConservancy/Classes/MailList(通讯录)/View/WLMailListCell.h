@@ -7,7 +7,8 @@
 //
 
 #import "YXBaseTableViewCell.h"
+#import "WLPersonModel.h"
 
 @interface WLMailListCell : YXBaseTableViewCell
-
+@property (nonatomic, strong) WLPersonModel *model;
 @end

@@ -9,6 +9,13 @@
 #import "WLContactDetailController.h"
 
 @interface WLContactDetailController ()
+@property (weak, nonatomic) IBOutlet UIImageView *headImg;
+@property (weak, nonatomic) IBOutlet UILabel *perName;
+@property (weak, nonatomic) IBOutlet UILabel *perCode;
+@property (weak, nonatomic) IBOutlet UILabel *telNub;
+@property (weak, nonatomic) IBOutlet UILabel *orgName;
+@property (weak, nonatomic) IBOutlet UILabel *depName;
+@property (weak, nonatomic) IBOutlet UILabel *jobName;
 
 @end
 
@@ -16,22 +23,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"个人信息";
     // Do any additional setup after loading the view.
+    self.perName.text = [NSString stringWithFormat:@"姓名：%@", self.model.name];
+    self.perCode.text = [NSString stringWithFormat:@"账号：%@", self.model.userCode];
+    self.telNub.text = self.model.telNub;
+    self.orgName.text = self.model.orgName;
+    self.depName.text = self.model.depName;
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)telBtnClick:(id)sender {
 }
-*/
+
+- (IBAction)mesBtnClick:(id)sender {
+}
+
 
 @end

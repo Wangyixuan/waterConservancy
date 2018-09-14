@@ -66,6 +66,10 @@
                     <constraint firstItem="Nu5-If-pk6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="mBo-im-TUl"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="nameLab" destination="60v-R8-K9f" id="NLq-za-ylm"/>
+                <outlet property="orgNameLab" destination="5wr-cZ-nus" id="fqK-ib-ccS"/>
+            </connections>
             <point key="canvasLocation" x="47" y="70"/>
         </tableViewCell>
     </objects>

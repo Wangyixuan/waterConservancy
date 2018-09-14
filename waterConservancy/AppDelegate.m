@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "DJLoadViewController.h"
+#import "WLLoginViewController.h"
 #import "YXTabbarController.h"
 #import "YXNavViewController.h"
 #import <iflyMSC/iflyMSC.h>
@@ -56,8 +56,8 @@
 
 - (void)showLoadControllers {
     //    self.window.rootViewController = nil;
-    DJLoadViewController *loginCtrl = [[DJLoadViewController alloc]init];
-    YXNavViewController *navCtrl = [[YXNavViewController alloc]initWithRootViewController:loginCtrl];
+    WLLoginViewController *loadCtrl = WCViewControllerOfMainSB(@"WLLoginViewController");
+    YXNavViewController *navCtrl = [[YXNavViewController alloc]initWithRootViewController:loadCtrl];
     [navCtrl setNavigationBarHidden:YES];
     self.window.rootViewController = navCtrl;;
 }
@@ -110,7 +110,7 @@
         }];
 
     }else{
-        DJLoadViewController *loadCtrl = [[DJLoadViewController alloc]init];
+        WLLoginViewController *loadCtrl = WCViewControllerOfMainSB(@"WLLoginViewController");
         YXNavViewController *nav = [[YXNavViewController alloc]initWithRootViewController:loadCtrl setNavigationBarHidden:YES];
         self.window.rootViewController = nav;
     }  

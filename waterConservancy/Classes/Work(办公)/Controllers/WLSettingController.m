@@ -8,7 +8,7 @@
 
 #import "WLSettingController.h"
 #import "WLUserInfoController.h"
-#import "DJLoadViewController.h"
+#import "WLLoginViewController.h"
 #import "WLResetPasswordController.h"
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
@@ -124,7 +124,7 @@
     if (alertView.tag==999) {
         if (buttonIndex==1) {
             WLShareUserManager.autoLoginEnabled = NO;
-            DJLoadViewController *loadCtrl = [[DJLoadViewController alloc]init];
+            WLLoginViewController *loadCtrl = WCViewControllerOfMainSB(@"WLLoginViewController");
             [self.navigationController pushViewController:loadCtrl animated:YES];
         }
     }else if (alertView.tag==998){

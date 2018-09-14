@@ -7,7 +7,8 @@
 //
 
 #import "YXBaseViewController.h"
+#import "WLPersonModel.h"
 
 @interface WLContactDetailController : YXBaseViewController
-
+@property (nonatomic, strong) WLPersonModel *model;
 @end
