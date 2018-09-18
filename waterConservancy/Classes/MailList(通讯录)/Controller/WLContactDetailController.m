@@ -8,7 +8,7 @@
 
 #import "WLContactDetailController.h"
 
-@interface WLContactDetailController ()
+@interface WLContactDetailController ()<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *headImg;
 @property (weak, nonatomic) IBOutlet UILabel *perName;
 @property (weak, nonatomic) IBOutlet UILabel *perCode;
@@ -38,10 +38,26 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)telBtnClick:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"确定拨打电话吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alert.tag = 9999;
+    [alert show];
 }
 
 - (IBAction)mesBtnClick:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"确定发送短信吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alert.tag = 9998;
+    [alert show];
 }
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==1) {
+        if (alertView.tag==9999) {
+             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",self.model.telNub]]];
+        }else if (alertView.tag==9998){
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"sms://%@",self.model.telNub]]];
+        }
+    }
+    
+}
 
 @end
