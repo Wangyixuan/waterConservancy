@@ -179,10 +179,9 @@ function _queryGEO(geo_json, near_radius) {
     //缓冲区范围
     var bufferGeoJson = AJMap.maptools.buffer( geo_json, near_radius );
     _thisElementsQueryLayer.getSource().addFeatures( new ol.format.GeoJSON().readFeatures(bufferGeoJson) );
-
     var geo = JSON.stringify(bufferGeoJson.features[0].geometry);
-
-    window.DEMO.queryNearGEOInfo(geo);
+    window.webkit.messageHandlers.getgeoInfo.postMessage(geo);
+<!--    window.DEMO.queryNearGEOInfo(geo);-->
 }
 
 function showNearInfo(json_string) {

@@ -192,6 +192,7 @@
 		5A4CF1902122806600D72FE5 /* YXBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CF18D2122806500D72FE5 /* YXBaseTableViewCell.m */; };
 		5A4CF1922122832B00D72FE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A4CF1912122832B00D72FE5 /* Main.storyboard */; };
 		5A4CF195212283E200D72FE5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CF194212283E200D72FE5 /* ViewController.m */; };
+		5A5FEC102150E37700D2C041 /* WLThematicmapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5FEC0F2150E37700D2C041 /* WLThematicmapController.m */; };
 		5A8BE22221240C4100F61665 /* DJElementCheckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE22121240C4100F61665 /* DJElementCheckController.m */; };
 		5A8BE2372125522700F61665 /* DJOnSpotCheckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE2362125522700F61665 /* DJOnSpotCheckController.m */; };
 		5A8BE23F21255E0A00F61665 /* DJHiddenDrangeChartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8BE23E21255E0A00F61665 /* DJHiddenDrangeChartController.m */; };
@@ -543,6 +544,8 @@
 		5A4CF1912122832B00D72FE5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5A4CF193212283E100D72FE5 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5A4CF194212283E200D72FE5 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5A5FEC0E2150E37700D2C041 /* WLThematicmapController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLThematicmapController.h; sourceTree = "<group>"; };
+		5A5FEC0F2150E37700D2C041 /* WLThematicmapController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLThematicmapController.m; sourceTree = "<group>"; };
 		5A8BE22021240C4100F61665 /* DJElementCheckController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJElementCheckController.h; sourceTree = "<group>"; };
 		5A8BE22121240C4100F61665 /* DJElementCheckController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJElementCheckController.m; sourceTree = "<group>"; };
 		5A8BE2352125522700F61665 /* DJOnSpotCheckController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJOnSpotCheckController.h; sourceTree = "<group>"; };
@@ -653,37 +656,6 @@
 				047B52BC2148B0930007C477 /* WLNearMapController.m */,
 				047B52BE2148FB270007C477 /* WLSettingController.h */,
 				047B52BF2148FB270007C477 /* WLSettingController.m */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		047129952121734C00EEADE5 /* Special(专题图) */ = {
-			isa = PBXGroup;
-			children = (
-				047129962121734C00EEADE5 /* Model */,
-				047129972121734C00EEADE5 /* View */,
-				047129982121734C00EEADE5 /* Controllers */,
-			);
-			path = "Special(专题图)";
-			sourceTree = "<group>";
-		};
-		047129962121734C00EEADE5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		047129972121734C00EEADE5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		047129982121734C00EEADE5 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1193,12 +1165,12 @@
 		04C5313521215BA300C90964 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5A5FEC0A2150E33700D2C041 /* Special(专题图) */,
 				5A8BE2172123C69B00F61665 /* SecurityCloud(安全云) */,
 				5A4CF17021227C6500D72FE5 /* Net */,
 				5A4CF161212278A400D72FE5 /* load */,
 				0471299D2121734C00EEADE5 /* Gateway(门户) */,
 				047129992121734C00EEADE5 /* MailList(通讯录) */,
-				047129952121734C00EEADE5 /* Special(专题图) */,
 				047129912121734C00EEADE5 /* Work(办公) */,
 				04C5313821215BCA00C90964 /* Base */,
 			);
@@ -1387,6 +1359,39 @@
 			name = Tools;
 			path = waterConservancy/Classes/load/Tools;
 			sourceTree = SOURCE_ROOT;
+		};
+		5A5FEC0A2150E33700D2C041 /* Special(专题图) */ = {
+			isa = PBXGroup;
+			children = (
+				5A5FEC0B2150E36100D2C041 /* Controllers */,
+				5A5FEC0C2150E36100D2C041 /* Models */,
+				5A5FEC0D2150E36100D2C041 /* Views */,
+			);
+			path = "Special(专题图)";
+			sourceTree = "<group>";
+		};
+		5A5FEC0B2150E36100D2C041 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5A5FEC0E2150E37700D2C041 /* WLThematicmapController.h */,
+				5A5FEC0F2150E37700D2C041 /* WLThematicmapController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5A5FEC0C2150E36100D2C041 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5A5FEC0D2150E36100D2C041 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
 		};
 		5A8BE2172123C69B00F61665 /* SecurityCloud(安全云) */ = {
 			isa = PBXGroup;
@@ -1812,6 +1817,7 @@
 				047B5214213D251F0007C477 /* WLAccidentInquiryListController.m in Sources */,
 				047B526F214271340007C477 /* WLPatrolRecordCell.m in Sources */,
 				047B515121353C070007C477 /* WLRecordView.m in Sources */,
+				5A5FEC102150E37700D2C041 /* WLThematicmapController.m in Sources */,
 				047B522D213E7B0C0007C477 /* WLAcciDeailCell.m in Sources */,
 				047B52442140CAD30007C477 /* WLDangerPatrolController.m in Sources */,
 				047B506421255DD50007C477 /* WLWorkModel.m in Sources */,

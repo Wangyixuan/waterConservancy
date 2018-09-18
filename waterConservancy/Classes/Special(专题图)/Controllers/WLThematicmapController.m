@@ -1,17 +1,17 @@
 //
-//  WLNearMapController.m
+//  WLThematicmapController.m
 //  waterConservancy
 //
-//  Created by mac on 2018/9/12.
+//  Created by liu on 2018/9/18.
 //  Copyright © 2018年 com.yx.waterConservancy. All rights reserved.
 //
 
-#import "WLNearMapController.h"
+#import "WLThematicmapController.h"
 #import <WebKit/WebKit.h>
 #import <CoreLocation/CoreLocation.h>
 //#import <JavaScriptCore/JavaScriptCore.h>
 
-@interface WLNearMapController ()<CLLocationManagerDelegate,WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler>
+@interface WLThematicmapController ()<CLLocationManagerDelegate,WKNavigationDelegate,WKUIDelegate,WKScriptMessageHandler>
 @property (nonatomic, strong)  WKWebView *webView;
 
 @property (nonatomic, strong) CLLocationManager *locManager;
@@ -20,12 +20,12 @@
 //@property (strong, nonatomic) JSContext *context;
 @end
 
-@implementation WLNearMapController
+@implementation WLThematicmapController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"附近隐患";
-//    _locArr = [NSMutableArray array];
+    //    _locArr = [NSMutableArray array];
     _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     _webView.backgroundColor = [UIColor whiteColor];
     _webView.UIDelegate = self;
@@ -38,7 +38,7 @@
     [self.locManager requestWhenInUseAuthorization];
     [self.locManager startUpdatingLocation];
     
-//    [self setUpUI];
+    //    [self setUpUI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,7 +65,7 @@
     //显示地图
     NSString *showMap = [NSString stringWithFormat:@"showMap(%f,%f)",self.userLoc.coordinate.longitude , self.userLoc.coordinate.latitude];
     NSString *latStr = [NSString stringWithFormat:@"%f",self.userLoc.coordinate.latitude];
-     NSString *lonStr = [NSString stringWithFormat:@"%f",self.userLoc.coordinate.longitude];
+    NSString *lonStr = [NSString stringWithFormat:@"%f",self.userLoc.coordinate.longitude];
     [self.webView evaluateJavaScript:showMap completionHandler:^(id _Nullable result, NSError * _Nullable error) {
         [self mapShowlat:latStr lon:lonStr];
         NSLog(@"%@\n error==%@",result,error);
@@ -82,7 +82,7 @@
     [sb appendString:lat];
     [sb appendString:@"],\"type\":\"Point\"},\"properties\":{\"HYDC\":\"FB010001\",\"Name\":\"长江\",\"OBJ_CODE\":\"FB010001\",\"OBJ_NAME\":\"长江\",\"UserID\":0},\"type\":\"Feature\"}]}"];
     //    sb = @"\{\"type\":\"FeatureCollection\",\"features\":[{\"geometry\":{\"coordinates\":[116.35395964354248,39.887023040434634],\"type\":\"Point\"},\"properties\":{\"HYDC\":\"FB010001\",\"Name\":\"长江\",\"OBJ_CODE\":\"FB010001\",\"OBJ_NAME\":\"长江\",\"UserID\":0},\"type\":\"Feature\"}]}";
-//    NSLog(@"%@",sb);
+    //    NSLog(@"%@",sb);
     NSString *newSb = [self noWhiteSpaceString:sb];
     NSString *mapGeoInfo = [NSString stringWithFormat:@"getNearGEOInfo(%@,%@)", newSb, @"20"];
     [self.webView evaluateJavaScript:mapGeoInfo completionHandler:^(id _Nullable result, NSError * _Nullable error) {
@@ -112,11 +112,11 @@
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if (error) {
-                NSLog(@"%@", error);
+                    NSLog(@"%@", error);
             } else {
                 NSString *resStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
                 NSLog(@"%@",resStr);
-            NSString *showNearInfo = [NSString stringWithFormat:@"showNearInfo(%@)",resStr];
+                NSString *showNearInfo = [NSString stringWithFormat:@"showNearInfo(%@)",resStr];
                 NSLog(@"%@",showNearInfo);
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.webView evaluateJavaScript:showNearInfo completionHandler:^(id _Nullable result, NSError * _Nullable error) {
@@ -125,14 +125,14 @@
                         
                     }];
                 });
-           
                 
                 
-                    }
-                        }];
+                
+            }
+        }];
     
     [dataTask resume];
-
+    
 }
 
 
@@ -149,9 +149,5 @@
     return newString;
     
 }
-    
-  
-
-
 
 @end

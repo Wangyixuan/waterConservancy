@@ -1,4 +1,3 @@
-//
 //  YXTabbarController.m
 //  河掌治
 //
@@ -12,6 +11,7 @@
 #import "YXNavViewController.h"
 #import "DJOnSpotCheckController.h"
 #import "WorkViewController.h"
+#import "WLThematicmapController.h"
 
 
 @interface YXTabbarController ()<TNTabBarDelegate,UITabBarControllerDelegate>
@@ -61,7 +61,7 @@
         DJOnSpotCheckController *riverCtrl = [[DJOnSpotCheckController alloc]init];
         [self setUpOneChildViewController:riverCtrl image:@"anquanyun" title:@"安全云"];
         
-        UIViewController *reCtrl = [[UIViewController alloc]init];
+        WLThematicmapController *reCtrl = [[WLThematicmapController alloc]init];
         //    [reCtrl setCurrentTag:1];
         [self setUpOneChildViewController:reCtrl image:@"zhuantitu" title:@"专题图"];
         

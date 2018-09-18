@@ -106,9 +106,12 @@ typedef NS_ENUM(NSInteger,RequestType){
 }
 
 
--(void)postRequestWithURL:(NSString *)URL Parmars:(NSDictionary *)Parmars  success:(successBlock)success faild:(faildBlock)faild{
+-(void)postWithURL:(NSString *)URL Parmars:(id)Parmars  success:(successBlock)success faild:(faildBlock)faild{
     URL=[URL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSLog(@"posturl===%@",URL);
+    [self.httpManger.requestSerializer setQueryStringSerializationWithBlock:^NSString * _Nonnull(NSURLRequest * _Nonnull request, id  _Nonnull parameters, NSError * _Nullable __autoreleasing * _Nullable error) {
+        return Parmars;
+    }];
     [self.httpManger POST:URL parameters:Parmars progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 
         NSLog(@"%@",task.response);
@@ -125,6 +128,28 @@ typedef NS_ENUM(NSInteger,RequestType){
         }
     }];
 }
+//-(void)postRequestWithURL:(NSString *)URL Parmars:(NSDictionary *)Parmars  success:(successBlock)success faild:(faildBlock)faild{
+//    URL=[URL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+//    NSLog(@"posturl===%@",URL);
+//    self.httpManger.requestSerializer setQueryStringSerializationWithBlock:^NSString * _Nonnull(NSURLRequest * _Nonnull request, id  _Nonnull parameters, NSError * _Nullable __autoreleasing * _Nullable error) {
+//        return <#expression#>
+//    }
+//    [self.httpManger POST:URL parameters:Parmars progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        
+//        NSLog(@"%@",task.response);
+//        NSLog(@"%@",responseObject);
+//        if (success) {
+//            success(responseObject);
+//        }
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"%@",error);
+//        NSLog(@"%@",task.response);
+//        if (faild) {
+//            faild(error);
+//        }
+//    }];
+//}
 - (void)SOAPData:(NSString *)url password:(NSString *)password userName:(NSString *)userName success:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure {
     
     NSString *soapStr =[NSString stringWithFormat:@"<v:Envelope xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:d=\"http://www.w3.org/2001/XMLSchema\" xmlns:c=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:v=\"http://schemas.xmlsoap.org/soap/envelope/\"><v:Header /><v:Body><n0:isUamsValidPhoneUserByPhoneOrCodeOrName id=\"o0\" c:root=\"1\" xmlns:n0=\"http://userext.service.uumsext.dhcc.com.cn/\"><arg1 i:type=\"d:string\">%@</arg1><arg0 i:type=\"d:string\">%@</arg0></n0:isUamsValidPhoneUserByPhoneOrCodeOrName></v:Body></v:Envelope>",password,userName];

@@ -100,6 +100,7 @@ static inline CGFloat FontSize(CGFloat fontSize){
 #define YXNetAddress(urlString)  [NSString stringWithFormat:@"http://192.168.1.8:8080/%@",urlString]
 #define YXNetAddressCJ(urlString)  [NSString stringWithFormat:@"http://192.168.1.11:7080/%@",urlString]
 #define YXNetAddressZJ(urlString)  [NSString stringWithFormat:@"http://192.168.1.11:9080/%@",urlString]
+#define YXNetAddressDT(urlString)  [NSString stringWithFormat:@"http://192.168.1.11:8088/%@",urlString]
 //偏好设置
 #define CURRENTUSER  [[NSUserDefaults standardUserDefaults]objectForKey:@"currentUser"]
 #define CURRENTPASSWORD  [[NSUserDefaults standardUserDefaults]objectForKey:@"currentPassword"]
