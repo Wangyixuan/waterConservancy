@@ -28,6 +28,20 @@
         make.top.left.bottom.right.mas_equalTo(weak_self.view);
     }];
     [self.tableView registerNib:[UINib nibWithNibName:cellIdentifity bundle:nil] forCellReuseIdentifier:cellIdentifity];
+    
+    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBtn setTitle:@"清空" forState:UIControlStateNormal];
+    [rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(clearNotice) forControlEvents:UIControlEventTouchUpInside];
+    rightBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [rightBtn sizeToFit];
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightBtn];
+    self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+-(void)clearNotice{
+    
 }
 
 -(void)loadData{

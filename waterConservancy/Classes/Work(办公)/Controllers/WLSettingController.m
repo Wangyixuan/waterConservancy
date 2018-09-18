@@ -8,7 +8,8 @@
 
 #import "WLSettingController.h"
 #import "WLUserInfoController.h"
-#import "DJLoadViewController.h"
+#import "WLLoginViewController.h"
+#import "WLResetPasswordController.h"
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #endif
@@ -66,10 +67,13 @@
         [self.navigationController pushViewController:user animated:YES];
     }else if (indexPath.row==2){
         //修改密码
+        WLResetPasswordController *reset = WCViewControllerOfMainSB(@"WLResetPasswordController");
+        [self.navigationController pushViewController:reset animated:YES];
     }else if (indexPath.row==3){
         //清理缓存
-        //        self.activity.hidden = NO;
-        //        [self.activity startAnimating];
+        self.activity.hidden = NO;
+        [self.activity startAnimating];
+        [self clearFile];
         
     }else if (indexPath.row==4){
         //版本更新
@@ -81,6 +85,28 @@
 
 -(void)backBtnClick{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)clearFile
+{
+    NSString * cachePath = [NSSearchPathForDirectoriesInDomains (NSCachesDirectory , NSUserDomainMask , YES ) firstObject];
+    NSArray * files = [[NSFileManager defaultManager ] subpathsAtPath :cachePath];
+    //NSLog ( @"cachpath = %@" , cachePath);
+    for ( NSString * p in files) {
+        
+        NSError * error = nil ;
+        //获取文件全路径
+        NSString * fileAbsolutePath = [cachePath stringByAppendingPathComponent :p];
+        
+        if ([[NSFileManager defaultManager ] fileExistsAtPath :fileAbsolutePath]) {
+            [[NSFileManager defaultManager ] removeItemAtPath :fileAbsolutePath error :&error];
+        }
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.activity stopAnimating];
+        self.activity.hidden = YES;
+    });
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,7 +124,7 @@
     if (alertView.tag==999) {
         if (buttonIndex==1) {
             WLShareUserManager.autoLoginEnabled = NO;
-            DJLoadViewController *loadCtrl = [[DJLoadViewController alloc]init];
+            WLLoginViewController *loadCtrl = WCViewControllerOfMainSB(@"WLLoginViewController");
             [self.navigationController pushViewController:loadCtrl animated:YES];
         }
     }else if (alertView.tag==998){
@@ -119,7 +145,6 @@
     if (@available(iOS 10 , *))
     {
         [[UNUserNotificationCenter currentNotificationCenter] getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
-            
             if (settings.authorizationStatus == UNAuthorizationStatusDenied)
             {
                 // 没权限
@@ -131,9 +156,7 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     self.reciveNotice.on = YES;
                 });
-                
             }
-            
         }];
     }
     else

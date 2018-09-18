@@ -187,7 +187,43 @@ typedef NS_ENUM(NSInteger,RequestType){
     }];
 }
 
-
+- (void)SOAPData:(NSString *)url orgGuid:(NSString*)orgGuid success:(void (^)(id responseObject))success failure:(void(^)(NSError *error))failure{
+    
+    NSString *soapStr =[NSString stringWithFormat:@"<v:Envelope xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:d=\"http://www.w3.org/2001/XMLSchema\" xmlns:c=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:v=\"http://schemas.xmlsoap.org/soap/envelope/\"><v:Header /><v:Body><n0:getUserListInOrgBaseOrOrgWiunByOrgId id=\"o0\" c:root=\"1\" xmlns:n0=\"http://userext.service.uumsext.dhcc.com.cn/\"><arg0 i:type=\"d:string\">%@</arg0></n0:getUserListInOrgBaseOrOrgWiunByOrgId></v:Body></v:Envelope>",orgGuid];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFXMLParserResponseSerializer serializer];
+    
+    // 设置请求超时时间
+    manager.requestSerializer.timeoutInterval = 30;
+    
+    // 返回NSData
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    // 设置请求头，也可以不设置
+    [manager.requestSerializer setValue:@"application/soap+xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%zd", soapStr.length] forHTTPHeaderField:@"Content-Length"];
+    
+    // 设置HTTPBody
+    [manager.requestSerializer setQueryStringSerializationWithBlock:^NSString *(NSURLRequest *request, NSDictionary *parameters, NSError *__autoreleasing *error) {
+        return soapStr;
+    }];
+    [manager POST:url parameters:soapStr progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *respDic = [NSDictionary dictionaryWithXMLData:responseObject];
+        NSDictionary *soapBodyDic = [respDic objectForKey:@"soap:Body"];
+        NSDictionary *nsDic = [soapBodyDic objectForKey:@"ns2:getUserListInOrgBaseOrOrgWiunByOrgIdResponse"];
+        NSDictionary *sucDic = [nsDic objectForKey:@"return"];
+        // 请求成功并且结果有值把结果传出去
+        if (success) {
+            success(sucDic);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+    
+}
 #pragma mark -- 处理json格式的字符串中的换行符、回车符
 - (NSString *)deleteSpecialCodeWithStr:(NSString *)str {
     NSString *string = [str stringByReplacingOccurrencesOfString:@"\r" withString:@""];

@@ -164,6 +164,23 @@
 		047B52BA2147C5B80007C477 /* QRCodeReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52B62147C5B80007C477 /* QRCodeReader.m */; };
 		047B52BD2148B0930007C477 /* WLNearMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52BC2148B0930007C477 /* WLNearMapController.m */; };
 		047B52C02148FB270007C477 /* WLSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52BF2148FB270007C477 /* WLSettingController.m */; };
+		047B52C321490E6D0007C477 /* WLResetPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52C221490E6D0007C477 /* WLResetPasswordController.m */; };
+		047B52CA214914A00007C477 /* WLMailListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52C9214914A00007C477 /* WLMailListController.m */; };
+		047B52CD214914FB0007C477 /* WLContactDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52CC214914FB0007C477 /* WLContactDetailController.m */; };
+		047B52D1214917E90007C477 /* WLMailListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52CF214917E90007C477 /* WLMailListCell.m */; };
+		047B52D2214917E90007C477 /* WLMailListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B52D0214917E90007C477 /* WLMailListCell.xib */; };
+		047B52D521491D810007C477 /* WLSearchContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52D421491D810007C477 /* WLSearchContactController.m */; };
+		047B52D8214A04F50007C477 /* WLSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52D7214A04F50007C477 /* WLSearchView.m */; };
+		047B52DA214A05060007C477 /* WLSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B52D9214A05060007C477 /* WLSearchView.xib */; };
+		047B52DD214A30940007C477 /* WLPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52DC214A30940007C477 /* WLPersonModel.m */; };
+		047B52E4214A59E70007C477 /* WLGateRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52E3214A59E70007C477 /* WLGateRootController.m */; };
+		047B52EC214A5A6C0007C477 /* KKContentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52E7214A5A6C0007C477 /* KKContentScrollView.m */; };
+		047B52ED214A5A6C0007C477 /* KKHeaderScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52E8214A5A6C0007C477 /* KKHeaderScrollView.m */; };
+		047B52EE214A5A6C0007C477 /* KKContainerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52EA214A5A6C0007C477 /* KKContainerScrollView.m */; };
+		047B52F1214A5D560007C477 /* WLEducationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52F0214A5D560007C477 /* WLEducationViewController.m */; };
+		047B52F5214A5D860007C477 /* WLGateListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52F3214A5D860007C477 /* WLGateListCell.m */; };
+		047B52F6214A5D860007C477 /* WLGateListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047B52F4214A5D860007C477 /* WLGateListCell.xib */; };
+		047B52F9214B8BA60007C477 /* WLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047B52F8214B8BA60007C477 /* WLLoginViewController.m */; };
 		04C5310021212BC900C90964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C530FF21212BC900C90964 /* AppDelegate.m */; };
 		04C5310821212BCB00C90964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C5310721212BCB00C90964 /* Assets.xcassets */; };
 		04C5310E21212BCB00C90964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C5310D21212BCB00C90964 /* main.m */; };
@@ -484,6 +501,37 @@
 		047B52BC2148B0930007C477 /* WLNearMapController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLNearMapController.m; sourceTree = "<group>"; };
 		047B52BE2148FB270007C477 /* WLSettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLSettingController.h; sourceTree = "<group>"; };
 		047B52BF2148FB270007C477 /* WLSettingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLSettingController.m; sourceTree = "<group>"; };
+		047B52C121490E6D0007C477 /* WLResetPasswordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLResetPasswordController.h; sourceTree = "<group>"; };
+		047B52C221490E6D0007C477 /* WLResetPasswordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLResetPasswordController.m; sourceTree = "<group>"; };
+		047B52C8214914A00007C477 /* WLMailListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLMailListController.h; sourceTree = "<group>"; };
+		047B52C9214914A00007C477 /* WLMailListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLMailListController.m; sourceTree = "<group>"; };
+		047B52CB214914FB0007C477 /* WLContactDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLContactDetailController.h; sourceTree = "<group>"; };
+		047B52CC214914FB0007C477 /* WLContactDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLContactDetailController.m; sourceTree = "<group>"; };
+		047B52CE214917E90007C477 /* WLMailListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLMailListCell.h; sourceTree = "<group>"; };
+		047B52CF214917E90007C477 /* WLMailListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLMailListCell.m; sourceTree = "<group>"; };
+		047B52D0214917E90007C477 /* WLMailListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLMailListCell.xib; sourceTree = "<group>"; };
+		047B52D321491D810007C477 /* WLSearchContactController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLSearchContactController.h; sourceTree = "<group>"; };
+		047B52D421491D810007C477 /* WLSearchContactController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLSearchContactController.m; sourceTree = "<group>"; };
+		047B52D6214A04F50007C477 /* WLSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLSearchView.h; sourceTree = "<group>"; };
+		047B52D7214A04F50007C477 /* WLSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLSearchView.m; sourceTree = "<group>"; };
+		047B52D9214A05060007C477 /* WLSearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLSearchView.xib; sourceTree = "<group>"; };
+		047B52DB214A30940007C477 /* WLPersonModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLPersonModel.h; sourceTree = "<group>"; };
+		047B52DC214A30940007C477 /* WLPersonModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLPersonModel.m; sourceTree = "<group>"; };
+		047B52E2214A59E70007C477 /* WLGateRootController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLGateRootController.h; sourceTree = "<group>"; };
+		047B52E3214A59E70007C477 /* WLGateRootController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLGateRootController.m; sourceTree = "<group>"; };
+		047B52E6214A5A6C0007C477 /* KKContainerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKContainerScrollView.h; sourceTree = "<group>"; };
+		047B52E7214A5A6C0007C477 /* KKContentScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKContentScrollView.m; sourceTree = "<group>"; };
+		047B52E8214A5A6C0007C477 /* KKHeaderScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKHeaderScrollView.m; sourceTree = "<group>"; };
+		047B52E9214A5A6C0007C477 /* KKContentScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKContentScrollView.h; sourceTree = "<group>"; };
+		047B52EA214A5A6C0007C477 /* KKContainerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKContainerScrollView.m; sourceTree = "<group>"; };
+		047B52EB214A5A6C0007C477 /* KKHeaderScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKHeaderScrollView.h; sourceTree = "<group>"; };
+		047B52EF214A5D560007C477 /* WLEducationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLEducationViewController.h; sourceTree = "<group>"; };
+		047B52F0214A5D560007C477 /* WLEducationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLEducationViewController.m; sourceTree = "<group>"; };
+		047B52F2214A5D860007C477 /* WLGateListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLGateListCell.h; sourceTree = "<group>"; };
+		047B52F3214A5D860007C477 /* WLGateListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLGateListCell.m; sourceTree = "<group>"; };
+		047B52F4214A5D860007C477 /* WLGateListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WLGateListCell.xib; sourceTree = "<group>"; };
+		047B52F7214B8BA60007C477 /* WLLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WLLoginViewController.h; sourceTree = "<group>"; };
+		047B52F8214B8BA60007C477 /* WLLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WLLoginViewController.m; sourceTree = "<group>"; };
 		04C530FB21212BC900C90964 /* waterConservancy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterConservancy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C530FE21212BC900C90964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04C530FF21212BC900C90964 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -656,6 +704,8 @@
 				047B52BC2148B0930007C477 /* WLNearMapController.m */,
 				047B52BE2148FB270007C477 /* WLSettingController.h */,
 				047B52BF2148FB270007C477 /* WLSettingController.m */,
+				047B52C121490E6D0007C477 /* WLResetPasswordController.h */,
+				047B52C221490E6D0007C477 /* WLResetPasswordController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1102,6 +1152,103 @@
 			path = QRCodeReaderViewController;
 			sourceTree = "<group>";
 		};
+		047B52C42149147E0007C477 /* MailList(通讯录) */ = {
+			isa = PBXGroup;
+			children = (
+				047B52C52149147E0007C477 /* Controller */,
+				047B52C62149147E0007C477 /* Model */,
+				047B52C72149147E0007C477 /* View */,
+			);
+			path = "MailList(通讯录)";
+			sourceTree = "<group>";
+		};
+		047B52C52149147E0007C477 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				047B52C8214914A00007C477 /* WLMailListController.h */,
+				047B52C9214914A00007C477 /* WLMailListController.m */,
+				047B52CB214914FB0007C477 /* WLContactDetailController.h */,
+				047B52CC214914FB0007C477 /* WLContactDetailController.m */,
+				047B52D321491D810007C477 /* WLSearchContactController.h */,
+				047B52D421491D810007C477 /* WLSearchContactController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		047B52C62149147E0007C477 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				047B52DB214A30940007C477 /* WLPersonModel.h */,
+				047B52DC214A30940007C477 /* WLPersonModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		047B52C72149147E0007C477 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				047B52CE214917E90007C477 /* WLMailListCell.h */,
+				047B52CF214917E90007C477 /* WLMailListCell.m */,
+				047B52D0214917E90007C477 /* WLMailListCell.xib */,
+				047B52D6214A04F50007C477 /* WLSearchView.h */,
+				047B52D7214A04F50007C477 /* WLSearchView.m */,
+				047B52D9214A05060007C477 /* WLSearchView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		047B52DE214A59B90007C477 /* Gateway(门户) */ = {
+			isa = PBXGroup;
+			children = (
+				047B52DF214A59B90007C477 /* Controller */,
+				047B52E0214A59B90007C477 /* Model */,
+				047B52E1214A59B90007C477 /* View */,
+			);
+			path = "Gateway(门户)";
+			sourceTree = "<group>";
+		};
+		047B52DF214A59B90007C477 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				047B52E2214A59E70007C477 /* WLGateRootController.h */,
+				047B52E3214A59E70007C477 /* WLGateRootController.m */,
+				047B52EF214A5D560007C477 /* WLEducationViewController.h */,
+				047B52F0214A5D560007C477 /* WLEducationViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		047B52E0214A59B90007C477 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		047B52E1214A59B90007C477 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				047B52E5214A5A6C0007C477 /* KKContainerScrollView */,
+				047B52F2214A5D860007C477 /* WLGateListCell.h */,
+				047B52F3214A5D860007C477 /* WLGateListCell.m */,
+				047B52F4214A5D860007C477 /* WLGateListCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		047B52E5214A5A6C0007C477 /* KKContainerScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				047B52E6214A5A6C0007C477 /* KKContainerScrollView.h */,
+				047B52EA214A5A6C0007C477 /* KKContainerScrollView.m */,
+				047B52E9214A5A6C0007C477 /* KKContentScrollView.h */,
+				047B52E7214A5A6C0007C477 /* KKContentScrollView.m */,
+				047B52EB214A5A6C0007C477 /* KKHeaderScrollView.h */,
+				047B52E8214A5A6C0007C477 /* KKHeaderScrollView.m */,
+			);
+			path = KKContainerScrollView;
+			sourceTree = "<group>";
+		};
 		04C530F221212BC900C90964 = {
 			isa = PBXGroup;
 			children = (
@@ -1296,6 +1443,8 @@
 			children = (
 				5A4CF1642122795F00D72FE5 /* DJLoadViewController.h */,
 				5A4CF1652122795F00D72FE5 /* DJLoadViewController.m */,
+				047B52F7214B8BA60007C477 /* WLLoginViewController.h */,
+				047B52F8214B8BA60007C477 /* WLLoginViewController.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -1583,13 +1732,16 @@
 				047B50AA2133C9500007C477 /* WLEngListCell.xib in Resources */,
 				047B50AF2133CF8C0007C477 /* WLTendPopView.xib in Resources */,
 				047B505D212441410007C477 /* WLWorkTableViewCell.xib in Resources */,
+				047B52DA214A05060007C477 /* WLSearchView.xib in Resources */,
 				047B5238213E84BF0007C477 /* WLAcciMoreInfoCell.xib in Resources */,
+				047B52F6214A5D860007C477 /* WLGateListCell.xib in Resources */,
 				047B5203213CFF070007C477 /* WLHiddRecordCell.xib in Resources */,
 				047B50B72133EA730007C477 /* WLUploadHiddenInfoCell.xib in Resources */,
 				047B51DE2137E7BC0007C477 /* WLHiddenRepairPopView.xib in Resources */,
 				047B527B21460B9D0007C477 /* WLPatrolRecordListCell.xib in Resources */,
 				047B5240213F79EF0007C477 /* WLAddAccView.xib in Resources */,
 				047B508E212E58770007C477 /* assets in Resources */,
+				047B52D2214917E90007C477 /* WLMailListCell.xib in Resources */,
 				047B51AD21367C2E0007C477 /* playBtn.png in Resources */,
 				047B5270214271340007C477 /* WLPatrolRecordCell.xib in Resources */,
 				047B52A92147B53C0007C477 /* WLNoticeCell.xib in Resources */,
@@ -1702,6 +1854,7 @@
 				047B521E213D25BC0007C477 /* WLReportAccidentCell.m in Sources */,
 				047B5207213D056F0007C477 /* WLHiddRepairSchemeCell.m in Sources */,
 				5A4CF17921227C6500D72FE5 /* YXNetTool.m in Sources */,
+				047B52F1214A5D560007C477 /* WLEducationViewController.m in Sources */,
 				5A4CF18F2122806600D72FE5 /* YXTarbar.m in Sources */,
 				047B5293214794970007C477 /* WLCheckReportController.m in Sources */,
 				047B51762135517B0007C477 /* UIImage+Original.m in Sources */,
@@ -1724,6 +1877,7 @@
 				047B5185213552710007C477 /* HProgressView.m in Sources */,
 				5A4CF1662122795F00D72FE5 /* DJLoadViewController.m in Sources */,
 				5A4CF1862122801300D72FE5 /* YXNavViewController.m in Sources */,
+				047B52DD214A30940007C477 /* WLPersonModel.m in Sources */,
 				5A8BE28D212A991500F61665 /* DJOrgElementModel.m in Sources */,
 				047B50AD2133CF7F0007C477 /* WLTendPopView.m in Sources */,
 				5A8BE22221240C4100F61665 /* DJElementCheckController.m in Sources */,
@@ -1736,12 +1890,14 @@
 				5A3A7EDB212D54990081BB16 /* DJElementCheckItemModel.m in Sources */,
 				047B519F21367C2E0007C477 /* AC_AVPlayerView.m in Sources */,
 				047B515D21353D950007C477 /* Mp3Recorder.m in Sources */,
+				047B52D521491D810007C477 /* WLSearchContactController.m in Sources */,
 				047B5081212D4AF10007C477 /* NSString+Size.m in Sources */,
 				047B508A212D71190007C477 /* WLOnSpotMapViewController.m in Sources */,
 				047B5232213E81F00007C477 /* WLAcciInfoCell.m in Sources */,
 				047B5183213552710007C477 /* HVideoViewController.m in Sources */,
 				047B528221464ACD0007C477 /* WLRecordInfoCell.m in Sources */,
 				047B513B213536640007C477 /* YXRecordModel.m in Sources */,
+				047B52EE214A5A6C0007C477 /* KKContainerScrollView.m in Sources */,
 				047B5223213D3F170007C477 /* WLAcciModel.m in Sources */,
 				047B52A32147A7360007C477 /* WLPendingWorkCell.m in Sources */,
 				047B523B213F773B0007C477 /* WLAddAccidentController.m in Sources */,
@@ -1758,12 +1914,14 @@
 				047B529F21479C470007C477 /* WLUserInfoController.m in Sources */,
 				047B525421421B110007C477 /* WLAddPatrolController.m in Sources */,
 				047B50A92133C9500007C477 /* WLEngListCell.m in Sources */,
+				047B52EC214A5A6C0007C477 /* KKContentScrollView.m in Sources */,
 				047B527E214648100007C477 /* WLPatrolRecordModel.m in Sources */,
 				5A3A7EEC212FA5CA0081BB16 /* DJElementCheckCell.m in Sources */,
 				047B51D12137BF3D0007C477 /* WLHiddenRepairListController.m in Sources */,
 				5A4CF16E21227B1600D72FE5 /* YXForgetView.m in Sources */,
 				5A4CF18E2122806600D72FE5 /* YXBackBtn.m in Sources */,
 				047B526A214270730007C477 /* WLDangerInfoCell.m in Sources */,
+				047B52C321490E6D0007C477 /* WLResetPasswordController.m in Sources */,
 				047B51F8213CF6B10007C477 /* WLHiddAdviseCell.m in Sources */,
 				047B520C213D0DF00007C477 /* WLHiddDetailCell.m in Sources */,
 				047B51DC2137E7AF0007C477 /* WLHiddenRepairPopView.m in Sources */,
@@ -1772,6 +1930,7 @@
 				047B52732146070F0007C477 /* WLPatrolRecordController.m in Sources */,
 				047B51A121367C2E0007C477 /* AC_ProgressSlider.m in Sources */,
 				047B51E42138D7570007C477 /* WLHiddenRepairDetailViewController.m in Sources */,
+				047B52F9214B8BA60007C477 /* WLLoginViewController.m in Sources */,
 				047B5084212D6FBA0007C477 /* WLOnSpotCheckDetailController.m in Sources */,
 				047B52472140CBFB0007C477 /* WLDangerInquiryController.m in Sources */,
 				5A4CF17821227C6500D72FE5 /* YXDataResolveTool.m in Sources */,
@@ -1794,9 +1953,11 @@
 				047B5219213D25A40007C477 /* WLAccidentInquiryCell.m in Sources */,
 				047B507E212D01B30007C477 /* WLOnSpotCheckModel.m in Sources */,
 				047B5226213E233B0007C477 /* WLEngModel.m in Sources */,
+				047B52CD214914FB0007C477 /* WLContactDetailController.m in Sources */,
 				047B51CB2136AFBF0007C477 /* ISRDataHelper.m in Sources */,
 				5A8BE23F21255E0A00F61665 /* DJHiddenDrangeChartController.m in Sources */,
 				5A3A7EE1212E966E0081BB16 /* DJElementCheckItemViewModel.m in Sources */,
+				047B52E4214A59E70007C477 /* WLGateRootController.m in Sources */,
 				047B5276214609C90007C477 /* WLPatrolRecordDetailController.m in Sources */,
 				047B51772135517B0007C477 /* AssetsHelper.m in Sources */,
 				047B506F212A8AA30007C477 /* WLUserModel.m in Sources */,
@@ -1804,6 +1965,7 @@
 				047B529921479B8A0007C477 /* WLNoticeListController.m in Sources */,
 				5A4CF16D21227B1600D72FE5 /* YXDownListView.m in Sources */,
 				047B527A21460B9D0007C477 /* WLPatrolRecordListCell.m in Sources */,
+				047B52F5214A5D860007C477 /* WLGateListCell.m in Sources */,
 				047B52A82147B53C0007C477 /* WLNoticeCell.m in Sources */,
 				047B52C02148FB270007C477 /* WLSettingController.m in Sources */,
 				047B5202213CFF070007C477 /* WLHiddRecordCell.m in Sources */,
@@ -1813,12 +1975,15 @@
 				047B518A213554E20007C477 /* GCMAssetModel.m in Sources */,
 				047129C32122C81900EEADE5 /* WLWorkTopView.m in Sources */,
 				047B523E213F79D70007C477 /* WLAddAccView.m in Sources */,
+				047B52D8214A04F50007C477 /* WLSearchView.m in Sources */,
+				047B52ED214A5A6C0007C477 /* KKHeaderScrollView.m in Sources */,
 				047B52BA2147C5B80007C477 /* QRCodeReader.m in Sources */,
 				047B5214213D251F0007C477 /* WLAccidentInquiryListController.m in Sources */,
 				047B526F214271340007C477 /* WLPatrolRecordCell.m in Sources */,
 				047B515121353C070007C477 /* WLRecordView.m in Sources */,
 				5A5FEC102150E37700D2C041 /* WLThematicmapController.m in Sources */,
 				047B522D213E7B0C0007C477 /* WLAcciDeailCell.m in Sources */,
+				047B52CA214914A00007C477 /* WLMailListController.m in Sources */,
 				047B52442140CAD30007C477 /* WLDangerPatrolController.m in Sources */,
 				047B506421255DD50007C477 /* WLWorkModel.m in Sources */,
 			);
